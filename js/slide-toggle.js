@@ -1,6 +1,7 @@
 $('.process_control h3').on('click', function() {
 	
-	var $targetList = $(this).siblings('ul');
+	var $targetList = $(this).siblings('ul'),
+		$title = $(this);
 	
 	$('.process_control h3').each(function() {
 		
@@ -9,12 +10,12 @@ $('.process_control h3').on('click', function() {
 			
 			if( $controlTitle !== $clickedTitle ) {
 				$(this).siblings('ul').slideUp();
-				console.log($controlTitle);
-				console.log($clickedTitle);
+
 			}
 	})
 	
-	
+	$('.process_control h3').css("font-weight", "400");
+	$title.css("font-weight", "700");
 	$targetList.slideToggle();
 
 })
