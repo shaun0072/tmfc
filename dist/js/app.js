@@ -90,13 +90,13 @@ $('.process_control h3').on('click', function() {
 			$clickedTitle = $targetList.siblings('h3')[0];
 			
 			if( $controlTitle !== $clickedTitle ) {
-				$(this).siblings('ul').slideUp();
+				$(this).siblings('ul').slideUp(200);
 
 			}
 	})
 	
 
-	$targetList.slideToggle();
+	$targetList.slideToggle(200);
 
 })
 //# sourceMappingURL=app.js.map
