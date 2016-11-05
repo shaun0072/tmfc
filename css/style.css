@@ -406,7 +406,7 @@ body {
     font-weight: 300;
     letter-spacing: -1px; }
   .tank .process_control li {
-    font-size: 1em;
+    font-size: 0.8em;
     color: grey; }
   .tank .process_control li span {
     color: tomato; }
@@ -448,5 +448,14 @@ body {
     padding: 2px 10px 0; }
   .process_control ul {
     display: none; }
+
+.data_records_list li {
+  border: 1px solid grey;
+  padding: 5px 10px;
+  border-radius: 100px;
+  margin: 5px 0;
+  font-weight: 100;
+  font-size: 1em;
+  background: whitesmoke; }
 
 /*# sourceMappingURL=style.css.map */
