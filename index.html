@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="Remodal-1.1.0/dist/remodal.css">
+		<link rel="stylesheet" href="Remodal-1.1.0/dist/remodal-default-theme.css">
 		<link rel="stylesheet" href="css/style.css" />		
 	</head>
 	<body>
@@ -15,7 +17,7 @@
 				<div class="last_made-up"><span>100</span> days since makeup</div>
 			</div>
 			<ul class="tds_list">
-				<li>(SSP-140)</li>
+				<li><a href="#modal">(SSP-140)</a></li>
 			</ul>
 			<div class="process_control">
 				<div class="tmfc_control_parameters_cont">
@@ -43,6 +45,17 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="remodal-bg">
+			<div class="remodal" data-remodal-id="modal">
+			  <button data-remodal-action="close" class="remodal-close"></button>
+			  <img src="assets/img/Cleaner SSP-140 TDS.png" alt="TDS"/>
+			  <br>
+			  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+			</div>
+		</div>
+	
 	<script  type="text/javascript" src="dist/js/app.min.js"></script>
+	<script type="text/javascript" src="Remodal-1.1.0/dist/remodal.min.js"></script>
 	</body>
 </html>
