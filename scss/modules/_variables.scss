@@ -1,0 +1,43 @@
+/**********Colors************/
+$accentColor                   :   #EE524B;
+
+
+
+/**********Typography************/
+$baseFont      :  'Noto Sans', sans-serif;
+$specialty-font : 'Lato', sans-serif;
+$thin           :  100;
+$thick			:  700;
+$lg-font        : 1.7em;
+$md-font        : 1em;
+$sm-font        : .7em;
+$mini-font      : .6em;
+
+/**********Mixins************/
+
+
+/**********Extends************/
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+/*********************Media Queries*********************/
+$tablet-width : 768px;
+$desktop-width : 1024px;
+
+@mixin tablet {
+	@media (min-width: #{$tablet-width}) {
+		@content;
+	}
+}
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
+}

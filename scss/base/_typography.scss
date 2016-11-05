@@ -1,0 +1,38 @@
+body {
+	font: 16px $baseFont;
+}
+.tank {
+	h1 {
+		font: $lg-font $specialty-font;
+		span {
+			color: grey;
+			font-size: 0.5em;
+			vertical-align: middle;
+		}
+	}
+	.last_made-up {
+		font-size: $mini-font;
+		span {
+			color: tomato;
+			font-size: 1.4em;
+		}
+	}
+	.tds_list {
+		li {
+			font: $sm-font $baseFont;
+		}
+	}
+	.process_control{
+		h3 {
+			font-size: $md-font;
+			font-family: $specialty-font;
+		}
+		li {
+			font-size: $sm-font;
+			color: grey;
+		}
+		li span {
+			color: tomato;
+		}
+	}
+}
