@@ -375,30 +375,30 @@ ul {
   margin: 0; }
 
 body {
-  font: 24px "Noto Sans", sans-serif; }
+  font: 16px "Noto Sans", sans-serif; }
 
 .tank h1 {
-  font: 1.7em "Lato", sans-serif; }
+  font: 2.2em "Lato", sans-serif; }
   .tank h1 span {
     color: grey;
     font-size: 0.5em;
     vertical-align: middle; }
 
 .tank .last_made-up {
-  font-size: 0.6em; }
+  font-size: 0.8em; }
   .tank .last_made-up span {
     color: tomato;
     font-size: 1.4em; }
 
 .tank .tds_list li {
-  font: 0.7em "Noto Sans", sans-serif; }
+  font: 1em "Noto Sans", sans-serif; }
 
 .tank .process_control h3 {
-  font-size: 1em;
+  font-size: 1.5em;
   font-family: "Lato", sans-serif; }
 
 .tank .process_control li {
-  font-size: 0.7em;
+  font-size: 1em;
   color: grey; }
 
 .tank .process_control li span {
