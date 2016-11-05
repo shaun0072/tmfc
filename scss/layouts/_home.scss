@@ -52,3 +52,19 @@
 	font-size: $sm-font;
 	background: whitesmoke;
 }
+.table {
+	display: flex;
+	margin: 0;
+	.data {
+		flex-basis: 50%;
+	}
+	.data:first-child {
+		text-align: right;
+		margin-right: 4px;
+	}
+	.data:nth-child(2) {
+		text-align: left;
+		color: tomato;
+		margin-left: 4px;
+	}
+}

@@ -391,17 +391,22 @@ body {
   .tank h1 {
     font: 2.5em "Lato", sans-serif;
     letter-spacing: -1px; }
-    .tank h1 span {
+    .tank h1 span.tank_number a {
       color: grey;
       font-size: 0.5em;
       letter-spacing: 7px;
-      padding-left: 9px; }
+      padding-left: 9px;
+      text-decoration: none; }
   .tank .last_made-up {
     font-size: 0.7em; }
     .tank .last_made-up span {
       color: tomato;
       font-size: 1.4em;
       margin-right: 2px; }
+    .tank .last_made-up a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold; }
   .tank .tds_list li {
     font: 1em "Noto Sans", sans-serif; }
   .tank .process_control h3 {
@@ -460,5 +465,18 @@ body {
   font-weight: 100;
   font-size: 1em;
   background: whitesmoke; }
+
+.table {
+  display: flex;
+  margin: 0; }
+  .table .data {
+    flex-basis: 50%; }
+  .table .data:first-child {
+    text-align: right;
+    margin-right: 4px; }
+  .table .data:nth-child(2) {
+    text-align: left;
+    color: tomato;
+    margin-left: 4px; }
 
 /*# sourceMappingURL=style.css.map */
