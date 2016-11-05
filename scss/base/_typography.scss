@@ -2,12 +2,16 @@ body {
 	font: 16px $baseFont;
 }
 .tank {
+	margin-top: 100px;
 	h1 {
 		font: $lg-font $specialty-font;
+		letter-spacing: -1px;
 		span {
 			color: grey;
 			font-size: 0.5em;
-			vertical-align: middle;
+			letter-spacing: 7px;
+			padding-left: 9px;
+
 		}
 	}
 	.last_made-up {
@@ -15,6 +19,7 @@ body {
 		span {
 			color: tomato;
 			font-size: 1.4em;
+			margin-right: 2px;
 		}
 	}
 	.tds_list {
@@ -24,8 +29,8 @@ body {
 	}
 	.process_control{
 		h3 {
-			font-size: $md-font;
-			font-family: $specialty-font;
+			font: $md-font $baseFont;
+			font-weight: 300;
 		}
 		li {
 			font-size: $sm-font;

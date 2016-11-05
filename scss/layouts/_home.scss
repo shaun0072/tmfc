@@ -14,11 +14,10 @@
 	}
 	span.tank_number {
 		display: table-cell;
-		vertical-align: middle;
 	}
 	.last_made-up {
 		position: absolute;
-		bottom: -21px;
+		bottom: -27px;
 		left: 5px;
 	}
 }
@@ -26,11 +25,11 @@
 	flex-basis: 50%;
 	li {
 		float: right;
-		margin: 20px 10px 0 0;
+		margin: 52px 10px 0 0;
 	}
 }
 .process_control{
-	margin: 0 40px;
+	margin: 30px 29px;
 	padding: 50px 0;
 	h3 {
 		margin: 0;

@@ -377,32 +377,32 @@ ul {
 body {
   font: 16px "Noto Sans", sans-serif; }
 
-.tank h1 {
-  font: 2.2em "Lato", sans-serif; }
-  .tank h1 span {
-    color: grey;
-    font-size: 0.5em;
-    vertical-align: middle; }
-
-.tank .last_made-up {
-  font-size: 0.8em; }
-  .tank .last_made-up span {
-    color: tomato;
-    font-size: 1.4em; }
-
-.tank .tds_list li {
-  font: 1em "Noto Sans", sans-serif; }
-
-.tank .process_control h3 {
-  font-size: 1.5em;
-  font-family: "Lato", sans-serif; }
-
-.tank .process_control li {
-  font-size: 1em;
-  color: grey; }
-
-.tank .process_control li span {
-  color: tomato; }
+.tank {
+  margin-top: 100px; }
+  .tank h1 {
+    font: 2.5em "Lato", sans-serif;
+    letter-spacing: -1px; }
+    .tank h1 span {
+      color: grey;
+      font-size: 0.5em;
+      letter-spacing: 7px;
+      padding-left: 9px; }
+  .tank .last_made-up {
+    font-size: 0.7em; }
+    .tank .last_made-up span {
+      color: tomato;
+      font-size: 1.4em;
+      margin-right: 2px; }
+  .tank .tds_list li {
+    font: 1em "Noto Sans", sans-serif; }
+  .tank .process_control h3 {
+    font: 1.3em "Noto Sans", sans-serif;
+    font-weight: 300; }
+  .tank .process_control li {
+    font-size: 1em;
+    color: grey; }
+  .tank .process_control li span {
+    color: tomato; }
 
 .tank {
   border-top: 2px solid black;
@@ -418,21 +418,20 @@ body {
     margin: 0;
     padding: 5px 0; }
   .tank_id span.tank_number {
-    display: table-cell;
-    vertical-align: middle; }
+    display: table-cell; }
   .tank_id .last_made-up {
     position: absolute;
-    bottom: -21px;
+    bottom: -27px;
     left: 5px; }
 
 .tds_list {
   flex-basis: 50%; }
   .tds_list li {
     float: right;
-    margin: 20px 10px 0 0; }
+    margin: 52px 10px 0 0; }
 
 .process_control {
-  margin: 0 40px;
+  margin: 30px 29px;
   padding: 50px 0; }
   .process_control h3 {
     margin: 0;
