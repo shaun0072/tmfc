@@ -402,8 +402,9 @@ body {
   .tank .tds_list li {
     font: 1em "Noto Sans", sans-serif; }
   .tank .process_control h3 {
-    font: 1.3em "Noto Sans", sans-serif;
-    font-weight: 300; }
+    font: 1.2em "Noto Sans", sans-serif;
+    font-weight: 300;
+    letter-spacing: -1px; }
   .tank .process_control li {
     font-size: 1em;
     color: grey; }

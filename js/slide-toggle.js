@@ -14,8 +14,7 @@ $('.process_control h3').on('click', function() {
 			}
 	})
 	
-	$('.process_control h3').css("font-weight", "400");
-	$title.css("font-weight", "700");
+
 	$targetList.slideToggle();
 
 })
