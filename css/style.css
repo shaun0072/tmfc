@@ -423,6 +423,9 @@ body {
   .tank .process_control li span {
     color: tomato; }
 
+.data {
+  font-size: 0.875em; }
+
 .tank {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -481,6 +484,7 @@ body {
 .table {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   margin: 0; }
   .table .data {
     flex-basis: 50%; }

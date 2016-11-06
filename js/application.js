@@ -215,7 +215,7 @@ function Tank(tid) {
 			  html += applicationType;
 			  html += '</span> Makeup</h1>';
 			  html += '<p style="font-weight:bold">Components</p>';
-			  html += '<p class="table"><span>';
+			  html += '<p class="table"><span class="data">';
 			  html += componentName;
 			  html += '<span class="data">';
 			  html += '</span>(@ ';
