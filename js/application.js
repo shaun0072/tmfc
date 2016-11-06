@@ -118,7 +118,7 @@ var t1702 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Anokleen #2-S TDS.png"
+		TDS            : "Anokleen2STDS.png"
 	},
 	analysis : [
 		{
@@ -173,7 +173,69 @@ var t1702 = {
 		}
 	]	
 };
-
+var t1704 = {
+	
+	makeup : {
+		date : new Date("November 04, 2016"),
+		components: [
+			{
+			component  : "Hydrochloric Acid",
+			unit       : "%",
+			makeupAt   : "25",
+			amount     : "110 gallons"
+			}
+		]
+	},
+	tmfcParameters : {
+		lineNumber     : 1704,
+		applicationType: "Acid Pickle",
+		temp           : "Ambient",
+		conc           : "25- 30%",
+		immersion      : "1 - 5 min",
+		tankSize       : {
+			height     : "58\"",
+			width      : "48\"",
+			depth      : "32\" (sol level)",
+			capacity   : "400 gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Compressed Air",
+		TDS            : ""
+	},
+	analysis : [
+		{
+			date : "11/03/2016",
+			conc : 10.12, 
+			activity : 87 + '%',
+			saturation : 15 + '%'
+		}
+	],
+	additions : [
+		{
+			date : "10/05/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/27/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/20/2016",
+			component : {
+				ssp140 : 50
+			}
+		}
+	]	
+};
 function Tank(tid) {
 	this.makeupDate        = tid.makeup.date;
 	this.componentName     = tid.makeup.components[0].component;
@@ -355,7 +417,6 @@ function Tank(tid) {
 	$('body').append(html);
 }
 
-Tank(t1702);
 
 /* 
 var html = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">';
