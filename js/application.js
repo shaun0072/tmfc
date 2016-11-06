@@ -29,7 +29,96 @@ var t1701 = {
 		heatMaterial   : "Carbon Steel",
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
-		agitationType  : "Compressed Air"
+		agitationType  : "Compressed Air",
+		TDS            : "Cleaner SSP-140 TDS.png"
+	},
+	analysis : [
+		{
+			date : "11/03/2016",
+			conc : 10.12, 
+			activity : 87 + '%',
+			saturation : 15 + '%'
+		},
+		{
+			date : "10/27/2016",
+			conc : 10.51, 
+			activity : 88,
+			saturation : 14
+		},
+		{
+			date : "10/20/2016",
+			conc : 10.72, 
+			activity : 89,
+			saturation : 12
+		},
+		{
+			date : "10/14/2016",
+			conc : 11.02, 
+			activity : 89,
+			saturation : 11
+		},
+		{
+			date : "10/05/2016",
+			conc : 9.08, 
+			activity : 90,
+			saturation : 10
+		}
+	],
+	additions : [
+		{
+			date : "10/05/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/27/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/20/2016",
+			component : {
+				ssp140 : 50
+			}
+		}
+	]	
+};
+
+var t1702 = {
+	
+	makeup : {
+		date : new Date("September 30, 2016"),
+		components: [
+			{
+			component  : "Anokleen #2-S",
+			unit       : "oz/gal",
+			makeupAt   : "11",
+			amount     : "155 pounds"
+			}
+		]
+	},
+	tmfcParameters : {
+		lineNumber     : 1702,
+		applicationType: "Electro-Cleaner",
+		temp           : "130 - 160°F",
+		conc           : "8 - 12 oz/gal",
+		immersion      : "1 - 5 min",
+		tankSize       : {
+			height     : "21\"",
+			width      : "28\"",
+			depth      : "32\" (sol level)",
+			capacity   : "225 gallons"
+		
+		},
+		tankMaterial   : "Steel",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Carbon Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Mild - ",
+		agitationType  : "Compressed Air",
+		TDS            : "Anokleen #2-S TDS.png"
 	},
 	analysis : [
 		{
@@ -106,6 +195,7 @@ function Tank(tid) {
 	this.coilType          = tid.tmfcParameters.coilType;
 	this.agitationLevel    = tid.tmfcParameters.agitationLevel;
 	this.agitationType     = tid.tmfcParameters.agitationType;
+	this.TDS               = tid.tmfcParameters.TDS;
 	this.conc              = tid.analysis[0].conc;
 	this.activity          = tid.analysis[0].activity;
 	this.saturation        = tid.analysis[0].saturation;
@@ -140,7 +230,7 @@ function Tank(tid) {
 				html += '</span> days since <a href="#modal-makeup">makeup</a></div>';
 			html += '</div>';
 			html += '<ul class="tds_list">';
-				html += '<li><a href="#modal-TDS">(SSP-140)</a></li>';
+				html += '<li><a href="#modal-TDS">('+ componentName +')</a></li>';
 			html += '</ul>';
 			html += '<div class="process_control">';
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -202,7 +292,9 @@ function Tank(tid) {
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-TDS">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
-			  html += '<img src="assets/img/Cleaner SSP-140 TDS.png" alt="TDS"/>';
+			  html += '<img src="assets/img/';
+			  html += TDS;
+			  html += '" alt="TDS"/>';
 			  html += '<br>';
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
@@ -238,7 +330,7 @@ function Tank(tid) {
 			  html += '<p class="table"><span class="data">Width: </span><span class="data">';
 			  html += tankWidth;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Height: </span><span class="data">';
+			  html += '<p class="table"><span class="data">Length: </span><span class="data">';
 			  html += tankHeight;
 			  html += '</span></p>';
 			  html += '<p class="table"><span class="data">Depth: </span><span class="data">';
@@ -263,7 +355,7 @@ function Tank(tid) {
 	$('body').append(html);
 }
 
-Tank(t1701);
+Tank(t1702);
 
 /* 
 var html = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">';
@@ -373,25 +465,3 @@ html += '<div class="remodal-bg">';
 	html += '</div>';
 html += '</div>'; */
 
-
-
-/* $("body").append(html);
-$('.t1701applicationType').append(t1701.tmfcParameters.applicationType);
-$('.t1701concRange').append(t1701.tmfcParameters.conc);
-$('.t1701tempRange').append(t1701.tmfcParameters.temp);
-$('.t1701conc').append(t1701.analysis[0].conc + " oz/gal");
-$('.t1701activity').append(t1701.analysis[0].activity + "%");
-$('.t1701saturation').append(t1701.analysis[0].saturation + "%");
-$('.t1701size').append(t1701.tmfcParameters.tankSize.gallons);
-$('.t1701width').append(t1701.tmfcParameters.tankSize.width);
-$('.t1701height').append(t1701.tmfcParameters.tankSize.height);
-$('.t1701depth').append(t1701.tmfcParameters.tankSize.depth);
-$('.last_made-up .number').append(diffDays);
-$('.t1701agitationLevel').append(t1701.tmfcParameters.agitationLevel + t1701.tmfcParameters.agitation);
-$('.t1701agitation').append(t1701.tmfcParameters.agitation);
-$('.t1701tankMaterial').append(t1701.tmfcParameters.tankMaterial);
-$('.t1701heatMethod').append(t1701.tmfcParameters.heatMethod);
-$('.t1701heatMaterial').append(t1701.tmfcParameters.heatMaterial);
-$('.t1701component').append(t1701.makeup.components[0].component);
-$('.t1701percent').append(t1701.makeup.components[0].percent);
-$('.t1701amount').append(t1701.makeup.components[0].amount); */
