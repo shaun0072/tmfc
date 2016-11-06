@@ -11,9 +11,22 @@
 		<link rel="stylesheet" href="css/style.css" />		
 	</head>
 	<body>
+		<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">  
+		  <symbol id="record-keeping-icon" viewBox="0 0 100 100">
+			<title>record-keeping-icon</title>
+			<path class="st0" d="M84.3,29.2c0-0.1,0-0.1-0.1-0.2c0-0.1,0-0.1-0.1-0.2c0-0.1-0.1-0.1-0.1-0.2c0-0.1-0.1-0.1-0.1-0.2
+			c0-0.1-0.1-0.1-0.2-0.2c0,0-0.1-0.1-0.1-0.1l0,0c0,0,0,0,0,0L64.4,8.4c-0.4-0.7-1-1.1-1.9-1.1c0,0,0,0-0.1,0c0,0,0,0-0.1,0H21.8
+			c-3.4,0-6.1,2.8-6.1,6.1v71.7c0,3.4,2.8,6.1,6.1,6.1h56.4c3.4,0,6.1-2.8,6.1-6.1V29.6C84.4,29.4,84.4,29.3,84.3,29.2z M64.6,14.7
+			l12.6,12.8H66.6c-1.1,0-1.9-0.9-1.9-1.9V14.7z M78.2,87.1H21.8c-1.1,0-1.9-0.9-1.9-1.9V13.4c0-1.1,0.9-1.9,1.9-1.9h38.6v14
+			c0,3.4,2.8,6.1,6.1,6.1h13.6v53.4C80.1,86.2,79.3,87.1,78.2,87.1z M68.5,49.3c0,1.2-0.9,2.1-2.1,2.1H33.6c-1.2,0-2.1-0.9-2.1-2.1
+			s0.9-2.1,2.1-2.1h32.8C67.5,47.2,68.5,48.1,68.5,49.3z M68.5,59c0,1.2-0.9,2.1-2.1,2.1H33.6c-1.2,0-2.1-0.9-2.1-2.1
+			c0-1.2,0.9-2.1,2.1-2.1h32.8C67.5,56.9,68.5,57.9,68.5,59z M68.5,68.8c0,1.2-0.9,2.1-2.1,2.1H33.6c-1.2,0-2.1-0.9-2.1-2.1
+			c0-1.2,0.9-2.1,2.1-2.1h32.8C67.5,66.7,68.5,67.7,68.5,68.8z"/>
+		  </symbol>
+		</svg>	
 		<div class="tank">
 			<div class="tank_id">
-				<h1 class="application_type"><span class="tank_number"><a href="#modal-tank">1701</a></span>Cleaner</h1>
+				<h1 class="application_type"><span class="tank_number"><a href="#modal-tank" class="t1701lineNumber"></a></span><span class="t1701applicationType"></span></h1>
 				<div class="last_made-up"><span class="number"></span> days since <a href="#modal-makeup">makeup</a></div>
 			</div>
 			<ul class="tds_list">
@@ -39,14 +52,33 @@
 				<div class="data_records_cont">
 					<h3 class="data_records_title">Records</h3>
 					<ul class="data_records_list">
-						<li>Chemical Addition Records</li>
-						<li>Concentration Records</li>
-						<li>Temperature Records</li>
+						<li>
+						<svg>
+							<use xlink:href="#record-keeping-icon"></use>
+						</svg>
+						Chemical Addition Records
+						</li>
+						<li>
+						<svg>
+							<use xlink:href="#record-keeping-icon"></use>
+						</svg>
+						Concentration Records
+						</li>
+						<li>
+						<svg>
+							<use xlink:href="#record-keeping-icon"></use>
+						</svg>
+						Temperature Records
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
+		
+		
+		
+		
 		<div class="remodal-bg">
 			<div class="remodal" data-remodal-id="modal-TDS">
 			  <button data-remodal-action="close" class="remodal-close"></button>
@@ -59,8 +91,9 @@
 		<div class="remodal-bg">
 			<div class="remodal" data-remodal-id="modal-makeup">
 			  <button data-remodal-action="close" class="remodal-close"></button>
-			  <h1>Cleaner Makeup</h1>
-			  <p class="table"><span class="data">Makeup: </span><span class="t1701makeup data"></span></p>
+			  <h1><span class="t1701applicationType"></span> Makeup</h1>
+			  <p style="font-weight:bold">Components</p>
+			  <p class="table"><span class="t1701percent"><span class="t1701component data"></span>(@ </span>): <span class="t1701amount data"></span></p>
 			  <br>
 			  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
 			</div>
@@ -74,8 +107,9 @@
 			  <p class="table"><span class="data">Width: </span><span class="t1701width data"></span></p>
 			  <p class="table"><span class="data">Height: </span><span class="t1701height data"></span></p>
 			  <p class="table"><span class="data">Depth: </span><span class="t1701depth data"></span></p>
-			  <p class="table"><span class="data">Material: </span><span class="t1701material data"></span></p>
-			  <p class="table"><span class="data">Heating Material: </span><span class="t1701heat data"></span></p>
+			  <p class="table"><span class="data">Tank Material: </span><span class="t1701tankMaterial data"></span></p>
+			  <p class="table"><span class="data">Heat Method: </span><span class="t1701heatMethod data"></span></p>
+			  <p class="table"><span class="data">Coil Material: </span><span class="t1701heatMaterial data"></span></p>
 			  <p class="table"><span class="data">Agitation: </span><span class="t1701agitation data"></span></p>
 			  <br>
 			  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>

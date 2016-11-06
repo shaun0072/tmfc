@@ -411,12 +411,14 @@ body {
       padding: 1px 3px; }
   .tank .tds_list li {
     font: 1em "Noto Sans", sans-serif; }
+    .tank .tds_list li a {
+      color: inherit; }
   .tank .process_control h3 {
     font: 1.2em "Noto Sans", sans-serif;
     font-weight: 300;
     letter-spacing: -1px; }
   .tank .process_control li {
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: grey; }
   .tank .process_control li span {
     color: tomato; }
@@ -461,15 +463,22 @@ body {
 
 .data_records_list li {
   border: 1px solid grey;
-  padding: 5px 10px;
+  padding: 5px 10px 5px 28px;
   border-radius: 100px;
   margin: 5px 0;
-  font-weight: 100;
-  font-size: 1em;
-  background: whitesmoke; }
+  background: whitesmoke;
+  position: relative; }
+  .data_records_list li svg {
+    height: 18px;
+    width: 16px;
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    fill: #FCB446; }
 
 .table {
   display: flex;
+  justify-content: flex-end;
   margin: 0; }
   .table .data {
     flex-basis: 50%; }

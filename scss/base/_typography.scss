@@ -32,6 +32,9 @@ body {
 	.tds_list {
 		li {
 			font: $sm-font $baseFont;
+			a {
+				color: inherit;
+			}
 		}
 	}
 	.process_control{
@@ -41,7 +44,7 @@ body {
 			letter-spacing: -1px;
 		}
 		li {
-			font-size: 0.8em;
+			font-size: 0.7em;
 			color: grey;
 		}
 		li span {

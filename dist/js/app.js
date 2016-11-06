@@ -6,11 +6,17 @@ var t1701 = {
 	
 	makeup : {
 		date : new Date("September 30, 2016"),
-		component: {
-			ssp140: "300 pounds"
-		}
+		components: [
+			{
+				component : "SSP-140",
+				percent    : "11%",
+				amount     : "310 pounds"
+			}
+		]
 	},
 	tmfcParameters : {
+		lineNumber     : "1701",
+		applicationType: "Cleaner",
 		temp           : "130 - 160°F",
 		conc           : "8 - 12 oz/gal",
 		immersion      : "> 3 min",
@@ -22,7 +28,9 @@ var t1701 = {
 		
 		},
 		tankMaterial   : "Steel",
-		heatMethod     : "Steel Coil",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Carbon Steel",
+		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitation      : "Compressed Air"
 	},
@@ -85,7 +93,8 @@ var firstDate = new Date();
 var secondDate = t1701.makeup.date;
 var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
 
-
+$('.t1701applicationType').append(t1701.tmfcParameters.applicationType);
+$('.t1701lineNumber').append(t1701.tmfcParameters.lineNumber);
 $('.t1701concRange').append(t1701.tmfcParameters.conc);
 $('.t1701tempRange').append(t1701.tmfcParameters.temp);
 $('.t1701conc').append(t1701.analysis[0].conc + " oz/gal");
@@ -96,9 +105,14 @@ $('.t1701width').append(t1701.tmfcParameters.tankSize.width);
 $('.t1701height').append(t1701.tmfcParameters.tankSize.height);
 $('.t1701depth').append(t1701.tmfcParameters.tankSize.depth);
 $('.last_made-up .number').append(diffDays);
-$('.t1701makeup').append(t1701.makeup.component.ssp140);
 $('.t1701agitationLevel').append(t1701.tmfcParameters.agitationLevel + t1701.tmfcParameters.agitation);
 $('.t1701agitation').append(t1701.tmfcParameters.agitation);
+$('.t1701tankMaterial').append(t1701.tmfcParameters.tankMaterial);
+$('.t1701heatMethod').append(t1701.tmfcParameters.heatMethod);
+$('.t1701heatMaterial').append(t1701.tmfcParameters.heatMaterial);
+$('.t1701component').append(t1701.makeup.components[0].component);
+$('.t1701percent').append(t1701.makeup.components[0].percent);
+$('.t1701amount').append(t1701.makeup.components[0].amount);
 
 $('.process_control h3').on('click', function() {
 	
