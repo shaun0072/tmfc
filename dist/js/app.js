@@ -23,7 +23,7 @@ var t1701 = {
 		tankSize       : {
 			height     : "41\"",
 			width      : "28\"",
-			depth      : "32\"",
+			depth      : "32\" (solution level)",
 			gallons    : "450 gallons"
 		
 		},
