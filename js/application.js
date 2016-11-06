@@ -7,19 +7,20 @@ var t1701 = {
 		}
 	},
 	tmfcParameters : {
-		temp         : "130 - 160°F",
-		conc         : "8 - 12 oz/gal",
-		immersion    : "> 3 min",
-		tankSize     : {
-			height : "41\"",
-			width  : "28\"",
-			depth  : "32\"",
-			gallons: "450 gallons"
+		temp           : "130 - 160°F",
+		conc           : "8 - 12 oz/gal",
+		immersion      : "> 3 min",
+		tankSize       : {
+			height     : "41\"",
+			width      : "28\"",
+			depth      : "32\"",
+			gallons    : "450 gallons"
 		
 		},
-		tankMaterial : "Steel",
-		heatMethod   : "Steel Coil",
-		agitation    : "Compressed Air"
+		tankMaterial   : "Steel",
+		heatMethod     : "Steel Coil",
+		agitationLevel : "Mild - ",
+		agitation      : "Compressed Air"
 	},
 	analysis : [
 		{
@@ -92,3 +93,5 @@ $('.t1701height').append(t1701.tmfcParameters.tankSize.height);
 $('.t1701depth').append(t1701.tmfcParameters.tankSize.depth);
 $('.last_made-up .number').append(diffDays);
 $('.t1701makeup').append(t1701.makeup.component.ssp140);
+$('.t1701agitationLevel').append(t1701.tmfcParameters.agitationLevel + t1701.tmfcParameters.agitation);
+$('.t1701agitation').append(t1701.tmfcParameters.agitation);
