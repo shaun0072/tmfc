@@ -177,6 +177,69 @@ var t1702 = {
 		}
 	]	
 };
+var t1706 = {
+	
+	makeup : {
+		date : new Date("July 5, 2016"),
+		components: [
+			{
+			component  : "Zinc Hyroxide",
+			unit       : "oz/gal",
+			makeupAt   : "1.3",
+			amount     : "69 gallons"
+			}
+		]
+	},
+	tmfcParameters : {
+		lineNumber     : 1706,
+		applicationType: "Electro-Plating",
+		temp           : "70 - 100°F",
+		conc           : "1.0 - 1.5oz/gal",
+		immersion      : "",
+		tankSize       : {
+			height     : "n/a",
+			width      : "n/a",
+			depth      : "n/a" + "(sol level)",
+			capacity   : "1165 gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+	},
+	analysis : [
+		{
+			date : "11/03/2016",
+			conc : 10.12, 
+			activity : 87 + '%',
+			saturation : 15 + '%'
+		}
+	],
+	additions : [
+		{
+			date : "10/05/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/27/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/20/2016",
+			component : {
+				ssp140 : 50
+			}
+		}
+	]	
+};
 var t1704 = {
 	
 	makeup : {
