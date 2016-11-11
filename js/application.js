@@ -345,17 +345,17 @@ function Tank(tid) {
 		html += '</svg>';
 		html += '<div class="tank">';
 			html += '<div class="tank_id">';
-				html += '<h1 class="application_type"><span class="tank_number"><a href="#modal-tank">'
+				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank">'
 				html += lineNumber;
 				html += '</a></span><span>';
 				html += applicationType;
 				html += '</span></h1>';
 				html += '<div class="last_made-up"><span class="number">';
 				html += diffDays;
-				html += '</span> days since <a href="#modal-makeup">makeup</a></div>';
+				html += '</span> days since <a data-remodal-target="modal-makeup">makeup</a></div>';
 			html += '</div>';
 			html += '<ul class="tds_list">';
-				html += '<li><a href="#modal-TDS">('+ componentName +')</a></li>';
+				html += '<li><a data-remodal-target="modal-TDS">('+ componentName +')</a></li>';
 			html += '</ul>';
 			html += '<div class="process_control">';
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -415,7 +415,7 @@ function Tank(tid) {
 		html += '</div>';
 
 		html += '<div class="remodal-bg">';
-			html += '<div class="remodal" data-remodal-id="modal-TDS">';
+			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<img src="assets/img/';
 			  html += TDS;
@@ -426,7 +426,7 @@ function Tank(tid) {
 		html += '</div>';
 
 		html += '<div class="remodal-bg">';
-			html += '<div class="remodal" data-remodal-id="modal-makeup">';
+			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<h1><span>';
 			  html += applicationType;
@@ -446,7 +446,7 @@ function Tank(tid) {
 		html += '</div>';
 
 		html += '<div class="remodal-bg">';
-			html += '<div class="remodal" data-remodal-id="modal-tank">';
+			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<h1>Container Specifications</h1>';
 			  html += '<p class="table"><span class="data">Capacity: </span><span class="data">';

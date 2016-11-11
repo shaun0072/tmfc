@@ -1,11 +1,10 @@
 {
   "name": "tmfc",
   "version": "1.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^6.5.1",
+    "autoprefixer": "^6.5.3",
     "browser-sync": "^2.17.5",
     "cssnano": "^3.8.0",
     "del": "^2.2.2",
@@ -22,5 +21,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaun0072/tmfc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shaun0072/tmfc/issues"
+  },
+  "homepage": "https://github.com/shaun0072/tmfc#readme",
+  "description": ""
 }
