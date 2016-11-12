@@ -502,8 +502,11 @@ body {
 .remodal {
   padding: 35px 0; }
 
+.theLine {
+  background: white; }
+
 .line1700 {
-  margin: 100px auto 0;
+  margin: 90px auto 0;
   position: relative;
   height: 500px;
   width: 90%;
@@ -512,57 +515,73 @@ body {
     color: white;
     text-decoration: none;
     text-align: center;
-    font-size: 0.7em; }
+    font-size: 0.5em; }
 
 .tankSquare {
   width: 75px;
   margin: 0;
   padding: 0;
   position: absolute;
-  border: 1px solid black; }
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap; }
+  .tankSquare .tankNum {
+    flex-basis: 100%;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.2em;
+    font-weight: bold; }
+  .tankSquare .applicationType {
+    display: block;
+    flex-basis: 100%;
+    text-align: center;
+    align-self: center;
+    text-transform: uppercase; }
 
 .t1701 {
-  height: 75px;
-  top: -25px;
+  height: 85px;
+  top: -65px;
   left: 0;
-  background: rgba(255, 0, 0, 0.6); }
+  background: rgba(186, 63, 29, 0.8); }
 
 .t1702 {
-  height: 50px;
-  top: 50px;
+  height: 60px;
+  top: 20px;
   left: 0;
-  background: rgba(255, 0, 0, 0.6); }
+  background: rgba(186, 63, 29, 0.8); }
 
 .t1703 {
   height: 35px;
-  top: 100px;
+  top: 80px;
   left: 0;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 .t1704 {
-  height: 60px;
-  top: 135px;
+  height: 80px;
+  top: 115px;
   left: 0;
-  background: rgba(0, 255, 0, 0.6); }
+  background: rgba(112, 163, 127, 0.8); }
 
 .t1705 {
   height: 35px;
   top: 195px;
   left: 0;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 .t1706 {
   height: 100px;
   top: 230px;
   left: 0;
-  background: yellow;
+  background: rgba(244, 211, 94, 0.8);
   color: black; }
 
 .t1707 {
   height: 100px;
   top: 330px;
   left: 0;
-  background: yellow;
+  background: rgba(244, 211, 94, 0.8);
   color: black; }
 
 .t1708 {
@@ -570,68 +589,71 @@ body {
   top: 430px;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 .t1709 {
-  height: 50px;
-  top: 380px;
+  height: 40px;
+  top: 390px;
   right: 0;
-  background: rgba(0, 0, 255, 0.6);
-  border: 1px solid white; }
+  background: rgba(238, 235, 208, 0.8);
+  color: black; }
 
 .t1710 {
   height: 35px;
-  top: 345px;
+  top: 355px;
   right: 0;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 .t1711 {
-  height: 50px;
+  height: 60px;
   top: 295px;
   right: 0;
-  background: grey; }
+  background: rgba(145, 139, 118, 0.8); }
 
 .t1712 {
   height: 35px;
   top: 260px;
   right: 0;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 .t1713 {
-  height: 50px;
-  top: 210px;
+  height: 60px;
+  top: 200px;
   right: 0;
-  background: grey; }
+  background: rgba(145, 139, 118, 0.8); }
 
 .t1714 {
   height: 35px;
-  top: 175px;
+  top: 165px;
   right: 0;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 .t1715 {
-  height: 35px;
-  top: 140px;
+  height: 45px;
+  top: 120px;
   right: 0;
-  background: rgba(0, 0, 255, 0.6);
-  border: 1.5px solid red; }
+  background: rgba(39, 93, 173, 0.8);
+  border: 1.5px solid tomato; }
+  .t1715 .hotWater {
+    color: tomato;
+    font-weight: bold; }
 
 .t1716 {
-  height: 50px;
-  top: 90px;
+  height: 60px;
+  top: 60px;
   right: 0;
-  background: grey; }
+  background: rgba(145, 139, 118, 0.8); }
 
 .t1717 {
   height: 50px;
-  top: 40px;
+  top: 10px;
   right: 0;
-  background: purple; }
+  background: rgba(75, 0, 130, 0.8); }
 
 .t1718 {
   height: 35px;
-  top: 5px;
+  top: -25px;
   right: 0;
-  background: rgba(0, 0, 255, 0.6); }
+  background: rgba(39, 93, 173, 0.8); }
 
 /*# sourceMappingURL=style.css.map */

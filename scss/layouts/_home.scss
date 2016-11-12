@@ -82,8 +82,11 @@
 .remodal {
 	padding: 35px 0;
 }
+.theLine {
+	background: white;
+}
 .line1700 {	
-	margin: 100px auto 0;
+	margin: 90px auto 0;
 	position: relative;
 	height: 500px;
 	width: 90%;
@@ -92,7 +95,7 @@
 		color: white;
 		text-decoration: none;
 		text-align: center;
-		font-size: 0.7em;
+		font-size: 0.5em;
 	}
 }
 .tankSquare {
@@ -101,28 +104,46 @@
 	padding: 0;
 	position: absolute;
 	border: 1px solid black;
+	display: flex;
+	flex-wrap: wrap;
+	.tankNum {
+		flex-basis: 100%;
+		text-align: left;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+	.applicationType {
+		display: block;
+		flex-basis: 100%;
+		text-align: center;
+		align-self: center;
+		text-transform: uppercase;
+	}
 }
 .t1701 {
-	height: 75px;
-	top: -25px;
+	height: 85px;
+	top: -65px;
 	left: 0;
 	background: $cleanerTank;
 }
 .t1702 {
-	height: 50px;
-	top: 50px;
+	height: 60px;
+	top: 20px;
 	left: 0;
 	background: $cleanerTank;
 }
 .t1703 {
 	height: 35px;
-	top: 100px;
+	top: 80px;
 	left: 0;
 	background: $rinseTank;
 }
 .t1704 {
-	height: 60px;
-	top: 135px;
+	height: 80px;
+	top: 115px;
 	left: 0;
 	background: $acidTank;
 }
@@ -154,20 +175,20 @@
 	background: $rinseTank;
 }
 .t1709 {
-	height: 50px;
-	top: 380px;
+	height: 40px;
+	top: 390px;
 	right: 0;
-	background: $rinseTank;
-	border: 1px solid white;
+	background: $sourDipTank ;
+	color: black;
 }
 .t1710 {
 	height: 35px;
-	top: 345px;
+	top: 355px;
 	right: 0;
 	background: $rinseTank;
 }
 .t1711 {
-	height: 50px;
+	height: 60px;
 	top: 295px;
 	right: 0;
 	background: $chromateTank;
@@ -179,39 +200,43 @@
 	background: $rinseTank;
 }
 .t1713 {
-	height: 50px;
-	top: 210px;
+	height: 60px;
+	top: 200px;
 	right: 0;
 	background: $chromateTank;
 }
 .t1714 {
 	height: 35px;
-	top: 175px;
+	top: 165px;
 	right: 0;
 	background: $rinseTank;
 }
 .t1715 {
-	height: 35px;
-	top: 140px;
+	height: 45px;
+	top: 120px;
 	right: 0;
 	background: $rinseTank;
-	border: 1.5px solid red;
+	border: 1.5px solid tomato;
+	.hotWater {
+		color: tomato;
+		font-weight: bold;
+	}
 }
 .t1716 {
-	height: 50px;
-	top: 90px;
+	height: 60px;
+	top: 60px;
 	right: 0;
 	background: $chromateTank;
 }
 .t1717 {
 	height: 50px;
-	top: 40px;
+	top: 10px;
 	right: 0;
 	background: $sealTank;
 }
 .t1718 {
 	height: 35px;
-	top: 5px;
+	top: -25px;
 	right: 0;
 	background: $rinseTank;
 }
