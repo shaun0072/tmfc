@@ -499,4 +499,87 @@ body {
 .remodal {
   padding: 35px 0; }
 
+.line1700 {
+  margin: 100px auto 0;
+  position: relative;
+  height: 500px;
+  width: 90%; }
+  .line1700 .tankSquare {
+    width: 50px;
+    height: 50px;
+    background: blue;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    border: 1px solid black; }
+    .line1700 .tankSquare a {
+      color: white;
+      text-decoration: none;
+      text-align: center; }
+
+.t1701 {
+  top: 0;
+  left: 0; }
+
+.t1702 {
+  top: 50px;
+  left: 0; }
+
+.t1703 {
+  top: 100px;
+  left: 0; }
+
+.t1704 {
+  top: 150px;
+  left: 0; }
+
+.t1705 {
+  top: 200px;
+  left: 0; }
+
+.t1706 {
+  top: 250px;
+  left: 0; }
+
+.t1707 {
+  top: 300px;
+  left: 0; }
+
+.line1700 .t1708 {
+  top: 350px;
+  left: 0;
+  width: 100%; }
+
+.t1709 {
+  top: 300px;
+  right: 0; }
+
+.t1710 {
+  top: 250px;
+  right: 0; }
+
+.t1711 {
+  top: 200px;
+  right: 0; }
+
+.t1712 {
+  top: 150px;
+  right: 0; }
+
+.t1713 {
+  top: 100px;
+  right: 0; }
+
+.t1714 {
+  top: 50px;
+  right: 0; }
+
+.t1715 {
+  top: 0;
+  right: 0; }
+
+.t1716 {
+  top: -50px;
+  right: 0; }
+
 /*# sourceMappingURL=style.css.map */
