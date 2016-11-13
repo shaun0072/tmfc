@@ -415,7 +415,7 @@ function Tank(tid) {
 		html += '</div>';
 
 		html += '<div class="remodal-bg">';
-			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
+			html += '<div data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<img src="assets/img/';
 			  html += TDS;
