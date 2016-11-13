@@ -345,17 +345,17 @@ function Tank(tid) {
 		html += '</svg>';
 		html += '<div class="tank">';
 			html += '<div class="tank_id">';
-				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank">'
+				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank" href="#">'
 				html += lineNumber;
 				html += '</a></span><span>';
 				html += applicationType;
 				html += '</span></h1>';
 				html += '<div class="last_made-up"><span class="number">';
 				html += diffDays;
-				html += '</span> days since <a data-remodal-target="modal-makeup">makeup</a></div>';
+				html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
 			html += '</div>';
 			html += '<ul class="tds_list">';
-				html += '<li><a data-remodal-target="modal-TDS">('+ componentName +')</a></li>';
+				html += '<li><a data-remodal-target="modal-TDS" href="#">('+ componentName +')</a></li>';
 			html += '</ul>';
 			html += '<div class="process_control">';
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -415,7 +415,7 @@ function Tank(tid) {
 		html += '</div>';
 
 		html += '<div class="remodal-bg">';
-			html += '<div data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
+			html += '<div class="remodal" "data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<img src="assets/img/';
 			  html += TDS;
@@ -479,39 +479,6 @@ function Tank(tid) {
 		html += '</div>';
 	$('body').append(html);
 }
-
-  if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-        $(document).on('opened', '.remodal', function (e) {
-
-            $('.remodal-wrapper')
-            .css({
-                position: 'absolute',
-                marginTop: $(window).scrollTop() + 'px',
-                bottom: 'auto'
-            });
-
-            // Position backdrop absolute and make it span the entire page
-            // 
-            // Also dirty, but we need to tap into the backdrop after Boostrap 
-            // positions it but before transitions finish.
-            //
-            setTimeout(function () {
-                $('.remodal-overlay').css({
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: Math.max(
-                    document.body.scrollHeight, document.documentElement.scrollHeight,
-                    document.body.offsetHeight, document.documentElement.offsetHeight,
-                    document.body.clientHeight, document.documentElement.clientHeight
-                ) + 'px'
-                });
-            }, 0);
-
-
-        });
-    }
 /* 
 var html = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">';
     html += '<symbol id="record-keeping-icon" viewBox="0 0 100 100">';
