@@ -391,12 +391,12 @@ function Tank(tid) {
 				html += '<div class="data_records_cont">';
 					html += '<h3 class="data_records_title">Records</h3>';
 					html += '<ul class="data_records_list">';
-						html += '<li>';
+						html += '<a href="chart.html"><li>';
 						html += '<svg>';
 							html += '<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
 						html += 'Chemical Addition Records';
-						html += '</li>';
+						html += '</li></a>';
 						html += '<li>';
 						html += '<svg>';
 							html += '<use xlink:href="#record-keeping-icon"></use>';
@@ -415,7 +415,7 @@ function Tank(tid) {
 		html += '</div>';
 
 		html += '<div class="remodal-bg">';
-			html += '<div class="remodal" "data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
+			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<img src="assets/img/';
 			  html += TDS;
