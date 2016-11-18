@@ -18,8 +18,8 @@
     </style>
 </head>
 
-<body>
-    <div style="width:70%;">
+<body style="background: white;">
+    <div style="min-height:250px;width: 90%;">
         <canvas id="canvas"></canvas>
     </div>
     <br>
@@ -37,7 +37,7 @@
             data: {
                 labels: ["January", "February", "March", "April", "May", "June", "July"],
                 datasets: [{
-                    label: "My First dataset",
+                    label: "Test",
                     backgroundColor: window.chartColors.red,
                     borderColor: window.chartColors.red,
                     data: [
@@ -67,10 +67,12 @@
                 }]
             },
             options: {
+				legend: false,
                 responsive: true,
+				maintainAspectRatio: false,
                 title:{
                     display:true,
-                    text:'Chart.js Line Chart'
+                    text:'SSP-140 Concentration'
                 },
                 tooltips: {
                     mode: 'index',
@@ -85,14 +87,14 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Month'
+                            labelString: 'Day'
                         }
                     }],
                     yAxes: [{
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Value'
+                            labelString: 'oz/gal'
                         }
                     }]
                 }
