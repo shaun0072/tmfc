@@ -19,7 +19,9 @@ gulp.task("concatScripts", function() {
     return gulp.src([
         'js/jquery-2.1.4.min.js',
 		'js/application.js',
-		'js/slide-toggle.js'])
+		'js/slide-toggle.js',,
+		'js/utils.js',
+		'js/Chart.bundle.min.js'])
     .pipe(maps.init())
     .pipe(concat('app.js'))
     .pipe(maps.write('./'))
