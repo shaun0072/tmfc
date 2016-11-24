@@ -18,10 +18,12 @@ var gulp         = require('gulp'),
 gulp.task("concatScripts", function() {
     return gulp.src([
         'js/jquery-2.1.4.min.js',
-		'js/application.js',
-		'js/slide-toggle.js',,
 		'js/utils.js',
-		'js/Chart.bundle.min.js'])
+		'js/Chart.bundle.min.js',
+		'js/data.js',
+		'js/tankHTMLGenerator.js',
+		'js/slide-toggle.js',
+		'js/chartGenerator.js'])
     .pipe(maps.init())
     .pipe(concat('app.js'))
     .pipe(maps.write('./'))

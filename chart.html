@@ -26,107 +26,11 @@
     <button id="randomizeData">Randomize Data</button>
     <button id="addData">Add Data</button>
     <button id="removeData">Remove Data</button>
+	
+	<button id="createChart">Create Chart</button>
+	
 	<script  type="text/javascript" src="dist/js/app.min.js"></script>
 
-	<script>
-	var chartData = [];	
-	var numberOfAnalysis = 3;
-	for (var i=0; i < numberOfAnalysis ; i++) {
-		var object = {};
-		object.x = t1701.analysis[i].date;
-		object.y = t1701.analysis[i].conc;
-		chartData.push(object);
-	}
-	var color = Chart.helpers.color;
-	var scatterChartData = {
-		datasets: [{
-			fill: false,
-			label: "My First dataset",
-			borderColor: window.chartColors.red,
-			backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
-			data : chartData
-		}]
-	};
-	scatterChartData.datasets[0].data.prototype
-	window.onload = function() {
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myScatter = Chart.Scatter(ctx, {
-			data: scatterChartData,
-			options: {
-				legend  : {
-					display: false
-				},
-				title: {
-					display: true,
-					text: 'SSP-140 Concentration'
-				},
-				scales: {
-					xAxes: [{
-						type: 'time',
-						time: {
-							displayFormats: {
-								quarter: 'MMM YYYY'
-							}
-						}
-					}],
-					yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'oz/gal'
-                        }
-                    }]
-				}
-			}
-		});
-	};
-
-	document.getElementById('randomizeData').addEventListener('click', function() {
-		scatterChartData.datasets.forEach(function(dataset) {
-			dataset.data = dataset.data.map(function() {
-				return {
-					x: randomScalingFactor(),
-					y: randomScalingFactor()
-				};
-			});
-		});
-		window.myScatter.update();
-	});
-	
-		var colorNames = Object.keys(window.chartColors);
-
-	document.getElementById('addData').addEventListener('click', function() {
-		
-		if (scatterChartData.datasets[0].data.length + 1  > scatterChartData.datasets[0].data.length) {
-
-			numberOfAnalysis += 1;
-			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
-				var object = {};
-				object.x = t1701.analysis[i].date;
-				object.y = t1701.analysis[i].conc;
-				chartData.push(object);
-			}
-			
-		}
-		window.myScatter.update();
-	});
-
-
-	document.getElementById('removeData').addEventListener('click', function() {
-		if (scatterChartData.datasets[0].data.length > 1) {
-
-			numberOfAnalysis -= 1;
-			for (var i=numberOfAnalysis + 1; i > numberOfAnalysis ; i--) {
-				var object = {};
-				object.x = t1701.analysis[i].date;
-				object.y = t1701.analysis[i].conc;
-				chartData.pop(object);
-			}
-			
-		}
-		window.myScatter.update();
-	});
-</script>
 </body>
 
 </html>
