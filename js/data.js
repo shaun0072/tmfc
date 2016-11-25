@@ -47,7 +47,7 @@ var t1701 = {
 		},
 		{
 			date : new Date("2016-10-20"),
-			"SSP-140" : 10.72, 
+			/* "SSP-140" : 10.72,  */
 			Activity : 90,
 			Saturation : 9
 		},

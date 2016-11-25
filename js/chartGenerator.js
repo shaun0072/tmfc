@@ -1,12 +1,7 @@
-
-
-
 function MakeChart(tankNumber, testName, unit) {
 	
-
 	this.date = [];
 	this.testResult = [];
-	this.tank = tankNumber;
 	this.unit = unit;
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
@@ -20,7 +15,8 @@ function MakeChart(tankNumber, testName, unit) {
 			label: "My First dataset",
 			borderColor: window.chartColors.red,
 			backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
-			data : chartData
+			data : chartData,
+			spanGaps: true
 		}]
 	};
 	var chartOptions = {
@@ -56,10 +52,10 @@ function MakeChart(tankNumber, testName, unit) {
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
 		this.date.push(this.analysis[i].date);         
 		this.testResult.push(this.analysis[i][testName]);
-		if(this.testResult[i] === undefined) {
+/* 		if(this.testResult[i] === undefined) {
 			this.date.splice(i , 1);
 			this.testResult.splice(i , 1);
-		}
+		} */
 	}
 	
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
@@ -115,19 +111,8 @@ function MakeChart(tankNumber, testName, unit) {
 	loadChart();
 }
 
-
-
 var theTank = t1701;
 
 function createChart(tankName, componentName, unit) {
 	new MakeChart(tankName, componentName, unit);
 }
-
-
-
-/* var makeChart = new MakeChart(theTank, 'SSP-140', 'oz/gal'); */
-
-
-
-
-

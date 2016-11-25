@@ -22,9 +22,9 @@ function Tank(tid) {
 	this.agitationLevel    = tid.tmfcParameters.agitationLevel;
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
-	this.conc              = tid.analysis[0].conc;
-	this.activity          = tid.analysis[0].activity;
-	this.saturation        = tid.analysis[0].saturation;
+	this.conc              = tid.analysis[0]["SSP-140"];
+	this.activity          = tid.analysis[0].Activity;
+	this.saturation        = tid.analysis[0].Saturation;
 	
 	
 	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
@@ -96,13 +96,13 @@ function Tank(tid) {
 						html += '<svg>';
 							html += '<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
-						html += 'Chemical Additions Log';
+						html += 'Lab Analysis';
 						html += '</li></a>';
 						html += '<li>';
 						html += '<svg>';
 							html += '<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
-						html += 'Lab Analysis';
+						html += 'Chemical Additions Log';
 						html += '</li>';
 						html += '<li>';
 						html += '<svg>';

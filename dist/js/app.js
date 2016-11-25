@@ -80,7 +80,7 @@ var t1701 = {
 		},
 		{
 			date : new Date("2016-10-20"),
-			"SSP-140" : 10.72, 
+			/* "SSP-140" : 10.72,  */
 			Activity : 90,
 			Saturation : 9
 		},
@@ -407,9 +407,9 @@ function Tank(tid) {
 	this.agitationLevel    = tid.tmfcParameters.agitationLevel;
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
-	this.conc              = tid.analysis[0].conc;
-	this.activity          = tid.analysis[0].activity;
-	this.saturation        = tid.analysis[0].saturation;
+	this.conc              = tid.analysis[0]["SSP-140"];
+	this.activity          = tid.analysis[0].Activity;
+	this.saturation        = tid.analysis[0].Saturation;
 	
 	
 	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
@@ -481,13 +481,13 @@ function Tank(tid) {
 						html += '<svg>';
 							html += '<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
-						html += 'Chemical Additions Log';
+						html += 'Lab Analysis';
 						html += '</li></a>';
 						html += '<li>';
 						html += '<svg>';
 							html += '<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
-						html += 'Lab Analysis';
+						html += 'Chemical Additions Log';
 						html += '</li>';
 						html += '<li>';
 						html += '<svg>';
@@ -588,15 +588,10 @@ $('.process_control h3').on('click', function() {
 	$targetList.slideToggle(200);
 
 })
-
-
-
 function MakeChart(tankNumber, testName, unit) {
 	
-
 	this.date = [];
 	this.testResult = [];
-	this.tank = tankNumber;
 	this.unit = unit;
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
@@ -610,7 +605,8 @@ function MakeChart(tankNumber, testName, unit) {
 			label: "My First dataset",
 			borderColor: window.chartColors.red,
 			backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
-			data : chartData
+			data : chartData,
+			spanGaps: true
 		}]
 	};
 	var chartOptions = {
@@ -646,10 +642,10 @@ function MakeChart(tankNumber, testName, unit) {
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
 		this.date.push(this.analysis[i].date);         
 		this.testResult.push(this.analysis[i][testName]);
-		if(this.testResult[i] === undefined) {
+/* 		if(this.testResult[i] === undefined) {
 			this.date.splice(i , 1);
 			this.testResult.splice(i , 1);
-		}
+		} */
 	}
 	
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
@@ -705,21 +701,9 @@ function MakeChart(tankNumber, testName, unit) {
 	loadChart();
 }
 
-
-
 var theTank = t1701;
 
 function createChart(tankName, componentName, unit) {
 	new MakeChart(tankName, componentName, unit);
 }
-
-
-
-/* var makeChart = new MakeChart(theTank, 'SSP-140', 'oz/gal'); */
-
-
-
-
-
-
 //# sourceMappingURL=app.js.map
