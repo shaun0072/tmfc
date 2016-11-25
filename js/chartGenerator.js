@@ -1,26 +1,18 @@
 
 
 
-function MakeChart(tankNumber) {
-	var date = [];
-	var testResult = [];
-	this.tank = tankNumber;
-	var chartHeading = this.tank.makeup.components[0].component;
-	var analysis = this.tank.analysis;
+function MakeChart(tankNumber, testName, unit) {
+	
 
-	for(var i=0; i < analysis.length; i++) {
-		date.push(analysis[i].date); 
-		testResult.push(analysis[i].conc);
-	}
+	this.date = [];
+	this.testResult = [];
+	this.tank = tankNumber;
+	this.unit = unit;
+	this.chartHeading = testName;
+	this.analysis = tankNumber.analysis;
 	
 	var chartData = [];	
-	var numberOfAnalysis = 3;
-	for (var i=0; i < numberOfAnalysis ; i++) {
-		var object = {};
-		object.x = date[i];
-		object.y = testResult[i];
-		chartData.push(object);
-	}
+	var numberOfAnalysis = 5;
 	var color = Chart.helpers.color;
 	var scatterChartData = {
 		datasets: [{
@@ -31,10 +23,7 @@ function MakeChart(tankNumber) {
 			data : chartData
 		}]
 	};
-	scatterChartData.datasets[0].data.prototype
-	window.onload = function() {
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myScatter = Chart.Scatter(ctx, {
+	var chartOptions = {
 			data: scatterChartData,
 			options: {
 				legend  : {
@@ -42,7 +31,7 @@ function MakeChart(tankNumber) {
 				},
 				title: {
 					display: true,
-					text: chartHeading
+					text: this.chartHeading
 				},
 				scales: {
 					xAxes: [{
@@ -57,43 +46,42 @@ function MakeChart(tankNumber) {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'oz/gal'
+                            labelString: this.unit
                         }
                     }]
 				}
 			}
-		});
-	};
+		};
+
+	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
+		this.date.push(this.analysis[i].date);         
+		this.testResult.push(this.analysis[i][testName]);
+		if(this.testResult[i] === undefined) {
+			this.date.splice(i , 1);
+			this.testResult.splice(i , 1);
+		}
+	}
 	
-	document.getElementById('randomizeData').addEventListener('click', function() {
-		scatterChartData.datasets.forEach(function(dataset) {
-			dataset.data = dataset.data.map(function() {
-				return {
-					x: randomScalingFactor(),
-					y: randomScalingFactor()
-				};
-			});
-		});
-		window.myScatter.update();
-	});
+	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
+		var axisData = {};
+		axisData.x = this.date[i];
+		axisData.y = this.testResult[i];
+		chartData.push(axisData);
+	}
 	
-	document.getElementById('createChart').addEventListener('click', function() {
-		console.log('yeah')
-		window.myScatter.update();
-	});
 	
 		var colorNames = Object.keys(window.chartColors);
 
 	document.getElementById('addData').addEventListener('click', function() {
 
-		if (scatterChartData.datasets[0].data.length < t1701.analysis.length) {
+		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
 
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
-				var object = {};
-				object.x = t1701.analysis[i].date;
-				object.y = t1701.analysis[i].conc;
-				chartData.push(object);
+				var axisData = {};
+				axisData.x = tankNumber.analysis[i].date;
+				axisData.y = tankNumber.analysis[i][testName];
+				chartData.push(axisData);
 			}
 			
 		}
@@ -107,19 +95,37 @@ function MakeChart(tankNumber) {
 			numberOfAnalysis -= 1;
 			for (var i=numberOfAnalysis + 1; i > numberOfAnalysis ; i--) {
 				var object = {};
-				object.x = t1701.analysis[i].date;
-				object.y = t1701.analysis[i].conc;
+				object.x = tankNumber.analysis[i].date;
+				object.y = tankNumber.analysis[i][testName];
 				chartData.pop(object);
 			}
 			
 		}
 		window.myScatter.update();
 	});
-
+	
+	
+	
+	
+	var loadChart = function() {
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myScatter = Chart.Scatter(ctx, chartOptions)
+	};
+	
+	loadChart();
 }
 
 
-new MakeChart(t1701);
+
+var theTank = t1701;
+
+function createChart(tankName, componentName, unit) {
+	new MakeChart(tankName, componentName, unit);
+}
+
+
+
+/* var makeChart = new MakeChart(theTank, 'SSP-140', 'oz/gal'); */
 
 
 

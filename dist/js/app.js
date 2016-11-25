@@ -68,81 +68,81 @@ var t1701 = {
 	analysis : [
 		{
 			date : new Date("2016-11-03"),
-			conc : 10.26,
-			activity : 87 + '%',
-			saturation : 20 + '%'
+			"SSP-140" : 10.26,
+			Activity : 87,
+			Saturation : 20
 		},
 		{
 			date : new Date("2016-10-27"),
-			conc : 10.51, 
-			activity : 88,
-			saturation : 15 + '%'
+			"SSP-140" : 10.51, 
+			Activity : 88,
+			Saturation : 15
 		},
 		{
 			date : new Date("2016-10-20"),
-			ssp140 : 10.72, 
-			activity : 90,
-			saturation : 9 + '%'
+			"SSP-140" : 10.72, 
+			Activity : 90,
+			Saturation : 9
 		},
 		{
 			date : new Date("2016-10-14"),
-			conc : 11.02, 
-			activity : 95,
-			saturation : 5 + '%'
+			"SSP-140" : 11.02, 
+			Activity : 95,
+			Saturation : 5
 		},
 		{
 			date : new Date("2016-10-05"),
-			conc : 9.08, 
-			activity : 97,
-			saturation : 0 + '%'
+			"SSP-140" : 9.08, 
+			Activity : 97,
+			Saturation : 0
 		},
 				{
 			date : new Date("2016-09-26"),
-			conc : 9.55, 
-			activity : 85,
-			saturation : 33 + '%'
+			"SSP-140" : 9.55, 
+			Activity : 85,
+			Saturation : 33
 		},
 				{
 			date : new Date("2016-09-21"),
-			conc : 9.82, 
-			activity : 85,
-			saturation : 30 + '%'
+			"SSP-140" : 9.82, 
+			Activity : 85,
+			Saturation : 30
 		},
 				{
 			date : new Date("2016-09-14"),
-			conc : 9.95, 
-			activity : 83,
-			saturation : 31 + '%'
+			"SSP-140" : 9.95, 
+			Activity : 83,
+			Saturation : 31
 		},
 				{
 			date : new Date("2016-09-06"),
-			conc : 10.56, 
-			activity : 84,
-			saturation : 29 + '%'
+			"SSP-140" : 10.56, 
+			Activity : 84,
+			Saturation : 29
 		},
 				{
 			date : new Date("2016-09-01"),
-			conc : 10.32, 
-			activity : 85,
-			saturation : 28 + '%'
+			"SSP-140" : 10.32, 
+			Activity : 85,
+			Saturation : 28
 		},
 				{
 			date : new Date("2016-08-22"),
-			conc : 11.02, 
-			activity : 86,
-			saturation : 25 + '%'
+			"SSP-140" : 11.02, 
+			Activity : 86,
+			Saturation : 25
 		},
 				{
 			date : new Date("2016-08-16"),
-			conc : 10.02, 
-			activity : 87,
-			saturation : 22 + '%'
+			"SSP-140" : 10.02, 
+			Activity : 87,
+			Saturation : 22
 		},
 				{
 			date : new Date("2016-08-11"),
-			conc : 10.62, 
-			activity : 88,
-			saturation : 20 + '%'
+			"SSP-140" : 10.62, 
+			Activity : 88,
+			Saturation : 20
 		},
 	],
 	additions : [
@@ -208,8 +208,8 @@ var t1702 = {
 		{
 			date : "11/03/2016",
 			conc : 9.1, 
-			activity : 87 + '%',
-			saturation : 15 + '%'
+			activity : 87,
+			saturation : 15
 		},
 		{
 			date : "10/27/2016",
@@ -591,26 +591,18 @@ $('.process_control h3').on('click', function() {
 
 
 
-function MakeChart(tankNumber) {
-	var date = [];
-	var testResult = [];
-	this.tank = tankNumber;
-	var chartHeading = this.tank.makeup.components[0].component;
-	var analysis = this.tank.analysis;
+function MakeChart(tankNumber, testName, unit) {
+	
 
-	for(var i=0; i < analysis.length; i++) {
-		date.push(analysis[i].date); 
-		testResult.push(analysis[i].conc);
-	}
+	this.date = [];
+	this.testResult = [];
+	this.tank = tankNumber;
+	this.unit = unit;
+	this.chartHeading = testName;
+	this.analysis = tankNumber.analysis;
 	
 	var chartData = [];	
-	var numberOfAnalysis = 3;
-	for (var i=0; i < numberOfAnalysis ; i++) {
-		var object = {};
-		object.x = date[i];
-		object.y = testResult[i];
-		chartData.push(object);
-	}
+	var numberOfAnalysis = 5;
 	var color = Chart.helpers.color;
 	var scatterChartData = {
 		datasets: [{
@@ -621,10 +613,7 @@ function MakeChart(tankNumber) {
 			data : chartData
 		}]
 	};
-	scatterChartData.datasets[0].data.prototype
-	window.onload = function() {
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myScatter = Chart.Scatter(ctx, {
+	var chartOptions = {
 			data: scatterChartData,
 			options: {
 				legend  : {
@@ -632,7 +621,7 @@ function MakeChart(tankNumber) {
 				},
 				title: {
 					display: true,
-					text: chartHeading
+					text: this.chartHeading
 				},
 				scales: {
 					xAxes: [{
@@ -647,43 +636,42 @@ function MakeChart(tankNumber) {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'oz/gal'
+                            labelString: this.unit
                         }
                     }]
 				}
 			}
-		});
-	};
+		};
+
+	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
+		this.date.push(this.analysis[i].date);         
+		this.testResult.push(this.analysis[i][testName]);
+		if(this.testResult[i] === undefined) {
+			this.date.splice(i , 1);
+			this.testResult.splice(i , 1);
+		}
+	}
 	
-	document.getElementById('randomizeData').addEventListener('click', function() {
-		scatterChartData.datasets.forEach(function(dataset) {
-			dataset.data = dataset.data.map(function() {
-				return {
-					x: randomScalingFactor(),
-					y: randomScalingFactor()
-				};
-			});
-		});
-		window.myScatter.update();
-	});
+	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
+		var axisData = {};
+		axisData.x = this.date[i];
+		axisData.y = this.testResult[i];
+		chartData.push(axisData);
+	}
 	
-	document.getElementById('createChart').addEventListener('click', function() {
-		console.log('yeah')
-		window.myScatter.update();
-	});
 	
 		var colorNames = Object.keys(window.chartColors);
 
 	document.getElementById('addData').addEventListener('click', function() {
 
-		if (scatterChartData.datasets[0].data.length < t1701.analysis.length) {
+		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
 
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
-				var object = {};
-				object.x = t1701.analysis[i].date;
-				object.y = t1701.analysis[i].conc;
-				chartData.push(object);
+				var axisData = {};
+				axisData.x = tankNumber.analysis[i].date;
+				axisData.y = tankNumber.analysis[i][testName];
+				chartData.push(axisData);
 			}
 			
 		}
@@ -697,19 +685,37 @@ function MakeChart(tankNumber) {
 			numberOfAnalysis -= 1;
 			for (var i=numberOfAnalysis + 1; i > numberOfAnalysis ; i--) {
 				var object = {};
-				object.x = t1701.analysis[i].date;
-				object.y = t1701.analysis[i].conc;
+				object.x = tankNumber.analysis[i].date;
+				object.y = tankNumber.analysis[i][testName];
 				chartData.pop(object);
 			}
 			
 		}
 		window.myScatter.update();
 	});
-
+	
+	
+	
+	
+	var loadChart = function() {
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myScatter = Chart.Scatter(ctx, chartOptions)
+	};
+	
+	loadChart();
 }
 
 
-new MakeChart(t1701);
+
+var theTank = t1701;
+
+function createChart(tankName, componentName, unit) {
+	new MakeChart(tankName, componentName, unit);
+}
+
+
+
+/* var makeChart = new MakeChart(theTank, 'SSP-140', 'oz/gal'); */
 
 
 

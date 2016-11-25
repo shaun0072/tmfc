@@ -35,81 +35,81 @@ var t1701 = {
 	analysis : [
 		{
 			date : new Date("2016-11-03"),
-			conc : 10.26,
-			activity : 87 + '%',
-			saturation : 20 + '%'
+			"SSP-140" : 10.26,
+			Activity : 87,
+			Saturation : 20
 		},
 		{
 			date : new Date("2016-10-27"),
-			conc : 10.51, 
-			activity : 88,
-			saturation : 15 + '%'
+			"SSP-140" : 10.51, 
+			Activity : 88,
+			Saturation : 15
 		},
 		{
 			date : new Date("2016-10-20"),
-			ssp140 : 10.72, 
-			activity : 90,
-			saturation : 9 + '%'
+			"SSP-140" : 10.72, 
+			Activity : 90,
+			Saturation : 9
 		},
 		{
 			date : new Date("2016-10-14"),
-			conc : 11.02, 
-			activity : 95,
-			saturation : 5 + '%'
+			"SSP-140" : 11.02, 
+			Activity : 95,
+			Saturation : 5
 		},
 		{
 			date : new Date("2016-10-05"),
-			conc : 9.08, 
-			activity : 97,
-			saturation : 0 + '%'
+			"SSP-140" : 9.08, 
+			Activity : 97,
+			Saturation : 0
 		},
 				{
 			date : new Date("2016-09-26"),
-			conc : 9.55, 
-			activity : 85,
-			saturation : 33 + '%'
+			"SSP-140" : 9.55, 
+			Activity : 85,
+			Saturation : 33
 		},
 				{
 			date : new Date("2016-09-21"),
-			conc : 9.82, 
-			activity : 85,
-			saturation : 30 + '%'
+			"SSP-140" : 9.82, 
+			Activity : 85,
+			Saturation : 30
 		},
 				{
 			date : new Date("2016-09-14"),
-			conc : 9.95, 
-			activity : 83,
-			saturation : 31 + '%'
+			"SSP-140" : 9.95, 
+			Activity : 83,
+			Saturation : 31
 		},
 				{
 			date : new Date("2016-09-06"),
-			conc : 10.56, 
-			activity : 84,
-			saturation : 29 + '%'
+			"SSP-140" : 10.56, 
+			Activity : 84,
+			Saturation : 29
 		},
 				{
 			date : new Date("2016-09-01"),
-			conc : 10.32, 
-			activity : 85,
-			saturation : 28 + '%'
+			"SSP-140" : 10.32, 
+			Activity : 85,
+			Saturation : 28
 		},
 				{
 			date : new Date("2016-08-22"),
-			conc : 11.02, 
-			activity : 86,
-			saturation : 25 + '%'
+			"SSP-140" : 11.02, 
+			Activity : 86,
+			Saturation : 25
 		},
 				{
 			date : new Date("2016-08-16"),
-			conc : 10.02, 
-			activity : 87,
-			saturation : 22 + '%'
+			"SSP-140" : 10.02, 
+			Activity : 87,
+			Saturation : 22
 		},
 				{
 			date : new Date("2016-08-11"),
-			conc : 10.62, 
-			activity : 88,
-			saturation : 20 + '%'
+			"SSP-140" : 10.62, 
+			Activity : 88,
+			Saturation : 20
 		},
 	],
 	additions : [
@@ -175,8 +175,8 @@ var t1702 = {
 		{
 			date : "11/03/2016",
 			conc : 9.1, 
-			activity : 87 + '%',
-			saturation : 15 + '%'
+			activity : 87,
+			saturation : 15
 		},
 		{
 			date : "10/27/2016",
