@@ -47,7 +47,7 @@ var t1701 = {
 		},
 		{
 			date : new Date("2016-10-20"),
-			/* "SSP-140" : 10.72,  */
+			"SSP-140" : 10.72, 
 			Activity : 90,
 			Saturation : 9
 		},
@@ -324,9 +324,7 @@ var t1704 = {
 	analysis : [
 		{
 			date : "11/03/2016",
-			conc : 10.12, 
-			activity : 87 + '%',
-			saturation : 15 + '%'
+			"Hydrochloric Acid" : 31.2
 		}
 	],
 	additions : [

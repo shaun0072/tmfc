@@ -22,9 +22,6 @@ function Tank(tid) {
 	this.agitationLevel    = tid.tmfcParameters.agitationLevel;
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
-	this.conc              = tid.analysis[0]["SSP-140"];
-	this.activity          = tid.analysis[0].Activity;
-	this.saturation        = tid.analysis[0].Saturation;
 	
 	
 	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
@@ -76,17 +73,6 @@ function Tank(tid) {
 				html += '<div class="current_state-cont">';
 					html += '<h3 class="current_state_title">Latest Analysis</h3>';
 					html += '<ul class="current_state_list">';
-					html += '<li>';
-					html += componentName;
-					html += ' Concentration - <span>';
-					html += conc + ' ' + componentUnit;
-					html += '</span></li>';
-						html += '<li>Activity - <span>';
-						html += activity;
-						html += '</span></li>';
-						html += '<li>Saturation - <span>';
-						html += saturation;
-						html += '</span></li>';
 					html += '</ul>';
 				html += '</div>';
 				html += '<div class="data_records_cont">';
@@ -178,7 +164,21 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
+		
+	
+	
 	$('body').append(html);
+	
+	for(var key in tid.analysis[0]) {
+		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date') {
+			var analysisList = '<li>';
+				analysisList += key;
+				analysisList += ' : <span>';
+				analysisList += tid.analysis[0][key];
+				analysisList += '</span></li>'; 
+			$('.current_state_list').append(analysisList);
+		}
+	};
 }
 
 
