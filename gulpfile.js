@@ -18,6 +18,7 @@ var gulp         = require('gulp'),
 gulp.task("concatScripts", function() {
     return gulp.src([
         'js/jquery-2.1.4.min.js',
+		'js/moment.js',
 		'js/utils.js',
 		'js/Chart.bundle.min.js',
 		'js/data.js',

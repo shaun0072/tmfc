@@ -17,20 +17,27 @@
     </style>
 </head>
 
-<body style="background: white;">
-    <div style="min-height:250px;width: 90%;">
+<body style="background: white;" onload="createChart(t1701, 'SSP-140', 'oz/gal')">
+    <div style="min-height:250px;width: 100%;">
         <canvas id="canvas"></canvas>
     </div>
     <br>
     <br>
-    <button id="randomizeData">Randomize Data</button>
     <button id="addData">Add Data</button>
     <button id="removeData">Remove Data</button>
+	
+	
+	
+   <button onclick="createChart(t1701, 'SSP-140', 'oz/gal')">SSP-140 Conc</button>
+   <button onclick="createChart(t1701, 'Activity', '%')">Activity</button>
+   <button onclick="createChart(t1701, 'Saturation', '%')">Saturation</button>
+   
+   
+   
+
+	
 	<script  type="text/javascript" src="dist/js/app.min.js"></script>
 
-	<script>
-	
-</script>
 </body>
 
 </html>
