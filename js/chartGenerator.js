@@ -85,8 +85,9 @@ function MakeChart(tankNumber, testName, unit) {
 					xAxes: [{
 						type: 'time',
 						time: {
+							unit : 'week',
 							displayFormats: {
-								quarter: 'MMM YYYY'
+								week: 'MMM D'
 							}
 						}
 					}],
