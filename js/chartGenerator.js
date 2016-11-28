@@ -1,15 +1,53 @@
+var makeChart;
+var thisArray;
+var tableData;
+var theDate;
+var theTestResult;
+var numberOfAnalysis;
+function addData(date, testResult) {
+	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
+		tableData  =	'<div class="row">';
+		tableData +=	  '<div class="cell">';
+		tableData +=		moment(date[i]).format("MMMM D" + ", " + "YYYY");
+		tableData +=	  '</div>';
+		tableData +=	  '<div class="cell">';
+		tableData +=		testResult[i];
+		tableData +=	  '</div>';
+		tableData +=	'</div>';
+					
+		$('.table').append(tableData);	
+	}
+		
+}
+function removeData() {
+		$('.table .row').remove('.row:last-of-type');		
+}
+
 function MakeChart(tankNumber, testName, unit) {
+	numberOfAnalysis = 5
+	$('#addData').remove();
+	$('#removeData').remove();
+	var addbtnHTML = '<button id="addData" onclick="addData(theDate, theTestResult)">Add Data</button>';
+	var removebtnHTML = '<button id="removeData" onclick="removeData()">Remove Data</button>';
+	$('body').append(addbtnHTML);
+	$('body').append(removebtnHTML);
+	
+	makeChart = '';
 	
 	this.date = [];
 	this.testResult = [];
+	this.tankNumber = tankNumber;
 	this.unit = unit;
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
 	
-	console.log(this.analysis);
+	theDate = this.date;
+	theTestResult  = this.testResult;
+	
+	
 	
 	var chartData = [];	
-	var numberOfAnalysis = 5;
+	
 	var color = Chart.helpers.color;
 	var tableHeader  = '<div class="wrapper">'; 
 			tableHeader +=  '<div class="table">';				
@@ -80,7 +118,7 @@ function MakeChart(tankNumber, testName, unit) {
 		var axisData = {};
 		axisData.x = this.date[i];
 		axisData.y = this.testResult[i];				
-		var tableData  =	'<div class="row">';
+			tableData  =	'<div class="row">';
 			tableData +=	  '<div class="cell">';
 			tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
 			tableData +=	  '</div>';
@@ -96,28 +134,16 @@ function MakeChart(tankNumber, testName, unit) {
 		var colorNames = Object.keys(window.chartColors);
 
 	document.getElementById('addData').addEventListener('click', function() {
-
+		
 		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
 
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
 				var axisData = {};
 				axisData.x = tankNumber.analysis[i].date;
-				axisData.y = tankNumber.analysis[i][testName];
-				
-				var tableData  =	'<div class="row">';
-					tableData +=	  '<div class="cell">';
-					tableData +=		moment(tankNumber.analysis[i].date).format("MMMM D" + ", " + "YYYY");
-					tableData +=	  '</div>';
-					tableData +=	  '<div class="cell">';
-					tableData +=		tankNumber.analysis[i][testName];
-					tableData +=	  '</div>';
-					tableData +=	'</div>';
-				
+				axisData.y = tankNumber.analysis[i][testName];									
 				chartData.push(axisData);
-				$('.table').append(tableData);
-			}
-			
+			}			
 		}
 		window.myScatter.update();
 	});
@@ -133,27 +159,21 @@ function MakeChart(tankNumber, testName, unit) {
 				object.y = tankNumber.analysis[i][testName];
 				chartData.pop(object);
 			}
-			$('.table .row').remove('.row:last-of-type');
+			
 		}
 		window.myScatter.update();
 	});
-	
-	
-	
 	
 	var loadChart = function() {
 		var ctx = document.getElementById("canvas").getContext("2d");
 		window.myScatter = Chart.Scatter(ctx, chartOptions)
 	};
 	
-	loadChart();
-	
-	
-	
+	loadChart();	
 }
 
 var theTank = t1701;
 
 function createChart(tankName, componentName, unit) {
-	new MakeChart(tankName, componentName, unit);
+	makeChart = new MakeChart(tankName, componentName, unit);
 }
