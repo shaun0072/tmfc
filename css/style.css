@@ -676,10 +676,11 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table; }
 
-@media screen and (max-width: 580px) {
+/* @media screen and (max-width: 580px) {
   .table {
-    display: block; } }
-
+    display: block;
+  }
+} */
 .row {
   display: table-row;
   background: #f6f6f6; }
@@ -698,18 +699,21 @@ body {
 .row.blue {
   background: #2980b9; }
 
-@media screen and (max-width: 580px) {
+/* @media screen and (max-width: 580px) {
   .row {
     padding: 8px 0;
-    display: block; } }
-
+    display: block;
+  }
+} */
 .cell {
   padding: 6px 12px;
   display: table-cell; }
 
-@media screen and (max-width: 580px) {
+/* @media screen and (max-width: 580px) {
   .cell {
     padding: 2px 12px;
-    display: block; } }
+    display: block;
+  }
+} */
 
 /*# sourceMappingURL=style.css.map */

@@ -4,30 +4,35 @@ var tableData;
 var theDate;
 var theTestResult;
 var numberOfAnalysis;
-function addData(date, testResult) {
+var theUnit;
+function addData(date, testResult, unit) {
 	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
-		tableData  =	'<div class="row">';
-		tableData +=	  '<div class="cell">';
-		tableData +=		moment(date[i]).format("MMMM D" + ", " + "YYYY");
-		tableData +=	  '</div>';
-		tableData +=	  '<div class="cell">';
-		tableData +=		testResult[i];
-		tableData +=	  '</div>';
-		tableData +=	'</div>';
-					
-		$('.table').append(tableData);	
+		if(i < date.length) {
+			tableData  =	'<div class="row">';
+			tableData +=	  '<div class="cell">';
+			tableData +=		moment(date[i]).format("MMMM D" + ", " + "YYYY");
+			tableData +=	  '</div>';
+			tableData +=	  '<div class="cell">';
+			tableData +=		testResult[i] + ' ' + unit;
+			tableData +=	  '</div>';
+			tableData +=	'</div>';
+						
+			$('.table').append(tableData);	
+		}
 	}
 		
 }
 function removeData() {
-		$('.table .row').remove('.row:last-of-type');		
+	if($('.table .row').length > 2) {
+		$('.table .row').remove('.row:last-of-type');
+	}		
 }
 
 function MakeChart(tankNumber, testName, unit) {
 	numberOfAnalysis = 5
 	$('#addData').remove();
 	$('#removeData').remove();
-	var addbtnHTML = '<button id="addData" onclick="addData(theDate, theTestResult)">Add Data</button>';
+	var addbtnHTML = '<button id="addData" onclick="addData(theDate, theTestResult, theUnit)">Add Data</button>';
 	var removebtnHTML = '<button id="removeData" onclick="removeData()">Remove Data</button>';
 	$('body').append(addbtnHTML);
 	$('body').append(removebtnHTML);
@@ -43,7 +48,7 @@ function MakeChart(tankNumber, testName, unit) {
 	
 	theDate = this.date;
 	theTestResult  = this.testResult;
-	
+	theUnit = this.unit;
 	
 	
 	var chartData = [];	
@@ -124,7 +129,7 @@ function MakeChart(tankNumber, testName, unit) {
 			tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
 			tableData +=	  '</div>';
 			tableData +=	  '<div class="cell">';
-			tableData +=		this.testResult[i];
+			tableData +=		this.testResult[i] + ' ' + this.unit;
 			tableData +=	  '</div>';
 			tableData +=	'</div>';
 					
@@ -135,9 +140,9 @@ function MakeChart(tankNumber, testName, unit) {
 		var colorNames = Object.keys(window.chartColors);
 
 	document.getElementById('addData').addEventListener('click', function() {
-		
-		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
 
+		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
+			
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
 				var axisData = {};
@@ -154,7 +159,7 @@ function MakeChart(tankNumber, testName, unit) {
 		if (scatterChartData.datasets[0].data.length > 1) {
 
 			numberOfAnalysis -= 1;
-			for (var i=numberOfAnalysis + 1; i > numberOfAnalysis ; i--) {
+			for (var i = numberOfAnalysis; i > numberOfAnalysis - 1; i--) {
 				var object = {};
 				object.x = tankNumber.analysis[i].date;
 				object.y = tankNumber.analysis[i][testName];
