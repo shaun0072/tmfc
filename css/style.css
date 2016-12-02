@@ -714,8 +714,8 @@ button:focus {
 
 button.plus:after {
   content: "+";
-  top: 2px;
-  left: 8px; }
+  top: 1px;
+  left: 9px; }
 
 button.minus:after {
   content: "-";
