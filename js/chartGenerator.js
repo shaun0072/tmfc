@@ -20,8 +20,7 @@ function addData(date, testResult, unit) {
 						
 			$('.table').append(tableData);	
 		}
-	}
-		
+	}		
 }
 function removeData() {
 	if($('.table .row').length > 2) {
@@ -115,31 +114,33 @@ function MakeChart(tankNumber, testName, unit) {
 		
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
 		var axisData = {};
+
 		axisData.x = this.date[i];
-		axisData.y = this.testResult[i];				
-			tableData  =	'<div class="row">';
-			tableData +=	  '<div class="cell">';
-			tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
-			tableData +=	  '</div>';
-			tableData +=	  '<div class="cell">';
-			tableData +=		this.testResult[i] + ' ' + this.unit;
-			tableData +=	  '</div>';
-			tableData +=	'</div>';
-					
+		axisData.y = this.testResult[i];
+		
+		tableData  =	'<div class="row">';
+		tableData +=	  '<div class="cell">';
+		tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
+		tableData +=	  '</div>';
+		tableData +=	  '<div class="cell">';
+		tableData +=		this.testResult[i] + ' ' + this.unit;
+		tableData +=	  '</div>';
+		tableData +=	'</div>';
+				
 		chartData.push(axisData);		
-		$('.table').append(tableData);
+		$('.table').append(tableData);		
 	}
 		
 	document.getElementById('addData').addEventListener('click', function() {
 
 		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
-			
+
 			numberOfAnalysis += 1;
-			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
+			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis; i++) {
 				var axisData = {};
-				axisData.x = tankNumber.analysis[i].date;
-				axisData.y = tankNumber.analysis[i][testName];									
-				chartData.push(axisData);
+					axisData.x = tankNumber.analysis[i].date;
+					axisData.y = tankNumber.analysis[i][testName];									
+					chartData.push(axisData);		
 			}			
 		}
 		window.myScatter.update();

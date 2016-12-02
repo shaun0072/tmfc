@@ -4353,7 +4353,7 @@ var t1701 = {
 		conc           : "8 - 12 oz/gal",
 		immersion      : "> 3 min",
 		tankSize       : {
-			height     : "41\"",
+			lngth      : "41\"",
 			width      : "28\"",
 			depth      : "32\" (sol level)",
 			capacity   : "450 gallons"
@@ -4492,7 +4492,7 @@ var t1702 = {
 		conc           : "8 - 12 oz/gal",
 		immersion      : "1 - 5 min",
 		tankSize       : {
-			height     : "21\"",
+			lngth      : "21\"",
 			width      : "28\"",
 			depth      : "32\" (sol level)",
 			capacity   : "225 gallons"
@@ -4559,69 +4559,6 @@ var t1702 = {
 		}
 	]	
 };
-var t1706 = {
-	
-	makeup : {
-		date : new Date("July 5, 2016"),
-		components: [
-			{
-			component  : "Zinc Hyroxide",
-			unit       : "oz/gal",
-			makeupAt   : "1.3",
-			amount     : "69 gallons"
-			}
-		]
-	},
-	tmfcParameters : {
-		lineNumber     : 1706,
-		applicationType: "Electro-Plating",
-		temp           : "70 - 100°F",
-		conc           : "1.0 - 1.5oz/gal",
-		immersion      : "",
-		tankSize       : {
-			height     : "n/a",
-			width      : "n/a",
-			depth      : "n/a" + "(sol level)",
-			capacity   : "1165 gallons"
-		
-		},
-		tankMaterial   : "Steel w/Liner",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Stainless Steel",
-		coilType       : "U",
-		agitationLevel : "Low - ",
-		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
-	},
-	analysis : [
-		{
-			date : "11/03/2016",
-			conc : 10.12, 
-			activity : 87 + '%',
-			saturation : 15 + '%'
-		}
-	],
-	additions : [
-		{
-			date : "10/05/2016",
-			component : {
-				ssp140 : 50
-			}
-		},
-		{
-			date : "09/27/2016",
-			component : {
-				ssp140 : 50
-			}
-		},
-		{
-			date : "09/20/2016",
-			component : {
-				ssp140 : 50
-			}
-		}
-	]	
-};
 var t1704 = {
 	
 	makeup : {
@@ -4642,7 +4579,7 @@ var t1704 = {
 		conc           : "25- 30%",
 		immersion      : "1 - 5 min",
 		tankSize       : {
-			height     : "58\"",
+			lngth      : "58\"",
 			width      : "48\"",
 			depth      : "32\" (sol level)",
 			capacity   : "400 gallons"
@@ -4683,6 +4620,611 @@ var t1704 = {
 		}
 	]	
 };
+var t1706 = {
+	
+	makeup : {
+		date : new Date("July 5, 2016"),
+		components: [
+			{
+			component  : "Zinc",
+			unit       : "oz/gal",
+			makeupAt   : "1.3",
+			amount     : "69 gallons"
+			}
+		]
+	},
+	tmfcParameters : {
+		lineNumber     : 1706,
+		applicationType: "Electro-Plating",
+		temp           : "70 - 100°F",
+		conc           : "1.0 - 1.5oz/gal",
+		immersion      : "",
+		tankSize       : {
+			lngth      : 142 + '"',
+			width      : 54.5 + '"',
+			depth      : 26 + '"' + ' (sol level)',
+			capacity   : "1165 gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			Zinc   : 1.46, 
+			NaOH   : 15.48,
+		},
+		{
+			date   : new Date("11/28/2016"),
+			Zinc   : 1.74, 
+			NaOH   : 16.43,
+		},
+		{
+			date   : new Date("11/23/2016"),
+			Zinc   : 1.31, 
+			NaOH   : 16.32,
+		},	
+		{
+			date   : new Date("11/21/2016"),
+			Zinc   : 1.34, 
+			NaOH   : 16.43,
+		},	
+		{
+			date   : new Date("11/17/2016"),
+			Zinc   : 1.39, 
+			NaOH   : 16.43,
+		},	
+		{
+			date   : new Date("11/14/2016"),
+			Zinc   : 1.48, 
+			NaOH   : 16.64,
+		},
+		{
+			date   : new Date("11/10/2016"),
+			Zinc   : 1.39, 
+			NaOH   : 16.54,
+		},	
+		{
+			date   : new Date("11/09/2016"),
+			Zinc   : 1.46, 
+		},	
+		{
+			date   : new Date("11/07/2016"),
+			Zinc   : 1.50, 
+			NaOH   : 17.07,
+		},
+		{
+			date   : new Date("11/03/2016"),
+			Zinc   : 1.39, 
+			NaOH   : 16.96,
+		},
+		{
+			date   : new Date("11/02/2016"),
+			Zinc   : 1.34, 
+		},
+		{
+			date   : new Date("10/31/2016"),
+			Zinc   : 1.77, 
+			NaOH   : 16.11,
+		},
+		{
+			date   : new Date("10/27/2016"),
+			Zinc   : 1.39, 
+			NaOH   : 16.43,
+		},
+		{
+			date   : new Date("10/26/2016"),
+			Zinc   : 1.43, 
+		},
+		{
+			date   : new Date("10/24/2016"),
+			Zinc   : 1.48, 
+			NaOH   : 16.43,
+		},
+		{
+			date   : new Date("10/20/2016"),
+			Zinc   : 1.34, 
+			NaOH   : 17.38,
+		},
+		{
+			date   : new Date("10/19/2016"),
+			Zinc   : 1.50, 
+		},
+		{
+			date   : new Date("10/17/2016"),
+			Zinc   : 1.50, 
+			NaOH   : 15.58,
+		},
+		{
+			date   : new Date("10/13/2016"),
+			Zinc   : 1.17, 
+			NaOH   : 15.68,
+		},
+		{
+			date   : new Date("10/12/2016"),
+			Zinc   : 1.18, 
+		},
+		{
+			date   : new Date("10/10/2016"),
+			Zinc   : 1.57, 
+			NaOH   : 16.11,
+		},
+		{
+			date   : new Date("10/06/2016"),
+			Zinc   : 1.22, 
+			NaOH   : 15.90,
+		},
+		{
+			date   : new Date("10/05/2016"),
+			Zinc   : 1.31, 
+		},
+		{
+			date   : new Date("10/03/2016"),
+			Zinc   : 1.75, 
+			NaOH   : 16.43,
+		},
+		{
+			date   : new Date("09/29/2016"),
+			Zinc   : 1.48, 
+			NaOH   : 16.54,
+		},
+		{
+			date   : new Date("09/28/2016"),
+			Zinc   : 1.50, 
+		},
+		{
+			date   : new Date("09/26/2016"),
+			Zinc   : 1.53, 
+			NaOH   : 15.58,
+		},
+		{
+			date   : new Date("09/22/2016"),
+			Zinc   : 1.41, 
+			NaOH   : 16.01,
+		},
+		{
+			date   : new Date("09/21/2016"),
+			Zinc   : 1.32, 
+		},
+		{
+			date   : new Date("09/19/2016"),
+			Zinc   : 1.41, 
+			NaOH   : 16.64,
+		},
+		{
+			date   : new Date("09/14/2016"),
+			Zinc   : 1.48, 
+		},
+		{
+			date   : new Date("09/13/2016"),
+			Zinc   : 1.58, 
+		},
+		{
+			date   : new Date("09/12/2016"),
+			Zinc   : 1.67, 
+			NaOH   : 16.22,
+		},
+		{
+			date   : new Date("09/08/2016"),
+			Zinc   : 1.34, 
+			NaOH   : 16.43,
+		},
+		{
+			date   : new Date("09/07/2016"),
+			Zinc   : 1.50, 
+		},
+		{
+			date   : new Date("09/06/2016"),
+			Zinc   : 1.65, 
+			NaOH   : 16.32,
+		},
+		{
+			date   : new Date("09/01/2016"),
+			Zinc   : 1.31, 
+			NaOH   : 16.22,
+		},
+		{
+			date   : new Date("08/31/2016"),
+			Zinc   : 1.31, 
+		},
+		{
+			date   : new Date("08/25/2016"),
+			Zinc   : 1.48, 
+			NaOH   : 15.90,
+		},
+		{
+			date   : new Date("08/24/2016"),
+			Zinc   : 1.48, 
+		},	
+		{
+			date   : new Date("08/22/2016"),
+			Zinc   : 1.76, 
+			NaOH   : 15.61,
+		},	
+		{
+			date   : new Date("08/18/2016"),
+			Zinc   : 1.32, 
+			NaOH   : 15.05,
+		},	
+		{
+			date   : new Date("08/17/2016"),
+			Zinc   : 1.46, 
+		},	
+		{
+			date   : new Date("08/15/2016"),
+			Zinc   : 1.75, 
+			NaOH   : 16.64,
+		},	
+		{
+			date   : new Date("08/11/2016"),
+			Zinc   : 1.48, 
+			NaOH   : 16.43,
+		},	
+		{
+			date   : new Date("08/10/2016"),
+			Zinc   : 1.22, 
+		},	
+		{
+			date   : new Date("08/08/2016"),
+			Zinc   : 1.43, 
+			NaOH   : 16.43,
+		},	
+		{
+			date   : new Date("08/04/2016"),
+			Zinc   : 1.25, 
+			NaOH   : 15.90,
+		},	
+		{
+			date   : new Date("08/03/2016"),
+			Zinc   : 1.31, 
+		},	
+		{
+			date   : new Date("08/01/2016"),
+			Zinc   : 1.39, 
+			NaOH   : 15.48,
+		},	
+		{
+			date   : new Date("07/28/2016"),
+			Zinc   : 1.22, 
+			NaOH   : 15.79,
+		},	
+		{
+			date   : new Date("07/27/2016"),
+			Zinc   : 1.22, 
+		},	
+		{
+			date   : new Date("07/26/2016"),
+			Zinc   : 1.24, 
+		},	
+		{
+			date   : new Date("07/25/2016"),
+			Zinc   : 1.31, 
+			NaOH   : 14.73,
+		},	
+		{
+			date   : new Date("07/21/2016"),
+			Zinc   : 1.37, 
+			NaOH   : 15.68,
+		},	
+		{
+			date   : new Date("07/20/2016"),
+			Zinc   : 1.39, 
+		},	
+		{
+			date   : new Date("07/19/2016"),
+			Zinc   : 1.32, 
+		},	
+		{
+			date   : new Date("07/18/2016"),
+			Zinc   : 1.32, 
+			NaOH   : 16.01,
+		},	
+		{
+			date   : new Date("07/14/2016"),
+			Zinc   : 1.31, 
+			NaOH   : 16.32,
+		},	
+		{
+			date   : new Date("07/13/2016"),
+			Zinc   : 1.25, 
+		},	
+		{
+			date   : new Date("07/12/2016"),
+			Zinc   : 1.06, 
+		},	
+		{
+			date   : new Date("07/11/2016"),
+			Zinc   : 1.11, 
+			NaOH   : 16.00,
+		},			{
+			date   : new Date("07/06/2016"),
+			Zinc   : 1.32, 
+		},	
+		{
+			date   : new Date("07/05/2016"),
+			Zinc   : 1.36, 
+			NaOH   : 16.96,
+		},			{
+			date   : new Date("06/27/2016"),
+			Zinc   : 1.32, 
+			NaOH   : 16.32,
+		},	
+		{
+			date   : new Date("06/22/2016"),
+			Zinc   : 1.4, 
+		},
+		{
+			date   : new Date("06/20/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.8,
+		},	
+		{
+			date   : new Date("06/15/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.1,
+		},	
+		{
+			date   : new Date("06/13/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 15.5,
+		},
+		{
+			date   : new Date("06/09/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 16.2,
+		},	
+		{
+			date   : new Date("06/08/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.3,
+		},	
+		{
+			date   : new Date("06/06/2016"),
+			Zinc   : 1.6, 
+			NaOH   : 16.4,
+		},	
+		{
+			date   : new Date("06/02/2016"),
+			Zinc   : 1.5, 
+			NaOH   : 16.9,
+		},	
+		{
+			date   : new Date("05/31/2016"),
+			Zinc   : 1.6, 
+			NaOH   : 16.9,
+		},	
+		{
+			date   : new Date("05/26/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.5,
+		},	
+		{
+			date   : new Date("05/25/2016"),
+			Zinc   : 1.2, 
+		},	
+		{
+			date   : new Date("05/24/2016"),
+			Zinc   : 1.1, 
+			NaOH   : 13.9,
+		},
+		{		
+			date   : new Date("05/23/2016"),
+			Zinc   : 1.5, 
+			NaOH   : 17.0,
+		},
+		{		
+			date   : new Date("05/16/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 17.2,
+		},	
+		{
+			date   : new Date("05/11/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.6,
+		},
+		{		
+			date   : new Date("05/10/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.6,
+		},	
+		{
+			date   : new Date("05/09/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 14.8,
+		},	
+		{
+			date   : new Date("05/02/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.2,
+		},	
+		{
+			date   : new Date("04/27/2016"),
+			Zinc   : 1.5, 
+			NaOH   : 16.3,
+		},
+		{		
+			date   : new Date("04/25/2016"),
+			Zinc   : 1.6, 
+			NaOH   : 16.4,
+		},
+		{		
+			date   : new Date("04/18/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 16.1,
+		},
+		{		
+			date   : new Date("04/14/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.4,
+		},	
+		{
+			date   : new Date("04/13/2016"),
+			Zinc   : 1.3, 
+		},	
+		{
+			date   : new Date("04/11/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.0,
+		},	
+		{
+			date   : new Date("04/06/2016"),
+			Zinc   : 1.3, 
+		},	
+		{
+			date   : new Date("04/04/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 15.5,
+		},	
+		{
+			date   : new Date("03/28/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 15.6,
+		},	
+		{
+			date   : new Date("03/23/2016"),
+			Zinc   : 1.3, 
+		},	
+		{
+			date   : new Date("03/21/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.5,
+		},
+		{		
+			date   : new Date("03/14/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.3,
+		},	
+		{
+			date   : new Date("03/07/2016"),
+			Zinc   : 1.2, 
+			NaOH   : 15.4,
+		},
+		{		
+			date   : new Date("03/02/2016"),
+			Zinc   : 1.4, 
+		},
+		{		
+			date   : new Date("02/29/2016"),
+			Zinc   : 1.5, 
+			NaOH   : 15.8,
+		},	
+		{
+			date   : new Date("02/25/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.6,
+		},
+		{		
+			date   : new Date("02/24/2016"),
+			Zinc   : 1.3, 
+		},
+		{		
+			date   : new Date("02/22/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 14.3,
+		},
+		{		
+			date   : new Date("02/18/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.3,
+		},
+		{		
+			date   : new Date("02/17/2016"),
+			Zinc   : 1.1, 
+		},
+		{		
+			date   : new Date("02/15/2016"),
+			Zinc   : 1.4, 
+			NaOH   : 16.9,
+		},	
+		{
+			date   : new Date("02/11/2016"),
+			Zinc   : 1.2, 
+			NaOH   : 15.7,
+		},	
+		{
+			date   : new Date("02/03/2016"),
+			Zinc   : 1.2, 
+			NaOH   : 15.9,
+		},
+		{		
+			date   : new Date("02/01/2016"),
+			Zinc   : 1.3, 
+			NaOH   : 15.9,
+		},	
+		{
+			date   : new Date("01/28/2016"),
+			Zinc   : 1.1, 
+			NaOH   : 16.1,
+		},	
+		{
+			date   : new Date("01/27/2016"),
+			Zinc   : 1.3,
+		}
+		
+	],
+	additions : [
+		{
+			date : "10/05/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/27/2016",
+			component : {
+				ssp140 : 50
+			}
+		},
+		{
+			date : "09/20/2016",
+			component : {
+				ssp140 : 50
+			}
+		}
+	]	
+};
+var t1709 = {
+	
+	makeup : {
+		date : new Date("November 28, 2016"),
+		components: [
+			{
+			component  : "Nitric Acid",
+			unit       : "%",
+			makeupAt   : "0.25",
+			amount     : "3000 mls"
+			}
+		]
+	},
+	tmfcParameters : {
+		lineNumber     : 1709,
+		applicationType: "Sour Dip",
+		temp           : "60 - 90°F",
+		conc           : "0.25- 0.75%",
+		immersion      : "30 - 90sec",
+		tankSize       : {
+			lngth      : "58\"",
+			width      : "48\"",
+			depth      : "32\" (sol level)",
+			capacity   : "160 gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "Serpentine",
+		agitationLevel : "Mild - ",
+		agitationType  : "Compressed Air",
+		TDS            : ""
+	},	
+};
+
 //npm install gulp gulp-concat gulp-connect gulp-eslint gulp-eslint gulp-file gulp-html-validator gulp-insert gulp-replace gulp-size gulp-streamify gulp-uglify gulp-util gulp-zip child_process gulp-karma browserify vinyl-source-stream merge-stream bundle-collapser yargs --save-dev
 
 function Tank(tid) {
@@ -4696,7 +5238,7 @@ function Tank(tid) {
 	this.requiredTemp      = tid.tmfcParameters.temp;
 	this.requiredConc      = tid.tmfcParameters.conc;
 	this.requiredImmersion = tid.tmfcParameters.immersion;
-	this.tankHeight        = tid.tmfcParameters.tankSize.height;
+	this.tankLngth         = tid.tmfcParameters.tankSize.lngth;
 	this.tankWidth         = tid.tmfcParameters.tankSize.width;
 	this.tankDepth         = tid.tmfcParameters.tankSize.depth;
 	this.tankCapacity      = tid.tmfcParameters.tankSize.capacity;
@@ -4711,7 +5253,7 @@ function Tank(tid) {
 	
 	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
 	var firstDate = new Date();
-	var secondDate = makeupDate;
+	var secondDate = this.makeupDate;
 	var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
 	var html = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">';
 			html += '<symbol id="record-keeping-icon" viewBox="0 0 100 100">';
@@ -4729,52 +5271,66 @@ function Tank(tid) {
 		html += '<div class="tank">';
 			html += '<div class="tank_id">';
 				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank" href="#">'
-				html += lineNumber;
+				html += this.lineNumber;
 				html += '</a></span><span>';
-				html += applicationType;
+				html += this.applicationType;
 				html += '</span></h1>';
 				html += '<div class="last_made-up"><span class="number">';
 				html += diffDays;
 				html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
 			html += '</div>';
 			html += '<ul class="tds_list">';
-				html += '<li><a data-remodal-target="modal-TDS" href="#">('+ componentName +')</a></li>';
+				html += '<li><a data-remodal-target="modal-TDS" href="#">('+ this.componentName +')</a></li>';
 			html += '</ul>';
 			html += '<div class="process_control">';
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
 						html += '<li>Concentration Range: <span>';
-						html += requiredConc;
+						html += this.requiredConc;
 						html += '</span></li>';
 						html += '<li>Temperature Range: <span>';
-						html += requiredTemp;
+						html += this.requiredTemp;
 						html += '</span></li>';
 						html += '<li>Agitation: <span>';
-						html += agitationLevel + agitationType;
+						html += this.agitationLevel + this.agitationType;
 						html += '</span></li>';
 					html += '</ul>';
 				html += '</div>';
-				html += '<div class="current_state-cont">';
+				
+				if(tid.analysis !== undefined) {
+					html += '<div class="current_state-cont">';
 					html += '<h3 class="current_state_title">Latest Analysis</h3>';
 					html += '<ul class="current_state_list">';
 					html += '</ul>';
-				html += '</div>';
+					html += '</div>';
+				}
+				
 				html += '<div class="data_records_cont">';
 					html += '<h3 class="data_records_title">Records</h3>';
 					html += '<ul class="data_records_list">';
-						html += '<a href="chart.html"><li>';
-						html += '<svg>';
-							html += '<use xlink:href="#record-keeping-icon"></use>';
-						html += '</svg>';
-						html += 'Lab Analysis';
-						html += '</li></a>';
-						html += '<li>';
-						html += '<svg>';
-							html += '<use xlink:href="#record-keeping-icon"></use>';
-						html += '</svg>';
-						html += 'Chemical Additions Log';
-						html += '</li>';
+					
+						if(tid.analysis !== undefined) {
+							html += '<a href="'
+							html += this.lineNumber;
+							html += 'chart.html"><li>';
+							html += '<svg>';
+								html += '<use xlink:href="#record-keeping-icon"></use>';
+							html += '</svg>';
+							html += 'Lab Analysis';
+							html += '</li></a>';
+						}
+						
+						
+						if(tid.additions !== undefined) {
+							html += '<li>';
+							html += '<svg>';
+								html += '<use xlink:href="#record-keeping-icon"></use>';
+							html += '</svg>';
+							html += 'Chemical Additions Log';
+							html += '</li>';	
+						}
+						
 						html += '<li>';
 						html += '<svg>';
 							html +='<use xlink:href="#record-keeping-icon"></use>';
@@ -4790,7 +5346,7 @@ function Tank(tid) {
 			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<img src="assets/img/';
-			  html += TDS;
+			  html += this.TDS;
 			  html += '" alt="TDS"/>';
 			  html += '<br>';
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
@@ -4801,16 +5357,16 @@ function Tank(tid) {
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<h1><span>';
-			  html += applicationType;
+			  html += this.applicationType;
 			  html += '</span> Makeup</h1>';
 			  html += '<p style="font-weight:bold">Components</p>';
-			  html += '<p class="table"><span class="data">';
-			  html += componentName;
+			  html += '<p class="tankTable"><span class="data">';
+			  html += this.componentName;
 			  html += '<span class="data">';
 			  html += '</span>(@ ';
-			  html += makeupAt + componentUnit;
+			  html += this.makeupAt + this.componentUnit;
 			  html += '</span>): <span class="data">';
-			  html += componentAmount;
+			  html += this.componentAmount;
 			  html += '</span></p>';
 			  html += '<br>';
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
@@ -4821,29 +5377,29 @@ function Tank(tid) {
 			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
 			  html += '<h1>Container Specifications</h1>';
-			  html += '<p class="table"><span class="data">Capacity: </span><span class="data">';
-			  html += tankCapacity;
+			  html += '<p class="tankTable"><span class="data">Capacity: </span><span class="data">';
+			  html += this.tankCapacity;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Width: </span><span class="data">';
-			  html += tankWidth;
+			  html += '<p class="tankTable"><span class="data">Width: </span><span class="data">';
+			  html += this.tankWidth;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Length: </span><span class="data">';
-			  html += tankHeight;
+			  html += '<p class="tankTable"><span class="data">Length: </span><span class="data">';
+			  html += this.tankLngth;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Depth: </span><span class="data">';
-			  html += tankWidth;
+			  html += '<p class="tankTable"><span class="data">Depth: </span><span class="data">';
+			  html += this.tankDepth;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Tank Material: </span><span class="data">';
-			  html += tankMaterial;
+			  html += '<p class="tankTable"><span class="data">Tank Material: </span><span class="data">';
+			  html += this.tankMaterial;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Heat Method: </span><span class="data">';
-			  html += heatMethod;
+			  html += '<p class="tankTable"><span class="data">Heat Method: </span><span class="data">';
+			  html += this.heatMethod;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Coil Material: </span><span class="data">';
-			  html += heatMaterial;
+			  html += '<p class="tankTable"><span class="data">Coil Material: </span><span class="data">';
+			  html += this.heatMaterial;
 			  html += '</span></p>';
-			  html += '<p class="table"><span class="data">Agitation: </span><span class="data">';
-			  html += agitationType;
+			  html += '<p class="tankTable"><span class="data">Agitation: </span><span class="data">';
+			  html += this.agitationType;
 			  html += '</span></p>';
 			  html += '<br>';
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
@@ -4910,8 +5466,7 @@ function addData(date, testResult, unit) {
 						
 			$('.table').append(tableData);	
 		}
-	}
-		
+	}		
 }
 function removeData() {
 	if($('.table .row').length > 2) {
@@ -5005,31 +5560,33 @@ function MakeChart(tankNumber, testName, unit) {
 		
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
 		var axisData = {};
+
 		axisData.x = this.date[i];
-		axisData.y = this.testResult[i];				
-			tableData  =	'<div class="row">';
-			tableData +=	  '<div class="cell">';
-			tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
-			tableData +=	  '</div>';
-			tableData +=	  '<div class="cell">';
-			tableData +=		this.testResult[i] + ' ' + this.unit;
-			tableData +=	  '</div>';
-			tableData +=	'</div>';
-					
+		axisData.y = this.testResult[i];
+		
+		tableData  =	'<div class="row">';
+		tableData +=	  '<div class="cell">';
+		tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
+		tableData +=	  '</div>';
+		tableData +=	  '<div class="cell">';
+		tableData +=		this.testResult[i] + ' ' + this.unit;
+		tableData +=	  '</div>';
+		tableData +=	'</div>';
+				
 		chartData.push(axisData);		
-		$('.table').append(tableData);
+		$('.table').append(tableData);		
 	}
 		
 	document.getElementById('addData').addEventListener('click', function() {
 
 		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
-			
+
 			numberOfAnalysis += 1;
-			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis ; i++) {
+			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis; i++) {
 				var axisData = {};
-				axisData.x = tankNumber.analysis[i].date;
-				axisData.y = tankNumber.analysis[i][testName];									
-				chartData.push(axisData);
+					axisData.x = tankNumber.analysis[i].date;
+					axisData.y = tankNumber.analysis[i][testName];									
+					chartData.push(axisData);		
 			}			
 		}
 		window.myScatter.update();

@@ -530,17 +530,17 @@ body {
     top: 4px;
     fill: #FCB446; }
 
-.table {
+.tankTable {
   display: flex;
   justify-content: flex-end;
   flex-wrap: nowrap;
   margin: 0; }
-  .table .data {
+  .tankTable .data {
     flex-basis: 50%; }
-  .table .data:first-child {
+  .tankTable .data:first-child {
     text-align: right;
     margin-right: 4px; }
-  .table .data:nth-child(2) {
+  .tankTable .data:nth-child(2) {
     text-align: left;
     margin-left: 4px;
     font-weight: 700; }
@@ -701,7 +701,7 @@ body {
   right: 0;
   background: rgba(39, 93, 173, 0.8); }
 
-body {
+.chartBody {
   background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
   background-image: linear-gradient(top, #edecec, #cecbc9);
   height: 100vh; }
