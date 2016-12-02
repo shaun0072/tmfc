@@ -674,8 +674,6 @@ button:focus {
     margin: 20px auto; }
   .btns_section .add_remove_btns_container {
     margin-left: calc(100% - 102px); }
-    .btns_section .add_remove_btns_container button {
-      text-align: center; }
 
 .test_btns_container {
   display: flex; }
@@ -697,9 +695,10 @@ button:focus {
   background-image: linear-gradient(top, #f4f1ee, #fff);
   border-radius: 50%;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
-  height: 25px;
   position: relative;
-  width: 25px;
+  /* 	height: 25px;
+	width: 25px; */
+  padding: 5px 12px;
   -webkit-transition: all .1s linear;
   transition: all .1s linear; }
 
