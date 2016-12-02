@@ -18,16 +18,22 @@
 </head>
 
 <body style="background: white;" onload="createChart(t1701, 'SSP-140', 'oz/gal')">
-    <div style="min-height:250px;width: 100%;">
+
+    <div style="min-height:215px;width: 100%;">
         <canvas id="canvas"></canvas>
     </div>
-
-   <button onclick="createChart(t1701, 'SSP-140', 'oz/gal')">SSP-140 Conc</button>
-   <button onclick="createChart(t1701, 'Activity', '%')">Activity</button>
-   <button onclick="createChart(t1701, 'Saturation', '%')">Saturation</button>
-   
-   
-   
+	
+	<div class="btns_section">
+		<div class="test_btns_container">
+		   <button onclick="createChart(t1701, 'SSP-140', 'oz/gal')">SSP-140 Conc</button>
+		   <button onclick="createChart(t1701, 'Activity', '%')">Activity</button>
+		   <button onclick="createChart(t1701, 'Saturation', '%')">Saturation</button>
+		</div>
+		
+		<div class="add_remove_btns_container">
+			
+		</div>   
+    </div>
 
 	
 	<script  type="text/javascript" src="dist/js/app.js"></script>

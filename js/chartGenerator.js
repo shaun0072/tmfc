@@ -1,10 +1,11 @@
-var makeChart;
-var thisArray;
-var tableData;
-var theDate;
-var theTestResult;
-var numberOfAnalysis;
-var theUnit;
+var makeChart,
+    thisArray,
+    tableData,
+    theDate,
+    theTestResult,
+    numberOfAnalysis,
+    theUnit;
+
 function addData(date, testResult, unit) {
 	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
 		if(i < date.length) {
@@ -29,54 +30,42 @@ function removeData() {
 }
 
 function MakeChart(tankNumber, testName, unit) {
-	numberOfAnalysis = 5
-	$('#addData').remove();
-	$('#removeData').remove();
-	var addbtnHTML = '<button id="addData" onclick="addData(theDate, theTestResult, theUnit)">Add Data</button>';
-	var removebtnHTML = '<button id="removeData" onclick="removeData()">Remove Data</button>';
-	$('body').append(addbtnHTML);
-	$('body').append(removebtnHTML);
-	
-	makeChart = '';
-	
+		
 	this.date = [];
 	this.testResult = [];
 	this.tankNumber = tankNumber;
 	this.unit = unit;
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
-	
-	theDate = this.date;
-	theTestResult  = this.testResult;
-	theUnit = this.unit;
-	
-	
-	var chartData = [];	
-	
-	var color = Chart.helpers.color;
-	var tableHeader  = '<div class="wrapper">'; 
-			tableHeader +=  '<div class="table">';				
-			tableHeader +=	'<div class="row header">';
-			tableHeader +=	  '<div class="cell">';
-			tableHeader +=		'Date';
-			tableHeader +=	  '</div>';
-			tableHeader +=	  '<div class="cell">';
-			tableHeader +=		this.chartHeading;
-			tableHeader +=	  '</div>';
-			tableHeader +=	'</div>';
-			tableHeader +=	'</div>'; //close table
-			tableHeader += '</div>'; //close wrapper	
-	var scatterChartData = {
-		datasets: [{
-			fill: false,
-			label: "My First dataset",
-			borderColor: window.chartColors.red,
-			backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
-			data : chartData,
-			spanGaps: true
-		}]
-	};
-	var chartOptions = {
+		
+	var addbtnHTML = '<button id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
+		removebtnHTML = '<button id="removeData" onclick="removeData()">-</button>',
+		chartData = [];	
+		colorNames = Object.keys(window.chartColors),
+		color = Chart.helpers.color,
+		tableHeader  = '<div class="wrapper">',
+			tableHeader +=  '<div class="table">',				
+			tableHeader +=	'<div class="row header">',
+			tableHeader +=	  '<div class="cell">',
+			tableHeader +=		'Date',
+			tableHeader +=	  '</div>',
+			tableHeader +=	  '<div class="cell">',
+			tableHeader +=		this.chartHeading,
+			tableHeader +=	  '</div>',
+			tableHeader +=	'</div>',
+			tableHeader +=	'</div>', //close table
+			tableHeader += '</div>', //close wrapper	
+	    scatterChartData = {
+			datasets: [{
+				fill: false,
+				label: "My First dataset",
+				borderColor: window.chartColors.red,
+				backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+				data : chartData,
+				spanGaps: true
+			}]
+		},
+		chartOptions = {
 			data: scatterChartData,
 			options: {
 				legend  : {
@@ -107,19 +96,23 @@ function MakeChart(tankNumber, testName, unit) {
 			}
 		};
 		
+	numberOfAnalysis = 5;
+	theDate = this.date;
+	theTestResult  = this.testResult;
+	theUnit = this.unit;
+	
+	$('#addData').remove();
+	$('#removeData').remove();	
+	$('.add_remove_btns_container').append(addbtnHTML);
+	$('.add_remove_btns_container').append(removebtnHTML);
 	$('.wrapper').remove();
+	$('body').append(tableHeader);
 
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
 		this.date.push(this.analysis[i].date);         
 		this.testResult.push(this.analysis[i][testName]);
-/* 		if(this.testResult[i] === undefined) {
-			this.date.splice(i , 1);
-			this.testResult.splice(i , 1);
-		} */
 	};		
-	
-	$('body').append(tableHeader);
-	
+		
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
 		var axisData = {};
 		axisData.x = this.date[i];
@@ -137,8 +130,6 @@ function MakeChart(tankNumber, testName, unit) {
 		$('.table').append(tableData);
 	}
 		
-		var colorNames = Object.keys(window.chartColors);
-
 	document.getElementById('addData').addEventListener('click', function() {
 
 		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
@@ -153,7 +144,6 @@ function MakeChart(tankNumber, testName, unit) {
 		}
 		window.myScatter.update();
 	});
-
 
 	document.getElementById('removeData').addEventListener('click', function() {
 		if (scatterChartData.datasets[0].data.length > 1) {
@@ -177,8 +167,6 @@ function MakeChart(tankNumber, testName, unit) {
 	
 	loadChart();	
 }
-
-var theTank = t1701;
 
 function createChart(tankName, componentName, unit) {
 	makeChart = new MakeChart(tankName, componentName, unit);
