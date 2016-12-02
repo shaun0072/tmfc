@@ -720,8 +720,7 @@ button.plus:after {
 button.minus:after {
   content: "-";
   top: 1px;
-  left: 10px;
-  font-size: 20px; }
+  left: 10px; }
 
 .button:hover {
   background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
