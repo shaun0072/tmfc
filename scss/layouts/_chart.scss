@@ -11,9 +11,13 @@ button:focus {
 }
 .btns_section {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	.test_btns_container {
-		margin-left: 5px;
-		flex-basis: 75%;
+		margin: 20px auto;
+	}
+	.add_remove_btns_container {
+		margin-left: calc(100% - 102px);
 	}
 }
 #addData,
@@ -84,4 +88,7 @@ button:focus {
 .button:active:after{
 	color:#dbd2d2;
 	text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+.test_btns_container button.active {
+	font-style: italic;
 }

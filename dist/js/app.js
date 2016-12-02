@@ -4993,8 +4993,8 @@ function MakeChart(tankNumber, testName, unit) {
 	
 	$('#addData').remove();
 	$('#removeData').remove();	
-	$('.add_remove_btns_container').append(addbtnHTML);
 	$('.add_remove_btns_container').append(removebtnHTML);
+	$('.add_remove_btns_container').append(addbtnHTML);	
 	$('.wrapper').remove();
 	$('body').append(tableHeader);
 
@@ -5055,10 +5055,14 @@ function MakeChart(tankNumber, testName, unit) {
 		window.myScatter = Chart.Scatter(ctx, chartOptions)
 	};
 	
-	loadChart();	
+	loadChart();
 }
 
 function createChart(tankName, componentName, unit) {
 	makeChart = new MakeChart(tankName, componentName, unit);
 }
+$('.test_btns_container').on('click', 'button', function() {
+	$('.test_btns_container button').removeClass('active');
+	$(this).addClass('active');
+})
 //# sourceMappingURL=app.js.map
