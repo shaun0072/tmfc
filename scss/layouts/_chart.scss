@@ -18,6 +18,9 @@ button:focus {
 	}
 	.add_remove_btns_container {
 		margin-left: calc(100% - 102px);
+		button {
+			text-align: center;
+		}
 	}
 }
 .test_btns_container {
