@@ -38,8 +38,8 @@ function MakeChart(tankNumber, testName, unit) {
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
 		
-	var addbtnHTML = '<button class="button tick" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
-		removebtnHTML = '<button class="button tick" id="removeData" onclick="removeData()">-</button>',
+	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)"></button>',
+		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()"></button>',
 		chartData = [];	
 		colorNames = Object.keys(window.chartColors),
 		color = Chart.helpers.color,
