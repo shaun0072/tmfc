@@ -56,7 +56,7 @@ button:focus {
 	transition: all .1s linear;
 }
 
-.button:after{
+/* .button:after{
 	color:#e9e6e4;
 	content: "";
 	display: block;
@@ -66,7 +66,7 @@ button:focus {
 	text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
 	position: absolute;
 	width: 30px;
-}
+} */
 	
 .button:hover{
 	background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
