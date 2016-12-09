@@ -5457,10 +5457,10 @@ function addData(date, testResult, unit) {
 		if(i < date.length && testResult[i] !== undefined) {
 			tableData  =	'<div class="row">';
 			tableData +=	  '<div class="cell">';
-			tableData +=		moment(date[i]).format("MMMM D" + ", " + "YYYY");
+			tableData +=		moment(date[i]).format("l");
 			tableData +=	  '</div>';
 			tableData +=	  '<div class="cell">';
-			tableData +=		testResult[i] + ' ' + unit;
+			tableData +=		testResult[i];
 			tableData +=	  '</div>';
 			tableData +=	'</div>';
 						
@@ -5496,7 +5496,7 @@ function MakeChart(tankNumber, testName, unit) {
 			tableHeader +=		'Date',
 			tableHeader +=	  '</div>',
 			tableHeader +=	  '<div class="cell">',
-			tableHeader +=		this.chartHeading,
+			tableHeader +=		this.chartHeading + ' (' + this.unit +')',
 			tableHeader +=	  '</div>',
 			tableHeader +=	'</div>',
 			tableHeader +=	'</div>', //close table
@@ -5570,10 +5570,10 @@ function MakeChart(tankNumber, testName, unit) {
 		
 		tableData  =	'<div class="row">';
 		tableData +=	  '<div class="cell">';
-		tableData +=		moment(this.date[i]).format("MMMM D" + ", " + "YYYY");
+		tableData +=		moment(this.date[i]).format("l");
 		tableData +=	  '</div>';
 		tableData +=	  '<div class="cell">';
-		tableData +=		this.testResult[i] + ' ' + this.unit;
+		tableData +=		this.testResult[i];
 		tableData +=	  '</div>';
 		tableData +=	'</div>';
 				
