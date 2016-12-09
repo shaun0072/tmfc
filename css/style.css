@@ -701,10 +701,16 @@ body {
   right: 0;
   background: rgba(39, 93, 173, 0.8); }
 
+html {
+  height: 100%; }
+
 .chartBody {
   background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
   background-image: linear-gradient(top, #edecec, #cecbc9);
-  height: 100vh; }
+  background-attachment: fixed; }
+
+canvas {
+  max-height: 430px; }
 
 button {
   border-width: 0; }
@@ -726,7 +732,7 @@ button:focus {
 .test_btns_container {
   display: flex; }
   .test_btns_container button {
-    padding: 3px 9px;
+    padding: 5px 12px;
     background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
     background-image: linear-gradient(top, #f4f1ee, #fff);
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
@@ -759,16 +765,16 @@ button:focus {
   text-decoration: none;
   position: absolute; }
 
-button.plus:after {
-  content: "+";
-  top: 4px;
-  left: 9px; }
-
+/* button.plus:after {
+	content: "+";
+	top: 4px;
+    left: 9px;
+}
 button.minus:after {
-  content: "-";
-  top: 3px;
-  left: 11px; }
-
+	content: "-";
+    top: 3px;
+    left: 11px;
+} */
 .button:hover {
   background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
   background-image: linear-gradient(top, #fff, #f4f1ee);
@@ -788,6 +794,7 @@ button.minus:after {
   text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white; }
 
 .test_btns_container button.active {
+  color: grey;
   font-style: italic; }
 
 body {

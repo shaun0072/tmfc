@@ -5454,7 +5454,7 @@ var makeChart,
 
 function addData(date, testResult, unit) {
 	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
-		if(i < date.length) {
+		if(i < date.length && testResult[i] !== undefined) {
 			tableData  =	'<div class="row">';
 			tableData +=	  '<div class="cell">';
 			tableData +=		moment(date[i]).format("MMMM D" + ", " + "YYYY");
@@ -5465,6 +5465,8 @@ function addData(date, testResult, unit) {
 			tableData +=	'</div>';
 						
 			$('.table').append(tableData);	
+		} else if(i < date.length) {
+			numberOfAnalysis += 1;
 		}
 	}		
 }
@@ -5475,7 +5477,6 @@ function removeData() {
 }
 
 function MakeChart(tankNumber, testName, unit) {
-		
 	this.date = [];
 	this.testResult = [];
 	this.tankNumber = tankNumber;
@@ -5483,8 +5484,8 @@ function MakeChart(tankNumber, testName, unit) {
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
 		
-	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)"></button>',
-		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()"></button>',
+	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
+		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
 		colorNames = Object.keys(window.chartColors),
 		color = Chart.helpers.color,
@@ -5513,6 +5514,9 @@ function MakeChart(tankNumber, testName, unit) {
 		chartOptions = {
 			data: scatterChartData,
 			options: {
+				tooltips : {
+					enabled:  false
+				},
 				legend  : {
 					display: false
 				},
@@ -5583,10 +5587,15 @@ function MakeChart(tankNumber, testName, unit) {
 
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis; i++) {
-				var axisData = {};
-					axisData.x = tankNumber.analysis[i].date;
-					axisData.y = tankNumber.analysis[i][testName];									
-					chartData.push(axisData);		
+				if(tankNumber.analysis[i][testName] !== undefined) {
+					console.log(tankNumber.analysis[i].date);
+					console.log(tankNumber.analysis[i][testName]);
+					var axisData = {};
+						axisData.x = tankNumber.analysis[i].date;
+						axisData.y = tankNumber.analysis[i][testName];									
+						chartData.push(axisData);	
+				}
+					
 			}			
 		}
 		window.myScatter.update();
