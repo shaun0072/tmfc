@@ -9,7 +9,6 @@ function Tank(tid) {
 	this.lineNumber        = tid.tmfcParameters.lineNumber;
 	this.applicationType   = tid.tmfcParameters.applicationType;
 	this.requiredTemp      = tid.tmfcParameters.temp;
-	this.requiredConc      = tid.tmfcParameters.conc;
 	this.requiredImmersion = tid.tmfcParameters.immersion;
 	this.tankLngth         = tid.tmfcParameters.tankSize.lngth;
 	this.tankWidth         = tid.tmfcParameters.tankSize.width;
@@ -59,9 +58,6 @@ function Tank(tid) {
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
-						html += '<li>Concentration Range: <span>';
-						html += this.requiredConc;
-						html += '</span></li>';
 						html += '<li>Temperature Range: <span>';
 						html += this.requiredTemp;
 						html += '</span></li>';
@@ -192,6 +188,16 @@ function Tank(tid) {
 				analysisList += '</span></li>'; 
 			$('.current_state_list').append(analysisList);
 		}
+	};
+	for(var key in tid.tmfcParameters.concentrations) {
+		var propertyName = key;
+		var	propertyValue = tid.tmfcParameters.concentrations[key];
+		var	html = '<li><span class="propName">';
+			html += propertyName;
+			html += ': </span><span class="propValue">';
+			html += propertyValue;
+			html += '</span></li>';		
+		$('.tmfc_control_parameters_list').append(html);
 	};
 }
 

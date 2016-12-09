@@ -4,7 +4,8 @@ var makeChart,
     theDate,
     theTestResult,
     numberOfAnalysis,
-    theUnit;
+    theUnit,
+	applicationColor;
 
 function addData(date, testResult, unit) {
 	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
@@ -37,7 +38,28 @@ function MakeChart(tankNumber, testName, unit) {
 	this.unit = unit;
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
-		
+	
+	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
+		applicationColor = "rgba(244,211,94, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
+		applicationColor = "rgba(112, 163, 127, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	};
+	
+	
 	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
 		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
@@ -59,7 +81,7 @@ function MakeChart(tankNumber, testName, unit) {
 			datasets: [{
 				fill: false,
 				label: "My First dataset",
-				borderColor: window.chartColors.red,
+				borderColor: applicationColor,
 				backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
 				data : chartData,
 				spanGaps: true
@@ -134,6 +156,25 @@ function MakeChart(tankNumber, testName, unit) {
 		chartData.push(axisData);		
 		$('.table').append(tableData);		
 	}
+	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
+		applicationColor = "rgba(244,211,94, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
+		applicationColor = "rgba(112, 163, 127, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	};
 		
 	document.getElementById('addData').addEventListener('click', function() {
 

@@ -4348,7 +4348,7 @@ var t1701 = {
 	},
 	tmfcParameters : {
 		lineNumber     : 1701,
-		applicationType: "Cleaner",
+		applicationType: "Cleaner", //options are "Cleaner","Inorganic Cleaner", ""
 		temp           : "130 - 160°F",
 		conc           : "8 - 12 oz/gal",
 		immersion      : "> 3 min",
@@ -4595,8 +4595,36 @@ var t1704 = {
 	},
 	analysis : [
 		{
-			date : "11/03/2016",
-			"Hydrochloric Acid" : 31.2
+			date : new Date("11/03/2016"),
+			HCL  : 29.2
+		},
+		{
+			date : new Date("10/31/2016"),
+			HCL: 30.5
+		},
+		{
+			date : new Date("10/28/2016"),
+			HCL: 31.3
+		},
+		{
+			date : new Date("10/15/2016"),
+			HCL: 28.5
+		},
+		{
+			date : new Date("10/08/2016"),
+			HCL: 30.6
+		},
+		{
+			date : new Date("10/01/2016"),
+			HCL: 29.0
+		},
+		{
+			date : new Date("09/29/2016"),
+			HCL: 33.2
+		},
+		{
+			date : new Date("09/15/2016"),
+			HCL: 32.0
 		}
 	],
 	additions : [
@@ -4634,17 +4662,20 @@ var t1706 = {
 		]
 	},
 	tmfcParameters : {
-		lineNumber     : 1706,
-		applicationType: "Electro-Plating",
-		temp           : "70 - 100°F",
-		conc           : "1.0 - 1.5oz/gal",
-		immersion      : "",
-		tankSize       : {
-			lngth      : 142 + '"',
-			width      : 54.5 + '"',
-			depth      : 26 + '"' + ' (sol level)',
-			capacity   : "1165 gallons"
-		
+		concentrations     : {
+			"Zinc"             : "1.0 - 1.5 oz/gal",
+			"Sodium Hydroxide" : "15 - 18 oz/gal",
+			"Carbonates"       : "< 10 oz/gal",
+		},
+		lineNumber         : 1706,
+		applicationType    : "Electro-Plating",
+		temp               : "70 - 100°F",
+		immersion          : "",
+		tankSize           : {
+			lngth          : 142 + '"',
+			width          : 54.5 + '"',
+			depth          : 26 + '"' + ' (sol level)',
+			capacity       : "1165 gallons"		
 		},
 		tankMaterial   : "Steel w/Liner",
 		heatMethod     : "Steam Boiler",
@@ -5236,7 +5267,6 @@ function Tank(tid) {
 	this.lineNumber        = tid.tmfcParameters.lineNumber;
 	this.applicationType   = tid.tmfcParameters.applicationType;
 	this.requiredTemp      = tid.tmfcParameters.temp;
-	this.requiredConc      = tid.tmfcParameters.conc;
 	this.requiredImmersion = tid.tmfcParameters.immersion;
 	this.tankLngth         = tid.tmfcParameters.tankSize.lngth;
 	this.tankWidth         = tid.tmfcParameters.tankSize.width;
@@ -5286,9 +5316,6 @@ function Tank(tid) {
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
-						html += '<li>Concentration Range: <span>';
-						html += this.requiredConc;
-						html += '</span></li>';
 						html += '<li>Temperature Range: <span>';
 						html += this.requiredTemp;
 						html += '</span></li>';
@@ -5420,6 +5447,16 @@ function Tank(tid) {
 			$('.current_state_list').append(analysisList);
 		}
 	};
+	for(var key in tid.tmfcParameters.concentrations) {
+		var propertyName = key;
+		var	propertyValue = tid.tmfcParameters.concentrations[key];
+		var	html = '<li><span class="propName">';
+			html += propertyName;
+			html += ': </span><span class="propValue">';
+			html += propertyValue;
+			html += '</span></li>';		
+		$('.tmfc_control_parameters_list').append(html);
+	};
 }
 
 
@@ -5450,7 +5487,8 @@ var makeChart,
     theDate,
     theTestResult,
     numberOfAnalysis,
-    theUnit;
+    theUnit,
+	applicationColor;
 
 function addData(date, testResult, unit) {
 	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
@@ -5483,7 +5521,28 @@ function MakeChart(tankNumber, testName, unit) {
 	this.unit = unit;
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
-		
+	
+	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
+		applicationColor = "rgba(244,211,94, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
+		applicationColor = "rgba(112, 163, 127, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	};
+	
+	
 	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
 		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
@@ -5505,7 +5564,7 @@ function MakeChart(tankNumber, testName, unit) {
 			datasets: [{
 				fill: false,
 				label: "My First dataset",
-				borderColor: window.chartColors.red,
+				borderColor: applicationColor,
 				backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
 				data : chartData,
 				spanGaps: true
@@ -5580,6 +5639,25 @@ function MakeChart(tankNumber, testName, unit) {
 		chartData.push(axisData);		
 		$('.table').append(tableData);		
 	}
+	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
+		applicationColor = "rgba(244,211,94, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
+		applicationColor = "rgba(112, 163, 127, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	};
 		
 	document.getElementById('addData').addEventListener('click', function() {
 

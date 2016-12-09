@@ -13,7 +13,7 @@ var t1701 = {
 	},
 	tmfcParameters : {
 		lineNumber     : 1701,
-		applicationType: "Cleaner",
+		applicationType: "Cleaner", //options are "Cleaner","Inorganic Cleaner", ""
 		temp           : "130 - 160°F",
 		conc           : "8 - 12 oz/gal",
 		immersion      : "> 3 min",
@@ -260,8 +260,36 @@ var t1704 = {
 	},
 	analysis : [
 		{
-			date : "11/03/2016",
-			"Hydrochloric Acid" : 31.2
+			date : new Date("11/03/2016"),
+			HCL  : 29.2
+		},
+		{
+			date : new Date("10/31/2016"),
+			HCL: 30.5
+		},
+		{
+			date : new Date("10/28/2016"),
+			HCL: 31.3
+		},
+		{
+			date : new Date("10/15/2016"),
+			HCL: 28.5
+		},
+		{
+			date : new Date("10/08/2016"),
+			HCL: 30.6
+		},
+		{
+			date : new Date("10/01/2016"),
+			HCL: 29.0
+		},
+		{
+			date : new Date("09/29/2016"),
+			HCL: 33.2
+		},
+		{
+			date : new Date("09/15/2016"),
+			HCL: 32.0
 		}
 	],
 	additions : [
@@ -299,17 +327,20 @@ var t1706 = {
 		]
 	},
 	tmfcParameters : {
-		lineNumber     : 1706,
-		applicationType: "Electro-Plating",
-		temp           : "70 - 100°F",
-		conc           : "1.0 - 1.5oz/gal",
-		immersion      : "",
-		tankSize       : {
-			lngth      : 142 + '"',
-			width      : 54.5 + '"',
-			depth      : 26 + '"' + ' (sol level)',
-			capacity   : "1165 gallons"
-		
+		concentrations     : {
+			"Zinc"             : "1.0 - 1.5 oz/gal",
+			"Sodium Hydroxide" : "15 - 18 oz/gal",
+			"Carbonates"       : "< 10 oz/gal",
+		},
+		lineNumber         : 1706,
+		applicationType    : "Electro-Plating",
+		temp               : "70 - 100°F",
+		immersion          : "",
+		tankSize           : {
+			lngth          : 142 + '"',
+			width          : 54.5 + '"',
+			depth          : 26 + '"' + ' (sol level)',
+			capacity       : "1165 gallons"		
 		},
 		tankMaterial   : "Steel w/Liner",
 		heatMethod     : "Steam Boiler",
