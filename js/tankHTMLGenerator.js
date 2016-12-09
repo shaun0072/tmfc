@@ -44,7 +44,7 @@ function Tank(tid) {
 			html += '<div class="tank_id">';
 				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank" href="#">'
 				html += this.lineNumber;
-				html += '</a></span><span>';
+				html += '</a></span><span class="applicationType">';
 				html += this.applicationType;
 				html += '</span></h1>';
 				html += '<div class="last_made-up"><span class="number">';

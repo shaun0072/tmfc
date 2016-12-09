@@ -493,6 +493,8 @@ body {
     padding: 5px 0; }
   .tank_id span.tank_number {
     display: table-cell; }
+  .tank_id span.applicationType {
+    font-size: 30px; }
   .tank_id .last_made-up {
     position: absolute;
     bottom: -27px;
