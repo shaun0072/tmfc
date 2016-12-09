@@ -18,9 +18,10 @@ button:focus {
 .btns_section {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
 	.test_btns_container {
-		margin: 20px auto;
+		margin: 30px 0px 10px 40px;
+		font-size: 13px;
 	}
 	.add_remove_btns_container {
 		margin-left: calc(100% - 102px);

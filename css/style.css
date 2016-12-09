@@ -472,11 +472,14 @@ body {
   .tank .process_control li {
     font-size: 0.7em;
     color: grey; }
-  .tank .process_control li span {
+  .tank .process_control li span.propValue {
     color: tomato; }
 
 .data {
   font-size: 0.875em; }
+
+body {
+  margin-bottom: 50px; }
 
 .tank {
   border-top: 2px solid black;
@@ -518,6 +521,17 @@ body {
     padding: 2px 10px 0; }
   .process_control ul {
     display: none; }
+
+.tmfc_control_parameters_list li {
+  display: flex;
+  flex-wrap: wrap; }
+  .tmfc_control_parameters_list li .propName {
+    display: inline-block;
+    color: black;
+    flex-basis: 50%;
+    text-align: right; }
+  .tmfc_control_parameters_list li .propValue {
+    display: inline-block; }
 
 .data_records_list li {
   border: 1px solid grey;
@@ -726,9 +740,10 @@ button:focus {
 .btns_section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; }
+  justify-content: flex-start; }
   .btns_section .test_btns_container {
-    margin: 20px auto; }
+    margin: 30px 0px 10px 40px;
+    font-size: 13px; }
   .btns_section .add_remove_btns_container {
     margin-left: calc(100% - 102px); }
     .btns_section .add_remove_btns_container .plus {
@@ -803,7 +818,6 @@ button.minus:after {
   font-style: italic; }
 
 .wrapper {
-  margin: 0 auto 50px;
   padding: 0 40px 0;
   max-width: 800px; }
 

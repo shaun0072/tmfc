@@ -58,10 +58,10 @@ function Tank(tid) {
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
-						html += '<li>Temperature Range: <span>';
+						html += '<li><span class="propName">Temperature Range: </span><span class="propValue">';
 						html += this.requiredTemp;
 						html += '</span></li>';
-						html += '<li>Agitation: <span>';
+						html += '<li><span class="propName">Agitation: </span><span class="propValue">';
 						html += this.agitationLevel + this.agitationType;
 						html += '</span></li>';
 					html += '</ul>';
