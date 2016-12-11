@@ -866,23 +866,79 @@ var t1706 = {
 	],
 	additions : [
 		{
-			date : "10/05/2016",
+			date : new Date("12/03/2016"),
 			component : {
-				ssp140 : 50
+				"Zinc Hydroxide" : [10, "gal"],
+				"NaOH"           : [100, "lbs"]
 			}
 		},
 		{
-			date : "09/27/2016",
+			date : new Date("10/31/2016"),
 			component : {
-				ssp140 : 50
+				"NaOH"           : [50, "lbs"]
 			}
 		},
 		{
-			date : "09/20/2016",
+			date : new Date("10/12/2016"),
 			component : {
-				ssp140 : 50
+				"Zinc Hydroxide" : [10, "gal"],
 			}
-		}
+		},
+		{
+			date : new Date("09/26/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("09/12/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/25/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/18/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/10/2016"),
+			component : {
+				"Zinc Hydroxide" : [10, "gal"],
+			}
+		},
+		{
+			date : new Date("08/04/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/01/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("07/25/2016"),
+			component : {
+				"NaOH"           : [100, "lbs"]
+			}
+		},
+		{
+			date : new Date("07/12/2016"),
+			component : {
+				"Zinc Hydroxide" : [10, "gal"],
+			}
+		},
+		
 	]	
 };
 var t1709 = {

@@ -522,17 +522,6 @@ body {
   .process_control ul {
     display: none; }
 
-.tmfc_control_parameters_list li {
-  display: flex;
-  flex-wrap: wrap; }
-  .tmfc_control_parameters_list li .propName {
-    display: inline-block;
-    color: black;
-    flex-basis: 50%;
-    text-align: right; }
-  .tmfc_control_parameters_list li .propValue {
-    display: inline-block; }
-
 .data_records_list li {
   border: 1px solid grey;
   padding: 5px 10px 5px 28px;

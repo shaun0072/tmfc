@@ -5201,23 +5201,79 @@ var t1706 = {
 	],
 	additions : [
 		{
-			date : "10/05/2016",
+			date : new Date("12/03/2016"),
 			component : {
-				ssp140 : 50
+				"Zinc Hydroxide" : [10, "gal"],
+				"NaOH"           : [100, "lbs"]
 			}
 		},
 		{
-			date : "09/27/2016",
+			date : new Date("10/31/2016"),
 			component : {
-				ssp140 : 50
+				"NaOH"           : [50, "lbs"]
 			}
 		},
 		{
-			date : "09/20/2016",
+			date : new Date("10/12/2016"),
 			component : {
-				ssp140 : 50
+				"Zinc Hydroxide" : [10, "gal"],
 			}
-		}
+		},
+		{
+			date : new Date("09/26/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("09/12/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/25/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/18/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/10/2016"),
+			component : {
+				"Zinc Hydroxide" : [10, "gal"],
+			}
+		},
+		{
+			date : new Date("08/04/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("08/01/2016"),
+			component : {
+				"NaOH"           : [50, "lbs"]
+			}
+		},
+		{
+			date : new Date("07/25/2016"),
+			component : {
+				"NaOH"           : [100, "lbs"]
+			}
+		},
+		{
+			date : new Date("07/12/2016"),
+			component : {
+				"Zinc Hydroxide" : [10, "gal"],
+			}
+		},
+		
 	]	
 };
 var t1709 = {
@@ -5316,7 +5372,7 @@ function Tank(tid) {
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
-						html += '<li><span class="propName">Temperature Range: </span><span class="propValue">';
+						html += '<li><span class="propName">Temperature: </span><span class="propValue">';
 						html += this.requiredTemp;
 						html += '</span></li>';
 						html += '<li><span class="propName">Agitation: </span><span class="propValue">';
@@ -5350,12 +5406,14 @@ function Tank(tid) {
 						
 						
 						if(tid.additions !== undefined) {
-							html += '<li>';
+							html += '<a href ="';
+							html += this.lineNumber;
+							html += 'add.html"><li>';
 							html += '<svg>';
 								html += '<use xlink:href="#record-keeping-icon"></use>';
 							html += '</svg>';
 							html += 'Chemical Additions Log';
-							html += '</li>';	
+							html += '</li></a>';	
 						}
 						
 						html += '<li>';
@@ -5441,7 +5499,7 @@ function Tank(tid) {
 		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date') {
 			var analysisList = '<li>';
 				analysisList += key;
-				analysisList += ' : <span>';
+				analysisList += ' : <span class="propValue">';
 				analysisList += tid.analysis[0][key];
 				analysisList += '</span></li>'; 
 			$('.current_state_list').append(analysisList);
@@ -5709,4 +5767,50 @@ $('.test_btns_container').on('click', 'button', function() {
 	$('.test_btns_container button').removeClass('active');
 	$(this).addClass('active');
 })
+var numberOfAdds;
+	  
+function AdditionsTable(tank, component, unit) {
+
+	this.component = component;
+	this.unit      = unit;
+	
+	var  tableHeader  = '<div class="wrapper">';
+		  tableHeader +=  '<div class="table">',				
+		  tableHeader +=	'<div class="row header">',
+		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=		'Date',
+		  tableHeader +=	  '</div>',
+		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=		this.component + ' (' + this.unit +')',
+		  tableHeader +=	  '</div>',
+		  tableHeader +=	'</div>',
+		  tableHeader +=	'</div>', //close table
+		  tableHeader += '</div>'; //close wrapper	
+	  
+	$('body').append(tableHeader);
+	  
+	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
+		var tableData = '';	
+		for(var key in tank.additions[i].component) { //Cycle through each key in the component object			
+			if(key === this.component) {							
+				tableData +=	'<div class="row">';
+				tableData +=	  '<div class="cell">';
+				tableData +=		moment(tank.additions[i].date).format('l');
+				tableData +=	  '</div>';
+				tableData +=	  '<div class="cell">';
+				tableData +=		tank.additions[i].component[key][0];
+				tableData +=	  '</div>';
+				tableData +=	'</div>';
+								
+				$('.table').append(tableData);
+			}	
+		}
+	}  
+
+ 
+}	  
+	  
+function createAddTable(tankNumber, component, unit) {
+	new AdditionsTable(tankNumber, component, unit);
+}
 //# sourceMappingURL=app.js.map

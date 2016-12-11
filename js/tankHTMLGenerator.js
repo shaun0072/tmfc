@@ -58,7 +58,7 @@ function Tank(tid) {
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
-						html += '<li><span class="propName">Temperature Range: </span><span class="propValue">';
+						html += '<li><span class="propName">Temperature: </span><span class="propValue">';
 						html += this.requiredTemp;
 						html += '</span></li>';
 						html += '<li><span class="propName">Agitation: </span><span class="propValue">';
@@ -92,12 +92,14 @@ function Tank(tid) {
 						
 						
 						if(tid.additions !== undefined) {
-							html += '<li>';
+							html += '<a href ="';
+							html += this.lineNumber;
+							html += 'add.html"><li>';
 							html += '<svg>';
 								html += '<use xlink:href="#record-keeping-icon"></use>';
 							html += '</svg>';
 							html += 'Chemical Additions Log';
-							html += '</li>';	
+							html += '</li></a>';	
 						}
 						
 						html += '<li>';
@@ -183,7 +185,7 @@ function Tank(tid) {
 		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date') {
 			var analysisList = '<li>';
 				analysisList += key;
-				analysisList += ' : <span>';
+				analysisList += ' : <span class="propValue">';
 				analysisList += tid.analysis[0][key];
 				analysisList += '</span></li>'; 
 			$('.current_state_list').append(analysisList);
