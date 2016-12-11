@@ -4690,68 +4690,135 @@ var t1706 = {
 			date   : new Date("12/01/2016"),
 			Zinc   : 1.46, 
 			NaOH   : 15.48,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM"   : 81
+			}
 		},
 		{
 			date   : new Date("11/28/2016"),
 			Zinc   : 1.74, 
 			NaOH   : 16.43,
+			temp   : {
+				"8:00AM" : 61,
+				"11:30AM": 70,
+				"3:00PM"   : 75
+			}
 		},
 		{
 			date   : new Date("11/23/2016"),
 			Zinc   : 1.31, 
 			NaOH   : 16.32,
+			temp   : {
+				"8:00AM" : 68,
+				"11:30AM": 72,
+				"3:00PM"   : 73
+			}
 		},	
 		{
 			date   : new Date("11/21/2016"),
 			Zinc   : 1.34, 
 			NaOH   : 16.43,
+			temp   : {
+				"8:00AM" : 70,
+				"11:30AM": 77,
+				"3:00PM"   : 80
+			}
 		},	
 		{
 			date   : new Date("11/17/2016"),
 			Zinc   : 1.39, 
 			NaOH   : 16.43,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+			}
 		},	
 		{
 			date   : new Date("11/14/2016"),
 			Zinc   : 1.48, 
 			NaOH   : 16.64,
+			temp   : {
+				"8:00AM" : 72,
+			}
 		},
 		{
 			date   : new Date("11/10/2016"),
 			Zinc   : 1.39, 
 			NaOH   : 16.54,
+			temp   : {
+				"8:00AM" : 75,
+				"11:30AM": 79,
+				"3:00PM"   : 85
+			}
 		},	
 		{
 			date   : new Date("11/09/2016"),
 			Zinc   : 1.46, 
+			temp   : {
+				"8:00AM" : 76,
+				"11:30AM": 81,
+				"3:00PM"   : 81
+			}
 		},	
 		{
 			date   : new Date("11/07/2016"),
 			Zinc   : 1.50, 
 			NaOH   : 17.07,
+			temp   : {
+				"8:00AM" : 73,
+				"11:30AM": 76,
+				"3:00PM"   : 82
+			}
 		},
 		{
 			date   : new Date("11/03/2016"),
 			Zinc   : 1.39, 
 			NaOH   : 16.96,
+			temp   : {
+				"8:00AM" : 80,
+				"11:30AM": 77,
+				"3:00PM"   : 81
+			}
 		},
 		{
 			date   : new Date("11/02/2016"),
 			Zinc   : 1.34, 
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM"   : 81
+			}
 		},
 		{
 			date   : new Date("10/31/2016"),
 			Zinc   : 1.77, 
 			NaOH   : 16.11,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM"   : 81
+			}
 		},
 		{
 			date   : new Date("10/27/2016"),
 			Zinc   : 1.39, 
 			NaOH   : 16.43,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM"   : 81
+			}
 		},
 		{
 			date   : new Date("10/26/2016"),
 			Zinc   : 1.43, 
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM"   : 81
+			}
 		},
 		{
 			date   : new Date("10/24/2016"),
@@ -5274,7 +5341,8 @@ var t1706 = {
 			}
 		},
 		
-	]	
+	],
+	
 };
 var t1709 = {
 	
@@ -5416,12 +5484,14 @@ function Tank(tid) {
 							html += '</li></a>';	
 						}
 						
-						html += '<li>';
+						html += '<a href="';
+						html += this.lineNumber;
+						html += 'tempph.html"><li>';
 						html += '<svg>';
 							html +='<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
 						html += 'Temp/pH Log';
-						html += '</li>';
+						html += '</li></a>';
 					html += '</ul>';
 				html += '</div>';
 			html += '</div>';
@@ -5786,7 +5856,7 @@ function AdditionsTable(tank, component, unit) {
 		  tableHeader +=	'</div>',
 		  tableHeader +=	'</div>', //close table
 		  tableHeader += '</div>'; //close wrapper	
-	  
+	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
 	  
 	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
@@ -5812,5 +5882,64 @@ function AdditionsTable(tank, component, unit) {
 	  
 function createAddTable(tankNumber, component, unit) {
 	new AdditionsTable(tankNumber, component, unit);
+}
+var numberOfAdds;
+	  
+function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
+
+	this.reading = reading;
+	this.unit    = unit;
+	
+	var  tableHeader  = '<div class="wrapper">';
+		  tableHeader +=  '<div class="table">',				
+		  tableHeader +=	'<div class="row header">',
+		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=		'Date',
+		  tableHeader +=	  '</div>',
+		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=		'Time',
+		  tableHeader +=	  '</div>',
+		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=		this.reading + ' (' + this.unit +')',
+		  tableHeader +=	  '</div>',
+		  tableHeader +=	'</div>',
+		  tableHeader +=	'</div>', //close table
+		  tableHeader += '</div>'; //close wrapper	
+	$('.wrapper').remove(); 
+	$('body').append(tableHeader);
+	  
+	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
+		
+		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
+			var tableData = '';	
+			tableData +=	'<div class="row">';
+			tableData +=	  '<div class="cell">';
+			
+			console.log($('.table .row:last-of-type .cell:nth-last-of-type(2)').text() + 'nth');
+			console.log(moment(tank.analysis[i].date).format('l'));
+			if($('.table .row:last-of-type .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l') || $('.table .row:nth-last-of-type(2) .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l')) {
+				tableData += '';
+			} else {
+				tableData += moment(tank.analysis[i].date).format('l');
+			}
+						
+			tableData +=	  '</div>';
+			tableData +=	  '<div class="cell">';
+			tableData +=		key;
+			tableData +=	  '</div>';
+			tableData +=	  '<div class="cell">';
+			tableData +=		tank.analysis[i][this.reading][key];
+			tableData +=	  '</div>';
+			tableData +=	'</div>';
+							
+			$('.table').append(tableData);
+		}
+	}  
+
+ 
+}	  
+	  
+function createtempPhTable(tankNumber, reading, unit) {
+	new TempPhTable(tankNumber, reading, unit);
 }
 //# sourceMappingURL=app.js.map

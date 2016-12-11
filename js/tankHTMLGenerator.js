@@ -102,12 +102,14 @@ function Tank(tid) {
 							html += '</li></a>';	
 						}
 						
-						html += '<li>';
+						html += '<a href="';
+						html += this.lineNumber;
+						html += 'tempph.html"><li>';
 						html += '<svg>';
 							html +='<use xlink:href="#record-keeping-icon"></use>';
 						html += '</svg>';
 						html += 'Temp/pH Log';
-						html += '</li>';
+						html += '</li></a>';
 					html += '</ul>';
 				html += '</div>';
 			html += '</div>';

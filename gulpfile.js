@@ -25,7 +25,8 @@ gulp.task("concatScripts", function() {
 		'js/tankHTMLGenerator.js',
 		'js/slide-toggle.js',
 		'js/chartGenerator.js',
-		'js/addTableGenerator.js'])
+		'js/addTableGenerator.js',
+		'js/tempPhGenerator.js'])
     .pipe(maps.init())
     .pipe(concat('app.js'))
     .pipe(maps.write('./'))

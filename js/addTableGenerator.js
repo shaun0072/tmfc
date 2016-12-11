@@ -17,7 +17,7 @@ function AdditionsTable(tank, component, unit) {
 		  tableHeader +=	'</div>',
 		  tableHeader +=	'</div>', //close table
 		  tableHeader += '</div>'; //close wrapper	
-	  
+	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
 	  
 	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
