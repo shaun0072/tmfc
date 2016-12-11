@@ -323,7 +323,41 @@ var t1706 = {
 			unit       : "oz/gal",
 			makeupAt   : "1.3",
 			amount     : "69 gallons"
-			}
+			},
+			{
+			component  : "NaOH",
+			unit       : "oz/gal",
+			makeupAt   : "16.0",
+			amount     : "1,165 lbs"
+			},
+			{
+			component  : "Gleam A",
+			unit       : "%",
+			makeupAt   : "1",
+			amount     : "11.5 gal"
+			},
+			{
+			component  : "Gleam B",
+			unit       : "%",
+			makeupAt   : "0.75",
+			amount     : "8.5 gal"
+			},
+			{
+			component  : "Purifier",
+			unit       : "%",
+			makeupAt   : "0.1",
+			amount     : "4500 mls"
+			},
+			{
+			component  : "NCZ Conditioner",
+			unit       : "lbs",
+			makeupAt   : "",
+			amount     : "50 lbs"
+			},
+			{
+			component  : "Iron",
+			unit       : "ppm",
+			},
 		]
 	},
 	tmfcParameters : {

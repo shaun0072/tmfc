@@ -125,7 +125,7 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
-
+		
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -133,18 +133,12 @@ function Tank(tid) {
 			  html += this.applicationType;
 			  html += '</span> Makeup</h1>';
 			  html += '<p style="font-weight:bold">Components</p>';
-			  html += '<p class="tankTable"><span class="data">';
-			  html += this.componentName;
-			  html += '<span class="data">';
-			  html += '</span>(@ ';
-			  html += this.makeupAt + this.componentUnit;
-			  html += '</span>): <span class="data">';
-			  html += this.componentAmount;
-			  html += '</span></p>';
-			  html += '<br>';
-			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
+/* 			  html += '<br>';
+			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>'; */
 			html += '</div>';
 		html += '</div>';
+		
+		
 
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
@@ -184,7 +178,7 @@ function Tank(tid) {
 	$('body').append(html);
 	
 	for(var key in tid.analysis[0]) {
-		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date') {
+		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
 			var analysisList = '<li>';
 				analysisList += key;
 				analysisList += ' : <span class="propValue">';
@@ -203,6 +197,27 @@ function Tank(tid) {
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};
+	for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
+		var component = '';
+		var unit = '';
+		var amount = '';
+		var makeupAt = '';
+		var html = '';			
+		if(tid.makeup.components[i].makeupAt) { //If components object has makeupAt property			
+			component = tid.makeup.components[i].component; //set component key, unit key and amount key
+			unit = tid.makeup.components[i].unit;
+			amount = tid.makeup.components[i].amount;
+			makeupAt = tid.makeup.components[i].makeupAt;
+			html = '<p class="tankTable"><span class="data">';
+			  html += component;
+			  html += ': </span><span class="data">'
+			  html += amount;
+			  html += ' <span class="data">(';
+			  html += makeupAt + unit;
+			  html += ')</span></span></p>';
+			$('div[data-remodal-id="modal-makeup"]').append(html); //Append HTML to data-remodal-id="modal-makeup"
+		}
+	}
 }
 
 

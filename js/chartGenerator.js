@@ -48,14 +48,17 @@ function MakeChart(tankNumber, testName, unit) {
 	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
+		applicationColor = "rgba(39, 93, 173, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+		applicationColor = "rgba(145,139,118, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
+		applicationColor = "rgba(75,0,130, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
+		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header').css('background', applicationColor);
 	};
 	
@@ -165,14 +168,17 @@ function MakeChart(tankNumber, testName, unit) {
 	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
+		applicationColor = "rgba(39, 93, 173, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+		applicationColor = "rgba(145,139,118, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
+		applicationColor = "rgba(75,0,130, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
+		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header').css('background', applicationColor);
 	};
 		

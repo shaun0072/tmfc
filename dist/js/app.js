@@ -4658,7 +4658,41 @@ var t1706 = {
 			unit       : "oz/gal",
 			makeupAt   : "1.3",
 			amount     : "69 gallons"
-			}
+			},
+			{
+			component  : "NaOH",
+			unit       : "oz/gal",
+			makeupAt   : "16.0",
+			amount     : "1,165 lbs"
+			},
+			{
+			component  : "Gleam A",
+			unit       : "%",
+			makeupAt   : "1",
+			amount     : "11.5 gal"
+			},
+			{
+			component  : "Gleam B",
+			unit       : "%",
+			makeupAt   : "0.75",
+			amount     : "8.5 gal"
+			},
+			{
+			component  : "Purifier",
+			unit       : "%",
+			makeupAt   : "0.1",
+			amount     : "4500 mls"
+			},
+			{
+			component  : "NCZ Conditioner",
+			unit       : "lbs",
+			makeupAt   : "",
+			amount     : "50 lbs"
+			},
+			{
+			component  : "Iron",
+			unit       : "ppm",
+			},
 		]
 	},
 	tmfcParameters : {
@@ -5507,7 +5541,7 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
-
+		
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -5515,18 +5549,12 @@ function Tank(tid) {
 			  html += this.applicationType;
 			  html += '</span> Makeup</h1>';
 			  html += '<p style="font-weight:bold">Components</p>';
-			  html += '<p class="tankTable"><span class="data">';
-			  html += this.componentName;
-			  html += '<span class="data">';
-			  html += '</span>(@ ';
-			  html += this.makeupAt + this.componentUnit;
-			  html += '</span>): <span class="data">';
-			  html += this.componentAmount;
-			  html += '</span></p>';
-			  html += '<br>';
-			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
+/* 			  html += '<br>';
+			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>'; */
 			html += '</div>';
 		html += '</div>';
+		
+		
 
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
@@ -5566,7 +5594,7 @@ function Tank(tid) {
 	$('body').append(html);
 	
 	for(var key in tid.analysis[0]) {
-		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date') {
+		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
 			var analysisList = '<li>';
 				analysisList += key;
 				analysisList += ' : <span class="propValue">';
@@ -5585,6 +5613,27 @@ function Tank(tid) {
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};
+	for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
+		var component = '';
+		var unit = '';
+		var amount = '';
+		var makeupAt = '';
+		var html = '';			
+		if(tid.makeup.components[i].makeupAt) { //If components object has makeupAt property			
+			component = tid.makeup.components[i].component; //set component key, unit key and amount key
+			unit = tid.makeup.components[i].unit;
+			amount = tid.makeup.components[i].amount;
+			makeupAt = tid.makeup.components[i].makeupAt;
+			html = '<p class="tankTable"><span class="data">';
+			  html += component;
+			  html += ': </span><span class="data">'
+			  html += amount;
+			  html += ' <span class="data">(';
+			  html += makeupAt + unit;
+			  html += ')</span></span></p>';
+			$('div[data-remodal-id="modal-makeup"]').append(html); //Append HTML to data-remodal-id="modal-makeup"
+		}
+	}
 }
 
 
@@ -5659,14 +5708,17 @@ function MakeChart(tankNumber, testName, unit) {
 	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
+		applicationColor = "rgba(39, 93, 173, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+		applicationColor = "rgba(145,139,118, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
+		applicationColor = "rgba(75,0,130, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
+		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header').css('background', applicationColor);
 	};
 	
@@ -5776,14 +5828,17 @@ function MakeChart(tankNumber, testName, unit) {
 	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
+		applicationColor = "rgba(39, 93, 173, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+		applicationColor = "rgba(145,139,118, 0.8)";
 		$('.row.header').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
+	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
+		applicationColor = "rgba(75,0,130, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
+		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header').css('background', applicationColor);
 	};
 		
@@ -5858,7 +5913,30 @@ function AdditionsTable(tank, component, unit) {
 		  tableHeader += '</div>'; //close wrapper	
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
-	  
+	
+	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
+		applicationColor = "rgba(244,211,94, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
+		applicationColor = "rgba(112, 163, 127, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Rinse") {
+		applicationColor = "rgba(39, 93, 173, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Chromate") {
+		applicationColor = "rgba(145,139,118, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Seal") {
+		applicationColor = "rgba(75,0,130, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
+		applicationColor = "rgba(238,235,208, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	};  
+	 
 	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
 		var tableData = '';	
 		for(var key in tank.additions[i].component) { //Cycle through each key in the component object			
@@ -5883,8 +5961,6 @@ function AdditionsTable(tank, component, unit) {
 function createAddTable(tankNumber, component, unit) {
 	new AdditionsTable(tankNumber, component, unit);
 }
-var numberOfAdds;
-	  
 function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 
 	this.reading = reading;
@@ -5905,18 +5981,42 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		  tableHeader +=	'</div>',
 		  tableHeader +=	'</div>', //close table
 		  tableHeader += '</div>'; //close wrapper	
+		  
+	
+	
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
-	  
+	
+	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
+		applicationColor = "rgba(244,211,94, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
+		applicationColor = "rgba(112, 163, 127, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Rinse") {
+		applicationColor = "rgba(39, 93, 173, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Chromate") {
+		applicationColor = "rgba(145,139,118, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Seal") {
+		applicationColor = "rgba(75,0,130, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
+		applicationColor = "rgba(238,235,208, 0.8)";
+		$('.row.header').css('background', applicationColor);
+	};  
+	
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
 		
 		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
 			var tableData = '';	
 			tableData +=	'<div class="row">';
 			tableData +=	  '<div class="cell">';
-			
-			console.log($('.table .row:last-of-type .cell:nth-last-of-type(2)').text() + 'nth');
-			console.log(moment(tank.analysis[i].date).format('l'));
+
 			if($('.table .row:last-of-type .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l') || $('.table .row:nth-last-of-type(2) .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l')) {
 				tableData += '';
 			} else {
