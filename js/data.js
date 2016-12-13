@@ -4,7 +4,7 @@ var t1701 = {
 		date : new Date("September 30, 2016"),
 		components: [
 			{
-			component  : "SSP-140",
+			component  : "Cleaner SSP-140",
 			unit       : "oz/gal",
 			makeupAt   : "11",
 			amount     : "310 pounds"
@@ -238,6 +238,9 @@ var t1704 = {
 		]
 	},
 	tmfcParameters : {
+		concentrations     : {
+			"Hydrochloric Acid" : "25 - 30%"
+		},
 		lineNumber     : 1704,
 		applicationType: "Acid Pickle",
 		temp           : "Ambient",
@@ -319,31 +322,31 @@ var t1706 = {
 		date : new Date("July 5, 2016"),
 		components: [
 			{
-			component  : "Zinc",
+			component  : "Zinc Sol 2272",
 			unit       : "oz/gal",
 			makeupAt   : "1.3",
 			amount     : "69 gallons"
 			},
 			{
-			component  : "NaOH",
+			component  : "Sodium Hydroxide",
 			unit       : "oz/gal",
 			makeupAt   : "16.0",
 			amount     : "1,165 lbs"
 			},
 			{
-			component  : "Gleam A",
+			component  : "Havastar ZN Gleam A",
 			unit       : "%",
 			makeupAt   : "1",
 			amount     : "11.5 gal"
 			},
 			{
-			component  : "Gleam B",
+			component  : "Havastar ZN Gleam B",
 			unit       : "%",
 			makeupAt   : "0.75",
 			amount     : "8.5 gal"
 			},
 			{
-			component  : "Purifier",
+			component  : "Havtech ZN Purifier",
 			unit       : "%",
 			makeupAt   : "0.1",
 			amount     : "4500 mls"
@@ -371,9 +374,9 @@ var t1706 = {
 		temp               : "70 - 100°F",
 		immersion          : "",
 		tankSize           : {
-			lngth          : 142 + '"',
-			width          : 54.5 + '"',
-			depth          : 26 + '"' + ' (sol level)',
+			lngth          : '142\"',
+			width          : '54.5"',
+			depth          : '26"' + ' (sol. level)',
 			capacity       : "1165 gallons"		
 		},
 		tankMaterial   : "Steel w/Liner",

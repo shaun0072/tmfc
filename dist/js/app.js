@@ -4339,7 +4339,7 @@ var t1701 = {
 		date : new Date("September 30, 2016"),
 		components: [
 			{
-			component  : "SSP-140",
+			component  : "Cleaner SSP-140",
 			unit       : "oz/gal",
 			makeupAt   : "11",
 			amount     : "310 pounds"
@@ -4573,6 +4573,9 @@ var t1704 = {
 		]
 	},
 	tmfcParameters : {
+		concentrations     : {
+			"Hydrochloric Acid" : "25 - 30%"
+		},
 		lineNumber     : 1704,
 		applicationType: "Acid Pickle",
 		temp           : "Ambient",
@@ -4654,31 +4657,31 @@ var t1706 = {
 		date : new Date("July 5, 2016"),
 		components: [
 			{
-			component  : "Zinc",
+			component  : "Zinc Sol 2272",
 			unit       : "oz/gal",
 			makeupAt   : "1.3",
 			amount     : "69 gallons"
 			},
 			{
-			component  : "NaOH",
+			component  : "Sodium Hydroxide",
 			unit       : "oz/gal",
 			makeupAt   : "16.0",
 			amount     : "1,165 lbs"
 			},
 			{
-			component  : "Gleam A",
+			component  : "Havastar ZN Gleam A",
 			unit       : "%",
 			makeupAt   : "1",
 			amount     : "11.5 gal"
 			},
 			{
-			component  : "Gleam B",
+			component  : "Havastar ZN Gleam B",
 			unit       : "%",
 			makeupAt   : "0.75",
 			amount     : "8.5 gal"
 			},
 			{
-			component  : "Purifier",
+			component  : "Havtech ZN Purifier",
 			unit       : "%",
 			makeupAt   : "0.1",
 			amount     : "4500 mls"
@@ -4706,9 +4709,9 @@ var t1706 = {
 		temp               : "70 - 100°F",
 		immersion          : "",
 		tankSize           : {
-			lngth          : 142 + '"',
-			width          : 54.5 + '"',
-			depth          : 26 + '"' + ' (sol level)',
+			lngth          : '142\"',
+			width          : '54.5"',
+			depth          : '26"' + ' (sol. level)',
 			capacity       : "1165 gallons"		
 		},
 		tankMaterial   : "Steel w/Liner",
@@ -5419,9 +5422,6 @@ var t1709 = {
 function Tank(tid) {
 	this.makeupDate        = tid.makeup.date;
 	this.componentName     = tid.makeup.components[0].component;
-	this.componentUnit     = tid.makeup.components[0].unit;
-	this.makeupAt          = tid.makeup.components[0].makeupAt;
-	this.componentAmount   = tid.makeup.components[0].amount;
 	this.lineNumber        = tid.tmfcParameters.lineNumber;
 	this.applicationType   = tid.tmfcParameters.applicationType;
 	this.requiredTemp      = tid.tmfcParameters.temp;
@@ -5438,6 +5438,30 @@ function Tank(tid) {
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
 	
+	function addMakeupHTML() {
+		for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
+			var component = '';
+			var unit = '';
+			var amount = '';
+			var makeupAt = '';
+			var html = '';			
+			if(tid.makeup.components[i].makeupAt) { //If components object has makeupAt property			
+				component = tid.makeup.components[i].component; //set component key, unit key and amount key
+				unit = tid.makeup.components[i].unit;
+				amount = tid.makeup.components[i].amount;
+				makeupAt = tid.makeup.components[i].makeupAt;
+				html = '<p class="tankTable"><span class="data">';
+				  html += component;
+				  html += ': </span><span class="data">'
+				  html += amount;
+				  html += ' <span class="data">(';
+				  html += makeupAt + unit;
+				  html += ')</span></span></p>';
+				$('div[data-remodal-id="modal-makeup"]').append(html); //Append HTML to data-remodal-id="modal-makeup"
+			}
+		}
+		$('div[data-remodal-id="modal-makeup"]').append('<br><button data-remodal-action="confirm" class="remodal-confirm">OK</button>');
+	}
 	
 	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
 	var firstDate = new Date();
@@ -5468,7 +5492,9 @@ function Tank(tid) {
 				html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
 			html += '</div>';
 			html += '<ul class="tds_list">';
-				html += '<li><a data-remodal-target="modal-TDS" href="#">('+ this.componentName +')</a></li>';
+				html += '<li><a data-remodal-target="modal-TDS" href="#">';
+				html += '<img src="../assets/img/datasheet-icon.jpg">';
+				html += '</a></li>';
 			html += '</ul>';
 			html += '<div class="process_control">';
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -5545,12 +5571,9 @@ function Tank(tid) {
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
-			  html += '<h1><span>';
+			  html += '<h1 class="remodal_heading"><span>';
 			  html += this.applicationType;
 			  html += '</span> Makeup</h1>';
-			  html += '<p style="font-weight:bold">Components</p>';
-/* 			  html += '<br>';
-			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>'; */
 			html += '</div>';
 		html += '</div>';
 		
@@ -5559,7 +5582,7 @@ function Tank(tid) {
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
-			  html += '<h1>Container Specifications</h1>';
+			  html += '<h1 class="remodal_heading">Container Specifications</h1>';
 			  html += '<p class="tankTable"><span class="data">Capacity: </span><span class="data">';
 			  html += this.tankCapacity;
 			  html += '</span></p>';
@@ -5613,27 +5636,9 @@ function Tank(tid) {
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};
-	for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
-		var component = '';
-		var unit = '';
-		var amount = '';
-		var makeupAt = '';
-		var html = '';			
-		if(tid.makeup.components[i].makeupAt) { //If components object has makeupAt property			
-			component = tid.makeup.components[i].component; //set component key, unit key and amount key
-			unit = tid.makeup.components[i].unit;
-			amount = tid.makeup.components[i].amount;
-			makeupAt = tid.makeup.components[i].makeupAt;
-			html = '<p class="tankTable"><span class="data">';
-			  html += component;
-			  html += ': </span><span class="data">'
-			  html += amount;
-			  html += ' <span class="data">(';
-			  html += makeupAt + unit;
-			  html += ')</span></span></p>';
-			$('div[data-remodal-id="modal-makeup"]').append(html); //Append HTML to data-remodal-id="modal-makeup"
-		}
-	}
+	
+	
+	 addMakeupHTML();
 }
 
 
@@ -5701,25 +5706,25 @@ function MakeChart(tankNumber, testName, unit) {
 	
 	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
 		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
 		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
 		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
 		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	};
 	
 	
@@ -5821,25 +5826,25 @@ function MakeChart(tankNumber, testName, unit) {
 	}
 	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
 		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
 		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
 		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
 		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	};
 		
 	document.getElementById('addData').addEventListener('click', function() {
@@ -5906,7 +5911,7 @@ function AdditionsTable(tank, component, unit) {
 		  tableHeader +=		'Date',
 		  tableHeader +=	  '</div>',
 		  tableHeader +=	  '<div class="cell">',
-		  tableHeader +=		this.component + ' (' + this.unit +')',
+		  tableHeader +=		this.component,
 		  tableHeader +=	  '</div>',
 		  tableHeader +=	'</div>',
 		  tableHeader +=	'</div>', //close table
@@ -5916,25 +5921,25 @@ function AdditionsTable(tank, component, unit) {
 	
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Cleaner") {
 		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Rinse") {
 		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Chromate") {
 		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Seal") {
 		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	};  
 	 
 	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
@@ -5943,10 +5948,10 @@ function AdditionsTable(tank, component, unit) {
 			if(key === this.component) {							
 				tableData +=	'<div class="row">';
 				tableData +=	  '<div class="cell">';
-				tableData +=		moment(tank.additions[i].date).format('l');
+				tableData +=		moment(tank.additions[i].date).format('ll');
 				tableData +=	  '</div>';
 				tableData +=	  '<div class="cell">';
-				tableData +=		tank.additions[i].component[key][0];
+				tableData +=		tank.additions[i].component[key][0] + ' ' + this.unit;
 				tableData +=	  '</div>';
 				tableData +=	'</div>';
 								
@@ -5989,25 +5994,25 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 	
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Cleaner") {
 		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Rinse") {
 		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Chromate") {
 		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Seal") {
 		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	};  
 	
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array

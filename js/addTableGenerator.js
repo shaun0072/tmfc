@@ -12,7 +12,7 @@ function AdditionsTable(tank, component, unit) {
 		  tableHeader +=		'Date',
 		  tableHeader +=	  '</div>',
 		  tableHeader +=	  '<div class="cell">',
-		  tableHeader +=		this.component + ' (' + this.unit +')',
+		  tableHeader +=		this.component,
 		  tableHeader +=	  '</div>',
 		  tableHeader +=	'</div>',
 		  tableHeader +=	'</div>', //close table
@@ -22,25 +22,25 @@ function AdditionsTable(tank, component, unit) {
 	
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Cleaner") {
 		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
 		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Rinse") {
 		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Chromate") {
 		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Seal") {
 		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header').css('background', applicationColor);
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
 	};  
 	 
 	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
@@ -49,10 +49,10 @@ function AdditionsTable(tank, component, unit) {
 			if(key === this.component) {							
 				tableData +=	'<div class="row">';
 				tableData +=	  '<div class="cell">';
-				tableData +=		moment(tank.additions[i].date).format('l');
+				tableData +=		moment(tank.additions[i].date).format('ll');
 				tableData +=	  '</div>';
 				tableData +=	  '<div class="cell">';
-				tableData +=		tank.additions[i].component[key][0];
+				tableData +=		tank.additions[i].component[key][0] + ' ' + this.unit;
 				tableData +=	  '</div>';
 				tableData +=	'</div>';
 								

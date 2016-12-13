@@ -33,6 +33,9 @@ body {
 		float: right;
 		margin: 52px 10px 0 0;
 	}
+	img {
+		height: 45px;
+	}
 }
 .process_control{
 	margin: 30px 29px;
@@ -95,6 +98,9 @@ body {
 }
 .remodal {
 	padding: 35px 0;
+}
+.remodal_heading {
+	font-size: 1.5em;
 }
 .theLine {
 	background: white;
