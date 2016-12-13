@@ -5493,7 +5493,7 @@ function Tank(tid) {
 			html += '</div>';
 			html += '<ul class="tds_list">';
 				html += '<li><a data-remodal-target="modal-TDS" href="#">';
-				html += '<img src="../assets/img/datasheet-icon.jpg">';
+				html += '<img src="assets/img/datasheet-icon.jpg">';
 				html += '</a></li>';
 			html += '</ul>';
 			html += '<div class="process_control">';
