@@ -508,6 +508,8 @@ body {
   .tds_list li {
     float: right;
     margin: 52px 10px 0 0; }
+  .tds_list img {
+    height: 45px; }
 
 .process_control {
   margin: 30px 29px;
@@ -523,13 +525,21 @@ body {
     display: none; }
 
 .data_records_list li {
-  border: 1px solid grey;
   padding: 5px 10px 5px 28px;
-  border-radius: 100px;
-  margin: 5px 0;
-  background: whitesmoke;
+  border-radius: 11px;
+  margin: 9px 0;
+  background: #f2f2f2;
+  background: -moz-linear-gradient(top, #f2f2f2 0%, #d6d6d6 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #f2f2f2), color-stop(100%, #d6d6d6));
+  background: -webkit-linear-gradient(top, #f2f2f2 0%, #d6d6d6 100%);
+  background: -o-linear-gradient(top, #f2f2f2 0%, #d6d6d6 100%);
+  background: -ms-linear-gradient(top, #f2f2f2 0%, #d6d6d6 100%);
+  background: linear-gradient(to bottom, #f2f2f2 0%, #d6d6d6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#d6d6d6', GradientType=0 );
   position: relative;
-  cursor: pointer; }
+  cursor: pointer;
+  width: 80%;
+  box-shadow: 2px 6px 10px -2px rgba(0, 0, 0, 0.3); }
   .data_records_list li svg {
     height: 18px;
     width: 16px;
@@ -555,6 +565,9 @@ body {
 
 .remodal {
   padding: 35px 0; }
+
+.remodal_heading {
+  font-size: 1.5em; }
 
 .theLine {
   background: white; }
@@ -731,26 +744,22 @@ button:focus {
   flex-wrap: wrap;
   justify-content: flex-start; }
   .btns_section .test_btns_container {
-    margin: 30px 0px 10px 40px;
+    margin: 8px 0px 0 40px;
     font-size: 13px; }
   .btns_section .add_remove_btns_container {
-    margin-left: calc(100% - 102px); }
+    margin-left: calc(100% - 123px); }
     .btns_section .add_remove_btns_container .plus {
       margin-left: 20px; }
 
 .test_btns_container {
   display: flex; }
   .test_btns_container button {
-    padding: 5px 12px;
-    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-    background-image: linear-gradient(top, #f4f1ee, #fff);
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
+    background: rgba(186, 63, 29, 0.8);
+    padding: 7px 10px; }
     .test_btns_container button:first-of-type {
-      border-top-left-radius: 69px;
-      border-bottom-left-radius: 69px; }
+      border-top-left-radius: 5px; }
     .test_btns_container button:last-of-type {
-      border-top-right-radius: 69px;
-      border-bottom-right-radius: 69px; }
+      border-top-right-radius: 5px; }
 
 /********************Button Shit*****************************/
 .button {
@@ -803,7 +812,7 @@ button.minus:after {
   text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white; }
 
 .test_btns_container button.active {
-  color: grey;
+  color: white;
   font-style: italic; }
 
 .wrapper {
