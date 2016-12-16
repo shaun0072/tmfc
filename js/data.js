@@ -1,27 +1,17 @@
 var t1701 = {
-	
-	makeup : {
-		date : new Date("September 30, 2016"),
-		components: [
-			{
-			component  : "Cleaner SSP-140",
-			unit       : "oz/gal",
-			makeupAt   : "11",
-			amount     : "310 pounds"
-			}
-		]
-	},
 	tmfcParameters : {
+		concentrations     : {
+			"SSP-140" : ["8 - 11", ' oz/gal'],
+		},
 		lineNumber     : 1701,
-		applicationType: "Cleaner", //options are "Cleaner","Inorganic Cleaner", ""
-		temp           : "130 - 160°F",
-		conc           : "8 - 12 oz/gal",
-		immersion      : "> 3 min",
+		applicationType: "Cleaner",
+		temp           : "120 - 160°F",
+		immersion      : "3 - 10 min",
 		tankSize       : {
-			lngth      : "41\"",
-			width      : "28\"",
-			depth      : "32\" (sol level)",
-			capacity   : "450 gallons"
+			lngth      : "72\"",
+			width      : "56\"",
+			depth      : "25\" (sol. level)",
+			capacity   : "440 gallons"
 		
 		},
 		tankMaterial   : "Steel",
@@ -32,219 +22,110 @@ var t1701 = {
 		agitationType  : "Compressed Air",
 		TDS            : "Cleaner SSP-140 TDS.png"
 	},
-	analysis : [
-		{
-			date : new Date("2016-11-03"),
-			"SSP-140" : 10.26,
-			Activity : 87,
-			Saturation : 20
-		},
-		{
-			date : new Date("2016-10-27"),
-			"SSP-140" : 10.51, 
-			Activity : 88,
-			Saturation : 15
-		},
-		{
-			date : new Date("2016-10-20"),
-			"SSP-140" : 10.72, 
-			Activity : 90,
-			Saturation : 9
-		},
-		{
-			date : new Date("2016-10-14"),
-			"SSP-140" : 11.02, 
-			Activity : 95,
-			Saturation : 5
-		},
-		{
-			date : new Date("2016-10-05"),
-			"SSP-140" : 9.08, 
-			Activity : 97,
-			Saturation : 0
-		},
-				{
-			date : new Date("2016-09-26"),
-			"SSP-140" : 9.55, 
-			Activity : 85,
-			Saturation : 33
-		},
-				{
-			date : new Date("2016-09-21"),
-			"SSP-140" : 9.82, 
-			Activity : 85,
-			Saturation : 30
-		},
-				{
-			date : new Date("2016-09-14"),
-			"SSP-140" : 9.95, 
-			Activity : 83,
-			Saturation : 31
-		},
-				{
-			date : new Date("2016-09-06"),
-			"SSP-140" : 10.56, 
-			Activity : 84,
-			Saturation : 29
-		},
-				{
-			date : new Date("2016-09-01"),
-			"SSP-140" : 10.32, 
-			Activity : 85,
-			Saturation : 28
-		},
-				{
-			date : new Date("2016-08-22"),
-			"SSP-140" : 11.02, 
-			Activity : 86,
-			Saturation : 25
-		},
-				{
-			date : new Date("2016-08-16"),
-			"SSP-140" : 10.02, 
-			Activity : 87,
-			Saturation : 22
-		},
-				{
-			date : new Date("2016-08-11"),
-			"SSP-140" : 10.62, 
-			Activity : 88,
-			Saturation : 20
-		},
-	],
-	additions : [
-		{
-			date : new Date("2016-10-05"),
-			component : [
-				{	
-					ssp140 : 50,
-					unit   : "lbs"
-				}
-			]
-		},
-		{
-			date : "09/27/2016",
-			component : {
-				ssp140 : 50
-			}
-		},
-		{
-			date : "09/20/2016",
-			component : {
-				ssp140 : 50
-			}
-		}
-	]	
-};
-
-var t1702 = {
-	
 	makeup : {
-		date : new Date("September 30, 2016"),
+		date : new Date("October 1, 2016"),
 		components: [
 			{
-			component  : "Anokleen #2-S",
-			unit       : "oz/gal",
-			makeupAt   : "11",
-			amount     : "155 pounds"
+			component  : "Cleaner SSP-140",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "275 lbs"
 			}
 		]
 	},
-	tmfcParameters : {
-		lineNumber     : 1702,
-		applicationType: "Electro-Cleaner",
-		temp           : "130 - 160°F",
-		conc           : "8 - 12 oz/gal",
-		immersion      : "1 - 5 min",
-		tankSize       : {
-			lngth      : "21\"",
-			width      : "28\"",
-			depth      : "32\" (sol level)",
-			capacity   : "225 gallons"
-		
-		},
-		tankMaterial   : "Steel",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Carbon Steel",
-		coilType       : "Serpentine",
-		agitationLevel : "Mild - ",
-		agitationType  : "Compressed Air",
-		TDS            : "Anokleen2STDS.png"
-	},
 	analysis : [
 		{
-			date : "11/03/2016",
-			conc : 9.1, 
-			activity : 87,
-			saturation : 15
+			date : new Date("12/7/2016"),
+			"SSP-140"  : 9.81
 		},
 		{
-			date : "10/27/2016",
-			conc : 9.75, 
-			activity : 88,
-			saturation : 14
+			date : new Date("11/21/2016"),
+			"SSP-140"  : 10.01
 		},
 		{
-			date : "10/20/2016",
-			conc : 9.99, 
-			activity : 89,
-			saturation : 12
+			date : new Date("11/08/2016"),
+			"SSP-140"  : 10.64
 		},
 		{
-			date : "10/14/2016",
-			conc : 10.52, 
-			activity : 89,
-			saturation : 11
+			date : new Date("10/24/2016"),
+			"SSP-140": 9.2
 		},
 		{
-			date : "10/05/2016",
-			conc : 11.21, 
-			activity : 90,
-			saturation : 10
-		}
+			date : new Date("10/11/2016"),
+			"SSP-140": 8.13
+		},
+		{
+			date : new Date("10/3/2016"),
+			"SSP-140": 6.61
+		},
+		{
+			date : new Date("9/1/2016"),
+			"SSP-140": 8.36
+		},
+		{
+			date : new Date("8/17/2016"),
+			"SSP-140": 9.5
+		},
+		{
+			date : new Date("8/9/2016"),
+			"SSP-140": 9.5
+		},
+		{
+			date : new Date("7/21/2016"),
+			"SSP-140": 10.41
+		},
+		{
+			date : new Date("7/5/2016"),
+			"SSP-140": 8.22
+		},
 	],
 	additions : [
 		{
-			date : "10/05/2016",
+			date : new Date("10/24/2016"),
 			component : {
-				ssp140 : 50
+				"SSP-140" : [25, " lbs"],
 			}
 		},
 		{
-			date : "09/27/2016",
+			date : new Date("10/17/2016"),
 			component : {
-				ssp140 : 50
+				"SSP-140" : [25, " lbs"],
 			}
 		},
 		{
-			date : "09/20/2016",
+			date : new Date("10/11/2016"),
 			component : {
-				ssp140 : 50
+				"SSP-140" : [100, " lbs"],
 			}
-		}
+		},
+		{
+			date : new Date("10/24/2016"),
+			component : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+		{
+			date : new Date("8/9/2016"),
+			component : {
+				"SSP-140" : [15, " lbs"],
+			}
+		},
+		{
+			date : new Date("7/5/2016"),
+			component : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
 	]	
 };
 var t1704 = {
-	
-	makeup : {
-		date : new Date("November 04, 2016"),
-		components: [
-			{
-			component  : "Hydrochloric Acid",
-			unit       : "%",
-			makeupAt   : "25",
-			amount     : "110 gallons"
-			}
-		]
-	},
 	tmfcParameters : {
 		concentrations     : {
-			"Hydrochloric Acid" : "25 - 30%"
+			"HCL" : ["25 - 30", '%']
 		},
 		lineNumber     : 1704,
 		applicationType: "Acid Pickle",
 		temp           : "Ambient",
-		conc           : "25- 30%",
 		immersion      : "1 - 5 min",
 		tankSize       : {
 			lngth      : "58\"",
@@ -260,6 +141,17 @@ var t1704 = {
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
 		TDS            : ""
+	},
+	makeup : {
+		date : new Date("December 9, 2016"),
+		components: [
+			{
+			component  : "Hydrochloric Acid",
+			unit       : "%",
+			makeupAt   : "25",
+			amount     : "110 gallons"
+			}
+		]
 	},
 	analysis : [
 		{
@@ -319,12 +211,12 @@ var t1704 = {
 var t1706 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Zinc"             : ["1.0 - 1.5", "oz/gal"],
-			"NaOH"             : ["15 - 18", "oz/gal"],
-			"Carbonates"       : ["<10", "oz/gal"],
-			"Iron"             : ["<10", "ppm"],
-			"Chromium"         : ["<10", "ppm"],
-			"Copper"           : ["<2", "ppm"],
+			"Zinc"             : ["1.0 - 1.5", " oz/gal"],
+			"NaOH"             : ["15 - 18", " oz/gal"],
+			"Carbonates"       : ["<10", " oz/gal"],
+			"Iron"             : ["<10", " ppm"],
+			"Chromium"         : ["<10", " ppm"],
+
 		},
 		lineNumber         : 1706,
 		applicationType    : "Electro-Plating",
@@ -349,13 +241,13 @@ var t1706 = {
 		components: [
 			{
 			component  : "Zinc Sol 2272",
-			unit       : "oz/gal",
+			unit       : " oz/gal",
 			makeupAt   : "1.3",
 			amount     : "69 gallons"
 			},
 			{
 			component  : "Sodium Hydroxide",
-			unit       : "oz/gal",
+			unit       : " oz/gal",
 			makeupAt   : "16.0",
 			amount     : "1,165 lbs"
 			},
@@ -379,13 +271,13 @@ var t1706 = {
 			},
 			{
 			component  : "NCZ Conditioner",
-			unit       : "lbs",
+			unit       : " lbs",
 			makeupAt   : "",
 			amount     : "50 lbs"
 			},
 			{
 			component  : "Iron",
-			unit       : "ppm",
+			unit       : " ppm",
 			},
 		]
 	},
@@ -397,16 +289,17 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
 			date   : new Date("11/28/2016"),
 			Zinc   : 1.74, 
+			NaOH   : 16.43,
 			temp   : {
 				"8:00AM" : 61,
 				"11:30AM": 70,
-				"3:00PM"   : 75
+				"3:00PM" : 75
 			}
 		},
 		{
@@ -416,7 +309,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 68,
 				"11:30AM": 72,
-				"3:00PM"   : 73
+				"3:00PM" : 73
 			}
 		},	
 		{
@@ -426,7 +319,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 70,
 				"11:30AM": 77,
-				"3:00PM"   : 80
+				"3:00PM" : 80
 			}
 		},	
 		{
@@ -453,7 +346,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 75,
 				"11:30AM": 79,
-				"3:00PM"   : 85
+				"3:00PM" : 85
 			}
 		},	
 		{
@@ -462,7 +355,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 76,
 				"11:30AM": 81,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},	
 		{
@@ -472,7 +365,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 73,
 				"11:30AM": 76,
-				"3:00PM"   : 82
+				"3:00PM" : 82
 			}
 		},
 		{
@@ -482,7 +375,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 80,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -491,7 +384,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -501,7 +394,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -511,7 +404,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -520,7 +413,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -599,8 +492,8 @@ var t1706 = {
 			NaOH       : 16.8,
 			Carbonates : 4.9,
 			Iron       : 2.1,
-			Copper     : 1.6,
 			Chromium   : 1.4,
+			Copper     : 1.6,
 		},
 		{
 			date   : new Date("09/19/2016"),

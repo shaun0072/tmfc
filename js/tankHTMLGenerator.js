@@ -19,6 +19,7 @@ function Tank(tid) {
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
 	
+	/*DATA GENERATED WITHIN MAKE-UP MODAL*/
 	function addMakeupHTML() {
 		for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
 			var component = '';
@@ -35,7 +36,7 @@ function Tank(tid) {
 				  html += component;
 				  html += ': </span><span class="data">'
 				  html += amount;
-				  html += ' <span class="data">(';
+				  html += ' <span class="data parenthesis">(';
 				  html += makeupAt + unit;
 				  html += ')</span></span></p>';
 				$('div[data-remodal-id="modal-makeup"]').append(html); //Append HTML to data-remodal-id="modal-makeup"
@@ -138,6 +139,7 @@ function Tank(tid) {
 			html += '</div>';
 		html += '</div>';
 
+		/*TDS MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -149,6 +151,7 @@ function Tank(tid) {
 			html += '</div>';
 		html += '</div>';
 		
+		/*MAKE-UP MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -159,7 +162,7 @@ function Tank(tid) {
 		html += '</div>';
 		
 		
-
+		/*TANK SPECIFICATIONS MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -197,37 +200,44 @@ function Tank(tid) {
 	
 	$('body').append(html);
 	var nameHolder = [];
-	for(var i = 0; i < tid.analysis.length; i++) {
-		
-		for(var key in tid.analysis[i]) {
-			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
+	
+	/*LATEST ANALYSIS*/
+	for(var i = 0; i < tid.analysis.length; i++) {		//Cycle through each object in analysis array 
+		for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") { //If analysis has property equal to key, and is not date or temp
 				
 				var propertyName = key;
 				var propertyValue = tid.analysis[i][key];
-				var unit = tid.tmfcParameters.concentrations[key][1];
+				var unit;
+				if(tid.tmfcParameters.concentrations[key]) {
+					unit = tid.tmfcParameters.concentrations[key][1];
+				} else {
+					unit = '';
+				}
 				var date = moment(tid.analysis[i].date, 'DD').fromNow();
 				var analysisList = '<li>';
 					analysisList += propertyName;
 					analysisList += ' : <span class="propValue">';
-					analysisList += propertyValue + ' ' + unit + ' ';
+					analysisList += propertyValue + unit + ' ';
 					analysisList += '<span class="taken">(Taken ' + date + ')</span>';
 					analysisList += '</span></li>'; 
 					
-					if($.inArray(propertyName, nameHolder) === -1) {
+					if($.inArray(propertyName, nameHolder) === -1) { 
 						nameHolder.push(propertyName);
 						$('.current_state_list').append(analysisList);
 					}				
 			}
 		}
 	}
+	/*TMFC PARAMETERS*/
 	for(var key in tid.tmfcParameters.concentrations) {
 		var propertyName = key;
 		var	propertyValue = tid.tmfcParameters.concentrations[key][0];
-		var unit = tid.tmfcParameters.concentrations[key][1]
+		var unit = tid.tmfcParameters.concentrations[key][1];
 		var	html = '<li><span class="propName">';
 			html += propertyName;
 			html += ': </span><span class="propValue">';
-			html += propertyValue + ' ' + unit;
+			html += propertyValue + '' + unit;
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};

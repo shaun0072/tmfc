@@ -142,22 +142,27 @@ function MakeChart(tankNumber, testName, unit) {
 	};		
 		
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
-		var axisData = {};
+		if(i < numberOfAnalysis && this.testResult[i] !== undefined) {
 
-		axisData.x = this.date[i];
-		axisData.y = this.testResult[i];
-		
-		tableData  =	'<div class="row">';
-		tableData +=	  '<div class="cell">';
-		tableData +=		moment(this.date[i]).format("l");
-		tableData +=	  '</div>';
-		tableData +=	  '<div class="cell">';
-		tableData +=		this.testResult[i];
-		tableData +=	  '</div>';
-		tableData +=	'</div>';
-				
-		chartData.push(axisData);		
-		$('.table').append(tableData);		
+			var axisData = {};
+
+			axisData.x = this.date[i];
+			axisData.y = this.testResult[i];
+			
+			tableData  =	'<div class="row">';
+			tableData +=	  '<div class="cell">';
+			tableData +=		moment(this.date[i]).format("l");
+			tableData +=	  '</div>';
+			tableData +=	  '<div class="cell">';
+			tableData +=		this.testResult[i];
+			tableData +=	  '</div>';
+			tableData +=	'</div>';
+					
+			chartData.push(axisData);		
+			$('.table').append(tableData);
+		} else if(numberOfAnalysis < 100){
+			numberOfAnalysis += 1;
+		}
 	}
 	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";

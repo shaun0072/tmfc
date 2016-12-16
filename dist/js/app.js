@@ -4334,29 +4334,19 @@ function p(t,e){return void 0===e&&(e=void 0!==t[3]?t[3]:1),"hwb("+t[0]+", "+t[1
 i=0;7>i;++i)r=h([2e3,1]).day(i),this._minWeekdaysParse[i]=this.weekdaysMin(r,"").toLocaleLowerCase(),this._shortWeekdaysParse[i]=this.weekdaysShort(r,"").toLocaleLowerCase(),this._weekdaysParse[i]=this.weekdays(r,"").toLocaleLowerCase();return n?"dddd"===e?(a=ha.call(this._weekdaysParse,o),-1!==a?a:null):"ddd"===e?(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:null):(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:null):"dddd"===e?(a=ha.call(this._weekdaysParse,o),-1!==a?a:(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:null))):"ddd"===e?(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:(a=ha.call(this._weekdaysParse,o),-1!==a?a:(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:null))):(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:(a=ha.call(this._weekdaysParse,o),-1!==a?a:(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:null)))}function Vt(t,e,n){var i,a,r;if(this._weekdaysParseExact)return Wt.call(this,t,e,n);for(this._weekdaysParse||(this._weekdaysParse=[],this._minWeekdaysParse=[],this._shortWeekdaysParse=[],this._fullWeekdaysParse=[]),i=0;7>i;i++){if(a=h([2e3,1]).day(i),n&&!this._fullWeekdaysParse[i]&&(this._fullWeekdaysParse[i]=new RegExp("^"+this.weekdays(a,"").replace(".",".?")+"$","i"),this._shortWeekdaysParse[i]=new RegExp("^"+this.weekdaysShort(a,"").replace(".",".?")+"$","i"),this._minWeekdaysParse[i]=new RegExp("^"+this.weekdaysMin(a,"").replace(".",".?")+"$","i")),this._weekdaysParse[i]||(r="^"+this.weekdays(a,"")+"|^"+this.weekdaysShort(a,"")+"|^"+this.weekdaysMin(a,""),this._weekdaysParse[i]=new RegExp(r.replace(".",""),"i")),n&&"dddd"===e&&this._fullWeekdaysParse[i].test(t))return i;if(n&&"ddd"===e&&this._shortWeekdaysParse[i].test(t))return i;if(n&&"dd"===e&&this._minWeekdaysParse[i].test(t))return i;if(!n&&this._weekdaysParse[i].test(t))return i}}function Yt(t){if(!this.isValid())return null!=t?this:NaN;var e=this._isUTC?this._d.getUTCDay():this._d.getDay();return null!=t?(t=Ft(t,this.localeData()),this.add(t-e,"d")):e}function Bt(t){if(!this.isValid())return null!=t?this:NaN;var e=(this.day()+7-this.localeData()._week.dow)%7;return null==t?e:this.add(t-e,"d")}function zt(t){if(!this.isValid())return null!=t?this:NaN;if(null!=t){var e=At(t,this.localeData());return this.day(this.day()%7?e:e-7)}return this.day()||7}function Nt(t){return this._weekdaysParseExact?(d(this,"_weekdaysRegex")||Ut.call(this),t?this._weekdaysStrictRegex:this._weekdaysRegex):(d(this,"_weekdaysRegex")||(this._weekdaysRegex=wa),this._weekdaysStrictRegex&&t?this._weekdaysStrictRegex:this._weekdaysRegex)}function Ht(t){return this._weekdaysParseExact?(d(this,"_weekdaysRegex")||Ut.call(this),t?this._weekdaysShortStrictRegex:this._weekdaysShortRegex):(d(this,"_weekdaysShortRegex")||(this._weekdaysShortRegex=Sa),this._weekdaysShortStrictRegex&&t?this._weekdaysShortStrictRegex:this._weekdaysShortRegex)}function Et(t){return this._weekdaysParseExact?(d(this,"_weekdaysRegex")||Ut.call(this),t?this._weekdaysMinStrictRegex:this._weekdaysMinRegex):(d(this,"_weekdaysMinRegex")||(this._weekdaysMinRegex=Ma),this._weekdaysMinStrictRegex&&t?this._weekdaysMinStrictRegex:this._weekdaysMinRegex)}function Ut(){function t(t,e){return e.length-t.length}var e,n,i,a,r,o=[],s=[],l=[],u=[];for(e=0;7>e;e++)n=h([2e3,1]).day(e),i=this.weekdaysMin(n,""),a=this.weekdaysShort(n,""),r=this.weekdays(n,""),o.push(i),s.push(a),l.push(r),u.push(i),u.push(a),u.push(r);for(o.sort(t),s.sort(t),l.sort(t),u.sort(t),e=0;7>e;e++)s[e]=nt(s[e]),l[e]=nt(l[e]),u[e]=nt(u[e]);this._weekdaysRegex=new RegExp("^("+u.join("|")+")","i"),this._weekdaysShortRegex=this._weekdaysRegex,this._weekdaysMinRegex=this._weekdaysRegex,this._weekdaysStrictRegex=new RegExp("^("+l.join("|")+")","i"),this._weekdaysShortStrictRegex=new RegExp("^("+s.join("|")+")","i"),this._weekdaysMinStrictRegex=new RegExp("^("+o.join("|")+")","i")}function jt(){return this.hours()%12||12}function Gt(){return this.hours()||24}function qt(t,e){Z(t,0,0,function(){return this.localeData().meridiem(this.hours(),this.minutes(),e)})}function Zt(t,e){return e._meridiemParse}function Xt(t){return"p"===(t+"").toLowerCase().charAt(0)}function Jt(t,e,n){return t>11?n?"pm":"PM":n?"am":"AM"}function Kt(t){return t?t.toLowerCase().replace("_","-"):t}function Qt(t){for(var e,n,i,a,r=0;r<t.length;){for(a=Kt(t[r]).split("-"),e=a.length,n=Kt(t[r+1]),n=n?n.split("-"):null;e>0;){if(i=$t(a.slice(0,e).join("-")))return i;if(n&&n.length>=e&&w(a,n,!0)>=e-1)break;e--}r++}return null}function $t(t){var i=null;if(!Ia[t]&&"undefined"!=typeof n&&n&&n.exports)try{i=Da._abbr,e("./locale/"+t),te(i)}catch(a){}return Ia[t]}function te(t,e){var n;return t&&(n=v(e)?ie(t):ee(t,e),n&&(Da=n)),Da._abbr}function ee(t,e){if(null!==e){var n=Pa;if(e.abbr=t,null!=Ia[t])D("defineLocaleOverride","use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info."),n=Ia[t]._config;else if(null!=e.parentLocale){if(null==Ia[e.parentLocale])return Fa[e.parentLocale]||(Fa[e.parentLocale]=[]),Fa[e.parentLocale].push({name:t,config:e}),null;n=Ia[e.parentLocale]._config}return Ia[t]=new I(P(n,e)),Fa[t]&&Fa[t].forEach(function(t){ee(t.name,t.config)}),te(t),Ia[t]}return delete Ia[t],null}function ne(t,e){if(null!=e){var n,i=Pa;null!=Ia[t]&&(i=Ia[t]._config),e=P(i,e),n=new I(e),n.parentLocale=Ia[t],Ia[t]=n,te(t)}else null!=Ia[t]&&(null!=Ia[t].parentLocale?Ia[t]=Ia[t].parentLocale:null!=Ia[t]&&delete Ia[t]);return Ia[t]}function ie(t){var e;if(t&&t._locale&&t._locale._abbr&&(t=t._locale._abbr),!t)return Da;if(!a(t)){if(e=$t(t))return e;t=[t]}return Qt(t)}function ae(){return Mi(Ia)}function re(t){var e,n=t._a;return n&&-2===g(t).overflow&&(e=n[aa]<0||n[aa]>11?aa:n[ra]<1||n[ra]>ot(n[ia],n[aa])?ra:n[oa]<0||n[oa]>24||24===n[oa]&&(0!==n[sa]||0!==n[la]||0!==n[ua])?oa:n[sa]<0||n[sa]>59?sa:n[la]<0||n[la]>59?la:n[ua]<0||n[ua]>999?ua:-1,g(t)._overflowDayOfYear&&(ia>e||e>ra)&&(e=ra),g(t)._overflowWeeks&&-1===e&&(e=da),g(t)._overflowWeekday&&-1===e&&(e=ca),g(t).overflow=e),t}function oe(t){var e,n,i,a,r,o,s=t._i,l=Aa.exec(s)||Oa.exec(s);if(l){for(g(t).iso=!0,e=0,n=La.length;n>e;e++)if(La[e][1].exec(l[1])){a=La[e][0],i=La[e][2]!==!1;break}if(null==a)return void(t._isValid=!1);if(l[3]){for(e=0,n=Wa.length;n>e;e++)if(Wa[e][1].exec(l[3])){r=(l[2]||" ")+Wa[e][0];break}if(null==r)return void(t._isValid=!1)}if(!i&&null!=r)return void(t._isValid=!1);if(l[4]){if(!Ra.exec(l[4]))return void(t._isValid=!1);o="Z"}t._f=a+(r||"")+(o||""),he(t)}else t._isValid=!1}function se(e){var n=Va.exec(e._i);return null!==n?void(e._d=new Date(+n[1])):(oe(e),void(e._isValid===!1&&(delete e._isValid,t.createFromInputFallback(e))))}function le(t,e,n){return null!=t?t:null!=e?e:n}function ue(e){var n=new Date(t.now());return e._useUTC?[n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()]:[n.getFullYear(),n.getMonth(),n.getDate()]}function de(t){var e,n,i,a,r=[];if(!t._d){for(i=ue(t),t._w&&null==t._a[ra]&&null==t._a[aa]&&ce(t),t._dayOfYear&&(a=le(t._a[ia],i[ia]),t._dayOfYear>vt(a)&&(g(t)._overflowDayOfYear=!0),n=kt(a,0,t._dayOfYear),t._a[aa]=n.getUTCMonth(),t._a[ra]=n.getUTCDate()),e=0;3>e&&null==t._a[e];++e)t._a[e]=r[e]=i[e];for(;7>e;e++)t._a[e]=r[e]=null==t._a[e]?2===e?1:0:t._a[e];24===t._a[oa]&&0===t._a[sa]&&0===t._a[la]&&0===t._a[ua]&&(t._nextDay=!0,t._a[oa]=0),t._d=(t._useUTC?kt:xt).apply(null,r),null!=t._tzm&&t._d.setUTCMinutes(t._d.getUTCMinutes()-t._tzm),t._nextDay&&(t._a[oa]=24)}}function ce(t){var e,n,i,a,r,o,s,l;if(e=t._w,null!=e.GG||null!=e.W||null!=e.E)r=1,o=4,n=le(e.GG,t._a[ia],St(xe(),1,4).year),i=le(e.W,1),a=le(e.E,1),(1>a||a>7)&&(l=!0);else{r=t._locale._week.dow,o=t._locale._week.doy;var u=St(xe(),r,o);n=le(e.gg,t._a[ia],u.year),i=le(e.w,u.week),null!=e.d?(a=e.d,(0>a||a>6)&&(l=!0)):null!=e.e?(a=e.e+r,(e.e<0||e.e>6)&&(l=!0)):a=r}1>i||i>Mt(n,r,o)?g(t)._overflowWeeks=!0:null!=l?g(t)._overflowWeekday=!0:(s=wt(n,i,a,r,o),t._a[ia]=s.year,t._dayOfYear=s.dayOfYear)}function he(e){if(e._f===t.ISO_8601)return void oe(e);e._a=[],g(e).empty=!0;var n,i,a,r,o,s=""+e._i,l=s.length,u=0;for(a=Q(e._f,e._locale).match(Ri)||[],n=0;n<a.length;n++)r=a[n],i=(s.match(tt(r,e))||[])[0],i&&(o=s.substr(0,s.indexOf(i)),o.length>0&&g(e).unusedInput.push(o),s=s.slice(s.indexOf(i)+i.length),u+=i.length),Vi[r]?(i?g(e).empty=!1:g(e).unusedTokens.push(r),rt(r,i,e)):e._strict&&!i&&g(e).unusedTokens.push(r);g(e).charsLeftOver=l-u,s.length>0&&g(e).unusedInput.push(s),e._a[oa]<=12&&g(e).bigHour===!0&&e._a[oa]>0&&(g(e).bigHour=void 0),g(e).parsedDateParts=e._a.slice(0),g(e).meridiem=e._meridiem,e._a[oa]=fe(e._locale,e._a[oa],e._meridiem),de(e),re(e)}function fe(t,e,n){var i;return null==n?e:null!=t.meridiemHour?t.meridiemHour(e,n):null!=t.isPM?(i=t.isPM(n),i&&12>e&&(e+=12),i||12!==e||(e=0),e):e}function ge(t){var e,n,i,a,r;if(0===t._f.length)return g(t).invalidFormat=!0,void(t._d=new Date(NaN));for(a=0;a<t._f.length;a++)r=0,e=b({},t),null!=t._useUTC&&(e._useUTC=t._useUTC),e._f=t._f[a],he(e),m(e)&&(r+=g(e).charsLeftOver,r+=10*g(e).unusedTokens.length,g(e).score=r,(null==i||i>r)&&(i=r,n=e));c(t,n||e)}function me(t){if(!t._d){var e=B(t._i);t._a=u([e.year,e.month,e.day||e.date,e.hour,e.minute,e.second,e.millisecond],function(t){return t&&parseInt(t,10)}),de(t)}}function pe(t){var e=new y(re(ve(t)));return e._nextDay&&(e.add(1,"d"),e._nextDay=void 0),e}function ve(t){var e=t._i,n=t._f;return t._locale=t._locale||ie(t._l),null===e||void 0===n&&""===e?p({nullInput:!0}):("string"==typeof e&&(t._i=e=t._locale.preparse(e)),x(e)?new y(re(e)):(l(e)?t._d=e:a(n)?ge(t):n?he(t):be(t),m(t)||(t._d=null),t))}function be(e){var n=e._i;void 0===n?e._d=new Date(t.now()):l(n)?e._d=new Date(n.valueOf()):"string"==typeof n?se(e):a(n)?(e._a=u(n.slice(0),function(t){return parseInt(t,10)}),de(e)):"object"==typeof n?me(e):s(n)?e._d=new Date(n):t.createFromInputFallback(e)}function ye(t,e,n,i,s){var l={};return(n===!0||n===!1)&&(i=n,n=void 0),(r(t)&&o(t)||a(t)&&0===t.length)&&(t=void 0),l._isAMomentObject=!0,l._useUTC=l._isUTC=s,l._l=n,l._i=t,l._f=e,l._strict=i,pe(l)}function xe(t,e,n,i){return ye(t,e,n,i,!1)}function ke(t,e){var n,i;if(1===e.length&&a(e[0])&&(e=e[0]),!e.length)return xe();for(n=e[0],i=1;i<e.length;++i)(!e[i].isValid()||e[i][t](n))&&(n=e[i]);return n}function _e(){var t=[].slice.call(arguments,0);return ke("isBefore",t)}function we(){var t=[].slice.call(arguments,0);return ke("isAfter",t)}function Se(t){var e=B(t),n=e.year||0,i=e.quarter||0,a=e.month||0,r=e.week||0,o=e.day||0,s=e.hour||0,l=e.minute||0,u=e.second||0,d=e.millisecond||0;this._milliseconds=+d+1e3*u+6e4*l+1e3*s*60*60,this._days=+o+7*r,this._months=+a+3*i+12*n,this._data={},this._locale=ie(),this._bubble()}function Me(t){return t instanceof Se}function De(t){return 0>t?-1*Math.round(-1*t):Math.round(t)}function Ce(t,e){Z(t,0,0,function(){var t=this.utcOffset(),n="+";return 0>t&&(t=-t,n="-"),n+q(~~(t/60),2)+e+q(~~t%60,2)})}function Te(t,e){var n=(e||"").match(t);if(null===n)return null;var i=n[n.length-1]||[],a=(i+"").match(Na)||["-",0,0],r=+(60*a[1])+_(a[2]);return 0===r?0:"+"===a[0]?r:-r}function Pe(e,n){var i,a;return n._isUTC?(i=n.clone(),a=(x(e)||l(e)?e.valueOf():xe(e).valueOf())-i.valueOf(),i._d.setTime(i._d.valueOf()+a),t.updateOffset(i,!1),i):xe(e).local()}function Ie(t){return 15*-Math.round(t._d.getTimezoneOffset()/15)}function Fe(e,n){var i,a=this._offset||0;if(!this.isValid())return null!=e?this:NaN;if(null!=e){if("string"==typeof e){if(e=Te(Qi,e),null===e)return this}else Math.abs(e)<16&&(e=60*e);return!this._isUTC&&n&&(i=Ie(this)),this._offset=e,this._isUTC=!0,null!=i&&this.add(i,"m"),a!==e&&(!n||this._changeInProgress?qe(this,He(e-a,"m"),1,!1):this._changeInProgress||(this._changeInProgress=!0,t.updateOffset(this,!0),this._changeInProgress=null)),this}return this._isUTC?a:Ie(this)}function Ae(t,e){return null!=t?("string"!=typeof t&&(t=-t),this.utcOffset(t,e),this):-this.utcOffset()}function Oe(t){return this.utcOffset(0,t)}function Re(t){return this._isUTC&&(this.utcOffset(0,t),this._isUTC=!1,t&&this.subtract(Ie(this),"m")),this}function Le(){if(null!=this._tzm)this.utcOffset(this._tzm);else if("string"==typeof this._i){var t=Te(Ki,this._i);null!=t?this.utcOffset(t):this.utcOffset(0,!0)}return this}function We(t){return this.isValid()?(t=t?xe(t).utcOffset():0,(this.utcOffset()-t)%60===0):!1}function Ve(){return this.utcOffset()>this.clone().month(0).utcOffset()||this.utcOffset()>this.clone().month(5).utcOffset()}function Ye(){if(!v(this._isDSTShifted))return this._isDSTShifted;var t={};if(b(t,this),t=ve(t),t._a){var e=t._isUTC?h(t._a):xe(t._a);this._isDSTShifted=this.isValid()&&w(t._a,e.toArray())>0}else this._isDSTShifted=!1;return this._isDSTShifted}function Be(){return this.isValid()?!this._isUTC:!1}function ze(){return this.isValid()?this._isUTC:!1}function Ne(){return this.isValid()?this._isUTC&&0===this._offset:!1}function He(t,e){var n,i,a,r=t,o=null;return Me(t)?r={ms:t._milliseconds,d:t._days,M:t._months}:s(t)?(r={},e?r[e]=t:r.milliseconds=t):(o=Ha.exec(t))?(n="-"===o[1]?-1:1,r={y:0,d:_(o[ra])*n,h:_(o[oa])*n,m:_(o[sa])*n,s:_(o[la])*n,ms:_(De(1e3*o[ua]))*n}):(o=Ea.exec(t))?(n="-"===o[1]?-1:1,r={y:Ee(o[2],n),M:Ee(o[3],n),w:Ee(o[4],n),d:Ee(o[5],n),h:Ee(o[6],n),m:Ee(o[7],n),s:Ee(o[8],n)}):null==r?r={}:"object"==typeof r&&("from"in r||"to"in r)&&(a=je(xe(r.from),xe(r.to)),r={},r.ms=a.milliseconds,r.M=a.months),i=new Se(r),Me(t)&&d(t,"_locale")&&(i._locale=t._locale),i}function Ee(t,e){var n=t&&parseFloat(t.replace(",","."));return(isNaN(n)?0:n)*e}function Ue(t,e){var n={milliseconds:0,months:0};return n.months=e.month()-t.month()+12*(e.year()-t.year()),t.clone().add(n.months,"M").isAfter(e)&&--n.months,n.milliseconds=+e-+t.clone().add(n.months,"M"),n}function je(t,e){var n;return t.isValid()&&e.isValid()?(e=Pe(e,t),t.isBefore(e)?n=Ue(t,e):(n=Ue(e,t),n.milliseconds=-n.milliseconds,n.months=-n.months),n):{milliseconds:0,months:0}}function Ge(t,e){return function(n,i){var a,r;return null===i||isNaN(+i)||(D(e,"moment()."+e+"(period, number) is deprecated. Please use moment()."+e+"(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."),r=n,n=i,i=r),n="string"==typeof n?+n:n,a=He(n,i),qe(this,a,t),this}}function qe(e,n,i,a){var r=n._milliseconds,o=De(n._days),s=De(n._months);e.isValid()&&(a=null==a?!0:a,r&&e._d.setTime(e._d.valueOf()+r*i),o&&U(e,"Date",E(e,"Date")+o*i),s&&ct(e,E(e,"Month")+s*i),a&&t.updateOffset(e,o||s))}function Ze(t,e){var n=t.diff(e,"days",!0);return-6>n?"sameElse":-1>n?"lastWeek":0>n?"lastDay":1>n?"sameDay":2>n?"nextDay":7>n?"nextWeek":"sameElse"}function Xe(e,n){var i=e||xe(),a=Pe(i,this).startOf("day"),r=t.calendarFormat(this,a)||"sameElse",o=n&&(C(n[r])?n[r].call(this,i):n[r]);return this.format(o||this.localeData().calendar(r,this,xe(i)))}function Je(){return new y(this)}function Ke(t,e){var n=x(t)?t:xe(t);return this.isValid()&&n.isValid()?(e=Y(v(e)?"millisecond":e),"millisecond"===e?this.valueOf()>n.valueOf():n.valueOf()<this.clone().startOf(e).valueOf()):!1}function Qe(t,e){var n=x(t)?t:xe(t);return this.isValid()&&n.isValid()?(e=Y(v(e)?"millisecond":e),"millisecond"===e?this.valueOf()<n.valueOf():this.clone().endOf(e).valueOf()<n.valueOf()):!1}function $e(t,e,n,i){return i=i||"()",("("===i[0]?this.isAfter(t,n):!this.isBefore(t,n))&&(")"===i[1]?this.isBefore(e,n):!this.isAfter(e,n))}function tn(t,e){var n,i=x(t)?t:xe(t);return this.isValid()&&i.isValid()?(e=Y(e||"millisecond"),"millisecond"===e?this.valueOf()===i.valueOf():(n=i.valueOf(),this.clone().startOf(e).valueOf()<=n&&n<=this.clone().endOf(e).valueOf())):!1}function en(t,e){return this.isSame(t,e)||this.isAfter(t,e)}function nn(t,e){return this.isSame(t,e)||this.isBefore(t,e)}function an(t,e,n){var i,a,r,o;return this.isValid()?(i=Pe(t,this),i.isValid()?(a=6e4*(i.utcOffset()-this.utcOffset()),e=Y(e),"year"===e||"month"===e||"quarter"===e?(o=rn(this,i),"quarter"===e?o/=3:"year"===e&&(o/=12)):(r=this-i,o="second"===e?r/1e3:"minute"===e?r/6e4:"hour"===e?r/36e5:"day"===e?(r-a)/864e5:"week"===e?(r-a)/6048e5:r),n?o:k(o)):NaN):NaN}function rn(t,e){var n,i,a=12*(e.year()-t.year())+(e.month()-t.month()),r=t.clone().add(a,"months");return 0>e-r?(n=t.clone().add(a-1,"months"),i=(e-r)/(r-n)):(n=t.clone().add(a+1,"months"),i=(e-r)/(n-r)),-(a+i)||0}function on(){return this.clone().locale("en").format("ddd MMM DD YYYY HH:mm:ss [GMT]ZZ")}function sn(){var t=this.clone().utc();return 0<t.year()&&t.year()<=9999?C(Date.prototype.toISOString)?this.toDate().toISOString():K(t,"YYYY-MM-DD[T]HH:mm:ss.SSS[Z]"):K(t,"YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]")}function ln(){if(!this.isValid())return"moment.invalid(/* "+this._i+" */)";var t="moment",e="";this.isLocal()||(t=0===this.utcOffset()?"moment.utc":"moment.parseZone",e="Z");var n="["+t+'("]',i=0<this.year()&&this.year()<=9999?"YYYY":"YYYYYY",a="-MM-DD[T]HH:mm:ss.SSS",r=e+'[")]';return this.format(n+i+a+r)}function un(e){e||(e=this.isUtc()?t.defaultFormatUtc:t.defaultFormat);var n=K(this,e);return this.localeData().postformat(n)}function dn(t,e){return this.isValid()&&(x(t)&&t.isValid()||xe(t).isValid())?He({to:this,from:t}).locale(this.locale()).humanize(!e):this.localeData().invalidDate()}function cn(t){return this.from(xe(),t)}function hn(t,e){return this.isValid()&&(x(t)&&t.isValid()||xe(t).isValid())?He({from:this,to:t}).locale(this.locale()).humanize(!e):this.localeData().invalidDate()}function fn(t){return this.to(xe(),t)}function gn(t){var e;return void 0===t?this._locale._abbr:(e=ie(t),null!=e&&(this._locale=e),this)}function mn(){return this._locale}function pn(t){switch(t=Y(t)){case"year":this.month(0);case"quarter":case"month":this.date(1);case"week":case"isoWeek":case"day":case"date":this.hours(0);case"hour":this.minutes(0);case"minute":this.seconds(0);case"second":this.milliseconds(0)}return"week"===t&&this.weekday(0),"isoWeek"===t&&this.isoWeekday(1),"quarter"===t&&this.month(3*Math.floor(this.month()/3)),this}function vn(t){return t=Y(t),void 0===t||"millisecond"===t?this:("date"===t&&(t="day"),this.startOf(t).add(1,"isoWeek"===t?"week":t).subtract(1,"ms"))}function bn(){return this._d.valueOf()-6e4*(this._offset||0)}function yn(){return Math.floor(this.valueOf()/1e3)}function xn(){return new Date(this.valueOf())}function kn(){var t=this;return[t.year(),t.month(),t.date(),t.hour(),t.minute(),t.second(),t.millisecond()]}function _n(){var t=this;return{years:t.year(),months:t.month(),date:t.date(),hours:t.hours(),minutes:t.minutes(),seconds:t.seconds(),milliseconds:t.milliseconds()}}function wn(){return this.isValid()?this.toISOString():null}function Sn(){return m(this)}function Mn(){return c({},g(this))}function Dn(){return g(this).overflow}function Cn(){return{input:this._i,format:this._f,locale:this._locale,isUTC:this._isUTC,strict:this._strict}}function Tn(t,e){Z(0,[t,t.length],0,e)}function Pn(t){return On.call(this,t,this.week(),this.weekday(),this.localeData()._week.dow,this.localeData()._week.doy)}function In(t){return On.call(this,t,this.isoWeek(),this.isoWeekday(),1,4)}function Fn(){return Mt(this.year(),1,4)}function An(){var t=this.localeData()._week;return Mt(this.year(),t.dow,t.doy)}function On(t,e,n,i,a){var r;return null==t?St(this,i,a).year:(r=Mt(t,i,a),e>r&&(e=r),Rn.call(this,t,e,n,i,a))}function Rn(t,e,n,i,a){var r=wt(t,e,n,i,a),o=kt(r.year,0,r.dayOfYear);return this.year(o.getUTCFullYear()),this.month(o.getUTCMonth()),this.date(o.getUTCDate()),this}function Ln(t){return null==t?Math.ceil((this.month()+1)/3):this.month(3*(t-1)+this.month()%3)}function Wn(t){var e=Math.round((this.clone().startOf("day")-this.clone().startOf("year"))/864e5)+1;return null==t?e:this.add(t-e,"d")}function Vn(t,e){e[ua]=_(1e3*("0."+t))}function Yn(){return this._isUTC?"UTC":""}function Bn(){return this._isUTC?"Coordinated Universal Time":""}function zn(t){return xe(1e3*t)}function Nn(){return xe.apply(null,arguments).parseZone()}function Hn(t){return t}function En(t,e,n,i){var a=ie(),r=h().set(i,e);return a[n](r,t)}function Un(t,e,n){if(s(t)&&(e=t,t=void 0),t=t||"",null!=e)return En(t,e,n,"month");var i,a=[];for(i=0;12>i;i++)a[i]=En(t,i,n,"month");return a}function jn(t,e,n,i){"boolean"==typeof t?(s(e)&&(n=e,e=void 0),e=e||""):(e=t,n=e,t=!1,s(e)&&(n=e,e=void 0),e=e||"");var a=ie(),r=t?a._week.dow:0;if(null!=n)return En(e,(n+r)%7,i,"day");var o,l=[];for(o=0;7>o;o++)l[o]=En(e,(o+r)%7,i,"day");return l}function Gn(t,e){return Un(t,e,"months")}function qn(t,e){return Un(t,e,"monthsShort")}function Zn(t,e,n){return jn(t,e,n,"weekdays")}function Xn(t,e,n){return jn(t,e,n,"weekdaysShort")}function Jn(t,e,n){return jn(t,e,n,"weekdaysMin")}function Kn(){var t=this._data;return this._milliseconds=tr(this._milliseconds),this._days=tr(this._days),this._months=tr(this._months),t.milliseconds=tr(t.milliseconds),t.seconds=tr(t.seconds),t.minutes=tr(t.minutes),t.hours=tr(t.hours),t.months=tr(t.months),t.years=tr(t.years),this}function Qn(t,e,n,i){var a=He(e,n);return t._milliseconds+=i*a._milliseconds,t._days+=i*a._days,t._months+=i*a._months,t._bubble()}function $n(t,e){return Qn(this,t,e,1)}function ti(t,e){return Qn(this,t,e,-1)}function ei(t){return 0>t?Math.floor(t):Math.ceil(t)}function ni(){var t,e,n,i,a,r=this._milliseconds,o=this._days,s=this._months,l=this._data;return r>=0&&o>=0&&s>=0||0>=r&&0>=o&&0>=s||(r+=864e5*ei(ai(s)+o),o=0,s=0),l.milliseconds=r%1e3,t=k(r/1e3),l.seconds=t%60,e=k(t/60),l.minutes=e%60,n=k(e/60),l.hours=n%24,o+=k(n/24),a=k(ii(o)),s+=a,o-=ei(ai(a)),i=k(s/12),s%=12,l.days=o,l.months=s,l.years=i,this}function ii(t){return 4800*t/146097}function ai(t){return 146097*t/4800}function ri(t){var e,n,i=this._milliseconds;if(t=Y(t),"month"===t||"year"===t)return e=this._days+i/864e5,n=this._months+ii(e),"month"===t?n:n/12;switch(e=this._days+Math.round(ai(this._months)),t){case"week":return e/7+i/6048e5;case"day":return e+i/864e5;case"hour":return 24*e+i/36e5;case"minute":return 1440*e+i/6e4;case"second":return 86400*e+i/1e3;case"millisecond":return Math.floor(864e5*e)+i;default:throw new Error("Unknown unit "+t)}}function oi(){return this._milliseconds+864e5*this._days+this._months%12*2592e6+31536e6*_(this._months/12)}function si(t){return function(){return this.as(t)}}function li(t){return t=Y(t),this[t+"s"]()}function ui(t){return function(){return this._data[t]}}function di(){return k(this.days()/7)}function ci(t,e,n,i,a){return a.relativeTime(e||1,!!n,t,i)}function hi(t,e,n){var i=He(t).abs(),a=pr(i.as("s")),r=pr(i.as("m")),o=pr(i.as("h")),s=pr(i.as("d")),l=pr(i.as("M")),u=pr(i.as("y")),d=a<vr.s&&["s",a]||1>=r&&["m"]||r<vr.m&&["mm",r]||1>=o&&["h"]||o<vr.h&&["hh",o]||1>=s&&["d"]||s<vr.d&&["dd",s]||1>=l&&["M"]||l<vr.M&&["MM",l]||1>=u&&["y"]||["yy",u];return d[2]=e,d[3]=+t>0,d[4]=n,ci.apply(null,d)}function fi(t){return void 0===t?pr:"function"==typeof t?(pr=t,!0):!1}function gi(t,e){return void 0===vr[t]?!1:void 0===e?vr[t]:(vr[t]=e,!0)}function mi(t){var e=this.localeData(),n=hi(this,!t,e);return t&&(n=e.pastFuture(+this,n)),e.postformat(n)}function pi(){var t,e,n,i=br(this._milliseconds)/1e3,a=br(this._days),r=br(this._months);t=k(i/60),e=k(t/60),i%=60,t%=60,n=k(r/12),r%=12;var o=n,s=r,l=a,u=e,d=t,c=i,h=this.asSeconds();return h?(0>h?"-":"")+"P"+(o?o+"Y":"")+(s?s+"M":"")+(l?l+"D":"")+(u||d||c?"T":"")+(u?u+"H":"")+(d?d+"M":"")+(c?c+"S":""):"P0D"}var vi,bi;bi=Array.prototype.some?Array.prototype.some:function(t){for(var e=Object(this),n=e.length>>>0,i=0;n>i;i++)if(i in e&&t.call(this,e[i],i,e))return!0;return!1};var yi=bi,xi=t.momentProperties=[],ki=!1,_i={};t.suppressDeprecationWarnings=!1,t.deprecationHandler=null;var wi;wi=Object.keys?Object.keys:function(t){var e,n=[];for(e in t)d(t,e)&&n.push(e);return n};var Si,Mi=wi,Di={sameDay:"[Today at] LT",nextDay:"[Tomorrow at] LT",nextWeek:"dddd [at] LT",lastDay:"[Yesterday at] LT",lastWeek:"[Last] dddd [at] LT",sameElse:"L"},Ci={LTS:"h:mm:ss A",LT:"h:mm A",L:"MM/DD/YYYY",LL:"MMMM D, YYYY",LLL:"MMMM D, YYYY h:mm A",LLLL:"dddd, MMMM D, YYYY h:mm A"},Ti="Invalid date",Pi="%d",Ii=/\d{1,2}/,Fi={future:"in %s",past:"%s ago",s:"a few seconds",m:"a minute",mm:"%d minutes",h:"an hour",hh:"%d hours",d:"a day",dd:"%d days",M:"a month",MM:"%d months",y:"a year",yy:"%d years"},Ai={},Oi={},Ri=/(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,Li=/(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,Wi={},Vi={},Yi=/\d/,Bi=/\d\d/,zi=/\d{3}/,Ni=/\d{4}/,Hi=/[+-]?\d{6}/,Ei=/\d\d?/,Ui=/\d\d\d\d?/,ji=/\d\d\d\d\d\d?/,Gi=/\d{1,3}/,qi=/\d{1,4}/,Zi=/[+-]?\d{1,6}/,Xi=/\d+/,Ji=/[+-]?\d+/,Ki=/Z|[+-]\d\d:?\d\d/gi,Qi=/Z|[+-]\d\d(?::?\d\d)?/gi,$i=/[+-]?\d+(\.\d{1,3})?/,ta=/[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i,ea={},na={},ia=0,aa=1,ra=2,oa=3,sa=4,la=5,ua=6,da=7,ca=8;Si=Array.prototype.indexOf?Array.prototype.indexOf:function(t){var e;for(e=0;e<this.length;++e)if(this[e]===t)return e;return-1};var ha=Si;Z("M",["MM",2],"Mo",function(){return this.month()+1}),Z("MMM",0,0,function(t){return this.localeData().monthsShort(this,t)}),Z("MMMM",0,0,function(t){return this.localeData().months(this,t)}),V("month","M"),z("month",8),$("M",Ei),$("MM",Ei,Bi),$("MMM",function(t,e){return e.monthsShortRegex(t)}),$("MMMM",function(t,e){return e.monthsRegex(t)}),it(["M","MM"],function(t,e){e[aa]=_(t)-1}),it(["MMM","MMMM"],function(t,e,n,i){var a=n._locale.monthsParse(t,i,n._strict);null!=a?e[aa]=a:g(n).invalidMonth=t});var fa=/D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,ga="January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ma="Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),pa=ta,va=ta;Z("Y",0,0,function(){var t=this.year();return 9999>=t?""+t:"+"+t}),Z(0,["YY",2],0,function(){return this.year()%100}),Z(0,["YYYY",4],0,"year"),Z(0,["YYYYY",5],0,"year"),Z(0,["YYYYYY",6,!0],0,"year"),V("year","y"),z("year",1),$("Y",Ji),$("YY",Ei,Bi),$("YYYY",qi,Ni),$("YYYYY",Zi,Hi),$("YYYYYY",Zi,Hi),it(["YYYYY","YYYYYY"],ia),it("YYYY",function(e,n){n[ia]=2===e.length?t.parseTwoDigitYear(e):_(e)}),it("YY",function(e,n){n[ia]=t.parseTwoDigitYear(e)}),it("Y",function(t,e){e[ia]=parseInt(t,10)}),t.parseTwoDigitYear=function(t){return _(t)+(_(t)>68?1900:2e3)};var ba=H("FullYear",!0);Z("w",["ww",2],"wo","week"),Z("W",["WW",2],"Wo","isoWeek"),V("week","w"),V("isoWeek","W"),z("week",5),z("isoWeek",5),$("w",Ei),$("ww",Ei,Bi),$("W",Ei),$("WW",Ei,Bi),at(["w","ww","W","WW"],function(t,e,n,i){e[i.substr(0,1)]=_(t)});var ya={dow:0,doy:6};Z("d",0,"do","day"),Z("dd",0,0,function(t){return this.localeData().weekdaysMin(this,t)}),Z("ddd",0,0,function(t){return this.localeData().weekdaysShort(this,t)}),Z("dddd",0,0,function(t){return this.localeData().weekdays(this,t)}),Z("e",0,0,"weekday"),Z("E",0,0,"isoWeekday"),V("day","d"),V("weekday","e"),V("isoWeekday","E"),z("day",11),z("weekday",11),z("isoWeekday",11),$("d",Ei),$("e",Ei),$("E",Ei),$("dd",function(t,e){return e.weekdaysMinRegex(t)}),$("ddd",function(t,e){return e.weekdaysShortRegex(t)}),$("dddd",function(t,e){return e.weekdaysRegex(t)}),at(["dd","ddd","dddd"],function(t,e,n,i){var a=n._locale.weekdaysParse(t,i,n._strict);null!=a?e.d=a:g(n).invalidWeekday=t}),at(["d","e","E"],function(t,e,n,i){e[i]=_(t)});var xa="Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),ka="Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"),_a="Su_Mo_Tu_We_Th_Fr_Sa".split("_"),wa=ta,Sa=ta,Ma=ta;Z("H",["HH",2],0,"hour"),Z("h",["hh",2],0,jt),Z("k",["kk",2],0,Gt),Z("hmm",0,0,function(){return""+jt.apply(this)+q(this.minutes(),2)}),Z("hmmss",0,0,function(){return""+jt.apply(this)+q(this.minutes(),2)+q(this.seconds(),2)}),Z("Hmm",0,0,function(){return""+this.hours()+q(this.minutes(),2)}),Z("Hmmss",0,0,function(){return""+this.hours()+q(this.minutes(),2)+q(this.seconds(),2)}),qt("a",!0),qt("A",!1),V("hour","h"),z("hour",13),$("a",Zt),$("A",Zt),$("H",Ei),$("h",Ei),$("HH",Ei,Bi),$("hh",Ei,Bi),$("hmm",Ui),$("hmmss",ji),$("Hmm",Ui),$("Hmmss",ji),it(["H","HH"],oa),it(["a","A"],function(t,e,n){n._isPm=n._locale.isPM(t),n._meridiem=t}),it(["h","hh"],function(t,e,n){e[oa]=_(t),g(n).bigHour=!0}),it("hmm",function(t,e,n){var i=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i)),g(n).bigHour=!0}),it("hmmss",function(t,e,n){var i=t.length-4,a=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i,2)),e[la]=_(t.substr(a)),g(n).bigHour=!0}),it("Hmm",function(t,e,n){var i=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i))}),it("Hmmss",function(t,e,n){var i=t.length-4,a=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i,2)),e[la]=_(t.substr(a))});var Da,Ca=/[ap]\.?m?\.?/i,Ta=H("Hours",!0),Pa={calendar:Di,longDateFormat:Ci,invalidDate:Ti,ordinal:Pi,ordinalParse:Ii,relativeTime:Fi,months:ga,monthsShort:ma,week:ya,weekdays:xa,weekdaysMin:_a,weekdaysShort:ka,meridiemParse:Ca},Ia={},Fa={},Aa=/^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,Oa=/^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,Ra=/Z|[+-]\d\d(?::?\d\d)?/,La=[["YYYYYY-MM-DD",/[+-]\d{6}-\d\d-\d\d/],["YYYY-MM-DD",/\d{4}-\d\d-\d\d/],["GGGG-[W]WW-E",/\d{4}-W\d\d-\d/],["GGGG-[W]WW",/\d{4}-W\d\d/,!1],["YYYY-DDD",/\d{4}-\d{3}/],["YYYY-MM",/\d{4}-\d\d/,!1],["YYYYYYMMDD",/[+-]\d{10}/],["YYYYMMDD",/\d{8}/],["GGGG[W]WWE",/\d{4}W\d{3}/],["GGGG[W]WW",/\d{4}W\d{2}/,!1],["YYYYDDD",/\d{7}/]],Wa=[["HH:mm:ss.SSSS",/\d\d:\d\d:\d\d\.\d+/],["HH:mm:ss,SSSS",/\d\d:\d\d:\d\d,\d+/],["HH:mm:ss",/\d\d:\d\d:\d\d/],["HH:mm",/\d\d:\d\d/],["HHmmss.SSSS",/\d\d\d\d\d\d\.\d+/],["HHmmss,SSSS",/\d\d\d\d\d\d,\d+/],["HHmmss",/\d\d\d\d\d\d/],["HHmm",/\d\d\d\d/],["HH",/\d\d/]],Va=/^\/?Date\((\-?\d+)/i;t.createFromInputFallback=M("value provided is not in a recognized ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non ISO date formats are discouraged and will be removed in an upcoming major release. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.",function(t){t._d=new Date(t._i+(t._useUTC?" UTC":""))}),t.ISO_8601=function(){};var Ya=M("moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/",function(){var t=xe.apply(null,arguments);return this.isValid()&&t.isValid()?this>t?this:t:p()}),Ba=M("moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/",function(){var t=xe.apply(null,arguments);return this.isValid()&&t.isValid()?t>this?this:t:p()}),za=function(){return Date.now?Date.now():+new Date};Ce("Z",":"),Ce("ZZ",""),$("Z",Qi),$("ZZ",Qi),it(["Z","ZZ"],function(t,e,n){n._useUTC=!0,n._tzm=Te(Qi,t)});var Na=/([\+\-]|\d\d)/gi;t.updateOffset=function(){};var Ha=/^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/,Ea=/^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;He.fn=Se.prototype;var Ua=Ge(1,"add"),ja=Ge(-1,"subtract");t.defaultFormat="YYYY-MM-DDTHH:mm:ssZ",t.defaultFormatUtc="YYYY-MM-DDTHH:mm:ss[Z]";var Ga=M("moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.",function(t){return void 0===t?this.localeData():this.locale(t)});Z(0,["gg",2],0,function(){return this.weekYear()%100}),Z(0,["GG",2],0,function(){return this.isoWeekYear()%100}),Tn("gggg","weekYear"),Tn("ggggg","weekYear"),Tn("GGGG","isoWeekYear"),Tn("GGGGG","isoWeekYear"),V("weekYear","gg"),V("isoWeekYear","GG"),z("weekYear",1),z("isoWeekYear",1),$("G",Ji),$("g",Ji),$("GG",Ei,Bi),$("gg",Ei,Bi),$("GGGG",qi,Ni),$("gggg",qi,Ni),$("GGGGG",Zi,Hi),$("ggggg",Zi,Hi),at(["gggg","ggggg","GGGG","GGGGG"],function(t,e,n,i){e[i.substr(0,2)]=_(t)}),at(["gg","GG"],function(e,n,i,a){n[a]=t.parseTwoDigitYear(e)}),Z("Q",0,"Qo","quarter"),V("quarter","Q"),
 z("quarter",7),$("Q",Yi),it("Q",function(t,e){e[aa]=3*(_(t)-1)}),Z("D",["DD",2],"Do","date"),V("date","D"),z("date",9),$("D",Ei),$("DD",Ei,Bi),$("Do",function(t,e){return t?e._ordinalParse:e._ordinalParseLenient}),it(["D","DD"],ra),it("Do",function(t,e){e[ra]=_(t.match(Ei)[0],10)});var qa=H("Date",!0);Z("DDD",["DDDD",3],"DDDo","dayOfYear"),V("dayOfYear","DDD"),z("dayOfYear",4),$("DDD",Gi),$("DDDD",zi),it(["DDD","DDDD"],function(t,e,n){n._dayOfYear=_(t)}),Z("m",["mm",2],0,"minute"),V("minute","m"),z("minute",14),$("m",Ei),$("mm",Ei,Bi),it(["m","mm"],sa);var Za=H("Minutes",!1);Z("s",["ss",2],0,"second"),V("second","s"),z("second",15),$("s",Ei),$("ss",Ei,Bi),it(["s","ss"],la);var Xa=H("Seconds",!1);Z("S",0,0,function(){return~~(this.millisecond()/100)}),Z(0,["SS",2],0,function(){return~~(this.millisecond()/10)}),Z(0,["SSS",3],0,"millisecond"),Z(0,["SSSS",4],0,function(){return 10*this.millisecond()}),Z(0,["SSSSS",5],0,function(){return 100*this.millisecond()}),Z(0,["SSSSSS",6],0,function(){return 1e3*this.millisecond()}),Z(0,["SSSSSSS",7],0,function(){return 1e4*this.millisecond()}),Z(0,["SSSSSSSS",8],0,function(){return 1e5*this.millisecond()}),Z(0,["SSSSSSSSS",9],0,function(){return 1e6*this.millisecond()}),V("millisecond","ms"),z("millisecond",16),$("S",Gi,Yi),$("SS",Gi,Bi),$("SSS",Gi,zi);var Ja;for(Ja="SSSS";Ja.length<=9;Ja+="S")$(Ja,Xi);for(Ja="S";Ja.length<=9;Ja+="S")it(Ja,Vn);var Ka=H("Milliseconds",!1);Z("z",0,0,"zoneAbbr"),Z("zz",0,0,"zoneName");var Qa=y.prototype;Qa.add=Ua,Qa.calendar=Xe,Qa.clone=Je,Qa.diff=an,Qa.endOf=vn,Qa.format=un,Qa.from=dn,Qa.fromNow=cn,Qa.to=hn,Qa.toNow=fn,Qa.get=j,Qa.invalidAt=Dn,Qa.isAfter=Ke,Qa.isBefore=Qe,Qa.isBetween=$e,Qa.isSame=tn,Qa.isSameOrAfter=en,Qa.isSameOrBefore=nn,Qa.isValid=Sn,Qa.lang=Ga,Qa.locale=gn,Qa.localeData=mn,Qa.max=Ba,Qa.min=Ya,Qa.parsingFlags=Mn,Qa.set=G,Qa.startOf=pn,Qa.subtract=ja,Qa.toArray=kn,Qa.toObject=_n,Qa.toDate=xn,Qa.toISOString=sn,Qa.inspect=ln,Qa.toJSON=wn,Qa.toString=on,Qa.unix=yn,Qa.valueOf=bn,Qa.creationData=Cn,Qa.year=ba,Qa.isLeapYear=yt,Qa.weekYear=Pn,Qa.isoWeekYear=In,Qa.quarter=Qa.quarters=Ln,Qa.month=ht,Qa.daysInMonth=ft,Qa.week=Qa.weeks=Pt,Qa.isoWeek=Qa.isoWeeks=It,Qa.weeksInYear=An,Qa.isoWeeksInYear=Fn,Qa.date=qa,Qa.day=Qa.days=Yt,Qa.weekday=Bt,Qa.isoWeekday=zt,Qa.dayOfYear=Wn,Qa.hour=Qa.hours=Ta,Qa.minute=Qa.minutes=Za,Qa.second=Qa.seconds=Xa,Qa.millisecond=Qa.milliseconds=Ka,Qa.utcOffset=Fe,Qa.utc=Oe,Qa.local=Re,Qa.parseZone=Le,Qa.hasAlignedHourOffset=We,Qa.isDST=Ve,Qa.isLocal=Be,Qa.isUtcOffset=ze,Qa.isUtc=Ne,Qa.isUTC=Ne,Qa.zoneAbbr=Yn,Qa.zoneName=Bn,Qa.dates=M("dates accessor is deprecated. Use date instead.",qa),Qa.months=M("months accessor is deprecated. Use month instead",ht),Qa.years=M("years accessor is deprecated. Use year instead",ba),Qa.zone=M("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/",Ae),Qa.isDSTShifted=M("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information",Ye);var $a=I.prototype;$a.calendar=F,$a.longDateFormat=A,$a.invalidDate=O,$a.ordinal=R,$a.preparse=Hn,$a.postformat=Hn,$a.relativeTime=L,$a.pastFuture=W,$a.set=T,$a.months=st,$a.monthsShort=lt,$a.monthsParse=dt,$a.monthsRegex=mt,$a.monthsShortRegex=gt,$a.week=Dt,$a.firstDayOfYear=Tt,$a.firstDayOfWeek=Ct,$a.weekdays=Ot,$a.weekdaysMin=Lt,$a.weekdaysShort=Rt,$a.weekdaysParse=Vt,$a.weekdaysRegex=Nt,$a.weekdaysShortRegex=Ht,$a.weekdaysMinRegex=Et,$a.isPM=Xt,$a.meridiem=Jt,te("en",{ordinalParse:/\d{1,2}(th|st|nd|rd)/,ordinal:function(t){var e=t%10,n=1===_(t%100/10)?"th":1===e?"st":2===e?"nd":3===e?"rd":"th";return t+n}}),t.lang=M("moment.lang is deprecated. Use moment.locale instead.",te),t.langData=M("moment.langData is deprecated. Use moment.localeData instead.",ie);var tr=Math.abs,er=si("ms"),nr=si("s"),ir=si("m"),ar=si("h"),rr=si("d"),or=si("w"),sr=si("M"),lr=si("y"),ur=ui("milliseconds"),dr=ui("seconds"),cr=ui("minutes"),hr=ui("hours"),fr=ui("days"),gr=ui("months"),mr=ui("years"),pr=Math.round,vr={s:45,m:45,h:22,d:26,M:11},br=Math.abs,yr=Se.prototype;return yr.abs=Kn,yr.add=$n,yr.subtract=ti,yr.as=ri,yr.asMilliseconds=er,yr.asSeconds=nr,yr.asMinutes=ir,yr.asHours=ar,yr.asDays=rr,yr.asWeeks=or,yr.asMonths=sr,yr.asYears=lr,yr.valueOf=oi,yr._bubble=ni,yr.get=li,yr.milliseconds=ur,yr.seconds=dr,yr.minutes=cr,yr.hours=hr,yr.days=fr,yr.weeks=di,yr.months=gr,yr.years=mr,yr.humanize=mi,yr.toISOString=pi,yr.toString=pi,yr.toJSON=pi,yr.locale=gn,yr.localeData=mn,yr.toIsoString=M("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)",pi),yr.lang=Ga,Z("X",0,0,"unix"),Z("x",0,0,"valueOf"),$("x",Ji),$("X",$i),it("X",function(t,e,n){n._d=new Date(1e3*parseFloat(t,10))}),it("x",function(t,e,n){n._d=new Date(_(t))}),t.version="2.16.0",i(xe),t.fn=Qa,t.min=_e,t.max=we,t.now=za,t.utc=h,t.unix=zn,t.months=Gn,t.isDate=l,t.locale=te,t.invalid=p,t.duration=He,t.isMoment=x,t.weekdays=Zn,t.parseZone=Nn,t.localeData=ie,t.isDuration=Me,t.monthsShort=qn,t.weekdaysMin=Jn,t.defineLocale=ee,t.updateLocale=ne,t.locales=ae,t.weekdaysShort=Xn,t.normalizeUnits=Y,t.relativeTimeRounding=fi,t.relativeTimeThreshold=gi,t.calendarFormat=Ze,t.prototype=Qa,t})},{}]},{},[1])(1)});
 var t1701 = {
-	
-	makeup : {
-		date : new Date("September 30, 2016"),
-		components: [
-			{
-			component  : "Cleaner SSP-140",
-			unit       : "oz/gal",
-			makeupAt   : "11",
-			amount     : "310 pounds"
-			}
-		]
-	},
 	tmfcParameters : {
+		concentrations     : {
+			"SSP-140" : ["8 - 11", ' oz/gal'],
+		},
 		lineNumber     : 1701,
-		applicationType: "Cleaner", //options are "Cleaner","Inorganic Cleaner", ""
-		temp           : "130 - 160°F",
-		conc           : "8 - 12 oz/gal",
-		immersion      : "> 3 min",
+		applicationType: "Cleaner",
+		temp           : "120 - 160°F",
+		immersion      : "3 - 10 min",
 		tankSize       : {
-			lngth      : "41\"",
-			width      : "28\"",
-			depth      : "32\" (sol level)",
-			capacity   : "450 gallons"
+			lngth      : "72\"",
+			width      : "56\"",
+			depth      : "25\" (sol. level)",
+			capacity   : "440 gallons"
 		
 		},
 		tankMaterial   : "Steel",
@@ -4367,219 +4357,110 @@ var t1701 = {
 		agitationType  : "Compressed Air",
 		TDS            : "Cleaner SSP-140 TDS.png"
 	},
-	analysis : [
-		{
-			date : new Date("2016-11-03"),
-			"SSP-140" : 10.26,
-			Activity : 87,
-			Saturation : 20
-		},
-		{
-			date : new Date("2016-10-27"),
-			"SSP-140" : 10.51, 
-			Activity : 88,
-			Saturation : 15
-		},
-		{
-			date : new Date("2016-10-20"),
-			"SSP-140" : 10.72, 
-			Activity : 90,
-			Saturation : 9
-		},
-		{
-			date : new Date("2016-10-14"),
-			"SSP-140" : 11.02, 
-			Activity : 95,
-			Saturation : 5
-		},
-		{
-			date : new Date("2016-10-05"),
-			"SSP-140" : 9.08, 
-			Activity : 97,
-			Saturation : 0
-		},
-				{
-			date : new Date("2016-09-26"),
-			"SSP-140" : 9.55, 
-			Activity : 85,
-			Saturation : 33
-		},
-				{
-			date : new Date("2016-09-21"),
-			"SSP-140" : 9.82, 
-			Activity : 85,
-			Saturation : 30
-		},
-				{
-			date : new Date("2016-09-14"),
-			"SSP-140" : 9.95, 
-			Activity : 83,
-			Saturation : 31
-		},
-				{
-			date : new Date("2016-09-06"),
-			"SSP-140" : 10.56, 
-			Activity : 84,
-			Saturation : 29
-		},
-				{
-			date : new Date("2016-09-01"),
-			"SSP-140" : 10.32, 
-			Activity : 85,
-			Saturation : 28
-		},
-				{
-			date : new Date("2016-08-22"),
-			"SSP-140" : 11.02, 
-			Activity : 86,
-			Saturation : 25
-		},
-				{
-			date : new Date("2016-08-16"),
-			"SSP-140" : 10.02, 
-			Activity : 87,
-			Saturation : 22
-		},
-				{
-			date : new Date("2016-08-11"),
-			"SSP-140" : 10.62, 
-			Activity : 88,
-			Saturation : 20
-		},
-	],
-	additions : [
-		{
-			date : new Date("2016-10-05"),
-			component : [
-				{	
-					ssp140 : 50,
-					unit   : "lbs"
-				}
-			]
-		},
-		{
-			date : "09/27/2016",
-			component : {
-				ssp140 : 50
-			}
-		},
-		{
-			date : "09/20/2016",
-			component : {
-				ssp140 : 50
-			}
-		}
-	]	
-};
-
-var t1702 = {
-	
 	makeup : {
-		date : new Date("September 30, 2016"),
+		date : new Date("October 1, 2016"),
 		components: [
 			{
-			component  : "Anokleen #2-S",
-			unit       : "oz/gal",
-			makeupAt   : "11",
-			amount     : "155 pounds"
+			component  : "Cleaner SSP-140",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "275 lbs"
 			}
 		]
 	},
-	tmfcParameters : {
-		lineNumber     : 1702,
-		applicationType: "Electro-Cleaner",
-		temp           : "130 - 160°F",
-		conc           : "8 - 12 oz/gal",
-		immersion      : "1 - 5 min",
-		tankSize       : {
-			lngth      : "21\"",
-			width      : "28\"",
-			depth      : "32\" (sol level)",
-			capacity   : "225 gallons"
-		
-		},
-		tankMaterial   : "Steel",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Carbon Steel",
-		coilType       : "Serpentine",
-		agitationLevel : "Mild - ",
-		agitationType  : "Compressed Air",
-		TDS            : "Anokleen2STDS.png"
-	},
 	analysis : [
 		{
-			date : "11/03/2016",
-			conc : 9.1, 
-			activity : 87,
-			saturation : 15
+			date : new Date("12/7/2016"),
+			"SSP-140"  : 9.81
 		},
 		{
-			date : "10/27/2016",
-			conc : 9.75, 
-			activity : 88,
-			saturation : 14
+			date : new Date("11/21/2016"),
+			"SSP-140"  : 10.01
 		},
 		{
-			date : "10/20/2016",
-			conc : 9.99, 
-			activity : 89,
-			saturation : 12
+			date : new Date("11/08/2016"),
+			"SSP-140"  : 10.64
 		},
 		{
-			date : "10/14/2016",
-			conc : 10.52, 
-			activity : 89,
-			saturation : 11
+			date : new Date("10/24/2016"),
+			"SSP-140": 9.2
 		},
 		{
-			date : "10/05/2016",
-			conc : 11.21, 
-			activity : 90,
-			saturation : 10
-		}
+			date : new Date("10/11/2016"),
+			"SSP-140": 8.13
+		},
+		{
+			date : new Date("10/3/2016"),
+			"SSP-140": 6.61
+		},
+		{
+			date : new Date("9/1/2016"),
+			"SSP-140": 8.36
+		},
+		{
+			date : new Date("8/17/2016"),
+			"SSP-140": 9.5
+		},
+		{
+			date : new Date("8/9/2016"),
+			"SSP-140": 9.5
+		},
+		{
+			date : new Date("7/21/2016"),
+			"SSP-140": 10.41
+		},
+		{
+			date : new Date("7/5/2016"),
+			"SSP-140": 8.22
+		},
 	],
 	additions : [
 		{
-			date : "10/05/2016",
+			date : new Date("10/24/2016"),
 			component : {
-				ssp140 : 50
+				"SSP-140" : [25, " lbs"],
 			}
 		},
 		{
-			date : "09/27/2016",
+			date : new Date("10/17/2016"),
 			component : {
-				ssp140 : 50
+				"SSP-140" : [25, " lbs"],
 			}
 		},
 		{
-			date : "09/20/2016",
+			date : new Date("10/11/2016"),
 			component : {
-				ssp140 : 50
+				"SSP-140" : [100, " lbs"],
 			}
-		}
+		},
+		{
+			date : new Date("10/24/2016"),
+			component : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+		{
+			date : new Date("8/9/2016"),
+			component : {
+				"SSP-140" : [15, " lbs"],
+			}
+		},
+		{
+			date : new Date("7/5/2016"),
+			component : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
 	]	
 };
 var t1704 = {
-	
-	makeup : {
-		date : new Date("November 04, 2016"),
-		components: [
-			{
-			component  : "Hydrochloric Acid",
-			unit       : "%",
-			makeupAt   : "25",
-			amount     : "110 gallons"
-			}
-		]
-	},
 	tmfcParameters : {
 		concentrations     : {
-			"Hydrochloric Acid" : "25 - 30%"
+			"HCL" : ["25 - 30", '%']
 		},
 		lineNumber     : 1704,
 		applicationType: "Acid Pickle",
 		temp           : "Ambient",
-		conc           : "25- 30%",
 		immersion      : "1 - 5 min",
 		tankSize       : {
 			lngth      : "58\"",
@@ -4595,6 +4476,17 @@ var t1704 = {
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
 		TDS            : ""
+	},
+	makeup : {
+		date : new Date("December 9, 2016"),
+		components: [
+			{
+			component  : "Hydrochloric Acid",
+			unit       : "%",
+			makeupAt   : "25",
+			amount     : "110 gallons"
+			}
+		]
 	},
 	analysis : [
 		{
@@ -4654,12 +4546,12 @@ var t1704 = {
 var t1706 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Zinc"             : ["1.0 - 1.5", "oz/gal"],
-			"NaOH"             : ["15 - 18", "oz/gal"],
-			"Carbonates"       : ["<10", "oz/gal"],
-			"Iron"             : ["<10", "ppm"],
-			"Chromium"         : ["<10", "ppm"],
-			"Copper"           : ["<2", "ppm"],
+			"Zinc"             : ["1.0 - 1.5", " oz/gal"],
+			"NaOH"             : ["15 - 18", " oz/gal"],
+			"Carbonates"       : ["<10", " oz/gal"],
+			"Iron"             : ["<10", " ppm"],
+			"Chromium"         : ["<10", " ppm"],
+
 		},
 		lineNumber         : 1706,
 		applicationType    : "Electro-Plating",
@@ -4684,13 +4576,13 @@ var t1706 = {
 		components: [
 			{
 			component  : "Zinc Sol 2272",
-			unit       : "oz/gal",
+			unit       : " oz/gal",
 			makeupAt   : "1.3",
 			amount     : "69 gallons"
 			},
 			{
 			component  : "Sodium Hydroxide",
-			unit       : "oz/gal",
+			unit       : " oz/gal",
 			makeupAt   : "16.0",
 			amount     : "1,165 lbs"
 			},
@@ -4714,13 +4606,13 @@ var t1706 = {
 			},
 			{
 			component  : "NCZ Conditioner",
-			unit       : "lbs",
+			unit       : " lbs",
 			makeupAt   : "",
 			amount     : "50 lbs"
 			},
 			{
 			component  : "Iron",
-			unit       : "ppm",
+			unit       : " ppm",
 			},
 		]
 	},
@@ -4732,16 +4624,17 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
 			date   : new Date("11/28/2016"),
 			Zinc   : 1.74, 
+			NaOH   : 16.43,
 			temp   : {
 				"8:00AM" : 61,
 				"11:30AM": 70,
-				"3:00PM"   : 75
+				"3:00PM" : 75
 			}
 		},
 		{
@@ -4751,7 +4644,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 68,
 				"11:30AM": 72,
-				"3:00PM"   : 73
+				"3:00PM" : 73
 			}
 		},	
 		{
@@ -4761,7 +4654,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 70,
 				"11:30AM": 77,
-				"3:00PM"   : 80
+				"3:00PM" : 80
 			}
 		},	
 		{
@@ -4788,7 +4681,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 75,
 				"11:30AM": 79,
-				"3:00PM"   : 85
+				"3:00PM" : 85
 			}
 		},	
 		{
@@ -4797,7 +4690,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 76,
 				"11:30AM": 81,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},	
 		{
@@ -4807,7 +4700,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 73,
 				"11:30AM": 76,
-				"3:00PM"   : 82
+				"3:00PM" : 82
 			}
 		},
 		{
@@ -4817,7 +4710,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 80,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -4826,7 +4719,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -4836,7 +4729,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -4846,7 +4739,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -4855,7 +4748,7 @@ var t1706 = {
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
-				"3:00PM"   : 81
+				"3:00PM" : 81
 			}
 		},
 		{
@@ -4934,8 +4827,8 @@ var t1706 = {
 			NaOH       : 16.8,
 			Carbonates : 4.9,
 			Iron       : 2.1,
-			Copper     : 1.6,
 			Chromium   : 1.4,
+			Copper     : 1.6,
 		},
 		{
 			date   : new Date("09/19/2016"),
@@ -5448,6 +5341,7 @@ function Tank(tid) {
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
 	
+	/*DATA GENERATED WITHIN MAKE-UP MODAL*/
 	function addMakeupHTML() {
 		for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
 			var component = '';
@@ -5464,7 +5358,7 @@ function Tank(tid) {
 				  html += component;
 				  html += ': </span><span class="data">'
 				  html += amount;
-				  html += ' <span class="data">(';
+				  html += ' <span class="data parenthesis">(';
 				  html += makeupAt + unit;
 				  html += ')</span></span></p>';
 				$('div[data-remodal-id="modal-makeup"]').append(html); //Append HTML to data-remodal-id="modal-makeup"
@@ -5567,6 +5461,7 @@ function Tank(tid) {
 			html += '</div>';
 		html += '</div>';
 
+		/*TDS MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -5578,6 +5473,7 @@ function Tank(tid) {
 			html += '</div>';
 		html += '</div>';
 		
+		/*MAKE-UP MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -5588,7 +5484,7 @@ function Tank(tid) {
 		html += '</div>';
 		
 		
-
+		/*TANK SPECIFICATIONS MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-tank" data-remodal-options="hashTracking: false">';
 			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
@@ -5626,37 +5522,44 @@ function Tank(tid) {
 	
 	$('body').append(html);
 	var nameHolder = [];
-	for(var i = 0; i < tid.analysis.length; i++) {
-		
-		for(var key in tid.analysis[i]) {
-			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
+	
+	/*LATEST ANALYSIS*/
+	for(var i = 0; i < tid.analysis.length; i++) {		//Cycle through each object in analysis array 
+		for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") { //If analysis has property equal to key, and is not date or temp
 				
 				var propertyName = key;
 				var propertyValue = tid.analysis[i][key];
-				var unit = tid.tmfcParameters.concentrations[key][1];
+				var unit;
+				if(tid.tmfcParameters.concentrations[key]) {
+					unit = tid.tmfcParameters.concentrations[key][1];
+				} else {
+					unit = '';
+				}
 				var date = moment(tid.analysis[i].date, 'DD').fromNow();
 				var analysisList = '<li>';
 					analysisList += propertyName;
 					analysisList += ' : <span class="propValue">';
-					analysisList += propertyValue + ' ' + unit + ' ';
+					analysisList += propertyValue + unit + ' ';
 					analysisList += '<span class="taken">(Taken ' + date + ')</span>';
 					analysisList += '</span></li>'; 
 					
-					if($.inArray(propertyName, nameHolder) === -1) {
+					if($.inArray(propertyName, nameHolder) === -1) { 
 						nameHolder.push(propertyName);
 						$('.current_state_list').append(analysisList);
 					}				
 			}
 		}
 	}
+	/*TMFC PARAMETERS*/
 	for(var key in tid.tmfcParameters.concentrations) {
 		var propertyName = key;
 		var	propertyValue = tid.tmfcParameters.concentrations[key][0];
-		var unit = tid.tmfcParameters.concentrations[key][1]
+		var unit = tid.tmfcParameters.concentrations[key][1];
 		var	html = '<li><span class="propName">';
 			html += propertyName;
 			html += ': </span><span class="propValue">';
-			html += propertyValue + ' ' + unit;
+			html += propertyValue + '' + unit;
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};
@@ -5831,22 +5734,27 @@ function MakeChart(tankNumber, testName, unit) {
 	};		
 		
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
-		var axisData = {};
+		if(i < numberOfAnalysis && this.testResult[i] !== undefined) {
 
-		axisData.x = this.date[i];
-		axisData.y = this.testResult[i];
-		
-		tableData  =	'<div class="row">';
-		tableData +=	  '<div class="cell">';
-		tableData +=		moment(this.date[i]).format("l");
-		tableData +=	  '</div>';
-		tableData +=	  '<div class="cell">';
-		tableData +=		this.testResult[i];
-		tableData +=	  '</div>';
-		tableData +=	'</div>';
-				
-		chartData.push(axisData);		
-		$('.table').append(tableData);		
+			var axisData = {};
+
+			axisData.x = this.date[i];
+			axisData.y = this.testResult[i];
+			
+			tableData  =	'<div class="row">';
+			tableData +=	  '<div class="cell">';
+			tableData +=		moment(this.date[i]).format("l");
+			tableData +=	  '</div>';
+			tableData +=	  '<div class="cell">';
+			tableData +=		this.testResult[i];
+			tableData +=	  '</div>';
+			tableData +=	'</div>';
+					
+			chartData.push(axisData);		
+			$('.table').append(tableData);
+		} else if(numberOfAnalysis < 100){
+			numberOfAnalysis += 1;
+		}
 	}
 	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
 		applicationColor = "rgba(244,211,94, 0.8)";
