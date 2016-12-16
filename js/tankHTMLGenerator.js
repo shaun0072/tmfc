@@ -196,24 +196,38 @@ function Tank(tid) {
 	
 	
 	$('body').append(html);
-	
-	for(var key in tid.analysis[0]) {
-		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
-			var analysisList = '<li>';
-				analysisList += key;
-				analysisList += ' : <span class="propValue">';
-				analysisList += tid.analysis[0][key];
-				analysisList += '</span></li>'; 
-			$('.current_state_list').append(analysisList);
+	var nameHolder = [];
+	for(var i = 0; i < tid.analysis.length; i++) {
+		
+		for(var key in tid.analysis[i]) {
+			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
+				
+				var propertyName = key;
+				var propertyValue = tid.analysis[i][key];
+				var unit = tid.tmfcParameters.concentrations[key][1];
+				var date = moment(tid.analysis[i].date, 'DD').fromNow();
+				var analysisList = '<li>';
+					analysisList += propertyName;
+					analysisList += ' : <span class="propValue">';
+					analysisList += propertyValue + ' ' + unit + ' ';
+					analysisList += '<span class="taken">(Taken ' + date + ')</span>';
+					analysisList += '</span></li>'; 
+					
+					if($.inArray(propertyName, nameHolder) === -1) {
+						nameHolder.push(propertyName);
+						$('.current_state_list').append(analysisList);
+					}				
+			}
 		}
-	};
+	}
 	for(var key in tid.tmfcParameters.concentrations) {
 		var propertyName = key;
-		var	propertyValue = tid.tmfcParameters.concentrations[key];
+		var	propertyValue = tid.tmfcParameters.concentrations[key][0];
+		var unit = tid.tmfcParameters.concentrations[key][1]
 		var	html = '<li><span class="propName">';
 			html += propertyName;
 			html += ': </span><span class="propValue">';
-			html += propertyValue;
+			html += propertyValue + ' ' + unit;
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};

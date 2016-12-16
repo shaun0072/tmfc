@@ -524,6 +524,10 @@ body {
   .process_control ul {
     display: none; }
 
+.taken {
+  color: black;
+  font-size: 9px; }
+
 .data_records_list li {
   padding: 5px 10px 5px 28px;
   border-radius: 11px;

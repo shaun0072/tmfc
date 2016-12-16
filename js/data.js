@@ -317,7 +317,33 @@ var t1704 = {
 	]	
 };
 var t1706 = {
-	
+	tmfcParameters : {
+		concentrations     : {
+			"Zinc"             : ["1.0 - 1.5", "oz/gal"],
+			"NaOH"             : ["15 - 18", "oz/gal"],
+			"Carbonates"       : ["<10", "oz/gal"],
+			"Iron"             : ["<10", "ppm"],
+			"Chromium"         : ["<10", "ppm"],
+			"Copper"           : ["<2", "ppm"],
+		},
+		lineNumber         : 1706,
+		applicationType    : "Electro-Plating",
+		temp               : "70 - 100°F",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '142\"',
+			width          : '54.5"',
+			depth          : '26"' + ' (sol. level)',
+			capacity       : "1165 gallons"		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+	},
 	makeup : {
 		date : new Date("July 5, 2016"),
 		components: [
@@ -363,30 +389,6 @@ var t1706 = {
 			},
 		]
 	},
-	tmfcParameters : {
-		concentrations     : {
-			"Zinc"             : "1.0 - 1.5 oz/gal",
-			"Sodium Hydroxide" : "15 - 18 oz/gal",
-			"Carbonates"       : "< 10 oz/gal",
-		},
-		lineNumber         : 1706,
-		applicationType    : "Electro-Plating",
-		temp               : "70 - 100°F",
-		immersion          : "",
-		tankSize           : {
-			lngth          : '142\"',
-			width          : '54.5"',
-			depth          : '26"' + ' (sol. level)',
-			capacity       : "1165 gallons"		
-		},
-		tankMaterial   : "Steel w/Liner",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Stainless Steel",
-		coilType       : "U",
-		agitationLevel : "Low - ",
-		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
-	},
 	analysis : [
 		{
 			date   : new Date("12/01/2016"),
@@ -401,7 +403,6 @@ var t1706 = {
 		{
 			date   : new Date("11/28/2016"),
 			Zinc   : 1.74, 
-			NaOH   : 16.43,
 			temp   : {
 				"8:00AM" : 61,
 				"11:30AM": 70,
@@ -591,6 +592,15 @@ var t1706 = {
 		{
 			date   : new Date("09/21/2016"),
 			Zinc   : 1.32, 
+		},
+		{
+			date       : new Date("09/22/2016"),
+			Zinc       : 1.4, 
+			NaOH       : 16.8,
+			Carbonates : 4.9,
+			Iron       : 2.1,
+			Copper     : 1.6,
+			Chromium   : 1.4,
 		},
 		{
 			date   : new Date("09/19/2016"),

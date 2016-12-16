@@ -4652,7 +4652,33 @@ var t1704 = {
 	]	
 };
 var t1706 = {
-	
+	tmfcParameters : {
+		concentrations     : {
+			"Zinc"             : ["1.0 - 1.5", "oz/gal"],
+			"NaOH"             : ["15 - 18", "oz/gal"],
+			"Carbonates"       : ["<10", "oz/gal"],
+			"Iron"             : ["<10", "ppm"],
+			"Chromium"         : ["<10", "ppm"],
+			"Copper"           : ["<2", "ppm"],
+		},
+		lineNumber         : 1706,
+		applicationType    : "Electro-Plating",
+		temp               : "70 - 100°F",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '142\"',
+			width          : '54.5"',
+			depth          : '26"' + ' (sol. level)',
+			capacity       : "1165 gallons"		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+	},
 	makeup : {
 		date : new Date("July 5, 2016"),
 		components: [
@@ -4698,30 +4724,6 @@ var t1706 = {
 			},
 		]
 	},
-	tmfcParameters : {
-		concentrations     : {
-			"Zinc"             : "1.0 - 1.5 oz/gal",
-			"Sodium Hydroxide" : "15 - 18 oz/gal",
-			"Carbonates"       : "< 10 oz/gal",
-		},
-		lineNumber         : 1706,
-		applicationType    : "Electro-Plating",
-		temp               : "70 - 100°F",
-		immersion          : "",
-		tankSize           : {
-			lngth          : '142\"',
-			width          : '54.5"',
-			depth          : '26"' + ' (sol. level)',
-			capacity       : "1165 gallons"		
-		},
-		tankMaterial   : "Steel w/Liner",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Stainless Steel",
-		coilType       : "U",
-		agitationLevel : "Low - ",
-		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
-	},
 	analysis : [
 		{
 			date   : new Date("12/01/2016"),
@@ -4736,7 +4738,6 @@ var t1706 = {
 		{
 			date   : new Date("11/28/2016"),
 			Zinc   : 1.74, 
-			NaOH   : 16.43,
 			temp   : {
 				"8:00AM" : 61,
 				"11:30AM": 70,
@@ -4926,6 +4927,15 @@ var t1706 = {
 		{
 			date   : new Date("09/21/2016"),
 			Zinc   : 1.32, 
+		},
+		{
+			date       : new Date("09/22/2016"),
+			Zinc       : 1.4, 
+			NaOH       : 16.8,
+			Carbonates : 4.9,
+			Iron       : 2.1,
+			Copper     : 1.6,
+			Chromium   : 1.4,
 		},
 		{
 			date   : new Date("09/19/2016"),
@@ -5615,24 +5625,38 @@ function Tank(tid) {
 	
 	
 	$('body').append(html);
-	
-	for(var key in tid.analysis[0]) {
-		if(tid.analysis[0].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
-			var analysisList = '<li>';
-				analysisList += key;
-				analysisList += ' : <span class="propValue">';
-				analysisList += tid.analysis[0][key];
-				analysisList += '</span></li>'; 
-			$('.current_state_list').append(analysisList);
+	var nameHolder = [];
+	for(var i = 0; i < tid.analysis.length; i++) {
+		
+		for(var key in tid.analysis[i]) {
+			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") {
+				
+				var propertyName = key;
+				var propertyValue = tid.analysis[i][key];
+				var unit = tid.tmfcParameters.concentrations[key][1];
+				var date = moment(tid.analysis[i].date, 'DD').fromNow();
+				var analysisList = '<li>';
+					analysisList += propertyName;
+					analysisList += ' : <span class="propValue">';
+					analysisList += propertyValue + ' ' + unit + ' ';
+					analysisList += '<span class="taken">(Taken ' + date + ')</span>';
+					analysisList += '</span></li>'; 
+					
+					if($.inArray(propertyName, nameHolder) === -1) {
+						nameHolder.push(propertyName);
+						$('.current_state_list').append(analysisList);
+					}				
+			}
 		}
-	};
+	}
 	for(var key in tid.tmfcParameters.concentrations) {
 		var propertyName = key;
-		var	propertyValue = tid.tmfcParameters.concentrations[key];
+		var	propertyValue = tid.tmfcParameters.concentrations[key][0];
+		var unit = tid.tmfcParameters.concentrations[key][1]
 		var	html = '<li><span class="propName">';
 			html += propertyName;
 			html += ': </span><span class="propValue">';
-			html += propertyValue;
+			html += propertyValue + ' ' + unit;
 			html += '</span></li>';		
 		$('.tmfc_control_parameters_list').append(html);
 	};
