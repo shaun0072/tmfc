@@ -114,20 +114,21 @@ function Tank(tid) {
 				html += '</div>';
 				
 			/*LATEST ANALYSIS*/
-				var quit;
-				for(var i = 0; i < tid.analysis.length; i++) { //Cycle through each object in analysis array 
-					for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
-						if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp" && key !== "additions" && key !== "pH" && quit !== "quit") {
-							html += '<div class="current_state-cont">';
-							html += '<h3 class="current_state_title">Latest Analysis</h3>';
-							html += '<ul class="current_state_list">';
-							html += '</ul>';
-							html += '</div>';
-							quit = "quit";
+				if(tid.analysis) {
+					var quit;
+					for(var i = 0; i < tid.analysis.length; i++) { //Cycle through each object in analysis array 
+						for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+							if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp" && key !== "additions" && key !== "pH" && quit !== "quit") {
+								html += '<div class="current_state-cont">';
+								html += '<h3 class="current_state_title">Latest Analysis</h3>';
+								html += '<ul class="current_state_list">';
+								html += '</ul>';
+								html += '</div>';
+								quit = "quit";
+							}
 						}
 					}
-				}
-					
+				}	
 			/*RECORDS*/
 				if(tid.analysis) {
 					html += '<div class="data_records_cont">';
