@@ -129,7 +129,7 @@ function MakeChart(tankNumber, testName, unit) {
 				}
 			}
 		};
-		
+		Chart.defaults.global.maintainAspectRatio = false;
 	numberOfAnalysis = 5;
 	theDate = this.date;
 	theTestResult  = this.testResult;

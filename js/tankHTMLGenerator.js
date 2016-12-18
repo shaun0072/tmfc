@@ -285,7 +285,7 @@ function Tank(tid) {
 						analysisList += propertyName;
 						analysisList += ' : <span class="propValue">';
 						analysisList += propertyValue + unit + ' ';
-						analysisList += '<span class="taken">(Taken ' + date + ')</span>';
+						analysisList += '<span class="taken">---  ' + date + '</span>';
 						analysisList += '</span></li>'; 
 						
 						if($.inArray(propertyName, nameHolder) === -1) { 

@@ -525,8 +525,11 @@ body {
     display: none; }
 
 .taken {
+  display: inline-block;
   color: black;
-  font-size: 9px; }
+  font-size: 9px;
+  padding-bottom: 3px;
+  vertical-align: middle; }
 
 .data_records_list li {
   padding: 5px 10px 5px 28px;
@@ -548,8 +551,8 @@ body {
     height: 18px;
     width: 16px;
     position: absolute;
-    left: 10px;
-    top: 4px;
+    left: 8px;
+    top: 6px;
     fill: #FCB446; }
 
 .tankTable {
@@ -870,7 +873,8 @@ button.minus:after {
 } */
 .cell {
   padding: 6px 12px;
-  display: table-cell; }
+  display: table-cell;
+  text-align: left; }
 
 /* @media screen and (max-width: 580px) {
   .cell {

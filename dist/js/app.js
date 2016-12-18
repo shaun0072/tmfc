@@ -5322,7 +5322,7 @@ var t1704 = {
 		},
 		lineNumber     : 1704,
 		applicationType: "Acid Pickle",
-		temp           : "Ambient",
+		temp           : "70 - 90°F",
 		immersion      : "1 - 5 min",
 		tankSize       : {
 			lngth      : "58\"",
@@ -5414,6 +5414,7 @@ var t1706 = {
 			"Carbonates"       : ["<10", " oz/gal"],
 			"Iron"             : ["<10", " ppm"],
 			"Chromium"         : ["<10", " ppm"],
+			"Copper"           : ["<2", " ppm"],
 
 		},
 		lineNumber         : 1706,
@@ -6117,6 +6118,7 @@ var t1707 = {
 			"Carbonates"       : ["<10", " oz/gal"],
 			"Iron"             : ["<10", " ppm"],
 			"Chromium"         : ["<10", " ppm"],
+			"Copper"           : ["<2", " ppm"],
 
 		},
 		lineNumber         : 1707,
@@ -7344,7 +7346,7 @@ function Tank(tid) {
 						analysisList += propertyName;
 						analysisList += ' : <span class="propValue">';
 						analysisList += propertyValue + unit + ' ';
-						analysisList += '<span class="taken">(Taken ' + date + ')</span>';
+						analysisList += '<span class="taken">---  ' + date + '</span>';
 						analysisList += '</span></li>'; 
 						
 						if($.inArray(propertyName, nameHolder) === -1) { 
@@ -7570,7 +7572,7 @@ function MakeChart(tankNumber, testName, unit) {
 				}
 			}
 		};
-		
+		Chart.defaults.global.maintainAspectRatio = false;
 	numberOfAnalysis = 5;
 	theDate = this.date;
 	theTestResult  = this.testResult;
