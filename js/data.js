@@ -2,7 +2,9 @@
 var t1701 = {
 	tmfcParameters : {
 		concentrations     : {
-			"SSP-140" : ["8 - 11", ' oz/gal'],
+			"SSP-140"   : ["8 - 11", ' oz/gal'],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
 		},
 		lineNumber     : 1701,
 		applicationType: "Cleaner",
@@ -499,6 +501,8 @@ var t1702 = {
 	tmfcParameters : {
 		concentrations: {
 			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
 		},
 		lineNumber         : 1702,
 		applicationType    : "Electro-Cleaner",
