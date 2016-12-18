@@ -39,30 +39,36 @@ function MakeChart(tankNumber, testName, unit) {
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
 	
-	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
-		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
-		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
-		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
-		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
-		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
-		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};
-	
-	
+	function assignColor() {
+		if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
+			applicationColor = "rgba(244,211,94, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+			applicationColor = "rgba(186, 63, 29, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
+			applicationColor = "rgba(112, 163, 127, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
+			applicationColor = "rgba(39, 93, 173, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+			applicationColor = "rgba(145,139,118, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
+			applicationColor = "rgba(75,0,130, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
+			applicationColor = "rgba(238,235,208, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Electro-Cleaner") {
+			applicationColor = "rgba(186, 63, 29, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);  
+		}
+	}
+
+	assignColor();
+
 	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
 		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
@@ -164,49 +170,30 @@ function MakeChart(tankNumber, testName, unit) {
 			numberOfAnalysis += 1;
 		}
 	}
-	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
-		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
-		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
-		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
-		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
-		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
-		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};
-		
+	
+	assignColor();
+	/*Add Data to Chart*/	
 	document.getElementById('addData').addEventListener('click', function() {
 
 		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
-
+			console.log(scatterChartData.datasets[0].data.length);
+			console.log(tankNumber.analysis.length);
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis; i++) {
-				if(tankNumber.analysis[i][testName] !== undefined) {
+				console.log(tankNumber.analysis[i]);
+				if(tankNumber.analysis[i] !== undefined) {
 					console.log(tankNumber.analysis[i].date);
 					console.log(tankNumber.analysis[i][testName]);
 					var axisData = {};
 						axisData.x = tankNumber.analysis[i].date;
 						axisData.y = tankNumber.analysis[i][testName];									
 						chartData.push(axisData);	
-				}
-					
+				}	
 			}			
 		}
 		window.myScatter.update();
 	});
-
+	/*Remove Data from Chart*/	
 	document.getElementById('removeData').addEventListener('click', function() {
 		if (scatterChartData.datasets[0].data.length > 1) {
 

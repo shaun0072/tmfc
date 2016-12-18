@@ -4333,6 +4333,7 @@ i.fillRect(t.x+1,t.y+1,r-2,r-2),i.fillStyle=u),c(o)}),l.each(o.after,c)}),d=0,l.
 function p(t,e){return void 0===e&&(e=void 0!==t[3]?t[3]:1),"hwb("+t[0]+", "+t[1]+"%, "+t[2]+"%"+(void 0!==e&&1!==e?", "+e:"")+")"}function v(t){return k[t.slice(0,3)]}function b(t,e,n){return Math.min(Math.max(e,t),n)}function y(t){var e=t.toString(16).toUpperCase();return e.length<2?"0"+e:e}var x=t(45);e.exports={getRgba:i,getHsla:a,getRgb:o,getHsl:s,getHwb:r,getAlpha:l,hexString:u,rgbString:d,rgbaString:c,percentString:h,percentaString:f,hslString:g,hslaString:m,hwbString:p,keyword:v};var k={};for(var _ in x)k[x[_]]=_},{45:45}],42:[function(t,e,n){var i=t(44),a=t(41),r=function(t){if(t instanceof r)return t;if(!(this instanceof r))return new r(t);this.values={rgb:[0,0,0],hsl:[0,0,0],hsv:[0,0,0],hwb:[0,0,0],cmyk:[0,0,0,0],alpha:1};var e;if("string"==typeof t)if(e=a.getRgba(t))this.setValues("rgb",e);else if(e=a.getHsla(t))this.setValues("hsl",e);else{if(!(e=a.getHwb(t)))throw new Error('Unable to parse color from string "'+t+'"');this.setValues("hwb",e)}else if("object"==typeof t)if(e=t,void 0!==e.r||void 0!==e.red)this.setValues("rgb",e);else if(void 0!==e.l||void 0!==e.lightness)this.setValues("hsl",e);else if(void 0!==e.v||void 0!==e.value)this.setValues("hsv",e);else if(void 0!==e.w||void 0!==e.whiteness)this.setValues("hwb",e);else{if(void 0===e.c&&void 0===e.cyan)throw new Error("Unable to parse color from object "+JSON.stringify(t));this.setValues("cmyk",e)}};r.prototype={rgb:function(){return this.setSpace("rgb",arguments)},hsl:function(){return this.setSpace("hsl",arguments)},hsv:function(){return this.setSpace("hsv",arguments)},hwb:function(){return this.setSpace("hwb",arguments)},cmyk:function(){return this.setSpace("cmyk",arguments)},rgbArray:function(){return this.values.rgb},hslArray:function(){return this.values.hsl},hsvArray:function(){return this.values.hsv},hwbArray:function(){var t=this.values;return 1!==t.alpha?t.hwb.concat([t.alpha]):t.hwb},cmykArray:function(){return this.values.cmyk},rgbaArray:function(){var t=this.values;return t.rgb.concat([t.alpha])},hslaArray:function(){var t=this.values;return t.hsl.concat([t.alpha])},alpha:function(t){return void 0===t?this.values.alpha:(this.setValues("alpha",t),this)},red:function(t){return this.setChannel("rgb",0,t)},green:function(t){return this.setChannel("rgb",1,t)},blue:function(t){return this.setChannel("rgb",2,t)},hue:function(t){return t&&(t%=360,t=0>t?360+t:t),this.setChannel("hsl",0,t)},saturation:function(t){return this.setChannel("hsl",1,t)},lightness:function(t){return this.setChannel("hsl",2,t)},saturationv:function(t){return this.setChannel("hsv",1,t)},whiteness:function(t){return this.setChannel("hwb",1,t)},blackness:function(t){return this.setChannel("hwb",2,t)},value:function(t){return this.setChannel("hsv",2,t)},cyan:function(t){return this.setChannel("cmyk",0,t)},magenta:function(t){return this.setChannel("cmyk",1,t)},yellow:function(t){return this.setChannel("cmyk",2,t)},black:function(t){return this.setChannel("cmyk",3,t)},hexString:function(){return a.hexString(this.values.rgb)},rgbString:function(){return a.rgbString(this.values.rgb,this.values.alpha)},rgbaString:function(){return a.rgbaString(this.values.rgb,this.values.alpha)},percentString:function(){return a.percentString(this.values.rgb,this.values.alpha)},hslString:function(){return a.hslString(this.values.hsl,this.values.alpha)},hslaString:function(){return a.hslaString(this.values.hsl,this.values.alpha)},hwbString:function(){return a.hwbString(this.values.hwb,this.values.alpha)},keyword:function(){return a.keyword(this.values.rgb,this.values.alpha)},rgbNumber:function(){var t=this.values.rgb;return t[0]<<16|t[1]<<8|t[2]},luminosity:function(){for(var t=this.values.rgb,e=[],n=0;n<t.length;n++){var i=t[n]/255;e[n]=.03928>=i?i/12.92:Math.pow((i+.055)/1.055,2.4)}return.2126*e[0]+.7152*e[1]+.0722*e[2]},contrast:function(t){var e=this.luminosity(),n=t.luminosity();return e>n?(e+.05)/(n+.05):(n+.05)/(e+.05)},level:function(t){var e=this.contrast(t);return e>=7.1?"AAA":e>=4.5?"AA":""},dark:function(){var t=this.values.rgb,e=(299*t[0]+587*t[1]+114*t[2])/1e3;return 128>e},light:function(){return!this.dark()},negate:function(){for(var t=[],e=0;3>e;e++)t[e]=255-this.values.rgb[e];return this.setValues("rgb",t),this},lighten:function(t){var e=this.values.hsl;return e[2]+=e[2]*t,this.setValues("hsl",e),this},darken:function(t){var e=this.values.hsl;return e[2]-=e[2]*t,this.setValues("hsl",e),this},saturate:function(t){var e=this.values.hsl;return e[1]+=e[1]*t,this.setValues("hsl",e),this},desaturate:function(t){var e=this.values.hsl;return e[1]-=e[1]*t,this.setValues("hsl",e),this},whiten:function(t){var e=this.values.hwb;return e[1]+=e[1]*t,this.setValues("hwb",e),this},blacken:function(t){var e=this.values.hwb;return e[2]+=e[2]*t,this.setValues("hwb",e),this},greyscale:function(){var t=this.values.rgb,e=.3*t[0]+.59*t[1]+.11*t[2];return this.setValues("rgb",[e,e,e]),this},clearer:function(t){var e=this.values.alpha;return this.setValues("alpha",e-e*t),this},opaquer:function(t){var e=this.values.alpha;return this.setValues("alpha",e+e*t),this},rotate:function(t){var e=this.values.hsl,n=(e[0]+t)%360;return e[0]=0>n?360+n:n,this.setValues("hsl",e),this},mix:function(t,e){var n=this,i=t,a=void 0===e?.5:e,r=2*a-1,o=n.alpha()-i.alpha(),s=((r*o===-1?r:(r+o)/(1+r*o))+1)/2,l=1-s;return this.rgb(s*n.red()+l*i.red(),s*n.green()+l*i.green(),s*n.blue()+l*i.blue()).alpha(n.alpha()*a+i.alpha()*(1-a))},toJSON:function(){return this.rgb()},clone:function(){var t,e,n=new r,i=this.values,a=n.values;for(var o in i)i.hasOwnProperty(o)&&(t=i[o],e={}.toString.call(t),"[object Array]"===e?a[o]=t.slice(0):"[object Number]"===e?a[o]=t:console.error("unexpected color value:",t));return n}},r.prototype.spaces={rgb:["red","green","blue"],hsl:["hue","saturation","lightness"],hsv:["hue","saturation","value"],hwb:["hue","whiteness","blackness"],cmyk:["cyan","magenta","yellow","black"]},r.prototype.maxes={rgb:[255,255,255],hsl:[360,100,100],hsv:[360,100,100],hwb:[360,100,100],cmyk:[100,100,100,100]},r.prototype.getValues=function(t){for(var e=this.values,n={},i=0;i<t.length;i++)n[t.charAt(i)]=e[t][i];return 1!==e.alpha&&(n.a=e.alpha),n},r.prototype.setValues=function(t,e){var n,a=this.values,r=this.spaces,o=this.maxes,s=1;if("alpha"===t)s=e;else if(e.length)a[t]=e.slice(0,t.length),s=e[t.length];else if(void 0!==e[t.charAt(0)]){for(n=0;n<t.length;n++)a[t][n]=e[t.charAt(n)];s=e.a}else if(void 0!==e[r[t][0]]){var l=r[t];for(n=0;n<t.length;n++)a[t][n]=e[l[n]];s=e.alpha}if(a.alpha=Math.max(0,Math.min(1,void 0===s?a.alpha:s)),"alpha"===t)return!1;var u;for(n=0;n<t.length;n++)u=Math.max(0,Math.min(o[t][n],a[t][n])),a[t][n]=Math.round(u);for(var d in r)d!==t&&(a[d]=i[t][d](a[t]));return!0},r.prototype.setSpace=function(t,e){var n=e[0];return void 0===n?this.getValues(t):("number"==typeof n&&(n=Array.prototype.slice.call(e)),this.setValues(t,n),this)},r.prototype.setChannel=function(t,e,n){var i=this.values[t];return void 0===n?i[e]:n===i[e]?this:(i[e]=n,this.setValues(t,i),this)},"undefined"!=typeof window&&(window.Color=r),e.exports=r},{41:41,44:44}],43:[function(t,e,n){function i(t){var e,n,i,a=t[0]/255,r=t[1]/255,o=t[2]/255,s=Math.min(a,r,o),l=Math.max(a,r,o),u=l-s;return l==s?e=0:a==l?e=(r-o)/u:r==l?e=2+(o-a)/u:o==l&&(e=4+(a-r)/u),e=Math.min(60*e,360),0>e&&(e+=360),i=(s+l)/2,n=l==s?0:.5>=i?u/(l+s):u/(2-l-s),[e,100*n,100*i]}function a(t){var e,n,i,a=t[0],r=t[1],o=t[2],s=Math.min(a,r,o),l=Math.max(a,r,o),u=l-s;return n=0==l?0:u/l*1e3/10,l==s?e=0:a==l?e=(r-o)/u:r==l?e=2+(o-a)/u:o==l&&(e=4+(a-r)/u),e=Math.min(60*e,360),0>e&&(e+=360),i=l/255*1e3/10,[e,n,i]}function o(t){var e=t[0],n=t[1],a=t[2],r=i(t)[0],o=1/255*Math.min(e,Math.min(n,a)),a=1-1/255*Math.max(e,Math.max(n,a));return[r,100*o,100*a]}function s(t){var e,n,i,a,r=t[0]/255,o=t[1]/255,s=t[2]/255;return a=Math.min(1-r,1-o,1-s),e=(1-r-a)/(1-a)||0,n=(1-o-a)/(1-a)||0,i=(1-s-a)/(1-a)||0,[100*e,100*n,100*i,100*a]}function l(t){return K[JSON.stringify(t)]}function u(t){var e=t[0]/255,n=t[1]/255,i=t[2]/255;e=e>.04045?Math.pow((e+.055)/1.055,2.4):e/12.92,n=n>.04045?Math.pow((n+.055)/1.055,2.4):n/12.92,i=i>.04045?Math.pow((i+.055)/1.055,2.4):i/12.92;var a=.4124*e+.3576*n+.1805*i,r=.2126*e+.7152*n+.0722*i,o=.0193*e+.1192*n+.9505*i;return[100*a,100*r,100*o]}function d(t){var e,n,i,a=u(t),r=a[0],o=a[1],s=a[2];return r/=95.047,o/=100,s/=108.883,r=r>.008856?Math.pow(r,1/3):7.787*r+16/116,o=o>.008856?Math.pow(o,1/3):7.787*o+16/116,s=s>.008856?Math.pow(s,1/3):7.787*s+16/116,e=116*o-16,n=500*(r-o),i=200*(o-s),[e,n,i]}function c(t){return Y(d(t))}function h(t){var e,n,i,a,r,o=t[0]/360,s=t[1]/100,l=t[2]/100;if(0==s)return r=255*l,[r,r,r];n=.5>l?l*(1+s):l+s-l*s,e=2*l-n,a=[0,0,0];for(var u=0;3>u;u++)i=o+1/3*-(u-1),0>i&&i++,i>1&&i--,r=1>6*i?e+6*(n-e)*i:1>2*i?n:2>3*i?e+(n-e)*(2/3-i)*6:e,a[u]=255*r;return a}function f(t){var e,n,i=t[0],a=t[1]/100,r=t[2]/100;return 0===r?[0,0,0]:(r*=2,a*=1>=r?r:2-r,n=(r+a)/2,e=2*a/(r+a),[i,100*e,100*n])}function m(t){return o(h(t))}function p(t){return s(h(t))}function v(t){return l(h(t))}function y(t){var e=t[0]/60,n=t[1]/100,i=t[2]/100,a=Math.floor(e)%6,r=e-Math.floor(e),o=255*i*(1-n),s=255*i*(1-n*r),l=255*i*(1-n*(1-r)),i=255*i;switch(a){case 0:return[i,l,o];case 1:return[s,i,o];case 2:return[o,i,l];case 3:return[o,s,i];case 4:return[l,o,i];case 5:return[i,o,s]}}function x(t){var e,n,i=t[0],a=t[1]/100,r=t[2]/100;return n=(2-a)*r,e=a*r,e/=1>=n?n:2-n,e=e||0,n/=2,[i,100*e,100*n]}function k(t){return o(y(t))}function _(t){return s(y(t))}function w(t){return l(y(t))}function S(t){var e,n,i,a,o=t[0]/360,s=t[1]/100,l=t[2]/100,u=s+l;switch(u>1&&(s/=u,l/=u),e=Math.floor(6*o),n=1-l,i=6*o-e,0!=(1&e)&&(i=1-i),a=s+i*(n-s),e){default:case 6:case 0:r=n,g=a,b=s;break;case 1:r=a,g=n,b=s;break;case 2:r=s,g=n,b=a;break;case 3:r=s,g=a,b=n;break;case 4:r=a,g=s,b=n;break;case 5:r=n,g=s,b=a}return[255*r,255*g,255*b]}function M(t){return i(S(t))}function D(t){return a(S(t))}function C(t){return s(S(t))}function T(t){return l(S(t))}function P(t){var e,n,i,a=t[0]/100,r=t[1]/100,o=t[2]/100,s=t[3]/100;return e=1-Math.min(1,a*(1-s)+s),n=1-Math.min(1,r*(1-s)+s),i=1-Math.min(1,o*(1-s)+s),[255*e,255*n,255*i]}function I(t){return i(P(t))}function F(t){return a(P(t))}function A(t){return o(P(t))}function O(t){return l(P(t))}function R(t){var e,n,i,a=t[0]/100,r=t[1]/100,o=t[2]/100;return e=3.2406*a+-1.5372*r+o*-.4986,n=a*-.9689+1.8758*r+.0415*o,i=.0557*a+r*-.204+1.057*o,e=e>.0031308?1.055*Math.pow(e,1/2.4)-.055:e=12.92*e,n=n>.0031308?1.055*Math.pow(n,1/2.4)-.055:n=12.92*n,i=i>.0031308?1.055*Math.pow(i,1/2.4)-.055:i=12.92*i,e=Math.min(Math.max(0,e),1),n=Math.min(Math.max(0,n),1),i=Math.min(Math.max(0,i),1),[255*e,255*n,255*i]}function L(t){var e,n,i,a=t[0],r=t[1],o=t[2];return a/=95.047,r/=100,o/=108.883,a=a>.008856?Math.pow(a,1/3):7.787*a+16/116,r=r>.008856?Math.pow(r,1/3):7.787*r+16/116,o=o>.008856?Math.pow(o,1/3):7.787*o+16/116,e=116*r-16,n=500*(a-r),i=200*(r-o),[e,n,i]}function W(t){return Y(L(t))}function V(t){var e,n,i,a,r=t[0],o=t[1],s=t[2];return 8>=r?(n=100*r/903.3,a=7.787*(n/100)+16/116):(n=100*Math.pow((r+16)/116,3),a=Math.pow(n/100,1/3)),e=.008856>=e/95.047?e=95.047*(o/500+a-16/116)/7.787:95.047*Math.pow(o/500+a,3),i=.008859>=i/108.883?i=108.883*(a-s/200-16/116)/7.787:108.883*Math.pow(a-s/200,3),[e,n,i]}function Y(t){var e,n,i,a=t[0],r=t[1],o=t[2];return e=Math.atan2(o,r),n=360*e/2/Math.PI,0>n&&(n+=360),i=Math.sqrt(r*r+o*o),[a,i,n]}function B(t){return R(V(t))}function z(t){var e,n,i,a=t[0],r=t[1],o=t[2];return i=o/360*2*Math.PI,e=r*Math.cos(i),n=r*Math.sin(i),[a,e,n]}function N(t){return V(z(t))}function H(t){return B(z(t))}function E(t){return J[t]}function U(t){return i(E(t))}function j(t){return a(E(t))}function G(t){return o(E(t))}function q(t){return s(E(t))}function Z(t){return d(E(t))}function X(t){return u(E(t))}e.exports={rgb2hsl:i,rgb2hsv:a,rgb2hwb:o,rgb2cmyk:s,rgb2keyword:l,rgb2xyz:u,rgb2lab:d,rgb2lch:c,hsl2rgb:h,hsl2hsv:f,hsl2hwb:m,hsl2cmyk:p,hsl2keyword:v,hsv2rgb:y,hsv2hsl:x,hsv2hwb:k,hsv2cmyk:_,hsv2keyword:w,hwb2rgb:S,hwb2hsl:M,hwb2hsv:D,hwb2cmyk:C,hwb2keyword:T,cmyk2rgb:P,cmyk2hsl:I,cmyk2hsv:F,cmyk2hwb:A,cmyk2keyword:O,keyword2rgb:E,keyword2hsl:U,keyword2hsv:j,keyword2hwb:G,keyword2cmyk:q,keyword2lab:Z,keyword2xyz:X,xyz2rgb:R,xyz2lab:L,xyz2lch:W,lab2xyz:V,lab2rgb:B,lab2lch:Y,lch2lab:z,lch2xyz:N,lch2rgb:H};var J={aliceblue:[240,248,255],antiquewhite:[250,235,215],aqua:[0,255,255],aquamarine:[127,255,212],azure:[240,255,255],beige:[245,245,220],bisque:[255,228,196],black:[0,0,0],blanchedalmond:[255,235,205],blue:[0,0,255],blueviolet:[138,43,226],brown:[165,42,42],burlywood:[222,184,135],cadetblue:[95,158,160],chartreuse:[127,255,0],chocolate:[210,105,30],coral:[255,127,80],cornflowerblue:[100,149,237],cornsilk:[255,248,220],crimson:[220,20,60],cyan:[0,255,255],darkblue:[0,0,139],darkcyan:[0,139,139],darkgoldenrod:[184,134,11],darkgray:[169,169,169],darkgreen:[0,100,0],darkgrey:[169,169,169],darkkhaki:[189,183,107],darkmagenta:[139,0,139],darkolivegreen:[85,107,47],darkorange:[255,140,0],darkorchid:[153,50,204],darkred:[139,0,0],darksalmon:[233,150,122],darkseagreen:[143,188,143],darkslateblue:[72,61,139],darkslategray:[47,79,79],darkslategrey:[47,79,79],darkturquoise:[0,206,209],darkviolet:[148,0,211],deeppink:[255,20,147],deepskyblue:[0,191,255],dimgray:[105,105,105],dimgrey:[105,105,105],dodgerblue:[30,144,255],firebrick:[178,34,34],floralwhite:[255,250,240],forestgreen:[34,139,34],fuchsia:[255,0,255],gainsboro:[220,220,220],ghostwhite:[248,248,255],gold:[255,215,0],goldenrod:[218,165,32],gray:[128,128,128],green:[0,128,0],greenyellow:[173,255,47],grey:[128,128,128],honeydew:[240,255,240],hotpink:[255,105,180],indianred:[205,92,92],indigo:[75,0,130],ivory:[255,255,240],khaki:[240,230,140],lavender:[230,230,250],lavenderblush:[255,240,245],lawngreen:[124,252,0],lemonchiffon:[255,250,205],lightblue:[173,216,230],lightcoral:[240,128,128],lightcyan:[224,255,255],lightgoldenrodyellow:[250,250,210],lightgray:[211,211,211],lightgreen:[144,238,144],lightgrey:[211,211,211],lightpink:[255,182,193],lightsalmon:[255,160,122],lightseagreen:[32,178,170],lightskyblue:[135,206,250],lightslategray:[119,136,153],lightslategrey:[119,136,153],lightsteelblue:[176,196,222],lightyellow:[255,255,224],lime:[0,255,0],limegreen:[50,205,50],linen:[250,240,230],magenta:[255,0,255],maroon:[128,0,0],mediumaquamarine:[102,205,170],mediumblue:[0,0,205],mediumorchid:[186,85,211],mediumpurple:[147,112,219],mediumseagreen:[60,179,113],mediumslateblue:[123,104,238],mediumspringgreen:[0,250,154],mediumturquoise:[72,209,204],mediumvioletred:[199,21,133],midnightblue:[25,25,112],mintcream:[245,255,250],mistyrose:[255,228,225],moccasin:[255,228,181],navajowhite:[255,222,173],navy:[0,0,128],oldlace:[253,245,230],olive:[128,128,0],olivedrab:[107,142,35],orange:[255,165,0],orangered:[255,69,0],orchid:[218,112,214],palegoldenrod:[238,232,170],palegreen:[152,251,152],paleturquoise:[175,238,238],palevioletred:[219,112,147],papayawhip:[255,239,213],peachpuff:[255,218,185],peru:[205,133,63],pink:[255,192,203],plum:[221,160,221],powderblue:[176,224,230],purple:[128,0,128],rebeccapurple:[102,51,153],red:[255,0,0],rosybrown:[188,143,143],royalblue:[65,105,225],saddlebrown:[139,69,19],salmon:[250,128,114],sandybrown:[244,164,96],seagreen:[46,139,87],seashell:[255,245,238],sienna:[160,82,45],silver:[192,192,192],skyblue:[135,206,235],slateblue:[106,90,205],slategray:[112,128,144],slategrey:[112,128,144],snow:[255,250,250],springgreen:[0,255,127],steelblue:[70,130,180],tan:[210,180,140],teal:[0,128,128],thistle:[216,191,216],tomato:[255,99,71],turquoise:[64,224,208],violet:[238,130,238],wheat:[245,222,179],white:[255,255,255],whitesmoke:[245,245,245],yellow:[255,255,0],yellowgreen:[154,205,50]},K={};for(var Q in J)K[JSON.stringify(J[Q])]=Q},{}],44:[function(t,e,n){var i=t(43),a=function(){return new u};for(var r in i){a[r+"Raw"]=function(t){return function(e){return"number"==typeof e&&(e=Array.prototype.slice.call(arguments)),i[t](e)}}(r);var o=/(\w+)2(\w+)/.exec(r),s=o[1],l=o[2];a[s]=a[s]||{},a[s][l]=a[r]=function(t){return function(e){"number"==typeof e&&(e=Array.prototype.slice.call(arguments));var n=i[t](e);if("string"==typeof n||void 0===n)return n;for(var a=0;a<n.length;a++)n[a]=Math.round(n[a]);return n}}(r)}var u=function(){this.convs={}};u.prototype.routeSpace=function(t,e){var n=e[0];return void 0===n?this.getValues(t):("number"==typeof n&&(n=Array.prototype.slice.call(e)),this.setValues(t,n))},u.prototype.setValues=function(t,e){return this.space=t,this.convs={},this.convs[t]=e,this},u.prototype.getValues=function(t){var e=this.convs[t];if(!e){var n=this.space,i=this.convs[n];e=a[n][t](i),this.convs[t]=e}return e},["rgb","hsl","hsv","cmyk","keyword"].forEach(function(t){u.prototype[t]=function(e){return this.routeSpace(t,arguments)}}),e.exports=a},{43:43}],45:[function(t,e,n){e.exports={aliceblue:[240,248,255],antiquewhite:[250,235,215],aqua:[0,255,255],aquamarine:[127,255,212],azure:[240,255,255],beige:[245,245,220],bisque:[255,228,196],black:[0,0,0],blanchedalmond:[255,235,205],blue:[0,0,255],blueviolet:[138,43,226],brown:[165,42,42],burlywood:[222,184,135],cadetblue:[95,158,160],chartreuse:[127,255,0],chocolate:[210,105,30],coral:[255,127,80],cornflowerblue:[100,149,237],cornsilk:[255,248,220],crimson:[220,20,60],cyan:[0,255,255],darkblue:[0,0,139],darkcyan:[0,139,139],darkgoldenrod:[184,134,11],darkgray:[169,169,169],darkgreen:[0,100,0],darkgrey:[169,169,169],darkkhaki:[189,183,107],darkmagenta:[139,0,139],darkolivegreen:[85,107,47],darkorange:[255,140,0],darkorchid:[153,50,204],darkred:[139,0,0],darksalmon:[233,150,122],darkseagreen:[143,188,143],darkslateblue:[72,61,139],darkslategray:[47,79,79],darkslategrey:[47,79,79],darkturquoise:[0,206,209],darkviolet:[148,0,211],deeppink:[255,20,147],deepskyblue:[0,191,255],dimgray:[105,105,105],dimgrey:[105,105,105],dodgerblue:[30,144,255],firebrick:[178,34,34],floralwhite:[255,250,240],forestgreen:[34,139,34],fuchsia:[255,0,255],gainsboro:[220,220,220],ghostwhite:[248,248,255],gold:[255,215,0],goldenrod:[218,165,32],gray:[128,128,128],green:[0,128,0],greenyellow:[173,255,47],grey:[128,128,128],honeydew:[240,255,240],hotpink:[255,105,180],indianred:[205,92,92],indigo:[75,0,130],ivory:[255,255,240],khaki:[240,230,140],lavender:[230,230,250],lavenderblush:[255,240,245],lawngreen:[124,252,0],lemonchiffon:[255,250,205],lightblue:[173,216,230],lightcoral:[240,128,128],lightcyan:[224,255,255],lightgoldenrodyellow:[250,250,210],lightgray:[211,211,211],lightgreen:[144,238,144],lightgrey:[211,211,211],lightpink:[255,182,193],lightsalmon:[255,160,122],lightseagreen:[32,178,170],lightskyblue:[135,206,250],lightslategray:[119,136,153],lightslategrey:[119,136,153],lightsteelblue:[176,196,222],lightyellow:[255,255,224],lime:[0,255,0],limegreen:[50,205,50],linen:[250,240,230],magenta:[255,0,255],maroon:[128,0,0],mediumaquamarine:[102,205,170],mediumblue:[0,0,205],mediumorchid:[186,85,211],mediumpurple:[147,112,219],mediumseagreen:[60,179,113],mediumslateblue:[123,104,238],mediumspringgreen:[0,250,154],mediumturquoise:[72,209,204],mediumvioletred:[199,21,133],midnightblue:[25,25,112],mintcream:[245,255,250],mistyrose:[255,228,225],moccasin:[255,228,181],navajowhite:[255,222,173],navy:[0,0,128],oldlace:[253,245,230],olive:[128,128,0],olivedrab:[107,142,35],orange:[255,165,0],orangered:[255,69,0],orchid:[218,112,214],palegoldenrod:[238,232,170],palegreen:[152,251,152],paleturquoise:[175,238,238],palevioletred:[219,112,147],papayawhip:[255,239,213],peachpuff:[255,218,185],peru:[205,133,63],pink:[255,192,203],plum:[221,160,221],powderblue:[176,224,230],purple:[128,0,128],rebeccapurple:[102,51,153],red:[255,0,0],rosybrown:[188,143,143],royalblue:[65,105,225],saddlebrown:[139,69,19],salmon:[250,128,114],sandybrown:[244,164,96],seagreen:[46,139,87],seashell:[255,245,238],sienna:[160,82,45],silver:[192,192,192],skyblue:[135,206,235],slateblue:[106,90,205],slategray:[112,128,144],slategrey:[112,128,144],snow:[255,250,250],springgreen:[0,255,127],steelblue:[70,130,180],tan:[210,180,140],teal:[0,128,128],thistle:[216,191,216],tomato:[255,99,71],turquoise:[64,224,208],violet:[238,130,238],wheat:[245,222,179],white:[255,255,255],whitesmoke:[245,245,245],yellow:[255,255,0],yellowgreen:[154,205,50]}},{}],46:[function(e,n,i){!function(e,a){"object"==typeof i&&"undefined"!=typeof n?n.exports=a():"function"==typeof t&&t.amd?t(a):e.moment=a()}(this,function(){"use strict";function t(){return vi.apply(null,arguments)}function i(t){vi=t}function a(t){return t instanceof Array||"[object Array]"===Object.prototype.toString.call(t)}function r(t){return null!=t&&"[object Object]"===Object.prototype.toString.call(t)}function o(t){var e;for(e in t)return!1;return!0}function s(t){return"number"==typeof value||"[object Number]"===Object.prototype.toString.call(t)}function l(t){return t instanceof Date||"[object Date]"===Object.prototype.toString.call(t)}function u(t,e){var n,i=[];for(n=0;n<t.length;++n)i.push(e(t[n],n));return i}function d(t,e){return Object.prototype.hasOwnProperty.call(t,e)}function c(t,e){for(var n in e)d(e,n)&&(t[n]=e[n]);return d(e,"toString")&&(t.toString=e.toString),d(e,"valueOf")&&(t.valueOf=e.valueOf),t}function h(t,e,n,i){return ye(t,e,n,i,!0).utc()}function f(){return{empty:!1,unusedTokens:[],unusedInput:[],overflow:-2,charsLeftOver:0,nullInput:!1,invalidMonth:null,invalidFormat:!1,userInvalidated:!1,iso:!1,parsedDateParts:[],meridiem:null}}function g(t){return null==t._pf&&(t._pf=f()),t._pf}function m(t){if(null==t._isValid){var e=g(t),n=yi.call(e.parsedDateParts,function(t){return null!=t}),i=!isNaN(t._d.getTime())&&e.overflow<0&&!e.empty&&!e.invalidMonth&&!e.invalidWeekday&&!e.nullInput&&!e.invalidFormat&&!e.userInvalidated&&(!e.meridiem||e.meridiem&&n);if(t._strict&&(i=i&&0===e.charsLeftOver&&0===e.unusedTokens.length&&void 0===e.bigHour),null!=Object.isFrozen&&Object.isFrozen(t))return i;t._isValid=i}return t._isValid}function p(t){var e=h(NaN);return null!=t?c(g(e),t):g(e).userInvalidated=!0,e}function v(t){return void 0===t}function b(t,e){var n,i,a;if(v(e._isAMomentObject)||(t._isAMomentObject=e._isAMomentObject),v(e._i)||(t._i=e._i),v(e._f)||(t._f=e._f),v(e._l)||(t._l=e._l),v(e._strict)||(t._strict=e._strict),v(e._tzm)||(t._tzm=e._tzm),v(e._isUTC)||(t._isUTC=e._isUTC),v(e._offset)||(t._offset=e._offset),v(e._pf)||(t._pf=g(e)),v(e._locale)||(t._locale=e._locale),xi.length>0)for(n in xi)i=xi[n],a=e[i],v(a)||(t[i]=a);return t}function y(e){b(this,e),this._d=new Date(null!=e._d?e._d.getTime():NaN),ki===!1&&(ki=!0,t.updateOffset(this),ki=!1)}function x(t){return t instanceof y||null!=t&&null!=t._isAMomentObject}function k(t){return 0>t?Math.ceil(t)||0:Math.floor(t)}function _(t){var e=+t,n=0;return 0!==e&&isFinite(e)&&(n=k(e)),n}function w(t,e,n){var i,a=Math.min(t.length,e.length),r=Math.abs(t.length-e.length),o=0;for(i=0;a>i;i++)(n&&t[i]!==e[i]||!n&&_(t[i])!==_(e[i]))&&o++;return o+r}function S(e){t.suppressDeprecationWarnings===!1&&"undefined"!=typeof console&&console.warn&&console.warn("Deprecation warning: "+e)}function M(e,n){var i=!0;return c(function(){if(null!=t.deprecationHandler&&t.deprecationHandler(null,e),i){for(var a,r=[],o=0;o<arguments.length;o++){if(a="","object"==typeof arguments[o]){a+="\n["+o+"] ";for(var s in arguments[0])a+=s+": "+arguments[0][s]+", ";a=a.slice(0,-2)}else a=arguments[o];r.push(a)}S(e+"\nArguments: "+Array.prototype.slice.call(r).join("")+"\n"+(new Error).stack),i=!1}return n.apply(this,arguments)},n)}function D(e,n){null!=t.deprecationHandler&&t.deprecationHandler(e,n),_i[e]||(S(n),_i[e]=!0)}function C(t){return t instanceof Function||"[object Function]"===Object.prototype.toString.call(t)}function T(t){var e,n;for(n in t)e=t[n],C(e)?this[n]=e:this["_"+n]=e;this._config=t,this._ordinalParseLenient=new RegExp(this._ordinalParse.source+"|"+/\d{1,2}/.source)}function P(t,e){var n,i=c({},t);for(n in e)d(e,n)&&(r(t[n])&&r(e[n])?(i[n]={},c(i[n],t[n]),c(i[n],e[n])):null!=e[n]?i[n]=e[n]:delete i[n]);for(n in t)d(t,n)&&!d(e,n)&&r(t[n])&&(i[n]=c({},i[n]));return i}function I(t){null!=t&&this.set(t)}function F(t,e,n){var i=this._calendar[t]||this._calendar.sameElse;return C(i)?i.call(e,n):i}function A(t){var e=this._longDateFormat[t],n=this._longDateFormat[t.toUpperCase()];return e||!n?e:(this._longDateFormat[t]=n.replace(/MMMM|MM|DD|dddd/g,function(t){return t.slice(1)}),this._longDateFormat[t])}function O(){return this._invalidDate}function R(t){return this._ordinal.replace("%d",t)}function L(t,e,n,i){var a=this._relativeTime[n];return C(a)?a(t,e,n,i):a.replace(/%d/i,t)}function W(t,e){var n=this._relativeTime[t>0?"future":"past"];return C(n)?n(e):n.replace(/%s/i,e)}function V(t,e){var n=t.toLowerCase();Ai[n]=Ai[n+"s"]=Ai[e]=t}function Y(t){return"string"==typeof t?Ai[t]||Ai[t.toLowerCase()]:void 0}function B(t){var e,n,i={};for(n in t)d(t,n)&&(e=Y(n),e&&(i[e]=t[n]));return i}function z(t,e){Oi[t]=e}function N(t){var e=[];for(var n in t)e.push({unit:n,priority:Oi[n]});return e.sort(function(t,e){return t.priority-e.priority}),e}function H(e,n){return function(i){return null!=i?(U(this,e,i),t.updateOffset(this,n),this):E(this,e)}}function E(t,e){return t.isValid()?t._d["get"+(t._isUTC?"UTC":"")+e]():NaN}function U(t,e,n){t.isValid()&&t._d["set"+(t._isUTC?"UTC":"")+e](n)}function j(t){return t=Y(t),C(this[t])?this[t]():this}function G(t,e){if("object"==typeof t){t=B(t);for(var n=N(t),i=0;i<n.length;i++)this[n[i].unit](t[n[i].unit])}else if(t=Y(t),C(this[t]))return this[t](e);return this}function q(t,e,n){var i=""+Math.abs(t),a=e-i.length,r=t>=0;return(r?n?"+":"":"-")+Math.pow(10,Math.max(0,a)).toString().substr(1)+i}function Z(t,e,n,i){var a=i;"string"==typeof i&&(a=function(){return this[i]()}),t&&(Vi[t]=a),e&&(Vi[e[0]]=function(){return q(a.apply(this,arguments),e[1],e[2])}),n&&(Vi[n]=function(){return this.localeData().ordinal(a.apply(this,arguments),t)})}function X(t){return t.match(/\[[\s\S]/)?t.replace(/^\[|\]$/g,""):t.replace(/\\/g,"")}function J(t){var e,n,i=t.match(Ri);for(e=0,n=i.length;n>e;e++)Vi[i[e]]?i[e]=Vi[i[e]]:i[e]=X(i[e]);return function(e){var a,r="";for(a=0;n>a;a++)r+=i[a]instanceof Function?i[a].call(e,t):i[a];return r}}function K(t,e){return t.isValid()?(e=Q(e,t.localeData()),Wi[e]=Wi[e]||J(e),Wi[e](t)):t.localeData().invalidDate()}function Q(t,e){function n(t){return e.longDateFormat(t)||t}var i=5;for(Li.lastIndex=0;i>=0&&Li.test(t);)t=t.replace(Li,n),Li.lastIndex=0,i-=1;return t}function $(t,e,n){ea[t]=C(e)?e:function(t,i){return t&&n?n:e}}function tt(t,e){return d(ea,t)?ea[t](e._strict,e._locale):new RegExp(et(t))}function et(t){return nt(t.replace("\\","").replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,function(t,e,n,i,a){return e||n||i||a}))}function nt(t){return t.replace(/[-\/\\^$*+?.()|[\]{}]/g,"\\$&")}function it(t,e){var n,i=e;for("string"==typeof t&&(t=[t]),s(e)&&(i=function(t,n){n[e]=_(t)}),n=0;n<t.length;n++)na[t[n]]=i}function at(t,e){it(t,function(t,n,i,a){i._w=i._w||{},e(t,i._w,i,a)})}function rt(t,e,n){null!=e&&d(na,t)&&na[t](e,n._a,n,t)}function ot(t,e){return new Date(Date.UTC(t,e+1,0)).getUTCDate()}function st(t,e){return t?a(this._months)?this._months[t.month()]:this._months[(this._months.isFormat||fa).test(e)?"format":"standalone"][t.month()]:this._months}function lt(t,e){return t?a(this._monthsShort)?this._monthsShort[t.month()]:this._monthsShort[fa.test(e)?"format":"standalone"][t.month()]:this._monthsShort}function ut(t,e,n){var i,a,r,o=t.toLocaleLowerCase();if(!this._monthsParse)for(this._monthsParse=[],this._longMonthsParse=[],this._shortMonthsParse=[],i=0;12>i;++i)r=h([2e3,i]),this._shortMonthsParse[i]=this.monthsShort(r,"").toLocaleLowerCase(),this._longMonthsParse[i]=this.months(r,"").toLocaleLowerCase();return n?"MMM"===e?(a=ha.call(this._shortMonthsParse,o),-1!==a?a:null):(a=ha.call(this._longMonthsParse,o),-1!==a?a:null):"MMM"===e?(a=ha.call(this._shortMonthsParse,o),-1!==a?a:(a=ha.call(this._longMonthsParse,o),-1!==a?a:null)):(a=ha.call(this._longMonthsParse,o),-1!==a?a:(a=ha.call(this._shortMonthsParse,o),-1!==a?a:null))}function dt(t,e,n){var i,a,r;if(this._monthsParseExact)return ut.call(this,t,e,n);for(this._monthsParse||(this._monthsParse=[],this._longMonthsParse=[],this._shortMonthsParse=[]),i=0;12>i;i++){if(a=h([2e3,i]),n&&!this._longMonthsParse[i]&&(this._longMonthsParse[i]=new RegExp("^"+this.months(a,"").replace(".","")+"$","i"),this._shortMonthsParse[i]=new RegExp("^"+this.monthsShort(a,"").replace(".","")+"$","i")),n||this._monthsParse[i]||(r="^"+this.months(a,"")+"|^"+this.monthsShort(a,""),this._monthsParse[i]=new RegExp(r.replace(".",""),"i")),n&&"MMMM"===e&&this._longMonthsParse[i].test(t))return i;if(n&&"MMM"===e&&this._shortMonthsParse[i].test(t))return i;if(!n&&this._monthsParse[i].test(t))return i}}function ct(t,e){var n;if(!t.isValid())return t;if("string"==typeof e)if(/^\d+$/.test(e))e=_(e);else if(e=t.localeData().monthsParse(e),!s(e))return t;return n=Math.min(t.date(),ot(t.year(),e)),t._d["set"+(t._isUTC?"UTC":"")+"Month"](e,n),t}function ht(e){return null!=e?(ct(this,e),t.updateOffset(this,!0),this):E(this,"Month")}function ft(){return ot(this.year(),this.month())}function gt(t){return this._monthsParseExact?(d(this,"_monthsRegex")||pt.call(this),t?this._monthsShortStrictRegex:this._monthsShortRegex):(d(this,"_monthsShortRegex")||(this._monthsShortRegex=pa),this._monthsShortStrictRegex&&t?this._monthsShortStrictRegex:this._monthsShortRegex)}function mt(t){return this._monthsParseExact?(d(this,"_monthsRegex")||pt.call(this),t?this._monthsStrictRegex:this._monthsRegex):(d(this,"_monthsRegex")||(this._monthsRegex=va),this._monthsStrictRegex&&t?this._monthsStrictRegex:this._monthsRegex)}function pt(){function t(t,e){return e.length-t.length}var e,n,i=[],a=[],r=[];for(e=0;12>e;e++)n=h([2e3,e]),i.push(this.monthsShort(n,"")),a.push(this.months(n,"")),r.push(this.months(n,"")),r.push(this.monthsShort(n,""));for(i.sort(t),a.sort(t),r.sort(t),e=0;12>e;e++)i[e]=nt(i[e]),a[e]=nt(a[e]);for(e=0;24>e;e++)r[e]=nt(r[e]);this._monthsRegex=new RegExp("^("+r.join("|")+")","i"),this._monthsShortRegex=this._monthsRegex,this._monthsStrictRegex=new RegExp("^("+a.join("|")+")","i"),this._monthsShortStrictRegex=new RegExp("^("+i.join("|")+")","i")}function vt(t){return bt(t)?366:365}function bt(t){return t%4===0&&t%100!==0||t%400===0}function yt(){return bt(this.year())}function xt(t,e,n,i,a,r,o){var s=new Date(t,e,n,i,a,r,o);return 100>t&&t>=0&&isFinite(s.getFullYear())&&s.setFullYear(t),s}function kt(t){var e=new Date(Date.UTC.apply(null,arguments));return 100>t&&t>=0&&isFinite(e.getUTCFullYear())&&e.setUTCFullYear(t),e}function _t(t,e,n){var i=7+e-n,a=(7+kt(t,0,i).getUTCDay()-e)%7;return-a+i-1}function wt(t,e,n,i,a){var r,o,s=(7+n-i)%7,l=_t(t,i,a),u=1+7*(e-1)+s+l;return 0>=u?(r=t-1,o=vt(r)+u):u>vt(t)?(r=t+1,o=u-vt(t)):(r=t,o=u),{year:r,dayOfYear:o}}function St(t,e,n){var i,a,r=_t(t.year(),e,n),o=Math.floor((t.dayOfYear()-r-1)/7)+1;return 1>o?(a=t.year()-1,i=o+Mt(a,e,n)):o>Mt(t.year(),e,n)?(i=o-Mt(t.year(),e,n),a=t.year()+1):(a=t.year(),i=o),{week:i,year:a}}function Mt(t,e,n){var i=_t(t,e,n),a=_t(t+1,e,n);return(vt(t)-i+a)/7}function Dt(t){return St(t,this._week.dow,this._week.doy).week}function Ct(){return this._week.dow}function Tt(){return this._week.doy}function Pt(t){var e=this.localeData().week(this);return null==t?e:this.add(7*(t-e),"d")}function It(t){var e=St(this,1,4).week;return null==t?e:this.add(7*(t-e),"d")}function Ft(t,e){return"string"!=typeof t?t:isNaN(t)?(t=e.weekdaysParse(t),"number"==typeof t?t:null):parseInt(t,10)}function At(t,e){return"string"==typeof t?e.weekdaysParse(t)%7||7:isNaN(t)?null:t}function Ot(t,e){return t?a(this._weekdays)?this._weekdays[t.day()]:this._weekdays[this._weekdays.isFormat.test(e)?"format":"standalone"][t.day()]:this._weekdays}function Rt(t){return t?this._weekdaysShort[t.day()]:this._weekdaysShort}function Lt(t){return t?this._weekdaysMin[t.day()]:this._weekdaysMin}function Wt(t,e,n){var i,a,r,o=t.toLocaleLowerCase();if(!this._weekdaysParse)for(this._weekdaysParse=[],this._shortWeekdaysParse=[],this._minWeekdaysParse=[],
 i=0;7>i;++i)r=h([2e3,1]).day(i),this._minWeekdaysParse[i]=this.weekdaysMin(r,"").toLocaleLowerCase(),this._shortWeekdaysParse[i]=this.weekdaysShort(r,"").toLocaleLowerCase(),this._weekdaysParse[i]=this.weekdays(r,"").toLocaleLowerCase();return n?"dddd"===e?(a=ha.call(this._weekdaysParse,o),-1!==a?a:null):"ddd"===e?(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:null):(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:null):"dddd"===e?(a=ha.call(this._weekdaysParse,o),-1!==a?a:(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:null))):"ddd"===e?(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:(a=ha.call(this._weekdaysParse,o),-1!==a?a:(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:null))):(a=ha.call(this._minWeekdaysParse,o),-1!==a?a:(a=ha.call(this._weekdaysParse,o),-1!==a?a:(a=ha.call(this._shortWeekdaysParse,o),-1!==a?a:null)))}function Vt(t,e,n){var i,a,r;if(this._weekdaysParseExact)return Wt.call(this,t,e,n);for(this._weekdaysParse||(this._weekdaysParse=[],this._minWeekdaysParse=[],this._shortWeekdaysParse=[],this._fullWeekdaysParse=[]),i=0;7>i;i++){if(a=h([2e3,1]).day(i),n&&!this._fullWeekdaysParse[i]&&(this._fullWeekdaysParse[i]=new RegExp("^"+this.weekdays(a,"").replace(".",".?")+"$","i"),this._shortWeekdaysParse[i]=new RegExp("^"+this.weekdaysShort(a,"").replace(".",".?")+"$","i"),this._minWeekdaysParse[i]=new RegExp("^"+this.weekdaysMin(a,"").replace(".",".?")+"$","i")),this._weekdaysParse[i]||(r="^"+this.weekdays(a,"")+"|^"+this.weekdaysShort(a,"")+"|^"+this.weekdaysMin(a,""),this._weekdaysParse[i]=new RegExp(r.replace(".",""),"i")),n&&"dddd"===e&&this._fullWeekdaysParse[i].test(t))return i;if(n&&"ddd"===e&&this._shortWeekdaysParse[i].test(t))return i;if(n&&"dd"===e&&this._minWeekdaysParse[i].test(t))return i;if(!n&&this._weekdaysParse[i].test(t))return i}}function Yt(t){if(!this.isValid())return null!=t?this:NaN;var e=this._isUTC?this._d.getUTCDay():this._d.getDay();return null!=t?(t=Ft(t,this.localeData()),this.add(t-e,"d")):e}function Bt(t){if(!this.isValid())return null!=t?this:NaN;var e=(this.day()+7-this.localeData()._week.dow)%7;return null==t?e:this.add(t-e,"d")}function zt(t){if(!this.isValid())return null!=t?this:NaN;if(null!=t){var e=At(t,this.localeData());return this.day(this.day()%7?e:e-7)}return this.day()||7}function Nt(t){return this._weekdaysParseExact?(d(this,"_weekdaysRegex")||Ut.call(this),t?this._weekdaysStrictRegex:this._weekdaysRegex):(d(this,"_weekdaysRegex")||(this._weekdaysRegex=wa),this._weekdaysStrictRegex&&t?this._weekdaysStrictRegex:this._weekdaysRegex)}function Ht(t){return this._weekdaysParseExact?(d(this,"_weekdaysRegex")||Ut.call(this),t?this._weekdaysShortStrictRegex:this._weekdaysShortRegex):(d(this,"_weekdaysShortRegex")||(this._weekdaysShortRegex=Sa),this._weekdaysShortStrictRegex&&t?this._weekdaysShortStrictRegex:this._weekdaysShortRegex)}function Et(t){return this._weekdaysParseExact?(d(this,"_weekdaysRegex")||Ut.call(this),t?this._weekdaysMinStrictRegex:this._weekdaysMinRegex):(d(this,"_weekdaysMinRegex")||(this._weekdaysMinRegex=Ma),this._weekdaysMinStrictRegex&&t?this._weekdaysMinStrictRegex:this._weekdaysMinRegex)}function Ut(){function t(t,e){return e.length-t.length}var e,n,i,a,r,o=[],s=[],l=[],u=[];for(e=0;7>e;e++)n=h([2e3,1]).day(e),i=this.weekdaysMin(n,""),a=this.weekdaysShort(n,""),r=this.weekdays(n,""),o.push(i),s.push(a),l.push(r),u.push(i),u.push(a),u.push(r);for(o.sort(t),s.sort(t),l.sort(t),u.sort(t),e=0;7>e;e++)s[e]=nt(s[e]),l[e]=nt(l[e]),u[e]=nt(u[e]);this._weekdaysRegex=new RegExp("^("+u.join("|")+")","i"),this._weekdaysShortRegex=this._weekdaysRegex,this._weekdaysMinRegex=this._weekdaysRegex,this._weekdaysStrictRegex=new RegExp("^("+l.join("|")+")","i"),this._weekdaysShortStrictRegex=new RegExp("^("+s.join("|")+")","i"),this._weekdaysMinStrictRegex=new RegExp("^("+o.join("|")+")","i")}function jt(){return this.hours()%12||12}function Gt(){return this.hours()||24}function qt(t,e){Z(t,0,0,function(){return this.localeData().meridiem(this.hours(),this.minutes(),e)})}function Zt(t,e){return e._meridiemParse}function Xt(t){return"p"===(t+"").toLowerCase().charAt(0)}function Jt(t,e,n){return t>11?n?"pm":"PM":n?"am":"AM"}function Kt(t){return t?t.toLowerCase().replace("_","-"):t}function Qt(t){for(var e,n,i,a,r=0;r<t.length;){for(a=Kt(t[r]).split("-"),e=a.length,n=Kt(t[r+1]),n=n?n.split("-"):null;e>0;){if(i=$t(a.slice(0,e).join("-")))return i;if(n&&n.length>=e&&w(a,n,!0)>=e-1)break;e--}r++}return null}function $t(t){var i=null;if(!Ia[t]&&"undefined"!=typeof n&&n&&n.exports)try{i=Da._abbr,e("./locale/"+t),te(i)}catch(a){}return Ia[t]}function te(t,e){var n;return t&&(n=v(e)?ie(t):ee(t,e),n&&(Da=n)),Da._abbr}function ee(t,e){if(null!==e){var n=Pa;if(e.abbr=t,null!=Ia[t])D("defineLocaleOverride","use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info."),n=Ia[t]._config;else if(null!=e.parentLocale){if(null==Ia[e.parentLocale])return Fa[e.parentLocale]||(Fa[e.parentLocale]=[]),Fa[e.parentLocale].push({name:t,config:e}),null;n=Ia[e.parentLocale]._config}return Ia[t]=new I(P(n,e)),Fa[t]&&Fa[t].forEach(function(t){ee(t.name,t.config)}),te(t),Ia[t]}return delete Ia[t],null}function ne(t,e){if(null!=e){var n,i=Pa;null!=Ia[t]&&(i=Ia[t]._config),e=P(i,e),n=new I(e),n.parentLocale=Ia[t],Ia[t]=n,te(t)}else null!=Ia[t]&&(null!=Ia[t].parentLocale?Ia[t]=Ia[t].parentLocale:null!=Ia[t]&&delete Ia[t]);return Ia[t]}function ie(t){var e;if(t&&t._locale&&t._locale._abbr&&(t=t._locale._abbr),!t)return Da;if(!a(t)){if(e=$t(t))return e;t=[t]}return Qt(t)}function ae(){return Mi(Ia)}function re(t){var e,n=t._a;return n&&-2===g(t).overflow&&(e=n[aa]<0||n[aa]>11?aa:n[ra]<1||n[ra]>ot(n[ia],n[aa])?ra:n[oa]<0||n[oa]>24||24===n[oa]&&(0!==n[sa]||0!==n[la]||0!==n[ua])?oa:n[sa]<0||n[sa]>59?sa:n[la]<0||n[la]>59?la:n[ua]<0||n[ua]>999?ua:-1,g(t)._overflowDayOfYear&&(ia>e||e>ra)&&(e=ra),g(t)._overflowWeeks&&-1===e&&(e=da),g(t)._overflowWeekday&&-1===e&&(e=ca),g(t).overflow=e),t}function oe(t){var e,n,i,a,r,o,s=t._i,l=Aa.exec(s)||Oa.exec(s);if(l){for(g(t).iso=!0,e=0,n=La.length;n>e;e++)if(La[e][1].exec(l[1])){a=La[e][0],i=La[e][2]!==!1;break}if(null==a)return void(t._isValid=!1);if(l[3]){for(e=0,n=Wa.length;n>e;e++)if(Wa[e][1].exec(l[3])){r=(l[2]||" ")+Wa[e][0];break}if(null==r)return void(t._isValid=!1)}if(!i&&null!=r)return void(t._isValid=!1);if(l[4]){if(!Ra.exec(l[4]))return void(t._isValid=!1);o="Z"}t._f=a+(r||"")+(o||""),he(t)}else t._isValid=!1}function se(e){var n=Va.exec(e._i);return null!==n?void(e._d=new Date(+n[1])):(oe(e),void(e._isValid===!1&&(delete e._isValid,t.createFromInputFallback(e))))}function le(t,e,n){return null!=t?t:null!=e?e:n}function ue(e){var n=new Date(t.now());return e._useUTC?[n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate()]:[n.getFullYear(),n.getMonth(),n.getDate()]}function de(t){var e,n,i,a,r=[];if(!t._d){for(i=ue(t),t._w&&null==t._a[ra]&&null==t._a[aa]&&ce(t),t._dayOfYear&&(a=le(t._a[ia],i[ia]),t._dayOfYear>vt(a)&&(g(t)._overflowDayOfYear=!0),n=kt(a,0,t._dayOfYear),t._a[aa]=n.getUTCMonth(),t._a[ra]=n.getUTCDate()),e=0;3>e&&null==t._a[e];++e)t._a[e]=r[e]=i[e];for(;7>e;e++)t._a[e]=r[e]=null==t._a[e]?2===e?1:0:t._a[e];24===t._a[oa]&&0===t._a[sa]&&0===t._a[la]&&0===t._a[ua]&&(t._nextDay=!0,t._a[oa]=0),t._d=(t._useUTC?kt:xt).apply(null,r),null!=t._tzm&&t._d.setUTCMinutes(t._d.getUTCMinutes()-t._tzm),t._nextDay&&(t._a[oa]=24)}}function ce(t){var e,n,i,a,r,o,s,l;if(e=t._w,null!=e.GG||null!=e.W||null!=e.E)r=1,o=4,n=le(e.GG,t._a[ia],St(xe(),1,4).year),i=le(e.W,1),a=le(e.E,1),(1>a||a>7)&&(l=!0);else{r=t._locale._week.dow,o=t._locale._week.doy;var u=St(xe(),r,o);n=le(e.gg,t._a[ia],u.year),i=le(e.w,u.week),null!=e.d?(a=e.d,(0>a||a>6)&&(l=!0)):null!=e.e?(a=e.e+r,(e.e<0||e.e>6)&&(l=!0)):a=r}1>i||i>Mt(n,r,o)?g(t)._overflowWeeks=!0:null!=l?g(t)._overflowWeekday=!0:(s=wt(n,i,a,r,o),t._a[ia]=s.year,t._dayOfYear=s.dayOfYear)}function he(e){if(e._f===t.ISO_8601)return void oe(e);e._a=[],g(e).empty=!0;var n,i,a,r,o,s=""+e._i,l=s.length,u=0;for(a=Q(e._f,e._locale).match(Ri)||[],n=0;n<a.length;n++)r=a[n],i=(s.match(tt(r,e))||[])[0],i&&(o=s.substr(0,s.indexOf(i)),o.length>0&&g(e).unusedInput.push(o),s=s.slice(s.indexOf(i)+i.length),u+=i.length),Vi[r]?(i?g(e).empty=!1:g(e).unusedTokens.push(r),rt(r,i,e)):e._strict&&!i&&g(e).unusedTokens.push(r);g(e).charsLeftOver=l-u,s.length>0&&g(e).unusedInput.push(s),e._a[oa]<=12&&g(e).bigHour===!0&&e._a[oa]>0&&(g(e).bigHour=void 0),g(e).parsedDateParts=e._a.slice(0),g(e).meridiem=e._meridiem,e._a[oa]=fe(e._locale,e._a[oa],e._meridiem),de(e),re(e)}function fe(t,e,n){var i;return null==n?e:null!=t.meridiemHour?t.meridiemHour(e,n):null!=t.isPM?(i=t.isPM(n),i&&12>e&&(e+=12),i||12!==e||(e=0),e):e}function ge(t){var e,n,i,a,r;if(0===t._f.length)return g(t).invalidFormat=!0,void(t._d=new Date(NaN));for(a=0;a<t._f.length;a++)r=0,e=b({},t),null!=t._useUTC&&(e._useUTC=t._useUTC),e._f=t._f[a],he(e),m(e)&&(r+=g(e).charsLeftOver,r+=10*g(e).unusedTokens.length,g(e).score=r,(null==i||i>r)&&(i=r,n=e));c(t,n||e)}function me(t){if(!t._d){var e=B(t._i);t._a=u([e.year,e.month,e.day||e.date,e.hour,e.minute,e.second,e.millisecond],function(t){return t&&parseInt(t,10)}),de(t)}}function pe(t){var e=new y(re(ve(t)));return e._nextDay&&(e.add(1,"d"),e._nextDay=void 0),e}function ve(t){var e=t._i,n=t._f;return t._locale=t._locale||ie(t._l),null===e||void 0===n&&""===e?p({nullInput:!0}):("string"==typeof e&&(t._i=e=t._locale.preparse(e)),x(e)?new y(re(e)):(l(e)?t._d=e:a(n)?ge(t):n?he(t):be(t),m(t)||(t._d=null),t))}function be(e){var n=e._i;void 0===n?e._d=new Date(t.now()):l(n)?e._d=new Date(n.valueOf()):"string"==typeof n?se(e):a(n)?(e._a=u(n.slice(0),function(t){return parseInt(t,10)}),de(e)):"object"==typeof n?me(e):s(n)?e._d=new Date(n):t.createFromInputFallback(e)}function ye(t,e,n,i,s){var l={};return(n===!0||n===!1)&&(i=n,n=void 0),(r(t)&&o(t)||a(t)&&0===t.length)&&(t=void 0),l._isAMomentObject=!0,l._useUTC=l._isUTC=s,l._l=n,l._i=t,l._f=e,l._strict=i,pe(l)}function xe(t,e,n,i){return ye(t,e,n,i,!1)}function ke(t,e){var n,i;if(1===e.length&&a(e[0])&&(e=e[0]),!e.length)return xe();for(n=e[0],i=1;i<e.length;++i)(!e[i].isValid()||e[i][t](n))&&(n=e[i]);return n}function _e(){var t=[].slice.call(arguments,0);return ke("isBefore",t)}function we(){var t=[].slice.call(arguments,0);return ke("isAfter",t)}function Se(t){var e=B(t),n=e.year||0,i=e.quarter||0,a=e.month||0,r=e.week||0,o=e.day||0,s=e.hour||0,l=e.minute||0,u=e.second||0,d=e.millisecond||0;this._milliseconds=+d+1e3*u+6e4*l+1e3*s*60*60,this._days=+o+7*r,this._months=+a+3*i+12*n,this._data={},this._locale=ie(),this._bubble()}function Me(t){return t instanceof Se}function De(t){return 0>t?-1*Math.round(-1*t):Math.round(t)}function Ce(t,e){Z(t,0,0,function(){var t=this.utcOffset(),n="+";return 0>t&&(t=-t,n="-"),n+q(~~(t/60),2)+e+q(~~t%60,2)})}function Te(t,e){var n=(e||"").match(t);if(null===n)return null;var i=n[n.length-1]||[],a=(i+"").match(Na)||["-",0,0],r=+(60*a[1])+_(a[2]);return 0===r?0:"+"===a[0]?r:-r}function Pe(e,n){var i,a;return n._isUTC?(i=n.clone(),a=(x(e)||l(e)?e.valueOf():xe(e).valueOf())-i.valueOf(),i._d.setTime(i._d.valueOf()+a),t.updateOffset(i,!1),i):xe(e).local()}function Ie(t){return 15*-Math.round(t._d.getTimezoneOffset()/15)}function Fe(e,n){var i,a=this._offset||0;if(!this.isValid())return null!=e?this:NaN;if(null!=e){if("string"==typeof e){if(e=Te(Qi,e),null===e)return this}else Math.abs(e)<16&&(e=60*e);return!this._isUTC&&n&&(i=Ie(this)),this._offset=e,this._isUTC=!0,null!=i&&this.add(i,"m"),a!==e&&(!n||this._changeInProgress?qe(this,He(e-a,"m"),1,!1):this._changeInProgress||(this._changeInProgress=!0,t.updateOffset(this,!0),this._changeInProgress=null)),this}return this._isUTC?a:Ie(this)}function Ae(t,e){return null!=t?("string"!=typeof t&&(t=-t),this.utcOffset(t,e),this):-this.utcOffset()}function Oe(t){return this.utcOffset(0,t)}function Re(t){return this._isUTC&&(this.utcOffset(0,t),this._isUTC=!1,t&&this.subtract(Ie(this),"m")),this}function Le(){if(null!=this._tzm)this.utcOffset(this._tzm);else if("string"==typeof this._i){var t=Te(Ki,this._i);null!=t?this.utcOffset(t):this.utcOffset(0,!0)}return this}function We(t){return this.isValid()?(t=t?xe(t).utcOffset():0,(this.utcOffset()-t)%60===0):!1}function Ve(){return this.utcOffset()>this.clone().month(0).utcOffset()||this.utcOffset()>this.clone().month(5).utcOffset()}function Ye(){if(!v(this._isDSTShifted))return this._isDSTShifted;var t={};if(b(t,this),t=ve(t),t._a){var e=t._isUTC?h(t._a):xe(t._a);this._isDSTShifted=this.isValid()&&w(t._a,e.toArray())>0}else this._isDSTShifted=!1;return this._isDSTShifted}function Be(){return this.isValid()?!this._isUTC:!1}function ze(){return this.isValid()?this._isUTC:!1}function Ne(){return this.isValid()?this._isUTC&&0===this._offset:!1}function He(t,e){var n,i,a,r=t,o=null;return Me(t)?r={ms:t._milliseconds,d:t._days,M:t._months}:s(t)?(r={},e?r[e]=t:r.milliseconds=t):(o=Ha.exec(t))?(n="-"===o[1]?-1:1,r={y:0,d:_(o[ra])*n,h:_(o[oa])*n,m:_(o[sa])*n,s:_(o[la])*n,ms:_(De(1e3*o[ua]))*n}):(o=Ea.exec(t))?(n="-"===o[1]?-1:1,r={y:Ee(o[2],n),M:Ee(o[3],n),w:Ee(o[4],n),d:Ee(o[5],n),h:Ee(o[6],n),m:Ee(o[7],n),s:Ee(o[8],n)}):null==r?r={}:"object"==typeof r&&("from"in r||"to"in r)&&(a=je(xe(r.from),xe(r.to)),r={},r.ms=a.milliseconds,r.M=a.months),i=new Se(r),Me(t)&&d(t,"_locale")&&(i._locale=t._locale),i}function Ee(t,e){var n=t&&parseFloat(t.replace(",","."));return(isNaN(n)?0:n)*e}function Ue(t,e){var n={milliseconds:0,months:0};return n.months=e.month()-t.month()+12*(e.year()-t.year()),t.clone().add(n.months,"M").isAfter(e)&&--n.months,n.milliseconds=+e-+t.clone().add(n.months,"M"),n}function je(t,e){var n;return t.isValid()&&e.isValid()?(e=Pe(e,t),t.isBefore(e)?n=Ue(t,e):(n=Ue(e,t),n.milliseconds=-n.milliseconds,n.months=-n.months),n):{milliseconds:0,months:0}}function Ge(t,e){return function(n,i){var a,r;return null===i||isNaN(+i)||(D(e,"moment()."+e+"(period, number) is deprecated. Please use moment()."+e+"(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."),r=n,n=i,i=r),n="string"==typeof n?+n:n,a=He(n,i),qe(this,a,t),this}}function qe(e,n,i,a){var r=n._milliseconds,o=De(n._days),s=De(n._months);e.isValid()&&(a=null==a?!0:a,r&&e._d.setTime(e._d.valueOf()+r*i),o&&U(e,"Date",E(e,"Date")+o*i),s&&ct(e,E(e,"Month")+s*i),a&&t.updateOffset(e,o||s))}function Ze(t,e){var n=t.diff(e,"days",!0);return-6>n?"sameElse":-1>n?"lastWeek":0>n?"lastDay":1>n?"sameDay":2>n?"nextDay":7>n?"nextWeek":"sameElse"}function Xe(e,n){var i=e||xe(),a=Pe(i,this).startOf("day"),r=t.calendarFormat(this,a)||"sameElse",o=n&&(C(n[r])?n[r].call(this,i):n[r]);return this.format(o||this.localeData().calendar(r,this,xe(i)))}function Je(){return new y(this)}function Ke(t,e){var n=x(t)?t:xe(t);return this.isValid()&&n.isValid()?(e=Y(v(e)?"millisecond":e),"millisecond"===e?this.valueOf()>n.valueOf():n.valueOf()<this.clone().startOf(e).valueOf()):!1}function Qe(t,e){var n=x(t)?t:xe(t);return this.isValid()&&n.isValid()?(e=Y(v(e)?"millisecond":e),"millisecond"===e?this.valueOf()<n.valueOf():this.clone().endOf(e).valueOf()<n.valueOf()):!1}function $e(t,e,n,i){return i=i||"()",("("===i[0]?this.isAfter(t,n):!this.isBefore(t,n))&&(")"===i[1]?this.isBefore(e,n):!this.isAfter(e,n))}function tn(t,e){var n,i=x(t)?t:xe(t);return this.isValid()&&i.isValid()?(e=Y(e||"millisecond"),"millisecond"===e?this.valueOf()===i.valueOf():(n=i.valueOf(),this.clone().startOf(e).valueOf()<=n&&n<=this.clone().endOf(e).valueOf())):!1}function en(t,e){return this.isSame(t,e)||this.isAfter(t,e)}function nn(t,e){return this.isSame(t,e)||this.isBefore(t,e)}function an(t,e,n){var i,a,r,o;return this.isValid()?(i=Pe(t,this),i.isValid()?(a=6e4*(i.utcOffset()-this.utcOffset()),e=Y(e),"year"===e||"month"===e||"quarter"===e?(o=rn(this,i),"quarter"===e?o/=3:"year"===e&&(o/=12)):(r=this-i,o="second"===e?r/1e3:"minute"===e?r/6e4:"hour"===e?r/36e5:"day"===e?(r-a)/864e5:"week"===e?(r-a)/6048e5:r),n?o:k(o)):NaN):NaN}function rn(t,e){var n,i,a=12*(e.year()-t.year())+(e.month()-t.month()),r=t.clone().add(a,"months");return 0>e-r?(n=t.clone().add(a-1,"months"),i=(e-r)/(r-n)):(n=t.clone().add(a+1,"months"),i=(e-r)/(n-r)),-(a+i)||0}function on(){return this.clone().locale("en").format("ddd MMM DD YYYY HH:mm:ss [GMT]ZZ")}function sn(){var t=this.clone().utc();return 0<t.year()&&t.year()<=9999?C(Date.prototype.toISOString)?this.toDate().toISOString():K(t,"YYYY-MM-DD[T]HH:mm:ss.SSS[Z]"):K(t,"YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]")}function ln(){if(!this.isValid())return"moment.invalid(/* "+this._i+" */)";var t="moment",e="";this.isLocal()||(t=0===this.utcOffset()?"moment.utc":"moment.parseZone",e="Z");var n="["+t+'("]',i=0<this.year()&&this.year()<=9999?"YYYY":"YYYYYY",a="-MM-DD[T]HH:mm:ss.SSS",r=e+'[")]';return this.format(n+i+a+r)}function un(e){e||(e=this.isUtc()?t.defaultFormatUtc:t.defaultFormat);var n=K(this,e);return this.localeData().postformat(n)}function dn(t,e){return this.isValid()&&(x(t)&&t.isValid()||xe(t).isValid())?He({to:this,from:t}).locale(this.locale()).humanize(!e):this.localeData().invalidDate()}function cn(t){return this.from(xe(),t)}function hn(t,e){return this.isValid()&&(x(t)&&t.isValid()||xe(t).isValid())?He({from:this,to:t}).locale(this.locale()).humanize(!e):this.localeData().invalidDate()}function fn(t){return this.to(xe(),t)}function gn(t){var e;return void 0===t?this._locale._abbr:(e=ie(t),null!=e&&(this._locale=e),this)}function mn(){return this._locale}function pn(t){switch(t=Y(t)){case"year":this.month(0);case"quarter":case"month":this.date(1);case"week":case"isoWeek":case"day":case"date":this.hours(0);case"hour":this.minutes(0);case"minute":this.seconds(0);case"second":this.milliseconds(0)}return"week"===t&&this.weekday(0),"isoWeek"===t&&this.isoWeekday(1),"quarter"===t&&this.month(3*Math.floor(this.month()/3)),this}function vn(t){return t=Y(t),void 0===t||"millisecond"===t?this:("date"===t&&(t="day"),this.startOf(t).add(1,"isoWeek"===t?"week":t).subtract(1,"ms"))}function bn(){return this._d.valueOf()-6e4*(this._offset||0)}function yn(){return Math.floor(this.valueOf()/1e3)}function xn(){return new Date(this.valueOf())}function kn(){var t=this;return[t.year(),t.month(),t.date(),t.hour(),t.minute(),t.second(),t.millisecond()]}function _n(){var t=this;return{years:t.year(),months:t.month(),date:t.date(),hours:t.hours(),minutes:t.minutes(),seconds:t.seconds(),milliseconds:t.milliseconds()}}function wn(){return this.isValid()?this.toISOString():null}function Sn(){return m(this)}function Mn(){return c({},g(this))}function Dn(){return g(this).overflow}function Cn(){return{input:this._i,format:this._f,locale:this._locale,isUTC:this._isUTC,strict:this._strict}}function Tn(t,e){Z(0,[t,t.length],0,e)}function Pn(t){return On.call(this,t,this.week(),this.weekday(),this.localeData()._week.dow,this.localeData()._week.doy)}function In(t){return On.call(this,t,this.isoWeek(),this.isoWeekday(),1,4)}function Fn(){return Mt(this.year(),1,4)}function An(){var t=this.localeData()._week;return Mt(this.year(),t.dow,t.doy)}function On(t,e,n,i,a){var r;return null==t?St(this,i,a).year:(r=Mt(t,i,a),e>r&&(e=r),Rn.call(this,t,e,n,i,a))}function Rn(t,e,n,i,a){var r=wt(t,e,n,i,a),o=kt(r.year,0,r.dayOfYear);return this.year(o.getUTCFullYear()),this.month(o.getUTCMonth()),this.date(o.getUTCDate()),this}function Ln(t){return null==t?Math.ceil((this.month()+1)/3):this.month(3*(t-1)+this.month()%3)}function Wn(t){var e=Math.round((this.clone().startOf("day")-this.clone().startOf("year"))/864e5)+1;return null==t?e:this.add(t-e,"d")}function Vn(t,e){e[ua]=_(1e3*("0."+t))}function Yn(){return this._isUTC?"UTC":""}function Bn(){return this._isUTC?"Coordinated Universal Time":""}function zn(t){return xe(1e3*t)}function Nn(){return xe.apply(null,arguments).parseZone()}function Hn(t){return t}function En(t,e,n,i){var a=ie(),r=h().set(i,e);return a[n](r,t)}function Un(t,e,n){if(s(t)&&(e=t,t=void 0),t=t||"",null!=e)return En(t,e,n,"month");var i,a=[];for(i=0;12>i;i++)a[i]=En(t,i,n,"month");return a}function jn(t,e,n,i){"boolean"==typeof t?(s(e)&&(n=e,e=void 0),e=e||""):(e=t,n=e,t=!1,s(e)&&(n=e,e=void 0),e=e||"");var a=ie(),r=t?a._week.dow:0;if(null!=n)return En(e,(n+r)%7,i,"day");var o,l=[];for(o=0;7>o;o++)l[o]=En(e,(o+r)%7,i,"day");return l}function Gn(t,e){return Un(t,e,"months")}function qn(t,e){return Un(t,e,"monthsShort")}function Zn(t,e,n){return jn(t,e,n,"weekdays")}function Xn(t,e,n){return jn(t,e,n,"weekdaysShort")}function Jn(t,e,n){return jn(t,e,n,"weekdaysMin")}function Kn(){var t=this._data;return this._milliseconds=tr(this._milliseconds),this._days=tr(this._days),this._months=tr(this._months),t.milliseconds=tr(t.milliseconds),t.seconds=tr(t.seconds),t.minutes=tr(t.minutes),t.hours=tr(t.hours),t.months=tr(t.months),t.years=tr(t.years),this}function Qn(t,e,n,i){var a=He(e,n);return t._milliseconds+=i*a._milliseconds,t._days+=i*a._days,t._months+=i*a._months,t._bubble()}function $n(t,e){return Qn(this,t,e,1)}function ti(t,e){return Qn(this,t,e,-1)}function ei(t){return 0>t?Math.floor(t):Math.ceil(t)}function ni(){var t,e,n,i,a,r=this._milliseconds,o=this._days,s=this._months,l=this._data;return r>=0&&o>=0&&s>=0||0>=r&&0>=o&&0>=s||(r+=864e5*ei(ai(s)+o),o=0,s=0),l.milliseconds=r%1e3,t=k(r/1e3),l.seconds=t%60,e=k(t/60),l.minutes=e%60,n=k(e/60),l.hours=n%24,o+=k(n/24),a=k(ii(o)),s+=a,o-=ei(ai(a)),i=k(s/12),s%=12,l.days=o,l.months=s,l.years=i,this}function ii(t){return 4800*t/146097}function ai(t){return 146097*t/4800}function ri(t){var e,n,i=this._milliseconds;if(t=Y(t),"month"===t||"year"===t)return e=this._days+i/864e5,n=this._months+ii(e),"month"===t?n:n/12;switch(e=this._days+Math.round(ai(this._months)),t){case"week":return e/7+i/6048e5;case"day":return e+i/864e5;case"hour":return 24*e+i/36e5;case"minute":return 1440*e+i/6e4;case"second":return 86400*e+i/1e3;case"millisecond":return Math.floor(864e5*e)+i;default:throw new Error("Unknown unit "+t)}}function oi(){return this._milliseconds+864e5*this._days+this._months%12*2592e6+31536e6*_(this._months/12)}function si(t){return function(){return this.as(t)}}function li(t){return t=Y(t),this[t+"s"]()}function ui(t){return function(){return this._data[t]}}function di(){return k(this.days()/7)}function ci(t,e,n,i,a){return a.relativeTime(e||1,!!n,t,i)}function hi(t,e,n){var i=He(t).abs(),a=pr(i.as("s")),r=pr(i.as("m")),o=pr(i.as("h")),s=pr(i.as("d")),l=pr(i.as("M")),u=pr(i.as("y")),d=a<vr.s&&["s",a]||1>=r&&["m"]||r<vr.m&&["mm",r]||1>=o&&["h"]||o<vr.h&&["hh",o]||1>=s&&["d"]||s<vr.d&&["dd",s]||1>=l&&["M"]||l<vr.M&&["MM",l]||1>=u&&["y"]||["yy",u];return d[2]=e,d[3]=+t>0,d[4]=n,ci.apply(null,d)}function fi(t){return void 0===t?pr:"function"==typeof t?(pr=t,!0):!1}function gi(t,e){return void 0===vr[t]?!1:void 0===e?vr[t]:(vr[t]=e,!0)}function mi(t){var e=this.localeData(),n=hi(this,!t,e);return t&&(n=e.pastFuture(+this,n)),e.postformat(n)}function pi(){var t,e,n,i=br(this._milliseconds)/1e3,a=br(this._days),r=br(this._months);t=k(i/60),e=k(t/60),i%=60,t%=60,n=k(r/12),r%=12;var o=n,s=r,l=a,u=e,d=t,c=i,h=this.asSeconds();return h?(0>h?"-":"")+"P"+(o?o+"Y":"")+(s?s+"M":"")+(l?l+"D":"")+(u||d||c?"T":"")+(u?u+"H":"")+(d?d+"M":"")+(c?c+"S":""):"P0D"}var vi,bi;bi=Array.prototype.some?Array.prototype.some:function(t){for(var e=Object(this),n=e.length>>>0,i=0;n>i;i++)if(i in e&&t.call(this,e[i],i,e))return!0;return!1};var yi=bi,xi=t.momentProperties=[],ki=!1,_i={};t.suppressDeprecationWarnings=!1,t.deprecationHandler=null;var wi;wi=Object.keys?Object.keys:function(t){var e,n=[];for(e in t)d(t,e)&&n.push(e);return n};var Si,Mi=wi,Di={sameDay:"[Today at] LT",nextDay:"[Tomorrow at] LT",nextWeek:"dddd [at] LT",lastDay:"[Yesterday at] LT",lastWeek:"[Last] dddd [at] LT",sameElse:"L"},Ci={LTS:"h:mm:ss A",LT:"h:mm A",L:"MM/DD/YYYY",LL:"MMMM D, YYYY",LLL:"MMMM D, YYYY h:mm A",LLLL:"dddd, MMMM D, YYYY h:mm A"},Ti="Invalid date",Pi="%d",Ii=/\d{1,2}/,Fi={future:"in %s",past:"%s ago",s:"a few seconds",m:"a minute",mm:"%d minutes",h:"an hour",hh:"%d hours",d:"a day",dd:"%d days",M:"a month",MM:"%d months",y:"a year",yy:"%d years"},Ai={},Oi={},Ri=/(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,Li=/(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,Wi={},Vi={},Yi=/\d/,Bi=/\d\d/,zi=/\d{3}/,Ni=/\d{4}/,Hi=/[+-]?\d{6}/,Ei=/\d\d?/,Ui=/\d\d\d\d?/,ji=/\d\d\d\d\d\d?/,Gi=/\d{1,3}/,qi=/\d{1,4}/,Zi=/[+-]?\d{1,6}/,Xi=/\d+/,Ji=/[+-]?\d+/,Ki=/Z|[+-]\d\d:?\d\d/gi,Qi=/Z|[+-]\d\d(?::?\d\d)?/gi,$i=/[+-]?\d+(\.\d{1,3})?/,ta=/[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i,ea={},na={},ia=0,aa=1,ra=2,oa=3,sa=4,la=5,ua=6,da=7,ca=8;Si=Array.prototype.indexOf?Array.prototype.indexOf:function(t){var e;for(e=0;e<this.length;++e)if(this[e]===t)return e;return-1};var ha=Si;Z("M",["MM",2],"Mo",function(){return this.month()+1}),Z("MMM",0,0,function(t){return this.localeData().monthsShort(this,t)}),Z("MMMM",0,0,function(t){return this.localeData().months(this,t)}),V("month","M"),z("month",8),$("M",Ei),$("MM",Ei,Bi),$("MMM",function(t,e){return e.monthsShortRegex(t)}),$("MMMM",function(t,e){return e.monthsRegex(t)}),it(["M","MM"],function(t,e){e[aa]=_(t)-1}),it(["MMM","MMMM"],function(t,e,n,i){var a=n._locale.monthsParse(t,i,n._strict);null!=a?e[aa]=a:g(n).invalidMonth=t});var fa=/D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,ga="January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ma="Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),pa=ta,va=ta;Z("Y",0,0,function(){var t=this.year();return 9999>=t?""+t:"+"+t}),Z(0,["YY",2],0,function(){return this.year()%100}),Z(0,["YYYY",4],0,"year"),Z(0,["YYYYY",5],0,"year"),Z(0,["YYYYYY",6,!0],0,"year"),V("year","y"),z("year",1),$("Y",Ji),$("YY",Ei,Bi),$("YYYY",qi,Ni),$("YYYYY",Zi,Hi),$("YYYYYY",Zi,Hi),it(["YYYYY","YYYYYY"],ia),it("YYYY",function(e,n){n[ia]=2===e.length?t.parseTwoDigitYear(e):_(e)}),it("YY",function(e,n){n[ia]=t.parseTwoDigitYear(e)}),it("Y",function(t,e){e[ia]=parseInt(t,10)}),t.parseTwoDigitYear=function(t){return _(t)+(_(t)>68?1900:2e3)};var ba=H("FullYear",!0);Z("w",["ww",2],"wo","week"),Z("W",["WW",2],"Wo","isoWeek"),V("week","w"),V("isoWeek","W"),z("week",5),z("isoWeek",5),$("w",Ei),$("ww",Ei,Bi),$("W",Ei),$("WW",Ei,Bi),at(["w","ww","W","WW"],function(t,e,n,i){e[i.substr(0,1)]=_(t)});var ya={dow:0,doy:6};Z("d",0,"do","day"),Z("dd",0,0,function(t){return this.localeData().weekdaysMin(this,t)}),Z("ddd",0,0,function(t){return this.localeData().weekdaysShort(this,t)}),Z("dddd",0,0,function(t){return this.localeData().weekdays(this,t)}),Z("e",0,0,"weekday"),Z("E",0,0,"isoWeekday"),V("day","d"),V("weekday","e"),V("isoWeekday","E"),z("day",11),z("weekday",11),z("isoWeekday",11),$("d",Ei),$("e",Ei),$("E",Ei),$("dd",function(t,e){return e.weekdaysMinRegex(t)}),$("ddd",function(t,e){return e.weekdaysShortRegex(t)}),$("dddd",function(t,e){return e.weekdaysRegex(t)}),at(["dd","ddd","dddd"],function(t,e,n,i){var a=n._locale.weekdaysParse(t,i,n._strict);null!=a?e.d=a:g(n).invalidWeekday=t}),at(["d","e","E"],function(t,e,n,i){e[i]=_(t)});var xa="Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),ka="Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"),_a="Su_Mo_Tu_We_Th_Fr_Sa".split("_"),wa=ta,Sa=ta,Ma=ta;Z("H",["HH",2],0,"hour"),Z("h",["hh",2],0,jt),Z("k",["kk",2],0,Gt),Z("hmm",0,0,function(){return""+jt.apply(this)+q(this.minutes(),2)}),Z("hmmss",0,0,function(){return""+jt.apply(this)+q(this.minutes(),2)+q(this.seconds(),2)}),Z("Hmm",0,0,function(){return""+this.hours()+q(this.minutes(),2)}),Z("Hmmss",0,0,function(){return""+this.hours()+q(this.minutes(),2)+q(this.seconds(),2)}),qt("a",!0),qt("A",!1),V("hour","h"),z("hour",13),$("a",Zt),$("A",Zt),$("H",Ei),$("h",Ei),$("HH",Ei,Bi),$("hh",Ei,Bi),$("hmm",Ui),$("hmmss",ji),$("Hmm",Ui),$("Hmmss",ji),it(["H","HH"],oa),it(["a","A"],function(t,e,n){n._isPm=n._locale.isPM(t),n._meridiem=t}),it(["h","hh"],function(t,e,n){e[oa]=_(t),g(n).bigHour=!0}),it("hmm",function(t,e,n){var i=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i)),g(n).bigHour=!0}),it("hmmss",function(t,e,n){var i=t.length-4,a=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i,2)),e[la]=_(t.substr(a)),g(n).bigHour=!0}),it("Hmm",function(t,e,n){var i=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i))}),it("Hmmss",function(t,e,n){var i=t.length-4,a=t.length-2;e[oa]=_(t.substr(0,i)),e[sa]=_(t.substr(i,2)),e[la]=_(t.substr(a))});var Da,Ca=/[ap]\.?m?\.?/i,Ta=H("Hours",!0),Pa={calendar:Di,longDateFormat:Ci,invalidDate:Ti,ordinal:Pi,ordinalParse:Ii,relativeTime:Fi,months:ga,monthsShort:ma,week:ya,weekdays:xa,weekdaysMin:_a,weekdaysShort:ka,meridiemParse:Ca},Ia={},Fa={},Aa=/^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,Oa=/^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,Ra=/Z|[+-]\d\d(?::?\d\d)?/,La=[["YYYYYY-MM-DD",/[+-]\d{6}-\d\d-\d\d/],["YYYY-MM-DD",/\d{4}-\d\d-\d\d/],["GGGG-[W]WW-E",/\d{4}-W\d\d-\d/],["GGGG-[W]WW",/\d{4}-W\d\d/,!1],["YYYY-DDD",/\d{4}-\d{3}/],["YYYY-MM",/\d{4}-\d\d/,!1],["YYYYYYMMDD",/[+-]\d{10}/],["YYYYMMDD",/\d{8}/],["GGGG[W]WWE",/\d{4}W\d{3}/],["GGGG[W]WW",/\d{4}W\d{2}/,!1],["YYYYDDD",/\d{7}/]],Wa=[["HH:mm:ss.SSSS",/\d\d:\d\d:\d\d\.\d+/],["HH:mm:ss,SSSS",/\d\d:\d\d:\d\d,\d+/],["HH:mm:ss",/\d\d:\d\d:\d\d/],["HH:mm",/\d\d:\d\d/],["HHmmss.SSSS",/\d\d\d\d\d\d\.\d+/],["HHmmss,SSSS",/\d\d\d\d\d\d,\d+/],["HHmmss",/\d\d\d\d\d\d/],["HHmm",/\d\d\d\d/],["HH",/\d\d/]],Va=/^\/?Date\((\-?\d+)/i;t.createFromInputFallback=M("value provided is not in a recognized ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non ISO date formats are discouraged and will be removed in an upcoming major release. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.",function(t){t._d=new Date(t._i+(t._useUTC?" UTC":""))}),t.ISO_8601=function(){};var Ya=M("moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/",function(){var t=xe.apply(null,arguments);return this.isValid()&&t.isValid()?this>t?this:t:p()}),Ba=M("moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/",function(){var t=xe.apply(null,arguments);return this.isValid()&&t.isValid()?t>this?this:t:p()}),za=function(){return Date.now?Date.now():+new Date};Ce("Z",":"),Ce("ZZ",""),$("Z",Qi),$("ZZ",Qi),it(["Z","ZZ"],function(t,e,n){n._useUTC=!0,n._tzm=Te(Qi,t)});var Na=/([\+\-]|\d\d)/gi;t.updateOffset=function(){};var Ha=/^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/,Ea=/^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;He.fn=Se.prototype;var Ua=Ge(1,"add"),ja=Ge(-1,"subtract");t.defaultFormat="YYYY-MM-DDTHH:mm:ssZ",t.defaultFormatUtc="YYYY-MM-DDTHH:mm:ss[Z]";var Ga=M("moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.",function(t){return void 0===t?this.localeData():this.locale(t)});Z(0,["gg",2],0,function(){return this.weekYear()%100}),Z(0,["GG",2],0,function(){return this.isoWeekYear()%100}),Tn("gggg","weekYear"),Tn("ggggg","weekYear"),Tn("GGGG","isoWeekYear"),Tn("GGGGG","isoWeekYear"),V("weekYear","gg"),V("isoWeekYear","GG"),z("weekYear",1),z("isoWeekYear",1),$("G",Ji),$("g",Ji),$("GG",Ei,Bi),$("gg",Ei,Bi),$("GGGG",qi,Ni),$("gggg",qi,Ni),$("GGGGG",Zi,Hi),$("ggggg",Zi,Hi),at(["gggg","ggggg","GGGG","GGGGG"],function(t,e,n,i){e[i.substr(0,2)]=_(t)}),at(["gg","GG"],function(e,n,i,a){n[a]=t.parseTwoDigitYear(e)}),Z("Q",0,"Qo","quarter"),V("quarter","Q"),
 z("quarter",7),$("Q",Yi),it("Q",function(t,e){e[aa]=3*(_(t)-1)}),Z("D",["DD",2],"Do","date"),V("date","D"),z("date",9),$("D",Ei),$("DD",Ei,Bi),$("Do",function(t,e){return t?e._ordinalParse:e._ordinalParseLenient}),it(["D","DD"],ra),it("Do",function(t,e){e[ra]=_(t.match(Ei)[0],10)});var qa=H("Date",!0);Z("DDD",["DDDD",3],"DDDo","dayOfYear"),V("dayOfYear","DDD"),z("dayOfYear",4),$("DDD",Gi),$("DDDD",zi),it(["DDD","DDDD"],function(t,e,n){n._dayOfYear=_(t)}),Z("m",["mm",2],0,"minute"),V("minute","m"),z("minute",14),$("m",Ei),$("mm",Ei,Bi),it(["m","mm"],sa);var Za=H("Minutes",!1);Z("s",["ss",2],0,"second"),V("second","s"),z("second",15),$("s",Ei),$("ss",Ei,Bi),it(["s","ss"],la);var Xa=H("Seconds",!1);Z("S",0,0,function(){return~~(this.millisecond()/100)}),Z(0,["SS",2],0,function(){return~~(this.millisecond()/10)}),Z(0,["SSS",3],0,"millisecond"),Z(0,["SSSS",4],0,function(){return 10*this.millisecond()}),Z(0,["SSSSS",5],0,function(){return 100*this.millisecond()}),Z(0,["SSSSSS",6],0,function(){return 1e3*this.millisecond()}),Z(0,["SSSSSSS",7],0,function(){return 1e4*this.millisecond()}),Z(0,["SSSSSSSS",8],0,function(){return 1e5*this.millisecond()}),Z(0,["SSSSSSSSS",9],0,function(){return 1e6*this.millisecond()}),V("millisecond","ms"),z("millisecond",16),$("S",Gi,Yi),$("SS",Gi,Bi),$("SSS",Gi,zi);var Ja;for(Ja="SSSS";Ja.length<=9;Ja+="S")$(Ja,Xi);for(Ja="S";Ja.length<=9;Ja+="S")it(Ja,Vn);var Ka=H("Milliseconds",!1);Z("z",0,0,"zoneAbbr"),Z("zz",0,0,"zoneName");var Qa=y.prototype;Qa.add=Ua,Qa.calendar=Xe,Qa.clone=Je,Qa.diff=an,Qa.endOf=vn,Qa.format=un,Qa.from=dn,Qa.fromNow=cn,Qa.to=hn,Qa.toNow=fn,Qa.get=j,Qa.invalidAt=Dn,Qa.isAfter=Ke,Qa.isBefore=Qe,Qa.isBetween=$e,Qa.isSame=tn,Qa.isSameOrAfter=en,Qa.isSameOrBefore=nn,Qa.isValid=Sn,Qa.lang=Ga,Qa.locale=gn,Qa.localeData=mn,Qa.max=Ba,Qa.min=Ya,Qa.parsingFlags=Mn,Qa.set=G,Qa.startOf=pn,Qa.subtract=ja,Qa.toArray=kn,Qa.toObject=_n,Qa.toDate=xn,Qa.toISOString=sn,Qa.inspect=ln,Qa.toJSON=wn,Qa.toString=on,Qa.unix=yn,Qa.valueOf=bn,Qa.creationData=Cn,Qa.year=ba,Qa.isLeapYear=yt,Qa.weekYear=Pn,Qa.isoWeekYear=In,Qa.quarter=Qa.quarters=Ln,Qa.month=ht,Qa.daysInMonth=ft,Qa.week=Qa.weeks=Pt,Qa.isoWeek=Qa.isoWeeks=It,Qa.weeksInYear=An,Qa.isoWeeksInYear=Fn,Qa.date=qa,Qa.day=Qa.days=Yt,Qa.weekday=Bt,Qa.isoWeekday=zt,Qa.dayOfYear=Wn,Qa.hour=Qa.hours=Ta,Qa.minute=Qa.minutes=Za,Qa.second=Qa.seconds=Xa,Qa.millisecond=Qa.milliseconds=Ka,Qa.utcOffset=Fe,Qa.utc=Oe,Qa.local=Re,Qa.parseZone=Le,Qa.hasAlignedHourOffset=We,Qa.isDST=Ve,Qa.isLocal=Be,Qa.isUtcOffset=ze,Qa.isUtc=Ne,Qa.isUTC=Ne,Qa.zoneAbbr=Yn,Qa.zoneName=Bn,Qa.dates=M("dates accessor is deprecated. Use date instead.",qa),Qa.months=M("months accessor is deprecated. Use month instead",ht),Qa.years=M("years accessor is deprecated. Use year instead",ba),Qa.zone=M("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/",Ae),Qa.isDSTShifted=M("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information",Ye);var $a=I.prototype;$a.calendar=F,$a.longDateFormat=A,$a.invalidDate=O,$a.ordinal=R,$a.preparse=Hn,$a.postformat=Hn,$a.relativeTime=L,$a.pastFuture=W,$a.set=T,$a.months=st,$a.monthsShort=lt,$a.monthsParse=dt,$a.monthsRegex=mt,$a.monthsShortRegex=gt,$a.week=Dt,$a.firstDayOfYear=Tt,$a.firstDayOfWeek=Ct,$a.weekdays=Ot,$a.weekdaysMin=Lt,$a.weekdaysShort=Rt,$a.weekdaysParse=Vt,$a.weekdaysRegex=Nt,$a.weekdaysShortRegex=Ht,$a.weekdaysMinRegex=Et,$a.isPM=Xt,$a.meridiem=Jt,te("en",{ordinalParse:/\d{1,2}(th|st|nd|rd)/,ordinal:function(t){var e=t%10,n=1===_(t%100/10)?"th":1===e?"st":2===e?"nd":3===e?"rd":"th";return t+n}}),t.lang=M("moment.lang is deprecated. Use moment.locale instead.",te),t.langData=M("moment.langData is deprecated. Use moment.localeData instead.",ie);var tr=Math.abs,er=si("ms"),nr=si("s"),ir=si("m"),ar=si("h"),rr=si("d"),or=si("w"),sr=si("M"),lr=si("y"),ur=ui("milliseconds"),dr=ui("seconds"),cr=ui("minutes"),hr=ui("hours"),fr=ui("days"),gr=ui("months"),mr=ui("years"),pr=Math.round,vr={s:45,m:45,h:22,d:26,M:11},br=Math.abs,yr=Se.prototype;return yr.abs=Kn,yr.add=$n,yr.subtract=ti,yr.as=ri,yr.asMilliseconds=er,yr.asSeconds=nr,yr.asMinutes=ir,yr.asHours=ar,yr.asDays=rr,yr.asWeeks=or,yr.asMonths=sr,yr.asYears=lr,yr.valueOf=oi,yr._bubble=ni,yr.get=li,yr.milliseconds=ur,yr.seconds=dr,yr.minutes=cr,yr.hours=hr,yr.days=fr,yr.weeks=di,yr.months=gr,yr.years=mr,yr.humanize=mi,yr.toISOString=pi,yr.toString=pi,yr.toJSON=pi,yr.locale=gn,yr.localeData=mn,yr.toIsoString=M("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)",pi),yr.lang=Ga,Z("X",0,0,"unix"),Z("x",0,0,"valueOf"),$("x",Ji),$("X",$i),it("X",function(t,e,n){n._d=new Date(1e3*parseFloat(t,10))}),it("x",function(t,e,n){n._d=new Date(_(t))}),t.version="2.16.0",i(xe),t.fn=Qa,t.min=_e,t.max=we,t.now=za,t.utc=h,t.unix=zn,t.months=Gn,t.isDate=l,t.locale=te,t.invalid=p,t.duration=He,t.isMoment=x,t.weekdays=Zn,t.parseZone=Nn,t.localeData=ie,t.isDuration=Me,t.monthsShort=qn,t.weekdaysMin=Jn,t.defineLocale=ee,t.updateLocale=ne,t.locales=ae,t.weekdaysShort=Xn,t.normalizeUnits=Y,t.relativeTimeRounding=fi,t.relativeTimeThreshold=gi,t.calendarFormat=Ze,t.prototype=Qa,t})},{}]},{},[1])(1)});
+
 var t1701 = {
 	tmfcParameters : {
 		concentrations     : {
@@ -4369,89 +4370,950 @@ var t1701 = {
 		]
 	},
 	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			"SSP-140"   : 9.52,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
 		{
 			date : new Date("12/7/2016"),
-			"SSP-140"  : 9.81
+			"SSP-140"  : 9.81,
+			"Activity"  : 85,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"SSP-140"  : 10.5,
+			"Activity"  : 83,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
 		},
 		{
 			date : new Date("11/21/2016"),
-			"SSP-140"  : 10.01
+			"SSP-140"  : 10.80,
+			"Activity"  : 87,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
 		},
 		{
-			date : new Date("11/08/2016"),
-			"SSP-140"  : 10.64
+			date : new Date("11/16/2016"),
+			"SSP-140"  : 11.02,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			"SSP-140"  : 10.64,
+			"Activity"  : 90,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			"SSP-140"  : 10.91,
+			"Activity"  : 90,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
 		},
 		{
 			date : new Date("10/24/2016"),
-			"SSP-140": 9.2
-		},
-		{
-			date : new Date("10/11/2016"),
-			"SSP-140": 8.13
-		},
-		{
-			date : new Date("10/3/2016"),
-			"SSP-140": 6.61
-		},
-		{
-			date : new Date("9/1/2016"),
-			"SSP-140": 8.36
-		},
-		{
-			date : new Date("8/17/2016"),
-			"SSP-140": 9.5
-		},
-		{
-			date : new Date("8/9/2016"),
-			"SSP-140": 9.5
-		},
-		{
-			date : new Date("7/21/2016"),
-			"SSP-140": 10.41
-		},
-		{
-			date : new Date("7/5/2016"),
-			"SSP-140": 8.22
-		},
-	],
-	additions : [
-		{
-			date : new Date("10/24/2016"),
-			component : {
+			"SSP-140": 9.2,
+			"Activity"  : 89,
+			"Saturation": 20,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
 				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
 			}
 		},
 		{
 			date : new Date("10/17/2016"),
-			component : {
+			"SSP-140": 9.8,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
 				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
 			}
 		},
 		{
 			date : new Date("10/11/2016"),
-			component : {
+			"SSP-140": 8.13,
+			"Activity"  : 93,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+			additions : {
 				"SSP-140" : [100, " lbs"],
 			}
 		},
 		{
-			date : new Date("10/24/2016"),
-			component : {
-				"SSP-140" : [25, " lbs"],
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},	
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"SSP-140": 6.61,
+			"Activity"  : 94,
+			"Saturation": 3,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+/*3rd QUARTER*/	
+/*Week 39*/
+		{
+			date : new Date("9/1/2016"),
+			"SSP-140": 8.36,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("8/17/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
 			}
 		},
 		{
 			date : new Date("8/9/2016"),
-			component : {
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
 				"SSP-140" : [15, " lbs"],
 			}
 		},
 		{
+			date : new Date("7/21/2016"),
+			"SSP-140": 10.41,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
 			date : new Date("7/5/2016"),
-			component : {
+			"SSP-140": 8.22,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
 				"SSP-140" : [50, " lbs"],
 			}
 		},
-	]	
+	],	
+};
+var t1702 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+		},
+		lineNumber         : 1702,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '33\"',
+			width          : '56"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "200 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "125 lbs"
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"Anokleen #2-S" : 10.05,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			"Anokleen #2-S" : 10.23,
+			"Activity"  : 84,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"Anokleen #2-S" : 10.58,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			"Anokleen #2-S" : 8.66,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			},
+			additions : {
+				"Anokleen #2-S" : [25, "lbs"]
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			"Anokleen #2-S" : 9.21,
+			"Activity"  : 88,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			"Anokleen #2-S" : 9.50,
+			"Activity"  : 89,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			"Anokleen #2-S" : 9.58,
+			"Activity"  : 89,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			"Anokleen #2-S" : 10.44,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			"Anokleen #2-S" : 10.91,
+			"Activity"  : 94,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			"Anokleen #2-S" : 8.50,
+			"Activity"  : 92,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/11/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+		},
+		{
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"Anokleen #2-S" : 9.55,
+			"Activity"  : 96,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+		},
+/*Week 39*/
+		{
+			date : new Date("9/29/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/28/2016"),
+			"Anokleen #2-S" : 10.05,
+			"Activity"  : 98,
+			"Saturation": 5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/27/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/26/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+	]
+};
+var t1703 = {
+	tmfcParameters : {
+		lineNumber         : 1703,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '31\"',
+			width          : '56"',
+			depth          : '23"' + ' (sol. level)',
+			capacity       : "175 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
 };
 var t1704 = {
 	tmfcParameters : {
@@ -4521,27 +5383,28 @@ var t1704 = {
 			date : new Date("09/15/2016"),
 			HCL: 32.0
 		}
-	],
-	additions : [
-		{
-			date : "10/05/2016",
-			component : {
-				ssp140 : 50
-			}
+	],	
+};
+var t1705 = {
+	tmfcParameters : {
+		lineNumber         : 1705,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '25\"',
+			width          : '56"',
+			depth          : '24"' + ' (sol. level)',
+			capacity       : "145 gallons"		
 		},
-		{
-			date : "09/27/2016",
-			component : {
-				ssp140 : 50
-			}
-		},
-		{
-			date : "09/20/2016",
-			component : {
-				ssp140 : 50
-			}
-		}
-	]	
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
 };
 var t1706 = {
 	tmfcParameters : {
@@ -4625,7 +5488,7 @@ var t1706 = {
 				"8:00AM" : 72,
 				"11:30AM": 77,
 				"3:00PM" : 81
-			}
+			},
 		},
 		{
 			date   : new Date("11/28/2016"),
@@ -4730,7 +5593,11 @@ var t1706 = {
 				"8:00AM" : 72,
 				"11:30AM": 77,
 				"3:00PM" : 81
-			}
+			},
+      additions : {
+				"Zinc Hydroxide" : [10, "gal"],
+				"NaOH"           : [100, "lbs"]
+			},
 		},
 		{
 			date   : new Date("10/27/2016"),
@@ -4778,6 +5645,9 @@ var t1706 = {
 		{
 			date   : new Date("10/12/2016"),
 			Zinc   : 1.18, 
+      additions : {
+				"Zinc Hydroxide" : [10, "gal"],
+			},
 		},
 		{
 			date   : new Date("10/10/2016"),
@@ -4811,6 +5681,9 @@ var t1706 = {
 			date   : new Date("09/26/2016"),
 			Zinc   : 1.53, 
 			NaOH   : 15.58,
+      additions : {
+				"NaOH"           : [50, "lbs"]
+			},
 		},
 		{
 			date   : new Date("09/22/2016"),
@@ -4822,7 +5695,7 @@ var t1706 = {
 			Zinc   : 1.32, 
 		},
 		{
-			date       : new Date("09/22/2016"),
+			date       : new Date("09/20/2016"),
 			Zinc       : 1.4, 
 			NaOH       : 16.8,
 			Carbonates : 4.9,
@@ -4847,6 +5720,9 @@ var t1706 = {
 			date   : new Date("09/12/2016"),
 			Zinc   : 1.67, 
 			NaOH   : 16.22,
+      additions : {
+				"NaOH"           : [50, "lbs"]
+			},
 		},
 		{
 			date   : new Date("09/08/2016"),
@@ -4875,6 +5751,9 @@ var t1706 = {
 			date   : new Date("08/25/2016"),
 			Zinc   : 1.48, 
 			NaOH   : 15.90,
+      additions : {
+				"NaOH"           : [50, "lbs"]
+			},
 		},
 		{
 			date   : new Date("08/24/2016"),
@@ -4889,6 +5768,9 @@ var t1706 = {
 			date   : new Date("08/18/2016"),
 			Zinc   : 1.32, 
 			NaOH   : 15.05,
+      additions : {
+				"NaOH"           : [50, "lbs"]
+			},
 		},	
 		{
 			date   : new Date("08/17/2016"),
@@ -4907,6 +5789,9 @@ var t1706 = {
 		{
 			date   : new Date("08/10/2016"),
 			Zinc   : 1.22, 
+      additions : {
+				"Zinc Hydroxide" : [10, "gal"],
+			},
 		},	
 		{
 			date   : new Date("08/08/2016"),
@@ -4917,6 +5802,9 @@ var t1706 = {
 			date   : new Date("08/04/2016"),
 			Zinc   : 1.25, 
 			NaOH   : 15.90,
+      additions : {
+				"NaOH"           : [50, "lbs"]
+			},
 		},	
 		{
 			date   : new Date("08/03/2016"),
@@ -4926,6 +5814,9 @@ var t1706 = {
 			date   : new Date("08/01/2016"),
 			Zinc   : 1.39, 
 			NaOH   : 15.48,
+      additions : {
+				"NaOH"           : [50, "lbs"]
+			},
 		},	
 		{
 			date   : new Date("07/28/2016"),
@@ -4938,12 +5829,20 @@ var t1706 = {
 		},	
 		{
 			date   : new Date("07/26/2016"),
-			Zinc   : 1.24, 
+			Zinc       : 1.24, 
+			NaOH       : 16.2,
+			Carbonates : 0.7,
+			Iron       : 5.1,
+			Chromium   : 1.3,
+			Copper     : 0.7,
 		},	
 		{
 			date   : new Date("07/25/2016"),
 			Zinc   : 1.31, 
 			NaOH   : 14.73,
+      additions : {
+				"NaOH"           : [100, "lbs"]
+			},
 		},	
 		{
 			date   : new Date("07/21/2016"),
@@ -4975,6 +5874,9 @@ var t1706 = {
 		{
 			date   : new Date("07/12/2016"),
 			Zinc   : 1.06, 
+      additions : {
+				"Zinc Hydroxide" : [10, "gal"],
+			},
 		},	
 		{
 			date   : new Date("07/11/2016"),
@@ -5206,97 +6108,588 @@ var t1706 = {
 		}
 		
 	],
-	additions : [
+};
+var t1707 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Zinc"             : ["1.0 - 1.5", " oz/gal"],
+			"NaOH"             : ["15 - 18", " oz/gal"],
+			"Carbonates"       : ["<10", " oz/gal"],
+			"Iron"             : ["<10", " ppm"],
+			"Chromium"         : ["<10", " ppm"],
+
+		},
+		lineNumber         : 1707,
+		applicationType    : "Electro-Plating",
+		temp               : "70 - 100°F",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '142\"',
+			width          : '54.5"',
+			depth          : '26"' + ' (sol. level)',
+			capacity       : "1165 gallons"		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+	},
+	makeup : {
+		date : new Date("July 5, 2016"),
+		components: [
+			{
+			component  : "Zinc Sol 2272",
+			unit       : " oz/gal",
+			makeupAt   : "1.3",
+			amount     : "69 gallons"
+			},
+			{
+			component  : "Sodium Hydroxide",
+			unit       : " oz/gal",
+			makeupAt   : "16.0",
+			amount     : "1,165 lbs"
+			},
+			{
+			component  : "Havastar ZN Gleam A",
+			unit       : "%",
+			makeupAt   : "1",
+			amount     : "11.5 gal"
+			},
+			{
+			component  : "Havastar ZN Gleam B",
+			unit       : "%",
+			makeupAt   : "0.75",
+			amount     : "8.5 gal"
+			},
+			{
+			component  : "Havtech ZN Purifier",
+			unit       : "%",
+			makeupAt   : "0.1",
+			amount     : "4500 mls"
+			},
+			{
+			component  : "NCZ Conditioner",
+			unit       : " lbs",
+			makeupAt   : "",
+			amount     : "50 lbs"
+			},
+			{
+			component  : "Iron",
+			unit       : " ppm",
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
 		{
-			date : new Date("12/03/2016"),
-			component : {
-				"Zinc Hydroxide" : [10, "gal"],
-				"NaOH"           : [100, "lbs"]
+			date : new Date("12/15/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			},
+			
+		},
+		{
+			date : new Date("12/14/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			},
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			Zinc       : 1.53, 
+			NaOH       : 15.37,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			Zinc       : 1.62, 
+			NaOH       : 16.11,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			Zinc       : 1.48, 
+			NaOH       : 16.01,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			Zinc       : 1.43, 
+			NaOH       : 16.75,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			Zinc       : 1.39, 
+			NaOH       : 16.11,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			Zinc       : 1.41, 
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			Zinc       : 1.65, 
+			NaOH       : 16.54,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			Zinc       : 1.25, 
+			NaOH       : 16.32,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			Zinc       : 1.39, 
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			Zinc       : 1.48, 
+			NaOH       : 17.17,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			Zinc       : 1.24, 
+			NaOH       : 17.07,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			Zinc       : 1.25, 
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
 			}
 		},
 		{
 			date : new Date("10/31/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
+			Zinc       : 1.39, 
+			NaOH       : 15.79,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			},
+			additions : {
+				"NaOH"           : [100, "lbs"],
+				"NCZ Conditioner": [10, "lbs"]
+			},
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			Zinc       : 1.18, 
+			NaOH       : 15.15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"NaOH"           : [100, "lbs"]
+			},
+		},
+		{
+			date : new Date("10/26/2016"),
+			Zinc       : 1.29, 
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			Zinc       : 1.31, 
+			NaOH       : 15.37,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"NCZ Conditioner" : [10, "lbs"]
+			},
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			Zinc       : 1.24, 
+			NaOH       : 15.90,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			Zinc       : 1.31, 
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			Zinc       : 1.41, 
+			NaOH       : 16.01,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			Zinc       : 1.34, 
+			NaOH       : 16.11,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
 			}
 		},
 		{
 			date : new Date("10/12/2016"),
-			component : {
+			Zinc       : 1.18, 
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+			additions : {
+				"Zinc Hydroxide" : [5, "gal"],
+			},
+		},
+		{
+			date : new Date("10/11/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+		},
+		{
+			date : new Date("10/10/2016"),
+			Zinc       : 1.65, 
+			NaOH       : 16.54,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			Zinc       : 1.39, 
+			NaOH       : 16.54,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			Zinc       : 1.48, 
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			Zinc       : 1.67, 
+			NaOH       : 16.96,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
+		},
+/*Week 39*/
+		{
+			date : new Date("9/29/2016"),
+			Zinc       : 1.39, 
+			NaOH       : 16.85,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/28/2016"),
+			Zinc       : 1.22, 
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
 				"Zinc Hydroxide" : [10, "gal"],
+			},
+		},
+		{
+			date : new Date("9/27/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
 			}
 		},
 		{
-			date : new Date("09/26/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
-			}
+			date : new Date("9/26/2016"),
+			Zinc       : 1.39, 
+			NaOH       : 15.69,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"NCZ Conditioner" : [10, " lbs"]
+			},
 		},
-		{
-			date : new Date("09/12/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
-			}
+	]
+};
+var t1708 = {
+	tmfcParameters : {
+		lineNumber         : 1708,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '36\"',
+			width          : '194"',
+			depth          : '27"' + ' (sol. level)',
+			capacity       : "815 gallons"		
 		},
-		{
-			date : new Date("08/25/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
-			}
-		},
-		{
-			date : new Date("08/18/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
-			}
-		},
-		{
-			date : new Date("08/10/2016"),
-			component : {
-				"Zinc Hydroxide" : [10, "gal"],
-			}
-		},
-		{
-			date : new Date("08/04/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
-			}
-		},
-		{
-			date : new Date("08/01/2016"),
-			component : {
-				"NaOH"           : [50, "lbs"]
-			}
-		},
-		{
-			date : new Date("07/25/2016"),
-			component : {
-				"NaOH"           : [100, "lbs"]
-			}
-		},
-		{
-			date : new Date("07/12/2016"),
-			component : {
-				"Zinc Hydroxide" : [10, "gal"],
-			}
-		},
-		
-	],
-	
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
 };
 var t1709 = {
-	
-	makeup : {
-		date : new Date("November 28, 2016"),
-		components: [
-			{
-			component  : "Nitric Acid",
-			unit       : "%",
-			makeupAt   : "0.25",
-			amount     : "3000 mls"
-			}
-		]
-	},
 	tmfcParameters : {
 		lineNumber     : 1709,
 		applicationType: "Sour Dip",
@@ -5318,13 +6711,359 @@ var t1709 = {
 		agitationType  : "Compressed Air",
 		TDS            : ""
 	},	
+	makeup : {
+		date : new Date("November 28, 2016"),
+		components: [
+			{
+			component  : "Nitric Acid",
+			unit       : "%",
+			makeupAt   : "0.25",
+			amount     : "3000 mls"
+			}
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			},
+			pH   : {
+				"8:00AM" : 1.37,
+			}
+		},
+		
+	],
 };
-
+var t1710 = {
+	tmfcParameters : {
+		lineNumber         : 1710,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '31\"',
+			width          : '56"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "190 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1711 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+		},
+		lineNumber         : 1711,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '33\"',
+			width          : '56"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "200 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "125 lbs"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"Anokleen #2-S" : 10.23, 
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			}
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"Anokleen #2-S" : [50, "lbs"],
+			}
+		},
+	],
+	
+};
+var t1712 = {
+	tmfcParameters : {
+		lineNumber         : 1712,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '34.5\"',
+			width          : '55"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "205 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1713 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+		},
+		lineNumber         : 1713,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '33\"',
+			width          : '56"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "200 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "125 lbs"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"Anokleen #2-S" : 10.23, 
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			}
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"Anokleen #2-S" : [50, "lbs"],
+			}
+		},
+	],
+	
+};
+var t1714 = {
+	tmfcParameters : {
+		lineNumber         : 1714,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '27\"',
+			width          : '56"',
+			depth          : '27.5"' + ' (sol. level)',
+			capacity       : "180 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1715 = {
+	tmfcParameters : {
+		lineNumber         : 1715,
+		applicationType    : "Rinse",
+		temp               : "120 - 160°F",
+		immersion          : "5 - 10 sec",
+		tankSize           : {
+			lngth          : '26.5\"',
+			width          : '55"',
+			depth          : '27"' + ' (sol. level)',
+			capacity       : "170 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1716 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+		},
+		lineNumber         : 1716,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '33\"',
+			width          : '56"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "200 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "125 lbs"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"Anokleen #2-S" : 10.23, 
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			}
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"Anokleen #2-S" : [50, "lbs"],
+			}
+		},
+	],
+	
+};
+var t1717 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+		},
+		lineNumber         : 1717,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '33\"',
+			width          : '56"',
+			depth          : '25"' + ' (sol. level)',
+			capacity       : "200 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "125 lbs"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"Anokleen #2-S" : 10.23, 
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			}
+		},
+		
+	],	
+};
+var t1718 = {
+	tmfcParameters : {
+		lineNumber         : 1718,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '26.5\"',
+			width          : '56"',
+			depth          : '23"' + ' (sol. level)',
+			capacity       : "150 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
 //npm install gulp gulp-concat gulp-connect gulp-eslint gulp-eslint gulp-file gulp-html-validator gulp-insert gulp-replace gulp-size gulp-streamify gulp-uglify gulp-util gulp-zip child_process gulp-karma browserify vinyl-source-stream merge-stream bundle-collapser yargs --save-dev
 
 function Tank(tid) {
-	this.makeupDate        = tid.makeup.date;
-	this.componentName     = tid.makeup.components[0].component;
+	
+	if(tid.makeup) {
+		this.makeupDate = tid.makeup.date;
+	}	
 	this.lineNumber        = tid.tmfcParameters.lineNumber;
 	this.applicationType   = tid.tmfcParameters.applicationType;
 	this.requiredTemp      = tid.tmfcParameters.temp;
@@ -5340,7 +7079,8 @@ function Tank(tid) {
 	this.agitationLevel    = tid.tmfcParameters.agitationLevel;
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
-	
+
+
 	/*DATA GENERATED WITHIN MAKE-UP MODAL*/
 	function addMakeupHTML() {
 		for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
@@ -5366,11 +7106,17 @@ function Tank(tid) {
 		}
 		$('div[data-remodal-id="modal-makeup"]').append('<br><button data-remodal-action="confirm" class="remodal-confirm">OK</button>');
 	}
-	
-	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-	var firstDate = new Date();
-	var secondDate = this.makeupDate;
-	var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+	var oneDay; // hours*minutes*seconds*milliseconds
+	var firstDate;
+	var secondDate;
+	var diffDays;
+	if(tid.makeup) {
+		oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+		firstDate = new Date();
+		secondDate = this.makeupDate;
+		diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+	}
+	/*SVG*/
 	var html = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">';
 			html += '<symbol id="record-keeping-icon" viewBox="0 0 100 100">';
 			html += '<title>record-keeping-icon</title>';
@@ -5384,6 +7130,8 @@ function Tank(tid) {
 			html += 'c0-1.2,0.9-2.1,2.1-2.1h32.8C67.5,66.7,68.5,67.7,68.5,68.8z"/>';
 		  html += '</symbol>';
 		html += '</svg>';
+		
+		/*TANK NUMBER AND APPLICATION TYPE*/
 		html += '<div class="tank">';
 			html += '<div class="tank_id">';
 				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank" href="#">'
@@ -5391,16 +7139,27 @@ function Tank(tid) {
 				html += '</a></span><span class="applicationType">';
 				html += this.applicationType;
 				html += '</span></h1>';
-				html += '<div class="last_made-up"><span class="number">';
-				html += diffDays;
-				html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
+				
+		/*DAYS SINCE MAKEUP*/
+				if(tid.makeup) {
+					html += '<div class="last_made-up"><span class="number">';
+					html += diffDays;
+					html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
+				}				
+		/*TDS LINK*/
 			html += '</div>';
 			html += '<ul class="tds_list">';
+			if(this.TDS !== '') {
 				html += '<li><a data-remodal-target="modal-TDS" href="#">';
 				html += '<img src="assets/img/datasheet-icon.jpg">';
 				html += '</a></li>';
+			}			
 			html += '</ul>';
+			
+		/*PROCESS CONTROL SECTION*/
 			html += '<div class="process_control">';
+			
+			/*TMFC CONTROL PARAMETERS*/
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
@@ -5413,53 +7172,88 @@ function Tank(tid) {
 					html += '</ul>';
 				html += '</div>';
 				
-				if(tid.analysis !== undefined) {
+			/*LATEST ANALYSIS*/
+				if(tid.analysis) {
 					html += '<div class="current_state-cont">';
 					html += '<h3 class="current_state_title">Latest Analysis</h3>';
 					html += '<ul class="current_state_list">';
 					html += '</ul>';
 					html += '</div>';
 				}
-				
-				html += '<div class="data_records_cont">';
+			/*RECORDS*/
+				if(tid.analysis) {
+					html += '<div class="data_records_cont">';
 					html += '<h3 class="data_records_title">Records</h3>';
 					html += '<ul class="data_records_list">';
+				
+				
+					var stop;
+					/*LAB ANALYSIS BUTTON*/
+						for(var i = 0; i < tid.analysis.length; i++) { //Cycle through each object in analysis array 
+							for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+								if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp" && key !== "additions" && key !== "pH" && stop !== "stop") {
+									html += '<a href="'
+									html += this.lineNumber;
+									html += 'chart.html"><li>';
+									html += '<svg>';
+									html += '<use xlink:href="#record-keeping-icon"></use>';
+									html += '</svg>';
+									html += 'Lab Analysis';
+									html += '</li></a>';
+									stop = "stop";
+									/* i = tid.analysis.length; */
+								}
+							}
+						}
+						/* for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
+							if(tid.analysis[i] !== undefined) {
+								html += '<a href="'
+								html += this.lineNumber;
+								html += 'chart.html"><li>';
+								html += '<svg>';
+									html += '<use xlink:href="#record-keeping-icon"></use>';
+								html += '</svg>';
+								html += 'Lab Analysis';
+								html += '</li></a>';
+								break;
+							}
+						} */
+						
+					/*CHEMICAL ADDITIONS*/	
+						for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
+							if(tid.analysis[i].additions) { 
+								html += '<a href ="';
+								html += this.lineNumber;
+								html += 'add.html"><li>';
+								html += '<svg>';
+									html += '<use xlink:href="#record-keeping-icon"></use>';
+								html += '</svg>';
+								html += 'Chemical Additions Log';
+								html += '</li></a>';	
+								break;
+							}
+						}
+						
 					
-						if(tid.analysis !== undefined) {
-							html += '<a href="'
-							html += this.lineNumber;
-							html += 'chart.html"><li>';
-							html += '<svg>';
+					/*TEMP/PH LOG*/
+						for(i = 0; i < tid.analysis.length; i++) {
+							if(tid.analysis[i].temp || tid.analysis[i].pH) {
+								html += '<a href="';
+								html += this.lineNumber;
+								html += 'tempph.html"><li>';
+								html += '<svg>';
 								html += '<use xlink:href="#record-keeping-icon"></use>';
-							html += '</svg>';
-							html += 'Lab Analysis';
-							html += '</li></a>';
+								html += '</svg>';
+								html += 'Temp/pH Log';
+								html += '</li></a>';
+								html += '</ul>';
+								html += '</div>';
+								html += '</div>';
+								html += '</div>';
+								break;
+							}
 						}
-						
-						
-						if(tid.additions !== undefined) {
-							html += '<a href ="';
-							html += this.lineNumber;
-							html += 'add.html"><li>';
-							html += '<svg>';
-								html += '<use xlink:href="#record-keeping-icon"></use>';
-							html += '</svg>';
-							html += 'Chemical Additions Log';
-							html += '</li></a>';	
-						}
-						
-						html += '<a href="';
-						html += this.lineNumber;
-						html += 'tempph.html"><li>';
-						html += '<svg>';
-							html +='<use xlink:href="#record-keeping-icon"></use>';
-						html += '</svg>';
-						html += 'Temp/pH Log';
-						html += '</li></a>';
-					html += '</ul>';
-				html += '</div>';
-			html += '</div>';
-		html += '</div>';
+				}	
 
 		/*TDS MODAL*/
 		html += '<div class="remodal-bg">';
@@ -5517,40 +7311,43 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
-		
-	
 	
 	$('body').append(html);
+	
+	
 	var nameHolder = [];
 	
 	/*LATEST ANALYSIS*/
-	for(var i = 0; i < tid.analysis.length; i++) {		//Cycle through each object in analysis array 
-		for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
-			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") { //If analysis has property equal to key, and is not date or temp
-				
-				var propertyName = key;
-				var propertyValue = tid.analysis[i][key];
-				var unit;
-				if(tid.tmfcParameters.concentrations[key]) {
-					unit = tid.tmfcParameters.concentrations[key][1];
-				} else {
-					unit = '';
-				}
-				var date = moment(tid.analysis[i].date, 'DD').fromNow();
-				var analysisList = '<li>';
-					analysisList += propertyName;
-					analysisList += ' : <span class="propValue">';
-					analysisList += propertyValue + unit + ' ';
-					analysisList += '<span class="taken">(Taken ' + date + ')</span>';
-					analysisList += '</span></li>'; 
+	if(tid.analysis) {
+		for(var i = 0; i < tid.analysis.length; i++) { //Cycle through each object in analysis array 
+			for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+				if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp" && key !== "additions" && key !== "pH") { //If analysis has property equal to key, and is not date,pH,additions or temp
 					
-					if($.inArray(propertyName, nameHolder) === -1) { 
-						nameHolder.push(propertyName);
-						$('.current_state_list').append(analysisList);
-					}				
+					var propertyName = key;
+					var propertyValue = tid.analysis[i][key];
+					var unit;
+					if(tid.tmfcParameters.concentrations[key]) {
+						unit = tid.tmfcParameters.concentrations[key][1];
+					} else {
+						unit = '';
+					}
+					var date = moment(tid.analysis[i].date, 'DD').fromNow();
+					var analysisList = '<li>';
+						analysisList += propertyName;
+						analysisList += ' : <span class="propValue">';
+						analysisList += propertyValue + unit + ' ';
+						analysisList += '<span class="taken">(Taken ' + date + ')</span>';
+						analysisList += '</span></li>'; 
+						
+						if($.inArray(propertyName, nameHolder) === -1) { 
+							nameHolder.push(propertyName);
+							$('.current_state_list').append(analysisList);
+						}				
+				}
 			}
 		}
 	}
+	
 	/*TMFC PARAMETERS*/
 	for(var key in tid.tmfcParameters.concentrations) {
 		var propertyName = key;
@@ -5564,8 +7361,52 @@ function Tank(tid) {
 		$('.tmfc_control_parameters_list').append(html);
 	};
 	
-	
-	 addMakeupHTML();
+	if(tid.makeup) {
+		 addMakeupHTML();
+	}
+	var style;
+	if(tid.tmfcParameters.applicationType === "Electro-Plating") {
+		style = "5px solid rgba(244,211,94, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Cleaner") {
+		console.log('we have a winner');
+		style = "5px solid rgba(186, 63, 29, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Acid Pickle") {
+		style = "5px solid rgba(112, 163, 127, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Rinse") {
+		style = "5px solid rgba(39, 93, 173, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Chromate") {
+		style = "5px solid rgba(145,139,118, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Seal") {
+		style = "5px solid rgba(75,0,130, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Sour Dip") {
+		style = "5px solid rgba(238,235,208, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Electro-Cleaner") {
+		style = "5px solid rgba(186, 63, 29, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	}
 }
 
 
@@ -5631,30 +7472,36 @@ function MakeChart(tankNumber, testName, unit) {
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
 	
-	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
-		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
-		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
-		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
-		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
-		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
-		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};
-	
-	
+	function assignColor() {
+		if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
+			applicationColor = "rgba(244,211,94, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+			applicationColor = "rgba(186, 63, 29, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
+			applicationColor = "rgba(112, 163, 127, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
+			applicationColor = "rgba(39, 93, 173, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+			applicationColor = "rgba(145,139,118, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
+			applicationColor = "rgba(75,0,130, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
+			applicationColor = "rgba(238,235,208, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);
+		} else if(tankNumber.tmfcParameters.applicationType === "Electro-Cleaner") {
+			applicationColor = "rgba(186, 63, 29, 0.8)";
+			$('.row.header, .test_btns_container button').css('background', applicationColor);  
+		}
+	}
+
+	assignColor();
+
 	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
 		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
@@ -5756,49 +7603,30 @@ function MakeChart(tankNumber, testName, unit) {
 			numberOfAnalysis += 1;
 		}
 	}
-	if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
-		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
-		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
-		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
-		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
-		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
-		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};
-		
+	
+	assignColor();
+	/*Add Data to Chart*/	
 	document.getElementById('addData').addEventListener('click', function() {
 
 		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
-
+			console.log(scatterChartData.datasets[0].data.length);
+			console.log(tankNumber.analysis.length);
 			numberOfAnalysis += 1;
 			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis; i++) {
-				if(tankNumber.analysis[i][testName] !== undefined) {
+				console.log(tankNumber.analysis[i]);
+				if(tankNumber.analysis[i] !== undefined) {
 					console.log(tankNumber.analysis[i].date);
 					console.log(tankNumber.analysis[i][testName]);
 					var axisData = {};
 						axisData.x = tankNumber.analysis[i].date;
 						axisData.y = tankNumber.analysis[i][testName];									
 						chartData.push(axisData);	
-				}
-					
+				}	
 			}			
 		}
 		window.myScatter.update();
 	});
-
+	/*Remove Data from Chart*/	
 	document.getElementById('removeData').addEventListener('click', function() {
 		if (scatterChartData.datasets[0].data.length > 1) {
 
@@ -5837,16 +7665,16 @@ function AdditionsTable(tank, component, unit) {
 	this.unit      = unit;
 	
 	var  tableHeader  = '<div class="wrapper">';
-		  tableHeader +=  '<div class="table">',				
-		  tableHeader +=	'<div class="row header">',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=  '<table class="table">',				
+		  tableHeader +=	'<tr class="row header">',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Date',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		this.component,
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	'</div>',
-		  tableHeader +=	'</div>', //close table
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	'</tr>',
+		  tableHeader +=	'</table>', //close table
 		  tableHeader += '</div>'; //close wrapper	
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
@@ -5872,28 +7700,36 @@ function AdditionsTable(tank, component, unit) {
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};  
-	 
-	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
-		var tableData = '';	
-		for(var key in tank.additions[i].component) { //Cycle through each key in the component object			
-			if(key === this.component) {							
-				tableData +=	'<div class="row">';
-				tableData +=	  '<div class="cell">';
-				tableData +=		moment(tank.additions[i].date).format('ll');
-				tableData +=	  '</div>';
-				tableData +=	  '<div class="cell">';
-				tableData +=		tank.additions[i].component[key][0] + ' ' + this.unit;
-				tableData +=	  '</div>';
-				tableData +=	'</div>';
-								
-				$('.table').append(tableData);
-			}	
-		}
-	}  
+	} else if(tank.tmfcParameters.applicationType === "Electro-Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header, .test_btns_container button').css('background', applicationColor);  
+	}
 
- 
-}	  
+	
+	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
+		var tableData = '';
+		if(tank.analysis[i].additions) { //If object has additions key 
+			var date = moment(tank.analysis[i].date).format('ll'); //Assign tank.anaysis[i].date to variable for date	
+			for(var key in tank.analysis[i].additions) { //Cycle through each key
+				if(key === this.component) {
+					var propertyValue = tank.analysis[i].additions[key][0]; //Assign tank.anaysis[i].additions[key] to variable for propertyValue
+					var unit = this.unit;
+					tableData +=	'<tr class="row">';
+					tableData +=	  '<td class="cell">';
+					tableData +=		date;
+					tableData +=	  '</td>';
+					tableData +=	  '<td class="cell">';
+					tableData +=		propertyValue + ' ' + unit;
+					tableData +=	  '</td>';
+					tableData +=	'</tr>';
+						
+					$('.table').append(tableData); //Append to .table
+				}
+			}		
+		}	
+	}
+	
+}//End AdditonsTable()  
 	  
 function createAddTable(tankNumber, component, unit) {
 	new AdditionsTable(tankNumber, component, unit);
@@ -5904,23 +7740,21 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 	this.unit    = unit;
 	
 	var  tableHeader  = '<div class="wrapper">';
-		  tableHeader +=  '<div class="table">',				
-		  tableHeader +=	'<div class="row header">',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=  '<table class="table">',				
+		  tableHeader +=	'<tr class="row header">',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Date',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Time',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		this.reading + ' (' + this.unit +')',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	'</div>',
-		  tableHeader +=	'</div>', //close table
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	'</tr>',
+		  tableHeader +=	'</table>', //close table
 		  tableHeader += '</div>'; //close wrapper	
 		  
-	
-	
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
 	
@@ -5945,14 +7779,17 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};  
+	} else if(tank.tmfcParameters.applicationType === "Electro-Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
+	}
 	
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
 		
 		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
 			var tableData = '';	
-			tableData +=	'<div class="row">';
-			tableData +=	  '<div class="cell">';
+			tableData +=	'<tr class="row">';
+			tableData +=	  '<td class="cell">';
 
 			if($('.table .row:last-of-type .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l') || $('.table .row:nth-last-of-type(2) .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l')) {
 				tableData += '';
@@ -5960,14 +7797,14 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 				tableData += moment(tank.analysis[i].date).format('l');
 			}
 						
-			tableData +=	  '</div>';
-			tableData +=	  '<div class="cell">';
+			tableData +=	  '</td>';
+			tableData +=	  '<td class="cell">';
 			tableData +=		key;
-			tableData +=	  '</div>';
-			tableData +=	  '<div class="cell">';
+			tableData +=	  '</td>';
+			tableData +=	  '<td class="cell">';
 			tableData +=		tank.analysis[i][this.reading][key];
-			tableData +=	  '</div>';
-			tableData +=	'</div>';
+			tableData +=	  '</td>';
+			tableData +=	'</tr>';
 							
 			$('.table').append(tableData);
 		}

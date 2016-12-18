@@ -4,23 +4,21 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 	this.unit    = unit;
 	
 	var  tableHeader  = '<div class="wrapper">';
-		  tableHeader +=  '<div class="table">',				
-		  tableHeader +=	'<div class="row header">',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=  '<table class="table">',				
+		  tableHeader +=	'<tr class="row header">',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Date',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Time',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		this.reading + ' (' + this.unit +')',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	'</div>',
-		  tableHeader +=	'</div>', //close table
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	'</tr>',
+		  tableHeader +=	'</table>', //close table
 		  tableHeader += '</div>'; //close wrapper	
 		  
-	
-	
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
 	
@@ -45,14 +43,17 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};  
+	} else if(tank.tmfcParameters.applicationType === "Electro-Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header, .test_btns_container button').css('background', applicationColor);
+	}
 	
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
 		
 		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
 			var tableData = '';	
-			tableData +=	'<div class="row">';
-			tableData +=	  '<div class="cell">';
+			tableData +=	'<tr class="row">';
+			tableData +=	  '<td class="cell">';
 
 			if($('.table .row:last-of-type .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l') || $('.table .row:nth-last-of-type(2) .cell:first-of-type').text() === moment(tank.analysis[i].date).format('l')) {
 				tableData += '';
@@ -60,14 +61,14 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 				tableData += moment(tank.analysis[i].date).format('l');
 			}
 						
-			tableData +=	  '</div>';
-			tableData +=	  '<div class="cell">';
+			tableData +=	  '</td>';
+			tableData +=	  '<td class="cell">';
 			tableData +=		key;
-			tableData +=	  '</div>';
-			tableData +=	  '<div class="cell">';
+			tableData +=	  '</td>';
+			tableData +=	  '<td class="cell">';
 			tableData +=		tank.analysis[i][this.reading][key];
-			tableData +=	  '</div>';
-			tableData +=	'</div>';
+			tableData +=	  '</td>';
+			tableData +=	'</tr>';
 							
 			$('.table').append(tableData);
 		}

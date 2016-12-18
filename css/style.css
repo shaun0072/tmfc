@@ -482,8 +482,8 @@ body {
   margin-bottom: 50px; }
 
 .tank {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  /* 	border-top: 2px solid black;
+	border-bottom: 2px solid black; */
   display: flex;
   flex-wrap: wrap; }
 
@@ -826,6 +826,7 @@ button.minus:after {
   max-width: 800px; }
 
 .table {
+  border-collapse: collapse;
   margin: 0 0 40px 0;
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);

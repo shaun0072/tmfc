@@ -17,7 +17,7 @@
     </style>
 </head>
 
-<body class="chartBody" onload="createChart(t1709, 'Nitric Acid', '%')">
+<body class="chartBody" onload="createChart(t1707, 'Zinc', 'oz/gal')">
 
     <div style="min-height:215px;width: 100%;">
         <canvas id="canvas"></canvas>
@@ -29,7 +29,12 @@
 		</div>  
 	
 		<div class="test_btns_container">
-		   <button class="active" onclick="createChart(t1709, 'Nitric Acid', '%')">Nitric Acid</button>
+		   <button class="active" onclick="createChart(t1707, 'Zinc', 'oz/gal')">Zinc</button>
+		   <button onclick="createChart(t1707, 'NaOH', 'oz/gal')">NaOH</button>
+		   <button onclick="createChart(t1707, 'Carbonates', 'oz/gal')">Carb</button>
+		   <button onclick="createChart(t1707, 'Iron', 'ppm')">Iron</button>
+		   <button onclick="createChart(t1707, 'Copper', 'ppm')">Cop</button>
+		   <button onclick="createChart(t1707, 'Chromium', 'ppm')">Chr</button>
 		</div>		 
     </div>
 

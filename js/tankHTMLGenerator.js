@@ -1,8 +1,10 @@
 //npm install gulp gulp-concat gulp-connect gulp-eslint gulp-eslint gulp-file gulp-html-validator gulp-insert gulp-replace gulp-size gulp-streamify gulp-uglify gulp-util gulp-zip child_process gulp-karma browserify vinyl-source-stream merge-stream bundle-collapser yargs --save-dev
 
 function Tank(tid) {
-	this.makeupDate        = tid.makeup.date;
-	this.componentName     = tid.makeup.components[0].component;
+	
+	if(tid.makeup) {
+		this.makeupDate = tid.makeup.date;
+	}	
 	this.lineNumber        = tid.tmfcParameters.lineNumber;
 	this.applicationType   = tid.tmfcParameters.applicationType;
 	this.requiredTemp      = tid.tmfcParameters.temp;
@@ -18,7 +20,8 @@ function Tank(tid) {
 	this.agitationLevel    = tid.tmfcParameters.agitationLevel;
 	this.agitationType     = tid.tmfcParameters.agitationType;
 	this.TDS               = tid.tmfcParameters.TDS;
-	
+
+
 	/*DATA GENERATED WITHIN MAKE-UP MODAL*/
 	function addMakeupHTML() {
 		for(var i = 0; i < tid.makeup.components.length; i++) { //Cycle over each object in components array
@@ -44,11 +47,17 @@ function Tank(tid) {
 		}
 		$('div[data-remodal-id="modal-makeup"]').append('<br><button data-remodal-action="confirm" class="remodal-confirm">OK</button>');
 	}
-	
-	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-	var firstDate = new Date();
-	var secondDate = this.makeupDate;
-	var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+	var oneDay; // hours*minutes*seconds*milliseconds
+	var firstDate;
+	var secondDate;
+	var diffDays;
+	if(tid.makeup) {
+		oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+		firstDate = new Date();
+		secondDate = this.makeupDate;
+		diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+	}
+	/*SVG*/
 	var html = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">';
 			html += '<symbol id="record-keeping-icon" viewBox="0 0 100 100">';
 			html += '<title>record-keeping-icon</title>';
@@ -62,6 +71,8 @@ function Tank(tid) {
 			html += 'c0-1.2,0.9-2.1,2.1-2.1h32.8C67.5,66.7,68.5,67.7,68.5,68.8z"/>';
 		  html += '</symbol>';
 		html += '</svg>';
+		
+		/*TANK NUMBER AND APPLICATION TYPE*/
 		html += '<div class="tank">';
 			html += '<div class="tank_id">';
 				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank" href="#">'
@@ -69,16 +80,27 @@ function Tank(tid) {
 				html += '</a></span><span class="applicationType">';
 				html += this.applicationType;
 				html += '</span></h1>';
-				html += '<div class="last_made-up"><span class="number">';
-				html += diffDays;
-				html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
+				
+		/*DAYS SINCE MAKEUP*/
+				if(tid.makeup) {
+					html += '<div class="last_made-up"><span class="number">';
+					html += diffDays;
+					html += '</span> days since <a data-remodal-target="modal-makeup" href="#">makeup</a></div>';
+				}				
+		/*TDS LINK*/
 			html += '</div>';
 			html += '<ul class="tds_list">';
+			if(this.TDS !== '') {
 				html += '<li><a data-remodal-target="modal-TDS" href="#">';
 				html += '<img src="assets/img/datasheet-icon.jpg">';
 				html += '</a></li>';
+			}			
 			html += '</ul>';
+			
+		/*PROCESS CONTROL SECTION*/
 			html += '<div class="process_control">';
+			
+			/*TMFC CONTROL PARAMETERS*/
 				html += '<div class="tmfc_control_parameters_cont">';
 					html += '<h3 class="tmfc_control_parameters_title">TMFC Contorl Parameters</h3>';
 					html += '<ul class="tmfc_control_parameters_list">';
@@ -91,53 +113,88 @@ function Tank(tid) {
 					html += '</ul>';
 				html += '</div>';
 				
-				if(tid.analysis !== undefined) {
+			/*LATEST ANALYSIS*/
+				if(tid.analysis) {
 					html += '<div class="current_state-cont">';
 					html += '<h3 class="current_state_title">Latest Analysis</h3>';
 					html += '<ul class="current_state_list">';
 					html += '</ul>';
 					html += '</div>';
 				}
-				
-				html += '<div class="data_records_cont">';
+			/*RECORDS*/
+				if(tid.analysis) {
+					html += '<div class="data_records_cont">';
 					html += '<h3 class="data_records_title">Records</h3>';
 					html += '<ul class="data_records_list">';
+				
+				
+					var stop;
+					/*LAB ANALYSIS BUTTON*/
+						for(var i = 0; i < tid.analysis.length; i++) { //Cycle through each object in analysis array 
+							for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+								if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp" && key !== "additions" && key !== "pH" && stop !== "stop") {
+									html += '<a href="'
+									html += this.lineNumber;
+									html += 'chart.html"><li>';
+									html += '<svg>';
+									html += '<use xlink:href="#record-keeping-icon"></use>';
+									html += '</svg>';
+									html += 'Lab Analysis';
+									html += '</li></a>';
+									stop = "stop";
+									/* i = tid.analysis.length; */
+								}
+							}
+						}
+						/* for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
+							if(tid.analysis[i] !== undefined) {
+								html += '<a href="'
+								html += this.lineNumber;
+								html += 'chart.html"><li>';
+								html += '<svg>';
+									html += '<use xlink:href="#record-keeping-icon"></use>';
+								html += '</svg>';
+								html += 'Lab Analysis';
+								html += '</li></a>';
+								break;
+							}
+						} */
+						
+					/*CHEMICAL ADDITIONS*/	
+						for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
+							if(tid.analysis[i].additions) { 
+								html += '<a href ="';
+								html += this.lineNumber;
+								html += 'add.html"><li>';
+								html += '<svg>';
+									html += '<use xlink:href="#record-keeping-icon"></use>';
+								html += '</svg>';
+								html += 'Chemical Additions Log';
+								html += '</li></a>';	
+								break;
+							}
+						}
+						
 					
-						if(tid.analysis !== undefined) {
-							html += '<a href="'
-							html += this.lineNumber;
-							html += 'chart.html"><li>';
-							html += '<svg>';
+					/*TEMP/PH LOG*/
+						for(i = 0; i < tid.analysis.length; i++) {
+							if(tid.analysis[i].temp || tid.analysis[i].pH) {
+								html += '<a href="';
+								html += this.lineNumber;
+								html += 'tempph.html"><li>';
+								html += '<svg>';
 								html += '<use xlink:href="#record-keeping-icon"></use>';
-							html += '</svg>';
-							html += 'Lab Analysis';
-							html += '</li></a>';
+								html += '</svg>';
+								html += 'Temp/pH Log';
+								html += '</li></a>';
+								html += '</ul>';
+								html += '</div>';
+								html += '</div>';
+								html += '</div>';
+								break;
+							}
 						}
-						
-						
-						if(tid.additions !== undefined) {
-							html += '<a href ="';
-							html += this.lineNumber;
-							html += 'add.html"><li>';
-							html += '<svg>';
-								html += '<use xlink:href="#record-keeping-icon"></use>';
-							html += '</svg>';
-							html += 'Chemical Additions Log';
-							html += '</li></a>';	
-						}
-						
-						html += '<a href="';
-						html += this.lineNumber;
-						html += 'tempph.html"><li>';
-						html += '<svg>';
-							html +='<use xlink:href="#record-keeping-icon"></use>';
-						html += '</svg>';
-						html += 'Temp/pH Log';
-						html += '</li></a>';
-					html += '</ul>';
-				html += '</div>';
-			html += '</div>';
-		html += '</div>';
+				}	
 
 		/*TDS MODAL*/
 		html += '<div class="remodal-bg">';
@@ -195,40 +252,43 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
-		
-	
 	
 	$('body').append(html);
+	
+	
 	var nameHolder = [];
 	
 	/*LATEST ANALYSIS*/
-	for(var i = 0; i < tid.analysis.length; i++) {		//Cycle through each object in analysis array 
-		for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
-			if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp") { //If analysis has property equal to key, and is not date or temp
-				
-				var propertyName = key;
-				var propertyValue = tid.analysis[i][key];
-				var unit;
-				if(tid.tmfcParameters.concentrations[key]) {
-					unit = tid.tmfcParameters.concentrations[key][1];
-				} else {
-					unit = '';
-				}
-				var date = moment(tid.analysis[i].date, 'DD').fromNow();
-				var analysisList = '<li>';
-					analysisList += propertyName;
-					analysisList += ' : <span class="propValue">';
-					analysisList += propertyValue + unit + ' ';
-					analysisList += '<span class="taken">(Taken ' + date + ')</span>';
-					analysisList += '</span></li>'; 
+	if(tid.analysis) {
+		for(var i = 0; i < tid.analysis.length; i++) { //Cycle through each object in analysis array 
+			for(var key in tid.analysis[i]) {  //Cycle through each key in analysis object
+				if(tid.analysis[i].hasOwnProperty(key) && key !== 'date' && key !== "temp" && key !== "additions" && key !== "pH") { //If analysis has property equal to key, and is not date,pH,additions or temp
 					
-					if($.inArray(propertyName, nameHolder) === -1) { 
-						nameHolder.push(propertyName);
-						$('.current_state_list').append(analysisList);
-					}				
+					var propertyName = key;
+					var propertyValue = tid.analysis[i][key];
+					var unit;
+					if(tid.tmfcParameters.concentrations[key]) {
+						unit = tid.tmfcParameters.concentrations[key][1];
+					} else {
+						unit = '';
+					}
+					var date = moment(tid.analysis[i].date, 'DD').fromNow();
+					var analysisList = '<li>';
+						analysisList += propertyName;
+						analysisList += ' : <span class="propValue">';
+						analysisList += propertyValue + unit + ' ';
+						analysisList += '<span class="taken">(Taken ' + date + ')</span>';
+						analysisList += '</span></li>'; 
+						
+						if($.inArray(propertyName, nameHolder) === -1) { 
+							nameHolder.push(propertyName);
+							$('.current_state_list').append(analysisList);
+						}				
+				}
 			}
 		}
 	}
+	
 	/*TMFC PARAMETERS*/
 	for(var key in tid.tmfcParameters.concentrations) {
 		var propertyName = key;
@@ -242,8 +302,52 @@ function Tank(tid) {
 		$('.tmfc_control_parameters_list').append(html);
 	};
 	
-	
-	 addMakeupHTML();
+	if(tid.makeup) {
+		 addMakeupHTML();
+	}
+	var style;
+	if(tid.tmfcParameters.applicationType === "Electro-Plating") {
+		style = "5px solid rgba(244,211,94, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Cleaner") {
+		console.log('we have a winner');
+		style = "5px solid rgba(186, 63, 29, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Acid Pickle") {
+		style = "5px solid rgba(112, 163, 127, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Rinse") {
+		style = "5px solid rgba(39, 93, 173, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Chromate") {
+		style = "5px solid rgba(145,139,118, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Seal") {
+		style = "5px solid rgba(75,0,130, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Sour Dip") {
+		style = "5px solid rgba(238,235,208, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	} else if(tid.tmfcParameters.applicationType === "Electro-Cleaner") {
+		style = "5px solid rgba(186, 63, 29, 0.8)";
+		$('.tank').css({'border-top' : style,
+						'border-bottom' : style
+		});
+	}
 }
 
 

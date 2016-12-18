@@ -6,16 +6,16 @@ function AdditionsTable(tank, component, unit) {
 	this.unit      = unit;
 	
 	var  tableHeader  = '<div class="wrapper">';
-		  tableHeader +=  '<div class="table">',				
-		  tableHeader +=	'<div class="row header">',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=  '<table class="table">',				
+		  tableHeader +=	'<tr class="row header">',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Date',
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	  '<div class="cell">',
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		this.component,
-		  tableHeader +=	  '</div>',
-		  tableHeader +=	'</div>',
-		  tableHeader +=	'</div>', //close table
+		  tableHeader +=	  '</th>',
+		  tableHeader +=	'</tr>',
+		  tableHeader +=	'</table>', //close table
 		  tableHeader += '</div>'; //close wrapper	
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
@@ -41,28 +41,36 @@ function AdditionsTable(tank, component, unit) {
 	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
 		applicationColor = "rgba(238,235,208, 0.8)";
 		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	};  
-	 
-	for(var i = 0; i < tank.additions.length; i++) { //Cycle through each object in additions array
-		var tableData = '';	
-		for(var key in tank.additions[i].component) { //Cycle through each key in the component object			
-			if(key === this.component) {							
-				tableData +=	'<div class="row">';
-				tableData +=	  '<div class="cell">';
-				tableData +=		moment(tank.additions[i].date).format('ll');
-				tableData +=	  '</div>';
-				tableData +=	  '<div class="cell">';
-				tableData +=		tank.additions[i].component[key][0] + ' ' + this.unit;
-				tableData +=	  '</div>';
-				tableData +=	'</div>';
-								
-				$('.table').append(tableData);
-			}	
-		}
-	}  
+	} else if(tank.tmfcParameters.applicationType === "Electro-Cleaner") {
+		applicationColor = "rgba(186, 63, 29, 0.8)";
+		$('.row.header, .test_btns_container button').css('background', applicationColor);  
+	}
 
- 
-}	  
+	
+	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
+		var tableData = '';
+		if(tank.analysis[i].additions) { //If object has additions key 
+			var date = moment(tank.analysis[i].date).format('ll'); //Assign tank.anaysis[i].date to variable for date	
+			for(var key in tank.analysis[i].additions) { //Cycle through each key
+				if(key === this.component) {
+					var propertyValue = tank.analysis[i].additions[key][0]; //Assign tank.anaysis[i].additions[key] to variable for propertyValue
+					var unit = this.unit;
+					tableData +=	'<tr class="row">';
+					tableData +=	  '<td class="cell">';
+					tableData +=		date;
+					tableData +=	  '</td>';
+					tableData +=	  '<td class="cell">';
+					tableData +=		propertyValue + ' ' + unit;
+					tableData +=	  '</td>';
+					tableData +=	'</tr>';
+						
+					$('.table').append(tableData); //Append to .table
+				}
+			}		
+		}	
+	}
+	
+}//End AdditonsTable()  
 	  
 function createAddTable(tankNumber, component, unit) {
 	new AdditionsTable(tankNumber, component, unit);
