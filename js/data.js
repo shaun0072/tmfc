@@ -2432,17 +2432,18 @@ var t1710 = {
 var t1711 = {
 	tmfcParameters : {
 		concentrations: {
-			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"Prodigy Triton"   : ["8", "% bv"],
 		},
 		lineNumber         : 1711,
-		applicationType    : "Electro-Cleaner",
-		temp               : "130 - 160°F",
-		immersion          : "1 - 5 min",
+		applicationType    : "Chromate",
+		temp               : "70 - 90°F",
+		immersion          : "15 - 30 sec",
+		pH                 : 2.0 - 2.4,
 		tankSize           : {
-			lngth          : '33\"',
-			width          : '56"',
-			depth          : '25"' + ' (sol. level)',
-			capacity       : "200 gallons"		
+			lngth          : '27\"',
+			width          : '55"',
+			depth          : '26.5"' + ' (sol. level)',
+			capacity       : "170 gallons",		
 		},
 		tankMaterial   : "",
 		heatMethod     : "Steam Boiler",
@@ -2450,23 +2451,23 @@ var t1711 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : "Prodigy Triton TDS-1.png",
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
 		components: [
 			{
-			component  : "Cleaner Anokleen #2-S",
-			unit       : " oz/gal",
-			makeupAt   : "10",
-			amount     : "125 lbs"
+			component  : "Prodigy Triton",
+			unit       : "% bv",
+			makeupAt   : "8",
+			amount     : "125 gal"
 			},
 		]
 	},
 	analysis : [
 		{
 			date   : new Date("12/01/2016"),
-			"Anokleen #2-S" : 10.23, 
+			"Prodigy Triton" : 8.1,
 			temp   : {
 				"8:00AM" : 144,
 				"11:30AM": 152,
@@ -2479,7 +2480,7 @@ var t1711 = {
 		{
 			date : new Date("12/03/2016"),
 			component : {
-				"Anokleen #2-S" : [50, "lbs"],
+				"Triton" : [50, "lbs"],
 			}
 		},
 	],
@@ -2607,41 +2608,50 @@ var t1715 = {
 var t1716 = {
 	tmfcParameters : {
 		concentrations: {
-			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"546-A"   : ["10", "% bv"],
+			"546-B"   : ["1", "% bv"],
 		},
 		lineNumber         : 1716,
-		applicationType    : "Electro-Cleaner",
-		temp               : "130 - 160°F",
-		immersion          : "1 - 5 min",
+		applicationType    : "Chromate",
+		temp               : "70 - 90°F",
+		pH                 : "1.8 - 2.1",
+		immersion          : "30 - 90 sec",
 		tankSize           : {
-			lngth          : '33\"',
+			lngth          : '29.5\"',
 			width          : '56"',
 			depth          : '25"' + ' (sol. level)',
-			capacity       : "200 gallons"		
+			capacity       : "180 gallons"		
 		},
 		tankMaterial   : "",
 		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Stainless Steel",
-		coilType       : "Serpentine",
-		agitationLevel : "Low - ",
+		heatMaterial   : "Steel",
+		coilType       : "U",
+		agitationLevel : "High - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : "546-Yellow-TDS-1.png"
 	},
 	makeup : {
-		date : new Date("October 1, 2016"),
+		date : new Date("August 1, 2016"),
 		components: [
 			{
-			component  : "Cleaner Anokleen #2-S",
-			unit       : " oz/gal",
+			component  : "Accu-Labs 546-A",
+			unit       : "% bv",
 			makeupAt   : "10",
-			amount     : "125 lbs"
+			amount     : "18 gal"
+			},
+			{
+			component  : "Accu-Labs 546-B",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "1.8 gal"
 			},
 		]
 	},
 	analysis : [
 		{
 			date   : new Date("12/01/2016"),
-			"Anokleen #2-S" : 10.23, 
+			"546-A" : 10.23, 
+			"546-B" : 1.2,
 			temp   : {
 				"8:00AM" : 144,
 				"11:30AM": 152,

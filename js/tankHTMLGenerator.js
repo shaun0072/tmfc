@@ -4,7 +4,10 @@ function Tank(tid) {
 	
 	if(tid.makeup) {
 		this.makeupDate = tid.makeup.date;
-	}	
+	}
+	if(tid.tmfcParameters.pH) {
+		this.pH = tid.tmfcParameters.pH;
+	}		
 	this.lineNumber        = tid.tmfcParameters.lineNumber;
 	this.applicationType   = tid.tmfcParameters.applicationType;
 	this.requiredTemp      = tid.tmfcParameters.temp;
