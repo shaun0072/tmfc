@@ -2460,7 +2460,13 @@ var t1711 = {
 			component  : "Prodigy Triton",
 			unit       : "% bv",
 			makeupAt   : "8",
-			amount     : "125 gal"
+			amount     : "13.6 gal",
+			},
+			{
+			component  : "Sodium Hydroxide",
+			unit       : "",
+			makeupAt   : "raise to pH of 2.2",
+			amount     : "As needed",
 			},
 		]
 	},
@@ -2510,41 +2516,40 @@ var t1712 = {
 var t1713 = {
 	tmfcParameters : {
 		concentrations: {
-			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"Havacoat Z-26"   : ["0.7 - 1.5", "% bv"],
 		},
 		lineNumber         : 1713,
-		applicationType    : "Electro-Cleaner",
-		temp               : "130 - 160°F",
-		immersion          : "1 - 5 min",
+		applicationType    : "Chromate",
+		temp               : "70 - 90°F",
+		immersion          : "45 - 60 sec",
 		tankSize           : {
-			lngth          : '33\"',
-			width          : '56"',
-			depth          : '25"' + ' (sol. level)',
-			capacity       : "200 gallons"		
+			lngth          : '29.5\"',
+			width          : '55.5"',
+			depth          : '27"' + ' (sol. level)',
+			capacity       : "190 gallons"		
 		},
 		tankMaterial   : "",
 		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Stainless Steel",
-		coilType       : "Serpentine",
+		heatMaterial   : "",
+		coilType       : "",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : "Havacoat-Z-26-TDS-1.png"
 	},
 	makeup : {
-		date : new Date("October 1, 2016"),
+		date : new Date("12/2/2016"),
 		components: [
 			{
-			component  : "Cleaner Anokleen #2-S",
-			unit       : " oz/gal",
-			makeupAt   : "10",
-			amount     : "125 lbs"
+			component  : "Havacoat Z-26",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "1.9 gal"
 			},
 		]
 	},
 	analysis : [
 		{
 			date   : new Date("12/01/2016"),
-			"Anokleen #2-S" : 10.23, 
 			temp   : {
 				"8:00AM" : 144,
 				"11:30AM": 152,
@@ -2557,7 +2562,7 @@ var t1713 = {
 		{
 			date : new Date("12/03/2016"),
 			component : {
-				"Anokleen #2-S" : [50, "lbs"],
+				"Havacoat Z-26" : [2000, "mls"],
 			}
 		},
 	],
@@ -2673,41 +2678,40 @@ var t1716 = {
 var t1717 = {
 	tmfcParameters : {
 		concentrations: {
-			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"Techniseal 300"   : ["1 - 5", "% bv"],
 		},
 		lineNumber         : 1717,
-		applicationType    : "Electro-Cleaner",
-		temp               : "130 - 160°F",
-		immersion          : "1 - 5 min",
+		applicationType    : "Seal",
+		temp               : "60 - 90°F",
+		immersion          : "10 - 30 sec",
 		tankSize           : {
-			lngth          : '33\"',
+			lngth          : '29.5\"',
 			width          : '56"',
-			depth          : '25"' + ' (sol. level)',
-			capacity       : "200 gallons"		
+			depth          : '25.5"' + ' (sol. level)',
+			capacity       : "180 gallons"		
 		},
-		tankMaterial   : "",
+		tankMaterial   : "Steel w/Liner",
 		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Stainless Steel",
-		coilType       : "Serpentine",
-		agitationLevel : "Low - ",
+		heatMaterial   : "Steel",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : "Techniseal-300-TDS-2.png"
 	},
 	makeup : {
-		date : new Date("October 1, 2016"),
+		date : new Date("12/16/2016"),
 		components: [
 			{
-			component  : "Cleaner Anokleen #2-S",
-			unit       : " oz/gal",
-			makeupAt   : "10",
-			amount     : "125 lbs"
+			component  : "Techniseal 300",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "1.8 gal"
 			},
 		]
 	},
 	analysis : [
 		{
 			date   : new Date("12/01/2016"),
-			"Anokleen #2-S" : 10.23, 
 			temp   : {
 				"8:00AM" : 144,
 				"11:30AM": 152,

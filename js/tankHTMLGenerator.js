@@ -317,6 +317,7 @@ function Tank(tid) {
 		 addMakeupHTML();
 	}
 	var style;
+	/*SET BORDER COLORS WITH APPLICATION TYPE*/
 	if(tid.tmfcParameters.applicationType === "Electro-Plating") {
 		style = "5px solid rgba(244,211,94, 0.8)";
 		$('.tank').css({'border-top' : style,

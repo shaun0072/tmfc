@@ -41,34 +41,27 @@ function MakeChart(tankNumber, testName, unit) {
 	
 	function assignColor() {
 		if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
-			applicationColor = "rgba(244,211,94, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('electroPlating');
 		} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
-			applicationColor = "rgba(186, 63, 29, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('cleaner');
 		} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
-			applicationColor = "rgba(112, 163, 127, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('acid');
 		} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
-			applicationColor = "rgba(39, 93, 173, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('rinse');
 		} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
-			applicationColor = "rgba(145,139,118, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('chromate');
 		} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
-			applicationColor = "rgba(75,0,130, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('seal');
 		} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
-			applicationColor = "rgba(238,235,208, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('sourDip');
 		} else if(tankNumber.tmfcParameters.applicationType === "Electro-Cleaner") {
-			applicationColor = "rgba(186, 63, 29, 0.8)";
-			$('.row.header, .test_btns_container button').css('background', applicationColor);  
+			$('.row.header, .test_btns_container button').addClass('cleaner');
 		}
 	}
 
 	assignColor();
-
+	var bgColor = $('.active').css('background-color');
+	applicationColor = bgColor;
 	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
 		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
@@ -172,6 +165,7 @@ function MakeChart(tankNumber, testName, unit) {
 	}
 	
 	assignColor();
+	
 	/*Add Data to Chart*/	
 	document.getElementById('addData').addEventListener('click', function() {
 

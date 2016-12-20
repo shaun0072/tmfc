@@ -105,3 +105,24 @@ button.minus:after {
 	color: white;
 	font-style: italic;
 }
+.cleaner {
+	background: $cleanerOrganic !important; 
+}
+.acid {
+	background: $cleanerInorganic !important; 
+}
+.electroPlating {
+	background: $electroPlating !important;
+}
+.rinse {
+	background: $rinse !important;
+}
+.chromate {
+	background: $chromate !important;
+}
+.seal {
+	background: $seal !important;
+}
+.sourDip {
+	background: $sourDip !important;
+}
