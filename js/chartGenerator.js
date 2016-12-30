@@ -6,7 +6,7 @@ var makeChart,
     numberOfAnalysis,
     theUnit,
 	applicationColor;
-
+/*ADD DATA BUTTON*/
 function addData(date, testResult, unit) {
 	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
 		if(i < date.length && testResult[i] !== undefined) {
@@ -25,12 +25,13 @@ function addData(date, testResult, unit) {
 		}
 	}		
 }
+/*REMOVE DATA BUTTON*/
 function removeData() {
 	if($('.table .row').length > 2) {
 		$('.table .row').remove('.row:last-of-type');
 	}		
 }
-
+/*GENERATE CHART OBJECT CONSTRUCTOR*/
 function MakeChart(tankNumber, testName, unit) {
 	this.date = [];
 	this.testResult = [];
@@ -39,29 +40,44 @@ function MakeChart(tankNumber, testName, unit) {
 	this.chartHeading = testName;
 	this.analysis = tankNumber.analysis;
 	
+	/*ASSIGN APPLICATION COLOR TO TABLES AND CHART*/
 	function assignColor() {
 		if(tankNumber.tmfcParameters.applicationType === "Electro-Plating") {
 			$('.row.header, .test_btns_container button').addClass('electroPlating');
-		} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
+		} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {		
 			$('.row.header, .test_btns_container button').addClass('cleaner');
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
 		} else if(tankNumber.tmfcParameters.applicationType === "Acid Pickle") {
 			$('.row.header, .test_btns_container button').addClass('acid');
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
 		} else if(tankNumber.tmfcParameters.applicationType === "Rinse") {
 			$('.row.header, .test_btns_container button').addClass('rinse');
-		} else if(tankNumber.tmfcParameters.applicationType === "Chromate") {
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
+		} else if(tankNumber.tmfcParameters.applicationType.indexOf("Chromate") !== -1) {
 			$('.row.header, .test_btns_container button').addClass('chromate');
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
 		} else if(tankNumber.tmfcParameters.applicationType === "Seal") {
 			$('.row.header, .test_btns_container button').addClass('seal');
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
 		} else if(tankNumber.tmfcParameters.applicationType === "Sour Dip") {
 			$('.row.header, .test_btns_container button').addClass('sourDip');
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
 		} else if(tankNumber.tmfcParameters.applicationType === "Electro-Cleaner") {
 			$('.row.header, .test_btns_container button').addClass('cleaner');
+			applicationColor = $('.row.header').css('background-color');
+			return applicationColor;
 		}
 	}
 
-	assignColor();
-	var bgColor = $('.active').css('background-color');
-	applicationColor = bgColor;
+	/*VARIABLES*/
 	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
 		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
 		chartData = [];	
@@ -78,12 +94,26 @@ function MakeChart(tankNumber, testName, unit) {
 			tableHeader +=	  '</div>',
 			tableHeader +=	'</div>',
 			tableHeader +=	'</div>', //close table
-			tableHeader += '</div>', //close wrapper	
-	    scatterChartData = {
+			tableHeader += '</div>'; //close wrapper	
+	    
+	
+	/* Chart.defaults.global.maintainAspectRatio = false; */
+	numberOfAnalysis = 5;
+	theDate = this.date;
+	theTestResult  = this.testResult;
+	theUnit = this.unit;
+	
+	$('#addData').remove();
+	$('#removeData').remove();	
+	$('.add_remove_btns_container').append(removebtnHTML);
+	$('.add_remove_btns_container').append(addbtnHTML);	
+	$('.wrapper').remove();
+	$('body').append(tableHeader);
+	var scatterChartData = {
 			datasets: [{
 				fill: false,
 				label: "My First dataset",
-				borderColor: applicationColor,
+				borderColor: assignColor(),
 				backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
 				data : chartData,
 				spanGaps: true
@@ -122,24 +152,13 @@ function MakeChart(tankNumber, testName, unit) {
 				}
 			}
 		};
-		Chart.defaults.global.maintainAspectRatio = false;
-	numberOfAnalysis = 5;
-	theDate = this.date;
-	theTestResult  = this.testResult;
-	theUnit = this.unit;
 	
-	$('#addData').remove();
-	$('#removeData').remove();	
-	$('.add_remove_btns_container').append(removebtnHTML);
-	$('.add_remove_btns_container').append(addbtnHTML);	
-	$('.wrapper').remove();
-	$('body').append(tableHeader);
-
+	/*ASSIGN TANK DATA TO DATE/TESTRESULT ARRAYS*/
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
 		this.date.push(this.analysis[i].date);         
 		this.testResult.push(this.analysis[i][testName]);
 	};		
-		
+	/*ASSIGN DATE/TESTRESULT ARRAY VALUES TO CHART OBJECT*/	
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
 		if(i < numberOfAnalysis && this.testResult[i] !== undefined) {
 
@@ -164,8 +183,9 @@ function MakeChart(tankNumber, testName, unit) {
 		}
 	}
 	
-	assignColor();
 	
+	assignColor();
+
 	/*Add Data to Chart*/	
 	document.getElementById('addData').addEventListener('click', function() {
 
@@ -202,19 +222,22 @@ function MakeChart(tankNumber, testName, unit) {
 		}
 		window.myScatter.update();
 	});
-	
+	/*LOAD CHART VALUE*/
 	var loadChart = function() {
 		var ctx = document.getElementById("canvas").getContext("2d");
 		window.myScatter = Chart.Scatter(ctx, chartOptions)
 	};
-	
-	loadChart();
-}
 
-function createChart(tankName, componentName, unit) {
-	makeChart = new MakeChart(tankName, componentName, unit);
-}
+	loadChart();
+} //End MakeChart()
+
+/*ADD/REMOVE ACTIVE CLASS FOR TABLE TABS*/
 $('.test_btns_container').on('click', 'button', function() {
 	$('.test_btns_container button').removeClass('active');
 	$(this).addClass('active');
 })
+
+/*CREATE VARIABLE TO HOLD INSTANCE CREATED BY MakeChart()*/
+function createChart(tankName, componentName, unit) {
+	makeChart = new MakeChart(tankName, componentName, unit);
+}

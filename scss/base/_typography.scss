@@ -3,13 +3,14 @@ body {
 }
 .tank {
 	margin-top: 100px;
-	h1 {
+	div.tank_number {
 		font: $lg-font $specialty-font;
 		letter-spacing: -1px;
-		span.tank_number a {
-			color: grey;
+		margin-bottom: -8px;
+		a {
+			color: rgb(192,192,192);
 			font-size: 0.5em;
-			letter-spacing: 7px;
+			letter-spacing: 9px;
 			padding-left: 9px;
 			text-decoration: none;
 		}

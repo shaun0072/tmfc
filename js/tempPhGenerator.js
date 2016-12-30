@@ -1,8 +1,11 @@
+var temppH;
+var headerUnit;
 function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 
+	
 	this.reading = reading;
 	this.unit    = unit;
-	
+
 	var  tableHeader  = '<div class="wrapper">';
 		  tableHeader +=  '<table class="table">',				
 		  tableHeader +=	'<tr class="row header">',
@@ -11,43 +14,43 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		  tableHeader +=	  '</th>',
 		  tableHeader +=	  '<th class="cell">',
 		  tableHeader +=		'Time',
-		  tableHeader +=	  '</th>',
-		  tableHeader +=	  '<th class="cell">',
-		  tableHeader +=		this.reading + ' (' + this.unit +')',
-		  tableHeader +=	  '</th>',
-		  tableHeader +=	'</tr>',
-		  tableHeader +=	'</table>', //close table
+		  tableHeader +=	  '</th>';
+		  tableHeader +=	  '<th class="cell reading">';
+		  tableHeader +=	  '</th>';
+		  tableHeader +=	'</tr>';
+		  tableHeader +=	'</table>'; //close table
 		  tableHeader += '</div>'; //close wrapper	
 		  
 	$('.wrapper').remove(); 
 	$('body').append(tableHeader);
-	
+	/*ASSIGN BG COLOR TO TABLE HEADER*/
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
-		applicationColor = "rgba(244,211,94, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Cleaner") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
-		applicationColor = "rgba(112, 163, 127, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Rinse") {
-		applicationColor = "rgba(39, 93, 173, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Chromate") {
-		applicationColor = "rgba(145,139,118, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Seal") {
-		applicationColor = "rgba(75,0,130, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
-		applicationColor = "rgba(238,235,208, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
-	} else if(tank.tmfcParameters.applicationType === "Electro-Cleaner") {
-		applicationColor = "rgba(186, 63, 29, 0.8)";
-		$('.row.header, .test_btns_container button').css('background', applicationColor);
+			$('.row.header, .test_btns_container button').addClass('electroPlating');
+		} else if(tank.tmfcParameters.applicationType === "Cleaner") {
+			$('.row.header, .test_btns_container button').addClass('cleaner');
+		} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
+			$('.row.header, .test_btns_container button').addClass('acid');
+		} else if(tank.tmfcParameters.applicationType === "Rinse") {
+			$('.row.header, .test_btns_container button').addClass('rinse');
+		} else if(tank.tmfcParameters.applicationType.indexOf("Chromate") !== -1) {
+			$('.row.header, .test_btns_container button').addClass('chromate');
+		} else if(tank.tmfcParameters.applicationType === "Seal") {
+			$('.row.header, .test_btns_container button').addClass('seal');
+		} else if(tank.tmfcParameters.applicationType === "Sour Dip") {
+			$('.row.header, .test_btns_container button').addClass('sourDip');
+		} else if(tank.tmfcParameters.applicationType === "Electro-Cleaner") {
+			$('.row.header, .test_btns_container button').addClass('cleaner');
+		}
+
+	if(reading === "temp") {
+		console.log("fitst temo");	
+		headerUnit = "Temperature (°F)";
+	} else {
+		console.log("other");	
+		headerUnit = 'pH';
 	}
-	
+	$('.reading').append(headerUnit);
+	console.log(reading);
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
 		
 		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
@@ -74,9 +77,10 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		}
 	}  
 
- 
 }	  
 	  
 function createtempPhTable(tankNumber, reading, unit) {
-	new TempPhTable(tankNumber, reading, unit);
+	tableHeader = '';
+	temppH = '';
+	temppH = new TempPhTable(tankNumber, reading, unit);
 }

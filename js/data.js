@@ -1857,12 +1857,11 @@ var t1707 = {
 /*Week 50*/	
 		{
 			date : new Date("12/15/2016"),
-			temp   : {
+			temp : {
 				"8:00AM" : 131,
 				"11:30AM": 135,
 				"3:00PM" : 142
-			},
-			
+			},	
 		},
 		{
 			date : new Date("12/14/2016"),
@@ -2435,7 +2434,7 @@ var t1711 = {
 			"Prodigy Triton"   : ["8", "% bv"],
 		},
 		lineNumber         : 1711,
-		applicationType    : "Chromate",
+		applicationType    : "Trivalent Clear Chromate",
 		temp               : "70 - 90°F",
 		immersion          : "15 - 30 sec",
 		pH                 : 2.0 - 2.4,
@@ -2474,11 +2473,16 @@ var t1711 = {
 		{
 			date   : new Date("12/01/2016"),
 			"Prodigy Triton" : 8.1,
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 152,
-				"3:00PM" : 155
-			}
+			temp  : {
+				"8:00AM" : 60,
+				"11:30AM": 80,
+				"3:00PM" : 75
+			},
+			pH : {
+				"8:00AM" : 2.20,
+				"11:30AM": 2.25,
+				"3:00PM" : 2.30
+			},
 		},
 		
 	],
@@ -2487,7 +2491,7 @@ var t1711 = {
 			date : new Date("12/03/2016"),
 			component : {
 				"Triton" : [50, "lbs"],
-			}
+			},
 		},
 	],
 	
@@ -2519,7 +2523,7 @@ var t1713 = {
 			"Havacoat Z-26"   : ["0.7 - 1.5", "% bv"],
 		},
 		lineNumber         : 1713,
-		applicationType    : "Chromate",
+		applicationType    : "Hexavalent Yellow Chromate",
 		temp               : "70 - 90°F",
 		immersion          : "45 - 60 sec",
 		tankSize           : {
@@ -2554,6 +2558,9 @@ var t1713 = {
 				"8:00AM" : 144,
 				"11:30AM": 152,
 				"3:00PM" : 155
+			},
+			pH : {
+				"8:00AM" : 1.81,
 			}
 		},
 		
@@ -2617,7 +2624,7 @@ var t1716 = {
 			"546-B"   : ["1", "% bv"],
 		},
 		lineNumber         : 1716,
-		applicationType    : "Chromate",
+		applicationType    : "Trivalent Yellow Chromate",
 		temp               : "70 - 90°F",
 		pH                 : "1.8 - 2.1",
 		immersion          : "30 - 90 sec",
@@ -2661,6 +2668,9 @@ var t1716 = {
 				"8:00AM" : 144,
 				"11:30AM": 152,
 				"3:00PM" : 155
+			},
+			pH : {
+				"8:00AM" : 1.96,
 			}
 		},
 		

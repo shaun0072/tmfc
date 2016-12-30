@@ -78,11 +78,11 @@ function Tank(tid) {
 		/*TANK NUMBER AND APPLICATION TYPE*/
 		html += '<div class="tank">';
 			html += '<div class="tank_id">';
-				html += '<h1 class="application_type"><span class="tank_number"><a data-remodal-target="modal-tank" href="#">'
+				html += '<div class="application_type"><div class="tank_number"><a data-remodal-target="modal-tank" href="#">'
 				html += this.lineNumber;
-				html += '</a></span><span class="applicationType">';
+				html += '</a></div><div class="applicationType">';
 				html += this.applicationType;
-				html += '</span></h1>';
+				html += '</div></div>';
 				
 		/*DAYS SINCE MAKEUP*/
 				if(tid.makeup) {
@@ -324,7 +324,6 @@ function Tank(tid) {
 						'border-bottom' : style
 		});
 	} else if(tid.tmfcParameters.applicationType === "Cleaner") {
-		console.log('we have a winner');
 		style = "5px solid rgba(186, 63, 29, 0.8)";
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style
@@ -339,18 +338,18 @@ function Tank(tid) {
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style
 		});
-	} else if(tid.tmfcParameters.applicationType === "Chromate") {
-		style = "5px solid rgba(145,139,118, 0.8)";
+	} else if(tid.tmfcParameters.applicationType.indexOf("Chromate") !== -1) {
+		style = "5px solid rgba(1, 23, 47, 0.8)";
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style
 		});
 	} else if(tid.tmfcParameters.applicationType === "Seal") {
-		style = "5px solid rgba(75,0,130, 0.8)";
+		style = "5px solid rgba(219,216,179, 0.8)";
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style
 		});
 	} else if(tid.tmfcParameters.applicationType === "Sour Dip") {
-		style = "5px solid rgba(238,235,208, 0.8)";
+		style = "2px solid black";
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style
 		});

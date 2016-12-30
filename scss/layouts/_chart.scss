@@ -1,3 +1,6 @@
+.test {
+	width: 500px;
+}
 html {
 	height: 100%;
 }
@@ -5,6 +8,9 @@ html {
 	background-image: -webkit-linear-gradient(top, #edecec, #cecbc9);
 	background-image: linear-gradient(top, #edecec, #cecbc9);
 	background-attachment: fixed;
+}
+.chartWrapper {
+	max-width: 700px;
 }
 canvas {
 	max-height: 430px;
@@ -33,8 +39,8 @@ button:focus {
 .test_btns_container {
 	display: flex;
 	button {
-		background: $cleanerOrganic;		
 		padding: 7px 10px;
+		transition: all .2s;
 		&:first-of-type {
 			border-top-left-radius: 5px;
 		}
@@ -68,18 +74,7 @@ button:focus {
 	text-decoration: none;
 	position: absolute;
 
-}
-/* button.plus:after {
-	content: "+";
-	top: 4px;
-    left: 9px;
-}
-button.minus:after {
-	content: "-";
-    top: 3px;
-    left: 11px;
-} */
-	
+}	
 .button:hover{
 	background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
 	background-image: linear-gradient(top, #fff, #f4f1ee);
@@ -103,7 +98,6 @@ button.minus:after {
 }
 .test_btns_container button.active {
 	color: white;
-	font-style: italic;
 }
 .cleaner {
 	background: $cleanerOrganic !important; 

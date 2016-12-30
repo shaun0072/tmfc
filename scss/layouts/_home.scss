@@ -9,16 +9,14 @@ body {
 }
 .tank_id {
 	flex-basis: 50%;
+	align-self: flex-end;
 	border-bottom: 1px solid black;
 	position: relative;
-	h1.application_type {
+	div.application_type {
 		margin: 0;
 		padding: 5px 0;
 	}
-	span.tank_number {
-		display: table-cell;
-	}
-	span.applicationType {
+	div.applicationType {
 		font-size: 30px;
 	}
 	.last_made-up {
@@ -262,6 +260,7 @@ body {
 	top: 10px;
 	right: 0;
 	background: $seal;
+	color: black;
 }
 .t1718 {
 	height: 35px;
