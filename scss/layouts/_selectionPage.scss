@@ -1,0 +1,29 @@
+.selectionPage {
+	width: 100vw;
+	.wrapper {
+		margin: 300px auto;
+	}
+	h1 {
+		text-align: center;
+	}
+}
+select {
+	display: block;
+	margin: 15px auto;
+	width: 300px;
+	padding: 10px;
+	outline: none;
+}
+.load {
+	margin: 0 auto;
+    display: block;
+	width: 300px;
+	padding: 10px 15px;
+	border: 1px solid white;
+	background: rgba(50,205,50, 0.5);
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}

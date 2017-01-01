@@ -21,6 +21,7 @@ gulp.task("concatScripts", function() {
 		'js/moment.js',
 		'js/utils.js',
 		'js/Chart.bundle.min.js',
+		'js/location.js',
 		'js/data.js',
 		'js/tankHTMLGenerator.js',
 		'js/slide-toggle.js',
