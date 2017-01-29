@@ -6006,6 +6006,389 @@ var t807 = {
 		},
 	],	
 };
+var t901 = {
+	tmfcParameters : {
+		concentrations     : {
+			"ACO 8800 HD"   : ["4 - 8", ' oz/gal'],
+		},
+		lineNumber     : 901,
+		applicationType: "Cleaner",
+		temp           : "120 - 160°F",
+		immersion      : "1 - 10 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "ACO-8800-HD-TDS.png"
+	},
+	makeup : {
+		date : new Date("January 2, 2016"),
+		components: [
+			{
+			component  : "ACO 8800 HD",
+			unit       : " oz/gal",
+			makeupAt   : "8",
+			amount     : " lbs"
+			}
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"ACO 8800 HD" : 8.0,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+	],	
+};
+var t902 = {
+	tmfcParameters : {
+		lineNumber         : 902,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t903 = {
+	tmfcParameters : {
+		concentrations     : {
+			"ND-68 G"   : ["4 - 12", ' oz/gal'],
+			"Aluminum"  : ["0+", "g/L"],
+		},
+		lineNumber     : 903,
+		applicationType: "Aluminum Etch",
+		temp           : "80 - 170°F",
+		immersion      : "15sec - 5min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "ND-68-G-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("January 2, 2016"),
+		components: [
+			{
+			component  : "ND-68 G",
+			unit       : " oz/gal",
+			makeupAt   : "4",
+			amount     : " lbs"
+			}
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"ND-68 G"  : 8.0,
+			"Aluminum" : 20,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+	],	
+};
+var t904 = {
+	tmfcParameters : {
+		lineNumber         : 904,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t905 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Deox CR#1"   : ["1 - 2", ' oz/gal'],
+			"Nitric Acid"  : ["5 - 10", "%"],
+		},
+		lineNumber     : 905,
+		applicationType: "Alumnium Deoxidizer",
+		temp           : "60 - 90°F",
+		immersion      : "30sec - 5min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "DEOX-CR-1-TDS.png"
+	},
+	makeup : {
+		date : new Date("July 1, 2016"),
+		components: [
+			{
+			component  : "Deox CR#1",
+			unit       : " oz/gal",
+			makeupAt   : "2",
+			amount     : " lbs"
+			},
+			{
+			component  : "Nitric Acid",
+			unit       : "%",
+			makeupAt   : "10",
+			amount     : " gal"
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"Deox CR#1"   : 2.0,
+			"Nitric Acid" : 10,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+	],	
+};
+var t906 = {
+	tmfcParameters : {
+		lineNumber         : 906,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t907 = {
+	tmfcParameters : {
+		concentrations     : {
+			"SurTec 650"   : ["10 - 30", '%'],
+		},
+		lineNumber     : 907,
+		applicationType: "Chromate",
+		temp           : "86 - 104°F",
+		pH             : 3.7 - 3.95,
+		immersion      : "1 - 6 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "SurTec-650-V-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("July 1, 2016"),
+		components: [
+			{
+			component  : "SurTec 650",
+			unit       : "%",
+			makeupAt   : "20",
+			amount     : " gal"
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"SurTec 650"   : 25,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+	],	
+};
+var t908 = {
+	tmfcParameters : {
+		lineNumber         : 908,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t909 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Havacoat AL-Y"   : ["1 - 3", ' oz/gal'],
+		},
+		lineNumber     : 909,
+		applicationType: "Chromate",
+		temp           : "60 - 80°F",
+		pH             : 1.7 - 1.9,
+		immersion      : "1 - 2 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havacoat-AL-Y-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("January 3, 2016"),
+		components: [
+			{
+			component  : "Havacoat AL-Y",
+			unit       : " oz/gal",
+			makeupAt   : "2",
+			amount     : " lbs"
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"Havacoat AL-Y" : 2.0,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+	],	
+};
+var t910 = {
+	tmfcParameters : {
+		lineNumber         : 910,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t911 = {
+	tmfcParameters : {
+		lineNumber         : 911,
+		applicationType    : "Rinse",
+		temp               : "100 - 130°F",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : ""
+	},
+};
+
+
+
+
+
 
 
 
