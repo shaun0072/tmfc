@@ -2,6 +2,7 @@
 
 function Tank(tid) {
 	
+	
 	if(tid.makeup) {
 		this.makeupDate = tid.makeup.date;
 	}
@@ -264,7 +265,7 @@ function Tank(tid) {
 			html += '</div>';
 		html += '</div>';
 	
-	$('body').append(html);
+	$('body').prepend(html);
 	
 	
 	var nameHolder = [];

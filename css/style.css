@@ -418,7 +418,7 @@ template {
 * {
   box-sizing: border-box; }
 
-body {
+.mainTankPage {
   background-image: url("../assets/img/white-and-gray-background.jpg"); }
 
 .tank {
@@ -480,8 +480,9 @@ body {
   font-size: 0.875em; }
 
 .selectionPage {
-  width: 100vw; }
-  .selectionPage .wrapper {
+  width: 100vw;
+  background: #DCDCDC; }
+  .selectionPage .selectWrapper {
     margin: 150px auto; }
   .selectionPage h1 {
     text-align: center; }
@@ -489,7 +490,7 @@ body {
 select {
   display: block;
   margin: 15px auto;
-  width: 300px;
+  width: 250px;
   padding: 10px;
   outline: none; }
 
@@ -634,7 +635,7 @@ body {
   margin: 0;
   padding: 0;
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
   flex-wrap: wrap; }
   .tankSquare .tankNum {
@@ -667,7 +668,8 @@ body {
   height: 35px;
   top: 80px;
   left: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1704 {
   height: 80px;
@@ -679,7 +681,8 @@ body {
   height: 35px;
   top: 195px;
   left: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1706 {
   height: 100px;
@@ -700,7 +703,8 @@ body {
   top: 430px;
   left: 0;
   width: 100%;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1709 {
   height: 40px;
@@ -713,7 +717,8 @@ body {
   height: 35px;
   top: 355px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1711 {
   height: 60px;
@@ -725,7 +730,8 @@ body {
   height: 35px;
   top: 260px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1713 {
   height: 60px;
@@ -737,14 +743,16 @@ body {
   height: 35px;
   top: 165px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1715 {
   height: 45px;
   top: 120px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8);
-  border: 1.5px solid tomato; }
+  background: rgba(135, 206, 250, 0.5);
+  border: 1.5px solid tomato;
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1716 {
   height: 60px;
@@ -763,7 +771,8 @@ body {
   height: 35px;
   top: -25px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 /******************1300 LINE***********************/
 .line1300 {
@@ -794,7 +803,8 @@ body {
   height: 50px;
   top: 40px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1304 {
   height: 50px;
@@ -806,14 +816,15 @@ body {
   height: 50px;
   top: 140px;
   right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1306 {
   height: 100px;
   top: 190px;
   right: 0;
-  background: grey;
-  color: white; }
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1307 {
   height: 100px;
@@ -826,8 +837,9 @@ body {
   height: 40px;
   top: 390px;
   left: 0;
-  background: grey;
-  width: 100%; }
+  background: rgba(210, 210, 210, 0.7);
+  width: 100%;
+  color: black; }
 
 .t1309 {
   height: 50px;
@@ -840,7 +852,8 @@ body {
   height: 50px;
   top: 290px;
   left: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1311 {
   height: 50px;
@@ -852,7 +865,8 @@ body {
   height: 50px;
   top: 190px;
   left: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1313 {
   height: 50px;
@@ -884,7 +898,8 @@ body {
 .t902 {
   height: 45px;
   top: -20px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t903 {
   height: 45px;
@@ -894,7 +909,8 @@ body {
 .t904 {
   height: 45px;
   top: 70px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t905 {
   height: 45px;
@@ -905,7 +921,8 @@ body {
 .t906 {
   height: 45px;
   top: 160px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t907 {
   height: 45px;
@@ -916,7 +933,8 @@ body {
 .t908 {
   height: 45px;
   top: 250px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t909 {
   height: 45px;
@@ -926,13 +944,15 @@ body {
 .t910 {
   height: 45px;
   top: 340px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t911 {
   height: 45px;
   top: 385px;
-  background: rgba(39, 93, 173, 0.8);
-  border: 1.5px solid tomato; }
+  background: rgba(135, 206, 250, 0.5);
+  border: 1.5px solid tomato;
+  color: rgba(0, 0, 0, 0.5); }
 
 /******************800 LINE***********************/
 .line800 {
@@ -958,7 +978,8 @@ body {
 .t802 {
   height: 70px;
   top: 5px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t803 {
   height: 70px;
@@ -981,7 +1002,8 @@ body {
 .t806 {
   height: 70px;
   top: 285px;
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t807 {
   height: 70px;
@@ -1007,60 +1029,62 @@ body {
 .t2501 {
   height: 50px;
   top: -15px;
-  right: 0;
+  right: calc(50% - 155px);
   background: rgba(186, 63, 29, 0.8); }
 
 .t2502 {
   height: 50px;
   top: 35px;
-  right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  right: calc(50% - 155px);
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2503 {
   height: 50px;
   top: 85px;
-  right: 0;
+  right: calc(50% - 155px);
   background: rgba(186, 63, 29, 0.8); }
 
 .t2504 {
   height: 50px;
   top: 135px;
-  right: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  right: calc(50% - 155px);
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2505 {
   height: 50px;
   top: 185px;
-  right: 0;
+  right: calc(50% - 155px);
   background: rgba(112, 163, 127, 0.8); }
 
 .t2506 {
   height: 50px;
   top: 235px;
-  right: 0;
-  background: rgba(39, 93, 173, 0.8);
-  color: white; }
+  right: calc(50% - 155px);
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2507 {
   height: 50px;
   top: 285px;
-  right: 0;
-  background: purple;
-  color: black; }
+  right: calc(50% - 155px);
+  background: purple; }
 
 .t2508 {
   height: 50px;
   top: 335px;
-  right: 0;
-  background: rgba(39, 93, 173, 0.8);
-  width: 100%; }
+  right: calc(50% - 155px);
+  background: rgba(135, 206, 250, 0.5);
+  width: 100%;
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2509 {
   height: 50px;
   top: 385px;
-  right: 0;
-  background: rgba(39, 93, 173, 0.8);
-  color: black; }
+  right: calc(50% - 155px);
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2510 {
   height: 65px;
@@ -1072,13 +1096,15 @@ body {
   height: 50px;
   top: 320px;
   left: calc(50% - 35px);
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2512 {
   height: 50px;
   top: 270px;
   left: calc(50% - 35px);
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2513 {
   height: 50px;
@@ -1090,25 +1116,29 @@ body {
   height: 50px;
   top: 135px;
   left: calc(50% - 35px);
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2515 {
   height: 50px;
   top: 85px;
   left: calc(50% - 35px);
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2516 {
   height: 50px;
   top: 35px;
   left: calc(50% - 35px);
-  background: grey; }
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2517 {
   height: 50px;
   top: -15px;
   left: calc(50% - 35px);
-  background: rgba(39, 93, 173, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2518 {
   height: 50px;
@@ -1119,32 +1149,36 @@ body {
 .t2519 {
   height: 50px;
   top: 285px;
-  left: 0;
+  left: calc(50% - 155px);
   background: rgba(219, 216, 179, 0.8); }
 
 .t2520 {
   height: 50px;
   top: 235px;
-  left: 0;
-  background: rgba(39, 93, 173, 0.8); }
+  left: calc(50% - 155px);
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2521 {
   height: 50px;
   top: 185px;
-  left: 0;
-  background: grey; }
+  left: calc(50% - 155px);
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2522 {
   height: 50px;
   top: 135px;
-  left: 0;
-  background: grey; }
+  left: calc(50% - 155px);
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t2523 {
   height: 50px;
   top: 85px;
-  left: 0;
-  background: grey; }
+  left: calc(50% - 155px);
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .hotWater {
   color: tomato;
@@ -1248,7 +1282,7 @@ button:focus {
   background: rgba(244, 211, 94, 0.8) !important; }
 
 .rinse {
-  background: rgba(39, 93, 173, 0.8) !important; }
+  background: rgba(135, 206, 250, 0.5) !important; }
 
 .chromate {
   background: rgba(1, 23, 47, 0.8) !important; }

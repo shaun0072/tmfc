@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+	<title>TMFC Process Control</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" />		
+    <style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body onload="createAddTable(2510, 'Zinc', 'gal')">
+
+	<div class="btns_section">
+		<div class="test_btns_container">
+		   <button class="active" onclick="createAddTable(t2510, 'Zinc', 'gal')">Zinc</button>
+		   <button onclick="createAddTable(t2510, 'Sodium Hydroxide', 'gal')">NaOH</button>
+		   <button onclick="createAddTable(t2510, 'Z-N MU', 'gal')">MU</button>
+		   <button onclick="createAddTable(t2510, 'Z-N R', 'gal')">R</button>
+		</div>		 
+    </div>
+	
+	<script  type="text/javascript" src="dist/js/app.js"></script>
+</body>
+
+</html>

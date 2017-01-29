@@ -132,7 +132,7 @@ body {
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	border: 1px solid black;
+	border: 1px solid rgba(0,0,0,0.4);
 	display: flex;
 	flex-wrap: wrap;
 	.tankNum {
@@ -168,6 +168,7 @@ body {
 	top: 80px;
 	left: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1704 {
 	height: 80px;
@@ -180,6 +181,7 @@ body {
 	top: 195px;
 	left: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1706 {
 	height: 100px;
@@ -201,6 +203,7 @@ body {
 	left: 0;
 	width: 100%;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1709 {
 	height: 40px;
@@ -214,6 +217,7 @@ body {
 	top: 355px;
 	right: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1711 {
 	height: 60px;
@@ -226,6 +230,7 @@ body {
 	top: 260px;
 	right: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1713 {
 	height: 60px;
@@ -238,6 +243,7 @@ body {
 	top: 165px;
 	right: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1715 {
 	height: 45px;
@@ -245,6 +251,7 @@ body {
 	right: 0;
 	background: $rinse;
 	border: 1.5px solid tomato;
+	color: rgba(0,0,0,0.5);
 }
 .t1716 {
 	height: 60px;
@@ -264,6 +271,7 @@ body {
 	top: -25px;
 	right: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 /******************1300 LINE***********************/
 .line1300 {	
@@ -296,6 +304,7 @@ body {
 	top: 40px;
 	right: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1304 {
 	height: 50px;
@@ -308,13 +317,14 @@ body {
 	top: 140px;
 	right: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1306 {
 	height: 100px;
 	top: 190px;
 	right: 0;
 	background: $non-use;
-	color: white;
+	color: rgba(0,0,0,0.5);
 }
 .t1307 {
 	height: 100px;
@@ -329,6 +339,7 @@ body {
 	left: 0;
 	background: $non-use;
 	width: 100%;
+	color: black;
 }
 .t1309 {
 	height: 50px;
@@ -342,6 +353,7 @@ body {
 	top: 290px;
 	left: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1311 {
 	height: 50px;
@@ -354,6 +366,7 @@ body {
 	top: 190px;
 	left: 0;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t1313 {
 	height: 50px;
@@ -388,6 +401,7 @@ body {
 	height: 45px;
 	top: -20px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t903 {
 	height: 45px;
@@ -398,6 +412,7 @@ body {
 	height: 45px;
 	top: 70px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t905 {
 	height: 45px;
@@ -409,6 +424,7 @@ body {
 	height: 45px;
 	top: 160px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t907 {
 	height: 45px;
@@ -420,6 +436,7 @@ body {
 	height: 45px;
 	top: 250px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t909 {
 	height: 45px;
@@ -430,12 +447,14 @@ body {
 	height: 45px;
 	top: 340px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t911 {
 	height: 45px;
 	top: 385px;
 	background: $rinse;
 	border: 1.5px solid tomato;
+	color: rgba(0,0,0,0.5);
 }
 
 /******************800 LINE***********************/
@@ -465,6 +484,7 @@ body {
 	height: 70px;
 	top: 5px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t803 {
 	height: 70px;
@@ -488,6 +508,7 @@ body {
 	height: 70px;
 	top: 285px;
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t807 {
 	height: 70px;
@@ -516,60 +537,62 @@ body {
 .t2501 {
 	height: 50px;
 	top: -15px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $cleanerOrganic;
 }
 .t2502 {
 	height: 50px;
 	top: 35px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2503 {
 	height: 50px;
 	top: 85px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $cleanerOrganic;
 }
 .t2504 {
 	height: 50px;
 	top: 135px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2505 {
 	height: 50px;
 	top: 185px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $cleanerInorganic;
 }
 .t2506 {
 	height: 50px;
 	top: 235px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $rinse;
-	color: white;
+	color: rgba(0,0,0,0.5);
 }
 .t2507 {
 	height: 50px;
 	top: 285px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $nickel-strike;
-	color: black;
 }
 .t2508 {
 	height: 50px;
 	top: 335px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $rinse;
 	width: 100%;
+	color: rgba(0,0,0,0.5);
 }
 .t2509 {
 	height: 50px;
 	top: 385px;
-	right: 0;
+	right: calc(50% - 155px);
 	background: $rinse;
-	color: black;
+	color: rgba(0,0,0,0.5);
 }
 .t2510 {
 	height: 65px;
@@ -582,12 +605,14 @@ body {
 	top: 320px;
 	left: calc(50% - 35px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2512 {
 	height: 50px;
 	top: 270px;
 	left: calc(50% - 35px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2513 {
 	height: 50px;
@@ -600,24 +625,28 @@ body {
 	top: 135px;
 	left: calc(50% - 35px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2515 {
 	height: 50px;
 	top: 85px;
 	left: calc(50% - 35px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2516 {
 	height: 50px;
 	top: 35px;
 	left: calc(50% - 35px);
 	background: $non-use;
+	color: rgba(0,0,0,0.5);
 }
 .t2517 {
 	height: 50px;
 	top: -15px;
 	left: calc(50% - 35px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2518 {
 	height: 50px;
@@ -628,32 +657,36 @@ body {
 .t2519 {
 	height: 50px;
 	top: 285px;
-	left: 0;
+	left: calc(50% - 155px);
 	background: $passivate;
 }
 .t2520 {
 	height: 50px;
 	top: 235px;
-	left: 0;
+	left: calc(50% - 155px);
 	background: $rinse;
+	color: rgba(0,0,0,0.5);
 }
 .t2521 {
 	height: 50px;
 	top: 185px;
-	left: 0;
+	left: calc(50% - 155px);
 	background: $non-use;
+	color: rgba(0,0,0,0.5);
 }
 .t2522 {
 	height: 50px;
 	top: 135px;
-	left: 0;
+	left: calc(50% - 155px);
 	background: $non-use;
+	color: rgba(0,0,0,0.5);
 }
 .t2523 {
 	height: 50px;
 	top: 85px;
-	left: 0;
+	left: calc(50% - 155px);
 	background: $non-use;
+	color: rgba(0,0,0,0.5);
 }
 .hotWater {
 		color: tomato;

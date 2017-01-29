@@ -4335,11 +4335,11 @@ i=0;7>i;++i)r=h([2e3,1]).day(i),this._minWeekdaysParse[i]=this.weekdaysMin(r,"")
 z("quarter",7),$("Q",Yi),it("Q",function(t,e){e[aa]=3*(_(t)-1)}),Z("D",["DD",2],"Do","date"),V("date","D"),z("date",9),$("D",Ei),$("DD",Ei,Bi),$("Do",function(t,e){return t?e._ordinalParse:e._ordinalParseLenient}),it(["D","DD"],ra),it("Do",function(t,e){e[ra]=_(t.match(Ei)[0],10)});var qa=H("Date",!0);Z("DDD",["DDDD",3],"DDDo","dayOfYear"),V("dayOfYear","DDD"),z("dayOfYear",4),$("DDD",Gi),$("DDDD",zi),it(["DDD","DDDD"],function(t,e,n){n._dayOfYear=_(t)}),Z("m",["mm",2],0,"minute"),V("minute","m"),z("minute",14),$("m",Ei),$("mm",Ei,Bi),it(["m","mm"],sa);var Za=H("Minutes",!1);Z("s",["ss",2],0,"second"),V("second","s"),z("second",15),$("s",Ei),$("ss",Ei,Bi),it(["s","ss"],la);var Xa=H("Seconds",!1);Z("S",0,0,function(){return~~(this.millisecond()/100)}),Z(0,["SS",2],0,function(){return~~(this.millisecond()/10)}),Z(0,["SSS",3],0,"millisecond"),Z(0,["SSSS",4],0,function(){return 10*this.millisecond()}),Z(0,["SSSSS",5],0,function(){return 100*this.millisecond()}),Z(0,["SSSSSS",6],0,function(){return 1e3*this.millisecond()}),Z(0,["SSSSSSS",7],0,function(){return 1e4*this.millisecond()}),Z(0,["SSSSSSSS",8],0,function(){return 1e5*this.millisecond()}),Z(0,["SSSSSSSSS",9],0,function(){return 1e6*this.millisecond()}),V("millisecond","ms"),z("millisecond",16),$("S",Gi,Yi),$("SS",Gi,Bi),$("SSS",Gi,zi);var Ja;for(Ja="SSSS";Ja.length<=9;Ja+="S")$(Ja,Xi);for(Ja="S";Ja.length<=9;Ja+="S")it(Ja,Vn);var Ka=H("Milliseconds",!1);Z("z",0,0,"zoneAbbr"),Z("zz",0,0,"zoneName");var Qa=y.prototype;Qa.add=Ua,Qa.calendar=Xe,Qa.clone=Je,Qa.diff=an,Qa.endOf=vn,Qa.format=un,Qa.from=dn,Qa.fromNow=cn,Qa.to=hn,Qa.toNow=fn,Qa.get=j,Qa.invalidAt=Dn,Qa.isAfter=Ke,Qa.isBefore=Qe,Qa.isBetween=$e,Qa.isSame=tn,Qa.isSameOrAfter=en,Qa.isSameOrBefore=nn,Qa.isValid=Sn,Qa.lang=Ga,Qa.locale=gn,Qa.localeData=mn,Qa.max=Ba,Qa.min=Ya,Qa.parsingFlags=Mn,Qa.set=G,Qa.startOf=pn,Qa.subtract=ja,Qa.toArray=kn,Qa.toObject=_n,Qa.toDate=xn,Qa.toISOString=sn,Qa.inspect=ln,Qa.toJSON=wn,Qa.toString=on,Qa.unix=yn,Qa.valueOf=bn,Qa.creationData=Cn,Qa.year=ba,Qa.isLeapYear=yt,Qa.weekYear=Pn,Qa.isoWeekYear=In,Qa.quarter=Qa.quarters=Ln,Qa.month=ht,Qa.daysInMonth=ft,Qa.week=Qa.weeks=Pt,Qa.isoWeek=Qa.isoWeeks=It,Qa.weeksInYear=An,Qa.isoWeeksInYear=Fn,Qa.date=qa,Qa.day=Qa.days=Yt,Qa.weekday=Bt,Qa.isoWeekday=zt,Qa.dayOfYear=Wn,Qa.hour=Qa.hours=Ta,Qa.minute=Qa.minutes=Za,Qa.second=Qa.seconds=Xa,Qa.millisecond=Qa.milliseconds=Ka,Qa.utcOffset=Fe,Qa.utc=Oe,Qa.local=Re,Qa.parseZone=Le,Qa.hasAlignedHourOffset=We,Qa.isDST=Ve,Qa.isLocal=Be,Qa.isUtcOffset=ze,Qa.isUtc=Ne,Qa.isUTC=Ne,Qa.zoneAbbr=Yn,Qa.zoneName=Bn,Qa.dates=M("dates accessor is deprecated. Use date instead.",qa),Qa.months=M("months accessor is deprecated. Use month instead",ht),Qa.years=M("years accessor is deprecated. Use year instead",ba),Qa.zone=M("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/",Ae),Qa.isDSTShifted=M("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information",Ye);var $a=I.prototype;$a.calendar=F,$a.longDateFormat=A,$a.invalidDate=O,$a.ordinal=R,$a.preparse=Hn,$a.postformat=Hn,$a.relativeTime=L,$a.pastFuture=W,$a.set=T,$a.months=st,$a.monthsShort=lt,$a.monthsParse=dt,$a.monthsRegex=mt,$a.monthsShortRegex=gt,$a.week=Dt,$a.firstDayOfYear=Tt,$a.firstDayOfWeek=Ct,$a.weekdays=Ot,$a.weekdaysMin=Lt,$a.weekdaysShort=Rt,$a.weekdaysParse=Vt,$a.weekdaysRegex=Nt,$a.weekdaysShortRegex=Ht,$a.weekdaysMinRegex=Et,$a.isPM=Xt,$a.meridiem=Jt,te("en",{ordinalParse:/\d{1,2}(th|st|nd|rd)/,ordinal:function(t){var e=t%10,n=1===_(t%100/10)?"th":1===e?"st":2===e?"nd":3===e?"rd":"th";return t+n}}),t.lang=M("moment.lang is deprecated. Use moment.locale instead.",te),t.langData=M("moment.langData is deprecated. Use moment.localeData instead.",ie);var tr=Math.abs,er=si("ms"),nr=si("s"),ir=si("m"),ar=si("h"),rr=si("d"),or=si("w"),sr=si("M"),lr=si("y"),ur=ui("milliseconds"),dr=ui("seconds"),cr=ui("minutes"),hr=ui("hours"),fr=ui("days"),gr=ui("months"),mr=ui("years"),pr=Math.round,vr={s:45,m:45,h:22,d:26,M:11},br=Math.abs,yr=Se.prototype;return yr.abs=Kn,yr.add=$n,yr.subtract=ti,yr.as=ri,yr.asMilliseconds=er,yr.asSeconds=nr,yr.asMinutes=ir,yr.asHours=ar,yr.asDays=rr,yr.asWeeks=or,yr.asMonths=sr,yr.asYears=lr,yr.valueOf=oi,yr._bubble=ni,yr.get=li,yr.milliseconds=ur,yr.seconds=dr,yr.minutes=cr,yr.hours=hr,yr.days=fr,yr.weeks=di,yr.months=gr,yr.years=mr,yr.humanize=mi,yr.toISOString=pi,yr.toString=pi,yr.toJSON=pi,yr.locale=gn,yr.localeData=mn,yr.toIsoString=M("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)",pi),yr.lang=Ga,Z("X",0,0,"unix"),Z("x",0,0,"valueOf"),$("x",Ji),$("X",$i),it("X",function(t,e,n){n._d=new Date(1e3*parseFloat(t,10))}),it("x",function(t,e,n){n._d=new Date(_(t))}),t.version="2.16.0",i(xe),t.fn=Qa,t.min=_e,t.max=we,t.now=za,t.utc=h,t.unix=zn,t.months=Gn,t.isDate=l,t.locale=te,t.invalid=p,t.duration=He,t.isMoment=x,t.weekdays=Zn,t.parseZone=Nn,t.localeData=ie,t.isDuration=Me,t.monthsShort=qn,t.weekdaysMin=Jn,t.defineLocale=ee,t.updateLocale=ne,t.locales=ae,t.weekdaysShort=Xn,t.normalizeUnits=Y,t.relativeTimeRounding=fi,t.relativeTimeThreshold=gi,t.calendarFormat=Ze,t.prototype=Qa,t})},{}]},{},[1])(1)});
 var TMFC1 = '<select class="lineNumbers">';
 	TMFC1  +=	'<option value="">Select Line</option>';
-	TMFC1  +=	'<option value="800">800 (Maganese Phosphate)</option>';
+	TMFC1  +=	'<option value="800">800 (Maganese/Zinc Phosphate)</option>';
 	TMFC1  +=	'<option value="900">900 (ChemFilm)</option>';
 	TMFC1  +=	'<option value="1300">1300 (Chloride Zinc - Barrel)</option>';
 	TMFC1  +=	'<option value="1700">1700 (Alkaline Zinc - Rack)</option>';
-	TMFC1  +=	'<option value="2500">2500 (Zinc-Nickel)</option>';
+	TMFC1  +=	'<option value="2500">2500 (Zinc-Nickel/Passivate)</option>';
 	TMFC1  +='</select>';
 	
 var	TMFC2   = '<select class="lineNumbers">';
@@ -4429,7 +4429,991 @@ $('.load').on('click', function() {
 });
 
 	
-
+var t1301 = {
+	tmfcParameters : {
+		concentrations     : {
+			"SSP-140"   : ["8 - 11", ' oz/gal'],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
+		},
+		lineNumber     : 1301,
+		applicationType: "Cleaner",
+		temp           : "120 - 160°F",
+		immersion      : "3 - 10 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Carbon Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Mild - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : "Cleaner SSP-140 TDS.png"
+	},
+	makeup : {
+		date : new Date("December 30, 2016"),
+		components: [
+			{
+			component  : "Cleaner SSP-140",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : " lbs"
+			}
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			"SSP-140"   : 9.52,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			"SSP-140"  : 9.81,
+			"Activity"  : 85,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"SSP-140"  : 10.5,
+			"Activity"  : 83,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			"SSP-140"  : 10.80,
+			"Activity"  : 87,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			"SSP-140"  : 11.02,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			"SSP-140"  : 10.64,
+			"Activity"  : 90,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			"SSP-140"  : 10.91,
+			"Activity"  : 90,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			"SSP-140": 9.2,
+			"Activity"  : 89,
+			"Saturation": 20,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			"SSP-140": 9.8,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/11/2016"),
+			"SSP-140": 8.13,
+			"Activity"  : 93,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+		{
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},	
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"SSP-140": 6.61,
+			"Activity"  : 94,
+			"Saturation": 3,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+/*3rd QUARTER*/	
+/*Week 39*/
+		{
+			date : new Date("9/1/2016"),
+			"SSP-140": 8.36,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("8/17/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
+		{
+			date : new Date("8/9/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [15, " lbs"],
+			}
+		},
+		{
+			date : new Date("7/21/2016"),
+			"SSP-140": 10.41,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("7/5/2016"),
+			"SSP-140": 8.22,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
+	],	
+};
+var t1302 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
+		},
+		lineNumber         : 1302,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("December 30, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : " lbs"
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"Anokleen #2-S" : 10.05,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			"Anokleen #2-S" : 10.23,
+			"Activity"  : 84,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"Anokleen #2-S" : 10.58,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			"Anokleen #2-S" : 8.66,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			},
+			additions : {
+				"Anokleen #2-S" : [25, "lbs"]
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			"Anokleen #2-S" : 9.21,
+			"Activity"  : 88,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			"Anokleen #2-S" : 9.50,
+			"Activity"  : 89,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			"Anokleen #2-S" : 9.58,
+			"Activity"  : 89,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			"Anokleen #2-S" : 10.44,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			"Anokleen #2-S" : 10.91,
+			"Activity"  : 94,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			"Anokleen #2-S" : 8.50,
+			"Activity"  : 92,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/11/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+		},
+		{
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"Anokleen #2-S" : 9.55,
+			"Activity"  : 96,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+		},
+/*Week 39*/
+		{
+			date : new Date("9/29/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/28/2016"),
+			"Anokleen #2-S" : 10.05,
+			"Activity"  : 98,
+			"Saturation": 5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/27/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/26/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+	]
+};
+var t1303 = {
+	tmfcParameters : {
+		lineNumber         : 1303,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
 var t1701 = {
 	tmfcParameters : {
 		concentrations     : {
@@ -7183,9 +8167,2287 @@ var t1718 = {
 		TDS            : ""
 	},
 };
+var t2501 = {
+	tmfcParameters : {
+		concentrations     : {
+			"SSP-140"   : ["8 - 11", ' oz/gal'],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
+		},
+		lineNumber     : 2501,
+		applicationType: "Cleaner",
+		temp           : "120 - 160°F",
+		immersion      : "3 - 10 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Carbon Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Mild - ",
+		agitationType  : "Compressed Air",
+		TDS            : "Cleaner SSP-140 TDS.png"
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Cleaner SSP-140",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "275 lbs"
+			}
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			"SSP-140"   : 9.52,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			"SSP-140"  : 9.81,
+			"Activity"  : 85,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"SSP-140"  : 10.5,
+			"Activity"  : 83,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			"SSP-140"  : 10.80,
+			"Activity"  : 87,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			"SSP-140"  : 11.02,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			"SSP-140"  : 10.64,
+			"Activity"  : 90,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			"SSP-140"  : 10.91,
+			"Activity"  : 90,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			"SSP-140": 9.2,
+			"Activity"  : 89,
+			"Saturation": 20,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			"SSP-140": 9.8,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/11/2016"),
+			"SSP-140": 8.13,
+			"Activity"  : 93,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+		{
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},	
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"SSP-140": 6.61,
+			"Activity"  : 94,
+			"Saturation": 3,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+/*3rd QUARTER*/	
+/*Week 39*/
+		{
+			date : new Date("9/1/2016"),
+			"SSP-140": 8.36,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("8/17/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
+		{
+			date : new Date("8/9/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [15, " lbs"],
+			}
+		},
+		{
+			date : new Date("7/21/2016"),
+			"SSP-140": 10.41,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("7/5/2016"),
+			"SSP-140": 8.22,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
+	],	
+};
+var t2502 = {
+	tmfcParameters : {
+		lineNumber         : 2502,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2503 = {
+	tmfcParameters : {
+		concentrations: {
+			"Anokleen #2-S"   : ["8 - 10", " oz/gal"],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
+		},
+		lineNumber         : 2503,
+		applicationType    : "Electro-Cleaner",
+		temp               : "130 - 160°F",
+		immersion          : "1 - 5 min",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Anokleen2STDS.png"
+	},
+	makeup : {
+		date : new Date("December 30, 2016"),
+		components: [
+			{
+			component  : "Cleaner Anokleen #2-S",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : " lbs"
+			},
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			"Anokleen #2-S" : 10.05,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			"Anokleen #2-S" : 10.23,
+			"Activity"  : 84,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"Anokleen #2-S" : 10.58,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			"Anokleen #2-S" : 8.66,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			},
+			additions : {
+				"Anokleen #2-S" : [25, "lbs"]
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			"Anokleen #2-S" : 9.21,
+			"Activity"  : 88,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			"Anokleen #2-S" : 9.50,
+			"Activity"  : 89,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			"Anokleen #2-S" : 9.58,
+			"Activity"  : 89,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			"Anokleen #2-S" : 10.44,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			"Anokleen #2-S" : 10.91,
+			"Activity"  : 94,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			"Anokleen #2-S" : 8.50,
+			"Activity"  : 92,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/11/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+		},
+		{
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"Anokleen #2-S" : 9.55,
+			"Activity"  : 96,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+		},
+/*Week 39*/
+		{
+			date : new Date("9/29/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/28/2016"),
+			"Anokleen #2-S" : 10.05,
+			"Activity"  : 98,
+			"Saturation": 5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/27/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("9/26/2016"),
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+	]
+};
+var t2504 = {
+	tmfcParameters : {
+		lineNumber         : 2504,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2505 = {
+	tmfcParameters : {
+		concentrations     : {
+			"HP Acidsalt FLWET" : ["14 - 16", 'oz/gal']
+		},
+		lineNumber     : 2505,
+		applicationType: "Acid Pickle",
+		temp           : "70 - 90°F",
+		immersion      : "15 - 45 sec",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : "HP-Acidsalt-FLWET-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("December 9, 2016"),
+		components: [
+			{
+			component  : "HP Acidsalt FLWET",
+			unit       : "oz/gal",
+			makeupAt   : "14",
+			amount     : "gallons"
+			}
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			FLWET  : 14.0
+		},
+	],	
+};
+var t2506 = {
+	tmfcParameters : {
+		lineNumber         : 2506,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2507 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Nickel Chloride" : ["27 - 32", 'oz/gal'],
+			"Hydrochloric Acid" : ["9 - 12", '%']
+			},
+		lineNumber     : 2507,
+		applicationType: "Nickel Strike",
+		temp           : "70 - 90°F",
+		immersion      : "45 - 120 sec",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+	makeup : {
+		date : new Date("December 28, 2016"),
+		components: [
+			{
+			component  : "Nickel Hydroxide",
+			unit       : "oz/gal",
+			makeupAt   : "28",
+			amount     : "gallons"
+			},
+			{
+			component  : "Hydrochloric Acid",
+			unit       : "%",
+			makeupAt   : "11",
+			amount     : "gallons"
+			},
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			"Nickel Chloride"  : 28.0,
+			HCL : 11.0
+		},
+	],	
+};
+var t2508 = {
+	tmfcParameters : {
+		lineNumber         : 2508,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2509 = {
+	tmfcParameters : {
+		lineNumber         : 2509,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2510 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Zinc" : ["1.20 - 1.45", ' oz/gal'],
+			"Sodium Hydroxide" : ["14 - 19", " oz/gal"]
+		},
+		lineNumber     : 2510,
+		applicationType: "Electro-Plating",
+		temp           : "60 - 80°F",
+		immersion      : "10 - 30 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Havalloy-Z-N(Rev-1)-1.png"
+	},
+	makeup : {
+		date : new Date("January 16, 2017"),
+		components: [
+			{
+			component  : "Zinc Hydroxide",
+			unit       : "oz/gal",
+			makeupAt   : "1.4",
+			amount     : "gallons"
+			},
+			{
+			component  : "Sodium Hydroxide",
+			unit       : "oz/gal",
+			makeupAt   : "16",
+			amount     : "gallons"
+			},
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			"Zinc"  : 1.4,
+			"Sodium Hydroxide" : 16.0
+		},
+	],	
+};
+var t2511 = {
+	tmfcParameters : {
+		lineNumber         : 2511,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2512 = {
+	tmfcParameters : {
+		lineNumber         : 2512,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2513 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Nitric Acid" : ["20 - 25", '%']
+		},
+		lineNumber     : 2513,
+		applicationType: "Passivate",
+		temp           : "60 - 100°F",
+		immersion      : "20 - 30 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+	makeup : {
+		date : new Date("December 28, 2016"),
+		components: [
+			{
+			component  : "Nitric Acid",
+			unit       : "%",
+			makeupAt   : "25",
+			amount     : "gallons"
+			}
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			Nitric  : 25.0
+		},
+	],	
+};
+var t2514 = {
+	tmfcParameters : {
+		lineNumber         : 2514,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2515 = {
+	tmfcParameters : {
+		lineNumber         : 2515,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2516 = {
+	tmfcParameters : {
+		lineNumber         : 2516,
+		applicationType    : "Non-use",
+		temp               : "",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2517 = {
+	tmfcParameters : {
+		lineNumber         : 2517,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2518 = {
+	tmfcParameters : {
+		concentrations     : {
+			"COLDIP NI-Z TRI BLUE 100" : ["14 - 16", '%']
+		},
+		lineNumber     : 2518,
+		applicationType: "Chromate",
+		temp           : "130 - 150°F",
+		immersion      : "30 - 90 sec",
+		pH             : 2.3 - 2.4,
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "Serpentine",
+		agitationLevel : "High - ",
+		agitationType  : "Air",
+		TDS            : "COLDIP-NI-Z-TRI-BLUE-100-TDS.png"
+	},
+	makeup : {
+		date : new Date("December 28, 2016"),
+		components: [
+			{
+			component  : "COLDIP NI-Z TRI BLUE 100",
+			unit       : "%",
+			makeupAt   : "5",
+			amount     : "gallons"
+			}
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			"TRI BLUE 100": 5
+		},
+	],	
+};
+var t2519 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Nitric Acid" : ["20 - 25", '%'],
+			"Sodium DiChromate" : ["2 - 3", "% b/w"]
+		},
+		lineNumber     : 2519,
+		applicationType: "Passivate",
+		temp           : "120 - 140°F",
+		immersion      : "20 - 30 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+	makeup : {
+		date : new Date("December 28, 2016"),
+		components: [
+			{
+			component  : "Nitric Acid",
+			unit       : "%",
+			makeupAt   : "25",
+			amount     : "gallons"
+			},
+			{
+			component  : "Sodium DiChromate",
+			unit       : "% b/w",
+			makeupAt   : "3",
+			amount     : "lbs"
+			},
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			Nitric  : 25.0,
+			"Sodium DiChromate" : 3.0,
+		},
+	],	
+};
+var t2520 = {
+	tmfcParameters : {
+		lineNumber         : 2520,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2521 = {
+	tmfcParameters : {
+		lineNumber         : 2521,
+		applicationType    : "Non-use",
+		temp               : "",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2522 = {
+	tmfcParameters : {
+		lineNumber         : 2522,
+		applicationType    : "Non-use",
+		temp               : "",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t2523 = {
+	tmfcParameters : {
+		lineNumber         : 2523,
+		applicationType    : "Non-use",
+		temp               : "",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t801 = {
+	tmfcParameters : {
+		concentrations     : {
+			"SSP-140"   : ["8 - 11", ' oz/gal'],
+			"Activity"  : [">80", '%'],
+			"Saturation": ["<20", '%'],
+		},
+		lineNumber     : 801,
+		applicationType: "Cleaner",
+		temp           : "120 - 160°F",
+		immersion      : "3 - 10 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol. level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Carbon Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Mild - ",
+		agitationType  : "Compressed Air",
+		TDS            : "Cleaner SSP-140 TDS.png"
+	},
+	makeup : {
+		date : new Date("December 30, 2016"),
+		components: [
+			{
+			component  : "Cleaner SSP-140",
+			unit       : " oz/gal",
+			makeupAt   : "10",
+			amount     : "275 lbs"
+			}
+		]
+	},
+	analysis : [
+/*Week 50*/	
+		{
+			date : new Date("12/15/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/14/2016"),
+			"SSP-140"   : 9.52,
+			"Activity"  : 85,
+			"Saturation": 45,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/13/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/12/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 49*/
+		{
+			date : new Date("12/8/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/7/2016"),
+			"SSP-140"  : 9.81,
+			"Activity"  : 85,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/6/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+		{
+			date : new Date("12/5/2016"),
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 135,
+				"3:00PM" : 142
+			}
+		},
+/*Week 48*/
+		{
+			date : new Date("12/1/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/30/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/29/2016"),
+			"SSP-140"  : 10.5,
+			"Activity"  : 83,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/28/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 47*/
+		{
+			date : new Date("11/23/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/22/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/21/2016"),
+			"SSP-140"  : 10.80,
+			"Activity"  : 87,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 46*/		
+		{
+			date : new Date("11/17/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/16/2016"),
+			"SSP-140"  : 11.02,
+			"Activity"  : 88,
+			"Saturation": 35,
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/15/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+		{
+			date : new Date("11/14/2016"),
+			temp   : {
+				"8:00AM" : 143,
+				"11:30AM": 151,
+				"3:00PM" : 148
+			}
+		},
+/*Week 45*/
+		{
+			date : new Date("11/10/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/9/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/8/2016"),
+			"SSP-140"  : 10.64,
+			"Activity"  : 90,
+			"Saturation": 30,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/7/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 44*/
+		{
+			date : new Date("11/3/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/2/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("11/1/2016"),
+			"SSP-140"  : 10.91,
+			"Activity"  : 90,
+			"Saturation": 25,
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+		{
+			date : new Date("10/31/2016"),
+			temp   : {
+				"8:00AM" : 135,
+				"11:30AM": 162,
+				"3:00PM" : 158
+			}
+		},
+/*Week 43*/
+		{
+			date : new Date("10/27/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/26/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/25/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/24/2016"),
+			"SSP-140": 9.2,
+			"Activity"  : 89,
+			"Saturation": 20,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 42*/
+		{
+			date : new Date("10/20/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/19/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/18/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			}
+		},
+		{
+			date : new Date("10/17/2016"),
+			"SSP-140": 9.8,
+			"Activity"  : 91,
+			"Saturation": 15,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 155,
+				"3:00PM" : 161
+			},
+			additions : {
+				"SSP-140" : [25, " lbs"],
+			}
+		},
+/*Week 41*/
+		{
+			date : new Date("10/13/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/12/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/11/2016"),
+			"SSP-140": 8.13,
+			"Activity"  : 93,
+			"Saturation": 10,
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+		{
+			date : new Date("10/10/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},	
+/*Week 40*/
+		{
+			date : new Date("10/6/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/5/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/4/2016"),
+			temp   : {
+				"8:00AM" : 133,
+				"11:30AM": 135,
+				"3:00PM" : 140
+			}
+		},
+		{
+			date : new Date("10/3/2016"),
+			"SSP-140": 6.61,
+			"Activity"  : 94,
+			"Saturation": 3,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [100, " lbs"],
+			}
+		},
+/*3rd QUARTER*/	
+/*Week 39*/
+		{
+			date : new Date("9/1/2016"),
+			"SSP-140": 8.36,
+			"Activity"  : 86,
+			"Saturation": 40,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("8/17/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
+		{
+			date : new Date("8/9/2016"),
+			"SSP-140": 9.5,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [15, " lbs"],
+			}
+		},
+		{
+			date : new Date("7/21/2016"),
+			"SSP-140": 10.41,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			}
+		},
+		{
+			date : new Date("7/5/2016"),
+			"SSP-140": 8.22,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"SSP-140" : [50, " lbs"],
+			}
+		},
+	],	
+};
+var t802 = {
+	tmfcParameters : {
+		lineNumber         : 802,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t803 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Bonderite M-AC M" : ["", '% b/w'],
+		},
+		lineNumber     : 803,
+		applicationType: "Conditioner",
+		temp           : "120 - 190°F",
+		immersion      : "1 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons",
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Mixer",
+		TDS            : "BONDERITE-M-AC-M---TPB-1.png",
+	},
+	makeup : {
+		date : new Date("January 25, 2017"),
+		components: [
+			{
+			component  : "Bonderite M-AC M",
+			unit       : "% b/w",
+			makeupAt   : "",
+			amount     : "lbs",
+			}
+		]
+	},	
+};
+var t804 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Total Acid" : ["11.0 - 12.5", '%'],
+			"Free Acid"  : ["2.0 - 2.2", '%'],
+			"Iron"       : ["0.28 - 0.33", '%'],
+		},
+		lineNumber     : 804,
+		applicationType: "Manganese Phosphate",
+		temp           : "190 - 205°F",
+		immersion      : "4 - 15 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "",
+		agitationType  : "None",
+		TDS            : "BONDERITE-M-MN-LUBRITE-2---TPB-1.png"
+	},
+	makeup : {
+		date : new Date("January 9, 2016"),
+		components: [
+			{
+			component  : "Bonderite M-MN LUBRITE 2",
+			unit       : "%",
+			makeupAt   : "12",
+			amount     : "gallons",
+			},
+			{
+			component  : "Bonderite M-AD 10",
+			unit       : "%",
+			makeupAt   : "0.3",
+			amount     : "gallons",
+			},
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			"Total Acid"  : 12.0,
+			"Free Acid" : 2.2,
+			Iron : 0.3,
+		},
+	],	
+};
+var t805 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Total Acid" : ["4.0 - 6.0", '%'],
+			Iron : ["0 - 5", "%"],
+		},
+		lineNumber     : 805,
+		applicationType: "Zinc Phosphate",
+		temp           : "160 - 190°F",
+		immersion      : "5 - 15 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "",
+		agitationType  : "None",
+		TDS            : "HP-PHOS-ZN-1400-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("January 9, 2016"),
+		components: [
+			{
+			component  : "HP PHOS ZN 1400",
+			unit       : "%",
+			makeupAt   : "5",
+			amount     : "gallons",
+			},
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			"Total Acid"  : 5.0,
+			Iron : 0.3,
+		},
+	],	
+};
+var t806 = {
+	tmfcParameters : {
+		lineNumber         : 806,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t807 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Bonderite L-GP 5800" : ["8.0 - 11.0", '%'],
+		},
+		lineNumber     : 807,
+		applicationType: "Rust Preventative",
+		temp           : "Ambient - 140°F",
+		immersion      : "10 - 60 sec",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Low - ",
+		agitationType  : "Pump",
+		TDS            : "Bonderite-L-GP-5800---TPB-1.png"
+	},
+	makeup : {
+		date : new Date("January 9, 2016"),
+		components: [
+			{
+			component  : "Bonderite L-GP 5800",
+			unit       : "%",
+			makeupAt   : "9",
+			amount     : "gallons",
+			},
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			"Refractometer"  : 9.0,
+		},
+	],	
+};
+
+
+
+
+
+
+
 //npm install gulp gulp-concat gulp-connect gulp-eslint gulp-eslint gulp-file gulp-html-validator gulp-insert gulp-replace gulp-size gulp-streamify gulp-uglify gulp-util gulp-zip child_process gulp-karma browserify vinyl-source-stream merge-stream bundle-collapser yargs --save-dev
 
 function Tank(tid) {
+	
 	
 	if(tid.makeup) {
 		this.makeupDate = tid.makeup.date;
@@ -7449,7 +10711,7 @@ function Tank(tid) {
 			html += '</div>';
 		html += '</div>';
 	
-	$('body').append(html);
+	$('body').prepend(html);
 	
 	
 	var nameHolder = [];
@@ -7549,7 +10811,7 @@ function Tank(tid) {
 
 
 $('.process_control h3').on('click', function() {
-	
+	console.log('clicked');
 	var $targetList = $(this).siblings('ul'),
 		$title = $(this);
 	

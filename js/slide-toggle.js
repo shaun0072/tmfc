@@ -1,5 +1,5 @@
 $('.process_control h3').on('click', function() {
-	
+	console.log('clicked');
 	var $targetList = $(this).siblings('ul'),
 		$title = $(this);
 	

@@ -1,10 +1,10 @@
 var TMFC1 = '<select class="lineNumbers">';
 	TMFC1  +=	'<option value="">Select Line</option>';
-	TMFC1  +=	'<option value="800">800 (Maganese Phosphate)</option>';
+	TMFC1  +=	'<option value="800">800 (Maganese/Zinc Phosphate)</option>';
 	TMFC1  +=	'<option value="900">900 (ChemFilm)</option>';
 	TMFC1  +=	'<option value="1300">1300 (Chloride Zinc - Barrel)</option>';
 	TMFC1  +=	'<option value="1700">1700 (Alkaline Zinc - Rack)</option>';
-	TMFC1  +=	'<option value="2500">2500 (Zinc-Nickel)</option>';
+	TMFC1  +=	'<option value="2500">2500 (Zinc-Nickel/Passivate)</option>';
 	TMFC1  +='</select>';
 	
 var	TMFC2   = '<select class="lineNumbers">';
