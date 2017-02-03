@@ -38,7 +38,7 @@ function setCookie(key, value) {
 
 function getCookie(key) {
     var key = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-	console.log(key);
+
     return key ? key[2] : null;
 }
 

@@ -17,16 +17,26 @@
     </style>
 </head>
 
-<body onload="createtempPhTable(t1713, 'temp', '°F')">
+<body class="chartBody" onload="createChart(t1717, '546-A', '%')">
 
-	<div class="btns_section">
-		<div class="test_btns_container">
-		   <button class="active" onclick="createtempPhTable(t1713, 'temp', '°F')">Temperature</button>
-		   <button onclick="createtempPhTable(t1713, 'pH', '')">pH</button>
-		</div>		 
+    <div class="chartWrapper" style="min-height:215px;width: 100%;">
+        <canvas id="canvas"></canvas>
     </div>
 	
+	<div class="btns_section">
+		<div class="add_remove_btns_container buttonHolder">
+			
+		</div>  
+	
+		<div class="test_btns_container">
+		   <button class="active" onclick="createChart(t1717, '546-A', '%')">546-A</button>
+		   <button onclick="createChart(t1717, '546-B', '%')">546-B</button>
+		</div>		 
+    </div>
+
+	
 	<script  type="text/javascript" src="dist/js/app.js"></script>
+
 </body>
 
 </html>

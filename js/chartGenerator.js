@@ -46,7 +46,7 @@ function MakeChart(tankNumber, testName, unit) {
 			$('.row.header, .test_btns_container button').addClass('electroPlating');
 			applicationColor = $('.row.header').css('background-color');
 			return applicationColor;
-		} else if(tankNumber.tmfcParameters.applicationType === "Cleaner") {		
+		} else if(tankNumber.tmfcParameters.applicationType.indexOf("Cleaner") !== -1) {		
 			$('.row.header, .test_btns_container button').addClass('cleaner');
 			applicationColor = $('.row.header').css('background-color');
 			return applicationColor;

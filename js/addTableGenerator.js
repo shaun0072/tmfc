@@ -23,7 +23,7 @@ function AdditionsTable(tank, component, unit) {
 	/*ASSIGN BG COLOR TO TABLE HEADER*/
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
 			$('.row.header, .test_btns_container button').addClass('electroPlating');
-		} else if(tank.tmfcParameters.applicationType === "Cleaner") {
+		} else if(tank.tmfcParameters.applicationType.indexOf("Cleaner") !== -1) {
 			$('.row.header, .test_btns_container button').addClass('cleaner');
 		} else if(tank.tmfcParameters.applicationType === "Acid Pickle") {
 			$('.row.header, .test_btns_container button').addClass('acid');

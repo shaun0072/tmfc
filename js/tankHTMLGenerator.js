@@ -324,7 +324,7 @@ function Tank(tid) {
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style
 		});
-	} else if(tid.tmfcParameters.applicationType === "Cleaner") {
+	} else if(tid.tmfcParameters.applicationType.indexOf("Cleaner") !== -1) {
 		style = "5px solid rgba(186, 63, 29, 0.8)";
 		$('.tank').css({'border-top' : style,
 						'border-bottom' : style

@@ -983,6 +983,430 @@ var t1303 = {
 		TDS            : ""
 	},
 };
+var t1304 = {
+	tmfcParameters : {
+		concentrations     : {
+			"HCL" : ["25 - 30", '%']
+		},
+		lineNumber     : 1304,
+		applicationType: "Acid Pickle",
+		temp           : "70 - 90°F",
+		immersion      : "1 - 5 min",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : " gallons"
+		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "U",
+		agitationLevel : "Mild - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : ""
+	},
+	makeup : {
+		date : new Date("December 9, 2016"),
+		components: [
+			{
+			component  : "Hydrochloric Acid",
+			unit       : "%",
+			makeupAt   : "25",
+			amount     : "gallons"
+			}
+		]
+	},
+	analysis : [
+		{
+			date : new Date("11/03/2016"),
+			HCL  : 29.2
+		},
+	],	
+};
+var t1305 = {
+	tmfcParameters : {
+		lineNumber         : 1305,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1306 = {
+	tmfcParameters : {
+		lineNumber         : 1306,
+		applicationType    : "non-use",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1307 = {
+	tmfcParameters : {
+		concentrations     : {
+			"Zinc"       : ["1.0 - 1.5", " oz/gal"],
+			"KCL"        : ["18 - 20", " oz/gal"],
+			"Boric"      : ["3.5 - 4.5", " oz/gal"],
+			"Carbonates" : ["<10", " oz/gal"],
+			"Iron"       : ["<10", " ppm"],
+			"Chromium"   : ["<10", " ppm"],
+			"Copper"     : ["<2", " ppm"],
+
+		},
+		lineNumber         : 1307,
+		applicationType    : "Electro-Plating",
+		temp               : "70 - 100°F",
+		pH                 : "5.0 - 5.4",
+		immersion          : "",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : "gallons"		
+		},
+		tankMaterial   : "Steel w/Liner",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : "HP-RADIANCE-AZ-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("July 5, 2016"),
+		components: [
+			{
+			component  : "Zinc Chloride",
+			unit       : " oz/gal",
+			makeupAt   : "4.0",
+			amount     : "gallons"
+			},
+			{
+			component  : "Potassium Chloride",
+			unit       : " oz/gal",
+			makeupAt   : "4.0",
+			amount     : "gallons"
+			},
+			{
+			component  : "Boric Acid",
+			unit       : " oz/gal",
+			makeupAt   : "4.0",
+			amount     : "gallons"
+			},
+			{
+			component  : "AZ Carrier",
+			unit       : " oz/gal",
+			makeupAt   : "4.0",
+			amount     : "gallons"
+			},
+			{
+			component  : "AZ Brightener",
+			unit       : " oz/gal",
+			makeupAt   : "4.0",
+			amount     : "gallons"
+			},
+		]
+	},
+	analysis : [
+		{
+			date       : new Date("12/01/2016"),
+			Zinc       : 4.00, 
+			KCL        : 20.0,
+			Boric      : 4.5,
+			Carbonates : 2,
+			Iron       : 10,
+			Chromium   : 1.0,
+			Copper     : 1.0,
+			temp   : {
+				"8:00AM" : 72,
+				"11:30AM": 77,
+				"3:00PM" : 81
+			},
+			additions : {
+				"Zinc Chloride" : [1, "gal"]
+			}
+		},
+	],
+};
+var t1308 = {
+	tmfcParameters : {
+		lineNumber         : 1308,
+		applicationType    : "non-use",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "None",
+		TDS            : ""
+	},
+};
+var t1309 = {
+	tmfcParameters : {
+		lineNumber     : 1309,
+		applicationType: "Sour Dip",
+		temp           : "60 - 90°F",
+		concentrations     : {
+			"Nitric Acid"   : ["0.25 - 0.75", '%'],
+		},
+		immersion      : "30 - 90sec",
+		tankSize       : {
+			lngth      : "\"",
+			width      : "\"",
+			depth      : "\" (sol level)",
+			capacity   : "gallons"
+		
+		},
+		tankMaterial   : "Plastic",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "n/a",
+		coilType       : "Serpentine",
+		agitationLevel : "Mild - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : ""
+	},	
+	makeup : {
+		date : new Date("November 28, 2016"),
+		components: [
+			{
+			component  : "Nitric Acid",
+			unit       : "%",
+			makeupAt   : "0.25",
+			amount     : "mls"
+			}
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			},
+			pH   : {
+				"8:00AM" : 2.0,
+			}
+		},
+		
+	],
+};
+var t1310 = {
+	tmfcParameters : {
+		concentrations: {
+			"Prodigy Triton"   : ["8", "% bv"],
+		},
+		lineNumber         : 1310,
+		applicationType    : "Trivalent Clear Chromate",
+		temp               : "70 - 90°F",
+		immersion          : "15 - 30 sec",
+		pH                 : 2.0 - 2.4,
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : "gallons",		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Stainless Steel",
+		coilType       : "Serpentine",
+		agitationLevel : "Low - ",
+		agitationType  : "Air",
+		TDS            : "Prodigy Triton TDS-1.png",
+	},
+	makeup : {
+		date : new Date("October 1, 2016"),
+		components: [
+			{
+			component  : "Prodigy Triton",
+			unit       : "% bv",
+			makeupAt   : "8",
+			amount     : "gal",
+			},
+			{
+			component  : "Sodium Hydroxide",
+			unit       : "",
+			makeupAt   : "raise to pH of 2.2",
+			amount     : "As needed",
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"Prodigy Triton" : 8.1,
+			temp  : {
+				"8:00AM" : 60,
+				"11:30AM": 80,
+				"3:00PM" : 75
+			},
+			pH : {
+				"8:00AM" : 2.20,
+				"11:30AM": 2.25,
+				"3:00PM" : 2.30
+			},
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"Triton" : [50, "lbs"],
+			},
+		},
+	],
+	
+};
+var t1311 = {
+	tmfcParameters : {
+		lineNumber         : 1311,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1312 = {
+	tmfcParameters : {
+		concentrations: {
+			"546-A"   : ["10", "% bv"],
+			"546-B"   : ["1", "% bv"],
+		},
+		lineNumber         : 1312,
+		applicationType    : "Trivalent Yellow Chromate",
+		temp               : "70 - 90°F",
+		pH                 : "1.8 - 2.1",
+		immersion          : "30 - 90 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Steel",
+		coilType       : "",
+		agitationLevel : "High - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : "546-Yellow-TDS-1.png"
+	},
+	makeup : {
+		date : new Date("August 1, 2016"),
+		components: [
+			{
+			component  : "Accu-Labs 546-A",
+			unit       : "% bv",
+			makeupAt   : "10",
+			amount     : "gal"
+			},
+			{
+			component  : "Accu-Labs 546-B",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "gal"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"546-A" : 10.23, 
+			"546-B" : 1.2,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			},
+			pH : {
+				"8:00AM" : 1.96,
+			}
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"546-A" : [2000, "mls"],
+				"546-B" : [300, "mls"],
+			}
+		},
+	],
+	
+};
+var t1313 = {
+	tmfcParameters : {
+		lineNumber         : 1313,
+		applicationType    : "Rinse",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+
+
+
 var t1701 = {
 	tmfcParameters : {
 		concentrations     : {
@@ -3503,73 +3927,36 @@ var t1712 = {
 };
 var t1713 = {
 	tmfcParameters : {
-		concentrations: {
-			"Havacoat Z-26"   : ["0.7 - 1.5", "% bv"],
-		},
 		lineNumber         : 1713,
-		applicationType    : "Hexavalent Yellow Chromate",
-		temp               : "70 - 90°F",
-		immersion          : "45 - 60 sec",
+		applicationType    : "Non-Use",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
 		tankSize           : {
-			lngth          : '29.5\"',
-			width          : '55.5"',
-			depth          : '27"' + ' (sol. level)',
-			capacity       : "190 gallons"		
+			lngth          : '25\"',
+			width          : '56"',
+			depth          : '24"' + ' (sol. level)',
+			capacity       : "145 gallons"		
 		},
 		tankMaterial   : "",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "",
-		coilType       : "",
-		agitationLevel : "Low - ",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : "Havacoat-Z-26-TDS-1.png"
+		TDS            : ""
 	},
-	makeup : {
-		date : new Date("12/2/2016"),
-		components: [
-			{
-			component  : "Havacoat Z-26",
-			unit       : "% bv",
-			makeupAt   : "1",
-			amount     : "1.9 gal"
-			},
-		]
-	},
-	analysis : [
-		{
-			date   : new Date("12/01/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 152,
-				"3:00PM" : 155
-			},
-			pH : {
-				"8:00AM" : 1.81,
-			}
-		},
-		
-	],
-	additions : [
-		{
-			date : new Date("12/03/2016"),
-			component : {
-				"Havacoat Z-26" : [2000, "mls"],
-			}
-		},
-	],
-	
 };
 var t1714 = {
 	tmfcParameters : {
 		lineNumber         : 1714,
-		applicationType    : "Rinse",
+		applicationType    : "Non-Use",
 		temp               : "Ambient",
 		immersion          : ">30 sec",
 		tankSize           : {
-			lngth          : '27\"',
+			lngth          : '25\"',
 			width          : '56"',
-			depth          : '27.5"' + ' (sol. level)',
-			capacity       : "180 gallons"		
+			depth          : '24"' + ' (sol. level)',
+			capacity       : "145 gallons"		
 		},
 		tankMaterial   : "",
 		heatMethod     : "none",
@@ -3603,11 +3990,32 @@ var t1715 = {
 };
 var t1716 = {
 	tmfcParameters : {
+		lineNumber         : 1716,
+		applicationType    : "Non-Use",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '25\"',
+			width          : '56"',
+			depth          : '24"' + ' (sol. level)',
+			capacity       : "145 gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : ""
+	},
+};
+var t1717 = {
+	tmfcParameters : {
 		concentrations: {
 			"546-A"   : ["10", "% bv"],
 			"546-B"   : ["1", "% bv"],
 		},
-		lineNumber         : 1716,
+		lineNumber         : 1717,
 		applicationType    : "Trivalent Yellow Chromate",
 		temp               : "70 - 90°F",
 		pH                 : "1.8 - 2.1",
@@ -3663,57 +4071,12 @@ var t1716 = {
 		{
 			date : new Date("12/03/2016"),
 			component : {
-				"Anokleen #2-S" : [50, "lbs"],
+				"546-A" : [2000, "mls"],
+				"546-B" : [300, "mls"],
 			}
 		},
 	],
 	
-};
-var t1717 = {
-	tmfcParameters : {
-		concentrations: {
-			"Techniseal 300"   : ["1 - 5", "% bv"],
-		},
-		lineNumber         : 1717,
-		applicationType    : "Seal",
-		temp               : "60 - 90°F",
-		immersion          : "10 - 30 sec",
-		tankSize           : {
-			lngth          : '29.5\"',
-			width          : '56"',
-			depth          : '25.5"' + ' (sol. level)',
-			capacity       : "180 gallons"		
-		},
-		tankMaterial   : "Steel w/Liner",
-		heatMethod     : "Steam Boiler",
-		heatMaterial   : "Steel",
-		coilType       : "U",
-		agitationLevel : "Mild - ",
-		agitationType  : "Air",
-		TDS            : "Techniseal-300-TDS-2.png"
-	},
-	makeup : {
-		date : new Date("12/16/2016"),
-		components: [
-			{
-			component  : "Techniseal 300",
-			unit       : "% bv",
-			makeupAt   : "1",
-			amount     : "1.8 gal"
-			},
-		]
-	},
-	analysis : [
-		{
-			date   : new Date("12/01/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 152,
-				"3:00PM" : 155
-			}
-		},
-		
-	],	
 };
 var t1718 = {
 	tmfcParameters : {
@@ -3736,6 +4099,9 @@ var t1718 = {
 		TDS            : ""
 	},
 };
+
+
+
 var t2501 = {
 	tmfcParameters : {
 		concentrations     : {
@@ -5292,6 +5658,9 @@ var t2523 = {
 		TDS            : ""
 	},
 };
+
+
+
 var t801 = {
 	tmfcParameters : {
 		concentrations     : {
@@ -5896,6 +6265,11 @@ var t804 = {
 			"Total Acid"  : 12.0,
 			"Free Acid" : 2.2,
 			Iron : 0.3,
+			temp   : {
+				"8:00AM" : 131,
+				"11:30AM": 193,
+				"3:00PM" : 196
+			}
 		},
 	],	
 };
@@ -6006,13 +6380,18 @@ var t807 = {
 		},
 	],	
 };
+
+
+
+
+
 var t901 = {
 	tmfcParameters : {
 		concentrations     : {
 			"ACO 8800 HD"   : ["4 - 8", ' oz/gal'],
 		},
 		lineNumber     : 901,
-		applicationType: "Cleaner",
+		applicationType: "Aluminum Cleaner",
 		temp           : "120 - 160°F",
 		immersion      : "1 - 10 min",
 		tankSize       : {
@@ -6229,7 +6608,7 @@ var t907 = {
 			"SurTec 650"   : ["10 - 30", '%'],
 		},
 		lineNumber     : 907,
-		applicationType: "Chromate",
+		applicationType: "Trivalent Chromate",
 		temp           : "86 - 104°F",
 		pH             : 3.7 - 3.95,
 		immersion      : "1 - 6 min",
@@ -6299,7 +6678,7 @@ var t909 = {
 			"Havacoat AL-Y"   : ["1 - 3", ' oz/gal'],
 		},
 		lineNumber     : 909,
-		applicationType: "Chromate",
+		applicationType: "Hexavalent Chromate",
 		temp           : "60 - 80°F",
 		pH             : 1.7 - 1.9,
 		immersion      : "1 - 2 min",
