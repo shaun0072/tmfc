@@ -617,6 +617,13 @@ body {
 .theLine {
   background: white; }
 
+/******************NEW MODAL***********************/
+.modalOverlay {
+  display: none;
+  height: 100%;
+  width: 100%;
+  background: black; }
+
 /******************1700 LINE***********************/
 .line1700 {
   margin: 90px auto 0;
@@ -737,13 +744,14 @@ body {
   height: 60px;
   top: 200px;
   right: 0;
-  background: rgba(1, 23, 47, 0.8); }
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1714 {
   height: 35px;
   top: 165px;
   right: 0;
-  background: rgba(135, 206, 250, 0.5);
+  background: rgba(210, 210, 210, 0.7);
   color: rgba(0, 0, 0, 0.5); }
 
 .t1715 {
@@ -758,14 +766,14 @@ body {
   height: 60px;
   top: 60px;
   right: 0;
-  background: rgba(1, 23, 47, 0.8); }
+  background: rgba(210, 210, 210, 0.7);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1717 {
   height: 50px;
   top: 10px;
   right: 0;
-  background: rgba(219, 216, 179, 0.8);
-  color: black; }
+  background: rgba(1, 23, 47, 0.8); }
 
 .t1718 {
   height: 35px;
@@ -852,27 +860,27 @@ body {
   height: 50px;
   top: 290px;
   left: 0;
-  background: rgba(135, 206, 250, 0.5);
-  color: rgba(0, 0, 0, 0.5); }
+  background: rgba(1, 23, 47, 0.8); }
 
 .t1311 {
   height: 50px;
   top: 240px;
   left: 0;
-  background: rgba(1, 23, 47, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 .t1312 {
   height: 50px;
   top: 190px;
   left: 0;
-  background: rgba(135, 206, 250, 0.5);
-  color: rgba(0, 0, 0, 0.5); }
+  background: rgba(1, 23, 47, 0.8); }
 
 .t1313 {
   height: 50px;
   top: 140px;
   left: 0;
-  background: rgba(1, 23, 47, 0.8); }
+  background: rgba(135, 206, 250, 0.5);
+  color: rgba(0, 0, 0, 0.5); }
 
 /******************900 LINE***********************/
 .line900 {

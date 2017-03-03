@@ -548,8 +548,8 @@ body {
     height: 45px; }
 
 .process_control {
-  margin: 30px 29px;
-  padding: 50px 0; }
+  margin: 30px 0;
+  padding: 50px 0px; }
   .process_control h3 {
     margin: 0;
     padding: 0;
@@ -616,6 +616,17 @@ body {
 
 .theLine {
   background: white; }
+
+/******************NEW MODAL***********************/
+.myModalOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+  z-index: 10; }
 
 /******************1700 LINE***********************/
 .line1700 {

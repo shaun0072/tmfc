@@ -1,6 +1,6 @@
 var TMFC1 = '<select class="lineNumbers">';
 	TMFC1  +=	'<option value="">Select Line</option>';
-	TMFC1  +=	'<option value="800">800 (Maganese/Zinc Phosphate)</option>';
+	TMFC1  +=	'<option value="800">800 (Manganese/Zinc Phosphate)</option>';
 	TMFC1  +=	'<option value="900">900 (ChemFilm)</option>';
 	TMFC1  +=	'<option value="1300">1300 (Chloride Zinc - Barrel)</option>';
 	TMFC1  +=	'<option value="1700">1700 (Alkaline Zinc - Rack)</option>';
@@ -15,16 +15,13 @@ var	TMFC2   = '<select class="lineNumbers">';
 	
 var	TP = '<select class="lineNumbers">';
 	TP += '<option value="">Select Line</option>';
-	TP += '<option value="5700">5700</option>';
-	TP += '<option value="5600">5600</option>';
-	TP += '<option value="3200">3200</option>';
+	TP += '<option value="5700">Electroless Nickel</option>';
+	TP += '<option value="5600">Zinc Chloride - Rack</option>';
 	TP += '</select>';
 	
 var AH = '<select class="lineNumbers">';
 	AH += '<option value="">Select Line</option>';
-	AH += '<option value="3500">3500</option>';
-	AH += '<option value="1600">1600</option>';
-	AH += '<option value="1200">1200</option>';
+	AH += '<option value="3500">Sulfuric Anodize</option>';
 	AH += '</select>';
 	
 var sel = getCookie('.location');	

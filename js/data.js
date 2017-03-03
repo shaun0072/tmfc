@@ -22,7 +22,7 @@ var t1301 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png"]
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -519,7 +519,7 @@ var t1302 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : ["Anokleen2STDS.png"]
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -980,7 +980,7 @@ var t1303 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : [""]
 	},
 };
 var t1304 = {
@@ -1005,7 +1005,7 @@ var t1304 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 9, 2016"),
@@ -1043,7 +1043,7 @@ var t1305 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1306 = {
@@ -1064,7 +1064,7 @@ var t1306 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1307 = {
@@ -1096,7 +1096,7 @@ var t1307 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : "HP-RADIANCE-AZ-TDS-1.png"
+		TDS            : ["HP-RADIANCE-AZ-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 5, 2016"),
@@ -1172,7 +1172,7 @@ var t1308 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "None",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1309 = {
@@ -1197,7 +1197,7 @@ var t1309 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : ""
+		TDS            : []
 	},	
 	makeup : {
 		date : new Date("November 28, 2016"),
@@ -1247,7 +1247,7 @@ var t1310 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Prodigy Triton TDS-1.png",
+		TDS            : ["Prodigy Triton TDS-1.png"],
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -1311,7 +1311,7 @@ var t1311 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1312 = {
@@ -1337,7 +1337,7 @@ var t1312 = {
 		coilType       : "",
 		agitationLevel : "High - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : "546-Yellow-TDS-1.png"
+		TDS            : ["546-Yellow-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("August 1, 2016"),
@@ -1401,10 +1401,9 @@ var t1313 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
-
 
 
 var t1701 = {
@@ -1431,7 +1430,7 @@ var t1701 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png"]
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -1928,7 +1927,7 @@ var t1702 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : ["Anokleen2STDS.png"]
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -2389,7 +2388,7 @@ var t1703 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1704 = {
@@ -2480,7 +2479,7 @@ var t1705 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1706 = {
@@ -2510,7 +2509,7 @@ var t1706 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+		TDS            : ["Havastar ZN Gleam AB TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 5, 2016"),
@@ -3214,7 +3213,7 @@ var t1707 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+		TDS            : ["Havastar ZN Gleam AB TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 5, 2016"),
@@ -3764,7 +3763,7 @@ var t1708 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1709 = {
@@ -3787,7 +3786,7 @@ var t1709 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : ""
+		TDS            : []
 	},	
 	makeup : {
 		date : new Date("November 28, 2016"),
@@ -3833,7 +3832,7 @@ var t1710 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1711 = {
@@ -3858,7 +3857,7 @@ var t1711 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Prodigy Triton TDS-1.png",
+		TDS            : ["Prodigy Triton TDS-1.png"],
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -3922,7 +3921,7 @@ var t1712 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1713 = {
@@ -3943,7 +3942,7 @@ var t1713 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1714 = {
@@ -3964,7 +3963,7 @@ var t1714 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1715 = {
@@ -3985,7 +3984,7 @@ var t1715 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1716 = {
@@ -4006,7 +4005,7 @@ var t1716 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1717 = {
@@ -4032,7 +4031,7 @@ var t1717 = {
 		coilType       : "U",
 		agitationLevel : "High - ",
 		agitationType  : "Air",
-		TDS            : "546-Yellow-TDS-1.png"
+		TDS            : ["546-Yellow-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("August 1, 2016"),
@@ -4096,10 +4095,9 @@ var t1718 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
-
 
 
 var t2501 = {
@@ -4126,7 +4124,7 @@ var t2501 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png"]
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -4618,7 +4616,7 @@ var t2502 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2503 = {
@@ -4644,7 +4642,7 @@ var t2503 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : ["Anokleen2STDS.png"]
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -5105,7 +5103,7 @@ var t2504 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2505 = {
@@ -5130,7 +5128,7 @@ var t2505 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : "HP-Acidsalt-FLWET-TDS-1.png"
+		TDS            : ["HP-Acidsalt-FLWET-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("December 9, 2016"),
@@ -5168,7 +5166,7 @@ var t2506 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2507 = {
@@ -5194,7 +5192,7 @@ var t2507 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -5239,7 +5237,7 @@ var t2508 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2509 = {
@@ -5260,7 +5258,7 @@ var t2509 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2510 = {
@@ -5286,7 +5284,7 @@ var t2510 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havalloy-Z-N(Rev-1)-1.png"
+		TDS            : ["Havalloy-Z-N(Rev-1)-1.png"]
 	},
 	makeup : {
 		date : new Date("January 16, 2017"),
@@ -5331,7 +5329,7 @@ var t2511 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2512 = {
@@ -5352,7 +5350,7 @@ var t2512 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2513 = {
@@ -5377,7 +5375,7 @@ var t2513 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -5415,7 +5413,7 @@ var t2514 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2515 = {
@@ -5436,7 +5434,7 @@ var t2515 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2516 = {
@@ -5457,7 +5455,7 @@ var t2516 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2517 = {
@@ -5478,7 +5476,7 @@ var t2517 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2518 = {
@@ -5504,7 +5502,7 @@ var t2518 = {
 		coilType       : "Serpentine",
 		agitationLevel : "High - ",
 		agitationType  : "Air",
-		TDS            : "COLDIP-NI-Z-TRI-BLUE-100-TDS.png"
+		TDS            : ["COLDIP-NI-Z-TRI-BLUE-100-TDS.png"]
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -5547,7 +5545,7 @@ var t2519 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -5592,7 +5590,7 @@ var t2520 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2521 = {
@@ -5613,7 +5611,7 @@ var t2521 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2522 = {
@@ -5634,7 +5632,7 @@ var t2522 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2523 = {
@@ -5655,10 +5653,9 @@ var t2523 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
-
 
 
 var t801 = {
@@ -5685,7 +5682,7 @@ var t801 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png",'HP-Acidsalt-FLWET-TDS-1.png'],
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -6177,7 +6174,7 @@ var t802 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t803 = {
@@ -6202,7 +6199,7 @@ var t803 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Mixer",
-		TDS            : "BONDERITE-M-AC-M---TPB-1.png",
+		TDS            : ["BONDERITE-M-AC-M---TPB-1.png"],
 	},
 	makeup : {
 		date : new Date("January 25, 2017"),
@@ -6240,7 +6237,7 @@ var t804 = {
 		coilType       : "U",
 		agitationLevel : "",
 		agitationType  : "None",
-		TDS            : "BONDERITE-M-MN-LUBRITE-2---TPB-1.png"
+		TDS            : ["BONDERITE-M-MN-LUBRITE-2---TPB-1.png"]
 	},
 	makeup : {
 		date : new Date("January 9, 2016"),
@@ -6296,7 +6293,7 @@ var t805 = {
 		coilType       : "U",
 		agitationLevel : "",
 		agitationType  : "None",
-		TDS            : "HP-PHOS-ZN-1400-TDS-1.png"
+		TDS            : ["HP-PHOS-ZN-1400-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("January 9, 2016"),
@@ -6335,7 +6332,7 @@ var t806 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t807 = {
@@ -6360,7 +6357,7 @@ var t807 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Bonderite-L-GP-5800---TPB-1.png"
+		TDS            : ["Bonderite-L-GP-5800---TPB-1.png"]
 	},
 	makeup : {
 		date : new Date("January 9, 2016"),
@@ -6380,9 +6377,6 @@ var t807 = {
 		},
 	],	
 };
-
-
-
 
 
 var t901 = {
@@ -6407,7 +6401,7 @@ var t901 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "ACO-8800-HD-TDS.png"
+		TDS            : ["ACO-8800-HD-TDS.png"]
 	},
 	makeup : {
 		date : new Date("January 2, 2016"),
@@ -6451,7 +6445,7 @@ var t902 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t903 = {
@@ -6477,7 +6471,7 @@ var t903 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "ND-68-G-TDS-1.png"
+		TDS            : ["ND-68-G-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("January 2, 2016"),
@@ -6522,7 +6516,7 @@ var t904 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t905 = {
@@ -6548,7 +6542,7 @@ var t905 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "DEOX-CR-1-TDS.png"
+		TDS            : ["DEOX-CR-1-TDS.png"]
 	},
 	makeup : {
 		date : new Date("July 1, 2016"),
@@ -6599,7 +6593,7 @@ var t906 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t907 = {
@@ -6625,7 +6619,7 @@ var t907 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "SurTec-650-V-TDS-1.png"
+		TDS            : ["SurTec-650-V-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 1, 2016"),
@@ -6669,7 +6663,7 @@ var t908 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t909 = {
@@ -6695,7 +6689,7 @@ var t909 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havacoat-AL-Y-TDS-1.png"
+		TDS            : ["Havacoat-AL-Y-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("January 3, 2016"),
@@ -6739,7 +6733,7 @@ var t910 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t911 = {
@@ -6760,7 +6754,7 @@ var t911 = {
 		coilType       : "none",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : ""
+		TDS            : []
 	},
 };
 

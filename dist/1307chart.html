@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+	<title>TMFC Process Control</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" />		
+    <style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body class="chartBody" onload="createChart(t1307, 'Zinc', 'oz/gal')">
+
+    <div class="chartWrapper" style="min-height:215px;width: 100%;">
+        <canvas id="canvas"></canvas>
+    </div>
+	
+	<div class="btns_section">
+		<div class="add_remove_btns_container buttonHolder">
+			
+		</div>  
+	
+		<div class="test_btns_container">
+		   <button class="active" onclick="createChart(t1307, 'Zinc', 'oz/gal')">Zinc</button>
+		   <button onclick="createChart(t1307, 'KCL', 'oz/gal')">KCL</button>
+		   <button onclick="createChart(t1307, 'Boric', 'oz/gal')">Boric</button>
+		   <button onclick="createChart(t1307, 'Carbonates', 'oz/gal')">Carb</button>
+		   <button onclick="createChart(t1307, 'Iron', 'ppm')">Iron</button>
+		   <button onclick="createChart(t1307, 'Copper', 'ppm')">Cop</button>
+		   <button onclick="createChart(t1307, 'Chromium', 'ppm')">Chr</button>
+		</div>		 
+    </div>
+
+	
+	<script  type="text/javascript" src="dist/js/app.js"></script>
+
+</body>
+
+</html>

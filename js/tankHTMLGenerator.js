@@ -95,9 +95,9 @@ function Tank(tid) {
 			html += '</div>';
 			html += '<ul class="tds_list">';
 			if(this.TDS !== '') {
-				html += '<li><a data-remodal-target="modal-TDS" href="#">';
+				html += '<li><div data-myModal-target="modal-TDS">';
 				html += '<img src="assets/img/datasheet-icon.jpg">';
-				html += '</a></li>';
+				html += '</div></li>';
 			}			
 			html += '</ul>';
 			
@@ -158,19 +158,6 @@ function Tank(tid) {
 								}
 							}
 						}
-						/* for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
-							if(tid.analysis[i] !== undefined) {
-								html += '<a href="'
-								html += this.lineNumber;
-								html += 'chart.html"><li>';
-								html += '<svg>';
-									html += '<use xlink:href="#record-keeping-icon"></use>';
-								html += '</svg>';
-								html += 'Lab Analysis';
-								html += '</li></a>';
-								break;
-							}
-						} */
 						
 					/*CHEMICAL ADDITIONS*/	
 						for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
@@ -219,7 +206,7 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
-		
+			
 		/*MAKE-UP MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
@@ -266,6 +253,12 @@ function Tank(tid) {
 		html += '</div>';
 	
 	$('body').prepend(html);
+	
+	/****ADD TDS's*****/
+	/*NEW TDS MODAL SETUP*/
+	var tdsHolder = '<div class="myModalOverlay">';
+		tdsHolder += '</div>';
+	$('.tank').prepend(tdsHolder);
 	
 	
 	var nameHolder = [];
@@ -360,6 +353,32 @@ function Tank(tid) {
 						'border-bottom' : style
 		});
 	}
+	
+	
+	for(var i=0;i<this.TDS.length;i++) {
+		console.log(this.TDS);
+		var page = '<div>';
+			page += '<img src="assets/img/';
+			page += this.TDS[i];
+			page += '" alt="TDS"/>';
+			page += '</div>';
+		$('.myModalOverlay').append(page);
+	}
+	
+	
+	/*Modal Application*/
+	$('div[data-myModal-target]').on('click', function() {
+		if($('.myModalOverlay').css('display') == 'none') {
+			$('.myModalOverlay').css('display','block');
+		} else {
+			$('.myModalOverlay').css('display','none');
+		}
+	})
+	$('.myModalOverlay').on('click', function() {
+		$('.myModalOverlay').css('display','none');
+	})
+	
+	
 }
 
 

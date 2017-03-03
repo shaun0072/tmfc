@@ -4335,7 +4335,7 @@ i=0;7>i;++i)r=h([2e3,1]).day(i),this._minWeekdaysParse[i]=this.weekdaysMin(r,"")
 z("quarter",7),$("Q",Yi),it("Q",function(t,e){e[aa]=3*(_(t)-1)}),Z("D",["DD",2],"Do","date"),V("date","D"),z("date",9),$("D",Ei),$("DD",Ei,Bi),$("Do",function(t,e){return t?e._ordinalParse:e._ordinalParseLenient}),it(["D","DD"],ra),it("Do",function(t,e){e[ra]=_(t.match(Ei)[0],10)});var qa=H("Date",!0);Z("DDD",["DDDD",3],"DDDo","dayOfYear"),V("dayOfYear","DDD"),z("dayOfYear",4),$("DDD",Gi),$("DDDD",zi),it(["DDD","DDDD"],function(t,e,n){n._dayOfYear=_(t)}),Z("m",["mm",2],0,"minute"),V("minute","m"),z("minute",14),$("m",Ei),$("mm",Ei,Bi),it(["m","mm"],sa);var Za=H("Minutes",!1);Z("s",["ss",2],0,"second"),V("second","s"),z("second",15),$("s",Ei),$("ss",Ei,Bi),it(["s","ss"],la);var Xa=H("Seconds",!1);Z("S",0,0,function(){return~~(this.millisecond()/100)}),Z(0,["SS",2],0,function(){return~~(this.millisecond()/10)}),Z(0,["SSS",3],0,"millisecond"),Z(0,["SSSS",4],0,function(){return 10*this.millisecond()}),Z(0,["SSSSS",5],0,function(){return 100*this.millisecond()}),Z(0,["SSSSSS",6],0,function(){return 1e3*this.millisecond()}),Z(0,["SSSSSSS",7],0,function(){return 1e4*this.millisecond()}),Z(0,["SSSSSSSS",8],0,function(){return 1e5*this.millisecond()}),Z(0,["SSSSSSSSS",9],0,function(){return 1e6*this.millisecond()}),V("millisecond","ms"),z("millisecond",16),$("S",Gi,Yi),$("SS",Gi,Bi),$("SSS",Gi,zi);var Ja;for(Ja="SSSS";Ja.length<=9;Ja+="S")$(Ja,Xi);for(Ja="S";Ja.length<=9;Ja+="S")it(Ja,Vn);var Ka=H("Milliseconds",!1);Z("z",0,0,"zoneAbbr"),Z("zz",0,0,"zoneName");var Qa=y.prototype;Qa.add=Ua,Qa.calendar=Xe,Qa.clone=Je,Qa.diff=an,Qa.endOf=vn,Qa.format=un,Qa.from=dn,Qa.fromNow=cn,Qa.to=hn,Qa.toNow=fn,Qa.get=j,Qa.invalidAt=Dn,Qa.isAfter=Ke,Qa.isBefore=Qe,Qa.isBetween=$e,Qa.isSame=tn,Qa.isSameOrAfter=en,Qa.isSameOrBefore=nn,Qa.isValid=Sn,Qa.lang=Ga,Qa.locale=gn,Qa.localeData=mn,Qa.max=Ba,Qa.min=Ya,Qa.parsingFlags=Mn,Qa.set=G,Qa.startOf=pn,Qa.subtract=ja,Qa.toArray=kn,Qa.toObject=_n,Qa.toDate=xn,Qa.toISOString=sn,Qa.inspect=ln,Qa.toJSON=wn,Qa.toString=on,Qa.unix=yn,Qa.valueOf=bn,Qa.creationData=Cn,Qa.year=ba,Qa.isLeapYear=yt,Qa.weekYear=Pn,Qa.isoWeekYear=In,Qa.quarter=Qa.quarters=Ln,Qa.month=ht,Qa.daysInMonth=ft,Qa.week=Qa.weeks=Pt,Qa.isoWeek=Qa.isoWeeks=It,Qa.weeksInYear=An,Qa.isoWeeksInYear=Fn,Qa.date=qa,Qa.day=Qa.days=Yt,Qa.weekday=Bt,Qa.isoWeekday=zt,Qa.dayOfYear=Wn,Qa.hour=Qa.hours=Ta,Qa.minute=Qa.minutes=Za,Qa.second=Qa.seconds=Xa,Qa.millisecond=Qa.milliseconds=Ka,Qa.utcOffset=Fe,Qa.utc=Oe,Qa.local=Re,Qa.parseZone=Le,Qa.hasAlignedHourOffset=We,Qa.isDST=Ve,Qa.isLocal=Be,Qa.isUtcOffset=ze,Qa.isUtc=Ne,Qa.isUTC=Ne,Qa.zoneAbbr=Yn,Qa.zoneName=Bn,Qa.dates=M("dates accessor is deprecated. Use date instead.",qa),Qa.months=M("months accessor is deprecated. Use month instead",ht),Qa.years=M("years accessor is deprecated. Use year instead",ba),Qa.zone=M("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/",Ae),Qa.isDSTShifted=M("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information",Ye);var $a=I.prototype;$a.calendar=F,$a.longDateFormat=A,$a.invalidDate=O,$a.ordinal=R,$a.preparse=Hn,$a.postformat=Hn,$a.relativeTime=L,$a.pastFuture=W,$a.set=T,$a.months=st,$a.monthsShort=lt,$a.monthsParse=dt,$a.monthsRegex=mt,$a.monthsShortRegex=gt,$a.week=Dt,$a.firstDayOfYear=Tt,$a.firstDayOfWeek=Ct,$a.weekdays=Ot,$a.weekdaysMin=Lt,$a.weekdaysShort=Rt,$a.weekdaysParse=Vt,$a.weekdaysRegex=Nt,$a.weekdaysShortRegex=Ht,$a.weekdaysMinRegex=Et,$a.isPM=Xt,$a.meridiem=Jt,te("en",{ordinalParse:/\d{1,2}(th|st|nd|rd)/,ordinal:function(t){var e=t%10,n=1===_(t%100/10)?"th":1===e?"st":2===e?"nd":3===e?"rd":"th";return t+n}}),t.lang=M("moment.lang is deprecated. Use moment.locale instead.",te),t.langData=M("moment.langData is deprecated. Use moment.localeData instead.",ie);var tr=Math.abs,er=si("ms"),nr=si("s"),ir=si("m"),ar=si("h"),rr=si("d"),or=si("w"),sr=si("M"),lr=si("y"),ur=ui("milliseconds"),dr=ui("seconds"),cr=ui("minutes"),hr=ui("hours"),fr=ui("days"),gr=ui("months"),mr=ui("years"),pr=Math.round,vr={s:45,m:45,h:22,d:26,M:11},br=Math.abs,yr=Se.prototype;return yr.abs=Kn,yr.add=$n,yr.subtract=ti,yr.as=ri,yr.asMilliseconds=er,yr.asSeconds=nr,yr.asMinutes=ir,yr.asHours=ar,yr.asDays=rr,yr.asWeeks=or,yr.asMonths=sr,yr.asYears=lr,yr.valueOf=oi,yr._bubble=ni,yr.get=li,yr.milliseconds=ur,yr.seconds=dr,yr.minutes=cr,yr.hours=hr,yr.days=fr,yr.weeks=di,yr.months=gr,yr.years=mr,yr.humanize=mi,yr.toISOString=pi,yr.toString=pi,yr.toJSON=pi,yr.locale=gn,yr.localeData=mn,yr.toIsoString=M("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)",pi),yr.lang=Ga,Z("X",0,0,"unix"),Z("x",0,0,"valueOf"),$("x",Ji),$("X",$i),it("X",function(t,e,n){n._d=new Date(1e3*parseFloat(t,10))}),it("x",function(t,e,n){n._d=new Date(_(t))}),t.version="2.16.0",i(xe),t.fn=Qa,t.min=_e,t.max=we,t.now=za,t.utc=h,t.unix=zn,t.months=Gn,t.isDate=l,t.locale=te,t.invalid=p,t.duration=He,t.isMoment=x,t.weekdays=Zn,t.parseZone=Nn,t.localeData=ie,t.isDuration=Me,t.monthsShort=qn,t.weekdaysMin=Jn,t.defineLocale=ee,t.updateLocale=ne,t.locales=ae,t.weekdaysShort=Xn,t.normalizeUnits=Y,t.relativeTimeRounding=fi,t.relativeTimeThreshold=gi,t.calendarFormat=Ze,t.prototype=Qa,t})},{}]},{},[1])(1)});
 var TMFC1 = '<select class="lineNumbers">';
 	TMFC1  +=	'<option value="">Select Line</option>';
-	TMFC1  +=	'<option value="800">800 (Maganese/Zinc Phosphate)</option>';
+	TMFC1  +=	'<option value="800">800 (Manganese/Zinc Phosphate)</option>';
 	TMFC1  +=	'<option value="900">900 (ChemFilm)</option>';
 	TMFC1  +=	'<option value="1300">1300 (Chloride Zinc - Barrel)</option>';
 	TMFC1  +=	'<option value="1700">1700 (Alkaline Zinc - Rack)</option>';
@@ -4350,16 +4350,13 @@ var	TMFC2   = '<select class="lineNumbers">';
 	
 var	TP = '<select class="lineNumbers">';
 	TP += '<option value="">Select Line</option>';
-	TP += '<option value="5700">5700</option>';
-	TP += '<option value="5600">5600</option>';
-	TP += '<option value="3200">3200</option>';
+	TP += '<option value="5700">Electroless Nickel</option>';
+	TP += '<option value="5600">Zinc Chloride - Rack</option>';
 	TP += '</select>';
 	
 var AH = '<select class="lineNumbers">';
 	AH += '<option value="">Select Line</option>';
-	AH += '<option value="3500">3500</option>';
-	AH += '<option value="1600">1600</option>';
-	AH += '<option value="1200">1200</option>';
+	AH += '<option value="3500">Sulfuric Anodize</option>';
 	AH += '</select>';
 	
 var sel = getCookie('.location');	
@@ -4453,7 +4450,7 @@ var t1301 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png"]
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -4950,7 +4947,7 @@ var t1302 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : ["Anokleen2STDS.png"]
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -5411,7 +5408,7 @@ var t1303 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : [""]
 	},
 };
 var t1304 = {
@@ -5436,7 +5433,7 @@ var t1304 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 9, 2016"),
@@ -5474,7 +5471,7 @@ var t1305 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1306 = {
@@ -5495,7 +5492,7 @@ var t1306 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1307 = {
@@ -5527,7 +5524,7 @@ var t1307 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : "HP-RADIANCE-AZ-TDS-1.png"
+		TDS            : ["HP-RADIANCE-AZ-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 5, 2016"),
@@ -5603,7 +5600,7 @@ var t1308 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "None",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1309 = {
@@ -5628,7 +5625,7 @@ var t1309 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : ""
+		TDS            : []
 	},	
 	makeup : {
 		date : new Date("November 28, 2016"),
@@ -5678,7 +5675,7 @@ var t1310 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Prodigy Triton TDS-1.png",
+		TDS            : ["Prodigy Triton TDS-1.png"],
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -5742,7 +5739,7 @@ var t1311 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1312 = {
@@ -5768,7 +5765,7 @@ var t1312 = {
 		coilType       : "",
 		agitationLevel : "High - ",
 		agitationType  : "Low Pressure Air",
-		TDS            : "546-Yellow-TDS-1.png"
+		TDS            : ["546-Yellow-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("August 1, 2016"),
@@ -5832,10 +5829,9 @@ var t1313 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
-
 
 
 var t1701 = {
@@ -5862,7 +5858,7 @@ var t1701 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png"]
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -6359,7 +6355,7 @@ var t1702 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : ["Anokleen2STDS.png"]
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -6820,7 +6816,7 @@ var t1703 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1704 = {
@@ -6911,7 +6907,7 @@ var t1705 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1706 = {
@@ -6941,7 +6937,7 @@ var t1706 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+		TDS            : ["Havastar ZN Gleam AB TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 5, 2016"),
@@ -7645,7 +7641,7 @@ var t1707 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havastar ZN Gleam AB TDS-1.png"
+		TDS            : ["Havastar ZN Gleam AB TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 5, 2016"),
@@ -8195,7 +8191,7 @@ var t1708 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1709 = {
@@ -8218,7 +8214,7 @@ var t1709 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : ""
+		TDS            : []
 	},	
 	makeup : {
 		date : new Date("November 28, 2016"),
@@ -8264,7 +8260,7 @@ var t1710 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1711 = {
@@ -8289,7 +8285,7 @@ var t1711 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Prodigy Triton TDS-1.png",
+		TDS            : ["Prodigy Triton TDS-1.png"],
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -8353,7 +8349,7 @@ var t1712 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1713 = {
@@ -8374,7 +8370,7 @@ var t1713 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1714 = {
@@ -8395,7 +8391,7 @@ var t1714 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1715 = {
@@ -8416,7 +8412,7 @@ var t1715 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1716 = {
@@ -8437,7 +8433,7 @@ var t1716 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t1717 = {
@@ -8463,7 +8459,7 @@ var t1717 = {
 		coilType       : "U",
 		agitationLevel : "High - ",
 		agitationType  : "Air",
-		TDS            : "546-Yellow-TDS-1.png"
+		TDS            : ["546-Yellow-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("August 1, 2016"),
@@ -8527,10 +8523,9 @@ var t1718 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
-
 
 
 var t2501 = {
@@ -8557,7 +8552,7 @@ var t2501 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png"]
 	},
 	makeup : {
 		date : new Date("October 1, 2016"),
@@ -9049,7 +9044,7 @@ var t2502 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2503 = {
@@ -9075,7 +9070,7 @@ var t2503 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Air",
-		TDS            : "Anokleen2STDS.png"
+		TDS            : ["Anokleen2STDS.png"]
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -9536,7 +9531,7 @@ var t2504 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2505 = {
@@ -9561,7 +9556,7 @@ var t2505 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : "HP-Acidsalt-FLWET-TDS-1.png"
+		TDS            : ["HP-Acidsalt-FLWET-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("December 9, 2016"),
@@ -9599,7 +9594,7 @@ var t2506 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2507 = {
@@ -9625,7 +9620,7 @@ var t2507 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -9670,7 +9665,7 @@ var t2508 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2509 = {
@@ -9691,7 +9686,7 @@ var t2509 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2510 = {
@@ -9717,7 +9712,7 @@ var t2510 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havalloy-Z-N(Rev-1)-1.png"
+		TDS            : ["Havalloy-Z-N(Rev-1)-1.png"]
 	},
 	makeup : {
 		date : new Date("January 16, 2017"),
@@ -9762,7 +9757,7 @@ var t2511 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2512 = {
@@ -9783,7 +9778,7 @@ var t2512 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2513 = {
@@ -9808,7 +9803,7 @@ var t2513 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -9846,7 +9841,7 @@ var t2514 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2515 = {
@@ -9867,7 +9862,7 @@ var t2515 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2516 = {
@@ -9888,7 +9883,7 @@ var t2516 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2517 = {
@@ -9909,7 +9904,7 @@ var t2517 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2518 = {
@@ -9935,7 +9930,7 @@ var t2518 = {
 		coilType       : "Serpentine",
 		agitationLevel : "High - ",
 		agitationType  : "Air",
-		TDS            : "COLDIP-NI-Z-TRI-BLUE-100-TDS.png"
+		TDS            : ["COLDIP-NI-Z-TRI-BLUE-100-TDS.png"]
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -9978,7 +9973,7 @@ var t2519 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 	makeup : {
 		date : new Date("December 28, 2016"),
@@ -10023,7 +10018,7 @@ var t2520 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2521 = {
@@ -10044,7 +10039,7 @@ var t2521 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2522 = {
@@ -10065,7 +10060,7 @@ var t2522 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t2523 = {
@@ -10086,10 +10081,9 @@ var t2523 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
-
 
 
 var t801 = {
@@ -10116,7 +10110,7 @@ var t801 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Mild - ",
 		agitationType  : "Compressed Air",
-		TDS            : "Cleaner SSP-140 TDS.png"
+		TDS            : ["Cleaner SSP-140 TDS.png",'HP-Acidsalt-FLWET-TDS-1.png'],
 	},
 	makeup : {
 		date : new Date("December 30, 2016"),
@@ -10608,7 +10602,7 @@ var t802 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t803 = {
@@ -10633,7 +10627,7 @@ var t803 = {
 		coilType       : "U",
 		agitationLevel : "Mild - ",
 		agitationType  : "Mixer",
-		TDS            : "BONDERITE-M-AC-M---TPB-1.png",
+		TDS            : ["BONDERITE-M-AC-M---TPB-1.png"],
 	},
 	makeup : {
 		date : new Date("January 25, 2017"),
@@ -10671,7 +10665,7 @@ var t804 = {
 		coilType       : "U",
 		agitationLevel : "",
 		agitationType  : "None",
-		TDS            : "BONDERITE-M-MN-LUBRITE-2---TPB-1.png"
+		TDS            : ["BONDERITE-M-MN-LUBRITE-2---TPB-1.png"]
 	},
 	makeup : {
 		date : new Date("January 9, 2016"),
@@ -10727,7 +10721,7 @@ var t805 = {
 		coilType       : "U",
 		agitationLevel : "",
 		agitationType  : "None",
-		TDS            : "HP-PHOS-ZN-1400-TDS-1.png"
+		TDS            : ["HP-PHOS-ZN-1400-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("January 9, 2016"),
@@ -10766,7 +10760,7 @@ var t806 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t807 = {
@@ -10791,7 +10785,7 @@ var t807 = {
 		coilType       : "U",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Bonderite-L-GP-5800---TPB-1.png"
+		TDS            : ["Bonderite-L-GP-5800---TPB-1.png"]
 	},
 	makeup : {
 		date : new Date("January 9, 2016"),
@@ -10811,9 +10805,6 @@ var t807 = {
 		},
 	],	
 };
-
-
-
 
 
 var t901 = {
@@ -10838,7 +10829,7 @@ var t901 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "ACO-8800-HD-TDS.png"
+		TDS            : ["ACO-8800-HD-TDS.png"]
 	},
 	makeup : {
 		date : new Date("January 2, 2016"),
@@ -10882,7 +10873,7 @@ var t902 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t903 = {
@@ -10908,7 +10899,7 @@ var t903 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "ND-68-G-TDS-1.png"
+		TDS            : ["ND-68-G-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("January 2, 2016"),
@@ -10953,7 +10944,7 @@ var t904 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t905 = {
@@ -10979,7 +10970,7 @@ var t905 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "DEOX-CR-1-TDS.png"
+		TDS            : ["DEOX-CR-1-TDS.png"]
 	},
 	makeup : {
 		date : new Date("July 1, 2016"),
@@ -11030,7 +11021,7 @@ var t906 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t907 = {
@@ -11056,7 +11047,7 @@ var t907 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "SurTec-650-V-TDS-1.png"
+		TDS            : ["SurTec-650-V-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("July 1, 2016"),
@@ -11100,7 +11091,7 @@ var t908 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t909 = {
@@ -11126,7 +11117,7 @@ var t909 = {
 		coilType       : "Serpentine",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : "Havacoat-AL-Y-TDS-1.png"
+		TDS            : ["Havacoat-AL-Y-TDS-1.png"]
 	},
 	makeup : {
 		date : new Date("January 3, 2016"),
@@ -11170,7 +11161,7 @@ var t910 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : ""
+		TDS            : []
 	},
 };
 var t911 = {
@@ -11191,7 +11182,7 @@ var t911 = {
 		coilType       : "none",
 		agitationLevel : "Low - ",
 		agitationType  : "Pump",
-		TDS            : ""
+		TDS            : []
 	},
 };
 
@@ -11303,9 +11294,9 @@ function Tank(tid) {
 			html += '</div>';
 			html += '<ul class="tds_list">';
 			if(this.TDS !== '') {
-				html += '<li><a data-remodal-target="modal-TDS" href="#">';
+				html += '<li><div data-myModal-target="modal-TDS">';
 				html += '<img src="assets/img/datasheet-icon.jpg">';
-				html += '</a></li>';
+				html += '</div></li>';
 			}			
 			html += '</ul>';
 			
@@ -11366,19 +11357,6 @@ function Tank(tid) {
 								}
 							}
 						}
-						/* for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
-							if(tid.analysis[i] !== undefined) {
-								html += '<a href="'
-								html += this.lineNumber;
-								html += 'chart.html"><li>';
-								html += '<svg>';
-									html += '<use xlink:href="#record-keeping-icon"></use>';
-								html += '</svg>';
-								html += 'Lab Analysis';
-								html += '</li></a>';
-								break;
-							}
-						} */
 						
 					/*CHEMICAL ADDITIONS*/	
 						for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
@@ -11427,7 +11405,7 @@ function Tank(tid) {
 			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
 			html += '</div>';
 		html += '</div>';
-		
+			
 		/*MAKE-UP MODAL*/
 		html += '<div class="remodal-bg">';
 			html += '<div class="remodal" data-remodal-id="modal-makeup" data-remodal-options="hashTracking: false">';
@@ -11474,6 +11452,12 @@ function Tank(tid) {
 		html += '</div>';
 	
 	$('body').prepend(html);
+	
+	/****ADD TDS's*****/
+	/*NEW TDS MODAL SETUP*/
+	var tdsHolder = '<div class="myModalOverlay">';
+		tdsHolder += '</div>';
+	$('.tank').prepend(tdsHolder);
 	
 	
 	var nameHolder = [];
@@ -11568,6 +11552,32 @@ function Tank(tid) {
 						'border-bottom' : style
 		});
 	}
+	
+	
+	for(var i=0;i<this.TDS.length;i++) {
+		console.log(this.TDS);
+		var page = '<div>';
+			page += '<img src="assets/img/';
+			page += this.TDS[i];
+			page += '" alt="TDS"/>';
+			page += '</div>';
+		$('.myModalOverlay').append(page);
+	}
+	
+	
+	/*Modal Application*/
+	$('div[data-myModal-target]').on('click', function() {
+		if($('.myModalOverlay').css('display') == 'none') {
+			$('.myModalOverlay').css('display','block');
+		} else {
+			$('.myModalOverlay').css('display','none');
+		}
+	})
+	$('.myModalOverlay').on('click', function() {
+		$('.myModalOverlay').css('display','none');
+	})
+	
+	
 }
 
 
@@ -11905,6 +11915,9 @@ function AdditionsTable(tank, component, unit) {
 function createAddTable(tankNumber, component, unit) {
 	new AdditionsTable(tankNumber, component, unit);
 }
+$('a[data-myModal-target]').on('click', function() {
+	$('.myModalOverlay').css('display', 'block');
+})
 var temppH;
 var headerUnit;
 function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
