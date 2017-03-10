@@ -94,11 +94,16 @@ function Tank(tid) {
 		/*TDS LINK*/
 			html += '</div>';
 			html += '<ul class="tds_list">';
-			if(this.TDS !== '') {
-				html += '<li><div data-myModal-target="modal-TDS">';
-				html += '<img src="assets/img/datasheet-icon.jpg">';
-				html += '</div></li>';
-			}			
+			if(this.TDS !== undefined) {
+				if(this.TDS.length !== 0) {
+					console.log(this.TDS.length);
+					html += '<li><a href="/assets/pdf/';
+					html += this.TDS;
+					html += '">';
+					html += '<img src="assets/img/datasheet-icon.jpg">';
+					html += '</a></li>';
+				}		
+			}	
 			html += '</ul>';
 			
 		/*PROCESS CONTROL SECTION*/
@@ -194,18 +199,6 @@ function Tank(tid) {
 							}
 						}
 				}	
-
-		/*TDS MODAL*/
-		html += '<div class="remodal-bg">';
-			html += '<div class="remodal" data-remodal-id="modal-TDS" data-remodal-options="hashTracking: false">';
-			  html += '<button data-remodal-action="close" class="remodal-close"></button>';
-			  html += '<img src="assets/img/';
-			  html += this.TDS;
-			  html += '" alt="TDS"/>';
-			  html += '<br>';
-			  html += '<button data-remodal-action="confirm" class="remodal-confirm">OK</button>';
-			html += '</div>';
-		html += '</div>';
 			
 		/*MAKE-UP MODAL*/
 		html += '<div class="remodal-bg">';
