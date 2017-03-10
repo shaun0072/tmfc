@@ -11287,7 +11287,7 @@ function Tank(tid) {
 			if(this.TDS !== undefined) {
 				if(this.TDS.length !== 0) {
 					console.log(this.TDS.length);
-					html += '<li><a href="/assets/pdf/';
+					html += '<li><a href="./assets/pdf/';
 					html += this.TDS;
 					html += '">';
 					html += '<img src="assets/img/datasheet-icon.jpg">';
