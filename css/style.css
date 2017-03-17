@@ -1227,9 +1227,7 @@ button:focus {
     margin: 8px 0px 0 40px;
     font-size: 13px; }
   .btns_section .add_remove_btns_container {
-    margin-left: calc(100% - 123px); }
-    .btns_section .add_remove_btns_container .plus {
-      margin-left: 20px; }
+    margin-left: calc(100% - 220px); }
 
 .test_btns_container {
   display: flex; }
@@ -1251,7 +1249,7 @@ button:focus {
   height: 30px;
   width: 30px;
   padding: 0;
-  margin: 0;
+  margin: 5px;
   -webkit-transition: all .1s linear;
   transition: all .1s linear; }
 
