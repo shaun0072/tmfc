@@ -137,10 +137,12 @@ function MakeChart(tankNumber, testName, unit) {
 						time: {
 							unit : 'week',
 							displayFormats: {
-								week: 'MMM D'
+								week: 'MMM D',
+								month: 'MMM YY'
 							}
 						},
 						ticks: {
+							fontSize: 9,
 							maxRotation: 45,
 							minRotation: 45
 						}		
@@ -149,8 +151,12 @@ function MakeChart(tankNumber, testName, unit) {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: this.unit
-                        }
+                            labelString: this.unit,
+							fontSize: 9,
+                        },
+						ticks: {
+							fontSize: 9,
+						}
                     }]
 				}
 			}
