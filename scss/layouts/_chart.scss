@@ -30,9 +30,9 @@ button:focus {
 		font-size: 13px;
 	}
 	.add_remove_btns_container {
-		margin-left: calc(100% - 123px);
+		margin-left: calc(100% - 220px);
 		.plus {
-			margin-left: 20px;
+
 		}
 	}
 }
@@ -61,7 +61,7 @@ button:focus {
 	height: 30px;
 	width: 30px;	
 	padding: 0;
-	margin: 0;
+	margin: 5px;
 	-webkit-transition: all .1s linear;
 	transition: all .1s linear;
 }

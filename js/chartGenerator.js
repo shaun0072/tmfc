@@ -6,10 +6,13 @@ var makeChart,
     numberOfAnalysis,
     theUnit,
 	applicationColor;
-/*ADD DATA BUTTON*/
-function addData(date, testResult, unit) {
-	for (var i = numberOfAnalysis; i < numberOfAnalysis + 1; i++) {
-		if(i < date.length && testResult[i] !== undefined) {
+/*Insert Table Data*/
+function insertTableData(date, testResult, unit, timeSpan) {
+	$('.table').children(':not(.header)').remove();
+	for(var i=0; i < testResult.length; i++) { //Iterate over analysis
+		var currentDate = date[0],
+			desiredTime = currentDate - timeSpan;
+		if(testResult[i] !== undefined && date[i] <= currentDate && date[i] >= desiredTime) { 
 			tableData  =	'<div class="row">';
 			tableData +=	  '<div class="cell">';
 			tableData +=		moment(date[i]).format("l");
@@ -19,17 +22,9 @@ function addData(date, testResult, unit) {
 			tableData +=	  '</div>';
 			tableData +=	'</div>';
 						
-			$('.table').append(tableData);	
-		} else if(i < date.length) {
-			numberOfAnalysis += 1;
-		}
-	}		
-}
-/*REMOVE DATA BUTTON*/
-function removeData() {
-	if($('.table .row').length > 2) {
-		$('.table .row').remove('.row:last-of-type');
-	}		
+			$('.table').append(tableData);				
+		}		
+	}
 }
 /*GENERATE CHART OBJECT CONSTRUCTOR*/
 function MakeChart(tankNumber, testName, unit) {
@@ -78,8 +73,9 @@ function MakeChart(tankNumber, testName, unit) {
 	}
 
 	/*VARIABLES*/
-	var addbtnHTML = '<button class="button plus" id="addData" onclick="addData(theDate, theTestResult, theUnit)">+</button>',
-		removebtnHTML = '<button class="button minus" id="removeData" onclick="removeData()">-</button>',
+	var moBtn = '<button class="button plus" id="moBtn" onclick="insertTableData(theDate, theTestResult, theUnit, 2628336213)">mo</button>',
+		qtrBtn = '<button class="button plus" id="qtrBtn" onclick="insertTableData(theDate, theTestResult, theUnit, 7884000000)">qtr</button>',
+		yrBtn = '<button class="button minus" id="yrBtn" onclick="insertTableData(theDate, theTestResult, theUnit, 31540000000)">yr</button>',
 		chartData = [];	
 		colorNames = Object.keys(window.chartColors),
 		color = Chart.helpers.color,
@@ -95,21 +91,18 @@ function MakeChart(tankNumber, testName, unit) {
 			tableHeader +=	'</div>',
 			tableHeader +=	'</div>', //close table
 			tableHeader += '</div>'; //close wrapper	
-	    
 	
-	/* Chart.defaults.global.maintainAspectRatio = false; */
 	numberOfAnalysis = 5;
 	theDate = this.date;
 	theTestResult  = this.testResult;
 	theUnit = this.unit;
 	
-	$('#addData').remove();
-	$('#removeData').remove();	
-	$('.add_remove_btns_container').append(removebtnHTML);
-	$('.add_remove_btns_container').append(addbtnHTML);	
+	
+	$('#moBtn, #qtrBtn, #yrBtn' ).remove();	//Remove existing buttons when new btn is selected
+	$('.add_remove_btns_container').append(moBtn, qtrBtn, yrBtn); //Add new btns
 	$('.wrapper').remove();
 	$('body').append(tableHeader);
-	var scatterChartData = {
+	var lineChartData = {
 			datasets: [{
 				fill: false,
 				label: "My First dataset",
@@ -120,10 +113,10 @@ function MakeChart(tankNumber, testName, unit) {
 			}]
 		},
 		chartOptions = {
-			data: scatterChartData,
+			data: lineChartData,
 			options: {
 				tooltips : {
-					enabled:  false
+					enabled:  true
 				},
 				legend  : {
 					display: false
@@ -185,47 +178,38 @@ function MakeChart(tankNumber, testName, unit) {
 	
 	
 	assignColor();
-
-	/*Add Data to Chart*/	
-	document.getElementById('addData').addEventListener('click', function() {
-
-		if (scatterChartData.datasets[0].data.length < tankNumber.analysis.length) {
-			console.log(scatterChartData.datasets[0].data.length);
-			console.log(tankNumber.analysis.length);
-			numberOfAnalysis += 1;
-			for (var i=numberOfAnalysis - 1; i < numberOfAnalysis; i++) {
-				console.log(tankNumber.analysis[i]);
-				if(tankNumber.analysis[i] !== undefined) {
-					console.log(tankNumber.analysis[i].date);
-					console.log(tankNumber.analysis[i][testName]);
-					var axisData = {};
-						axisData.x = tankNumber.analysis[i].date;
-						axisData.y = tankNumber.analysis[i][testName];									
-						chartData.push(axisData);	
-				}	
-			}			
-		}
-		window.myScatter.update();
+	
+	function insertChartData(timeSpan) {
+		lineChartData.datasets[0].data = [];		
+		var currentDate = tankNumber.analysis[0].date,
+			desiredTime = currentDate - timeSpan;			
+		for(var i=0; i < tankNumber.analysis.length; i++) { //Iterate over analysis
+			if(tankNumber.analysis[i].date <= currentDate && tankNumber.analysis[i].date >= desiredTime && tankNumber.analysis[i][testName] !== undefined) {
+				var axisData = {};
+				axisData.x = tankNumber.analysis[i].date;
+				axisData.y = tankNumber.analysis[i][testName];
+				lineChartData.datasets[0].data.push(axisData);				
+			}		
+		}	
+		window.myLineChart.update();
+	}
+	/*Set Data to MONTH*/	
+	document.getElementById('moBtn').addEventListener('click', function() {
+		insertChartData(2628336213);
 	});
-	/*Remove Data from Chart*/	
-	document.getElementById('removeData').addEventListener('click', function() {
-		if (scatterChartData.datasets[0].data.length > 1) {
-
-			numberOfAnalysis -= 1;
-			for (var i = numberOfAnalysis; i > numberOfAnalysis - 1; i--) {
-				var object = {};
-				object.x = tankNumber.analysis[i].date;
-				object.y = tankNumber.analysis[i][testName];
-				chartData.pop(object);
-			}
-			
-		}
-		window.myScatter.update();
+	/*Set Data to QTR*/	
+	document.getElementById('qtrBtn').addEventListener('click', function() {
+		insertChartData(7884000000);
 	});
+	/*Set Data to Year*/	
+	document.getElementById('yrBtn').addEventListener('click', function() {
+		insertChartData(31540000000);
+	});
+	
 	/*LOAD CHART VALUE*/
 	var loadChart = function() {
 		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myScatter = Chart.Scatter(ctx, chartOptions)
+		window.myLineChart = Chart.Line(ctx, chartOptions)
 	};
 
 	loadChart();
