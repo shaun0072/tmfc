@@ -1,4 +1,3 @@
-//test branch
 var makeChart,
     thisArray,
     tableData,
