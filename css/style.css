@@ -1239,6 +1239,11 @@ button:focus {
     .test_btns_container button:last-of-type {
       border-top-right-radius: 5px; }
 
+.chartTankNumber {
+  margin: 5px 0 0 20px;
+  font-size: 20px;
+  color: grey; }
+
 /********************Button Shit*****************************/
 .button {
   background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);

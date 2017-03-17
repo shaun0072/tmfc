@@ -26,6 +26,7 @@ function insertTableData(date, testResult, unit, timeSpan) {
 		}		
 	}
 }
+
 /*GENERATE CHART OBJECT CONSTRUCTOR*/
 function MakeChart(tankNumber, testName, unit) {
 	this.date = [];
@@ -71,7 +72,12 @@ function MakeChart(tankNumber, testName, unit) {
 			return applicationColor;
 		}
 	}
-
+	/*ADD TANK NUMBER TO TOP*/
+	$('.chartTankNumber').remove();
+	var chartTankNumber = '<div class="chartTankNumber">';
+		chartTankNumber += tankNumber.tmfcParameters.lineNumber + '(' + tankNumber.tmfcParameters.applicationType + ')';
+		chartTankNumber += '</div>';
+	$('.chartWrapper').prepend(chartTankNumber);
 	/*VARIABLES*/
 	var moBtn = '<button class="button plus" id="moBtn" onclick="insertTableData(theDate, theTestResult, theUnit, 2628336213)">mo</button>',
 		qtrBtn = '<button class="button plus" id="qtrBtn" onclick="insertTableData(theDate, theTestResult, theUnit, 7884000000)">qtr</button>',
@@ -125,7 +131,7 @@ function MakeChart(tankNumber, testName, unit) {
 					display: true,
 					text: this.chartHeading
 				},
-				scales: {
+				scales: { 
 					xAxes: [{
 						type: 'time',
 						time: {
@@ -133,7 +139,11 @@ function MakeChart(tankNumber, testName, unit) {
 							displayFormats: {
 								week: 'MMM D'
 							}
-						}
+						},
+						ticks: {
+							maxRotation: 45,
+							minRotation: 45
+						}		
 					}],
 					yAxes: [{
                         display: true,
@@ -145,7 +155,7 @@ function MakeChart(tankNumber, testName, unit) {
 				}
 			}
 		};
-	
+	console.log();
 	/*ASSIGN TANK DATA TO DATE/TESTRESULT ARRAYS*/
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
 		this.date.push(this.analysis[i].date);         
@@ -180,6 +190,11 @@ function MakeChart(tankNumber, testName, unit) {
 	assignColor();
 	
 	function insertChartData(timeSpan) {
+		if(timeSpan === 31540000000) {
+		 chartOptions.options.scales.xAxes[0].time.unit = 'month';
+		} else {
+			chartOptions.options.scales.xAxes[0].time.unit = 'week';
+		}
 		lineChartData.datasets[0].data = [];		
 		var currentDate = tankNumber.analysis[0].date,
 			desiredTime = currentDate - timeSpan;			
