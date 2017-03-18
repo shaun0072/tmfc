@@ -479,6 +479,11 @@ body {
 .data {
   font-size: 0.875em; }
 
+.test_btns_container button {
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 300; }
+
 .selectionPage {
   width: 100vw;
   background: #DCDCDC; }
@@ -1208,7 +1213,9 @@ html {
   background-attachment: fixed; }
 
 .chartWrapper {
-  max-width: 700px; }
+  max-width: 700px;
+  /* background-image: url(../assets/img/chartBG.jpg); */
+  width: 70%; }
 
 canvas {
   max-height: 430px; }
@@ -1227,7 +1234,7 @@ button:focus {
     margin: 8px 0px 0 40px;
     font-size: 13px; }
   .btns_section .add_remove_btns_container {
-    margin-left: calc(100% - 220px); }
+    margin-left: calc(100% - 259px); }
 
 .test_btns_container {
   display: flex; }
@@ -1241,21 +1248,24 @@ button:focus {
 
 .chartTankNumber {
   margin: 5px 0 0 31px;
-  font-size: 20px;
-  color: grey; }
+  font-size: 20px; }
 
 /********************Button Shit*****************************/
 .button {
-  background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-  background-image: linear-gradient(top, #f4f1ee, #fff);
-  border-radius: 50%;
-  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
-  position: relative;
-  height: 30px;
-  width: 30px;
-  padding: 0;
+  /* 	background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+	background-image: linear-gradient(top, #f4f1ee, #fff);
+	border-radius: 50%;
+	box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	position: relative;
+	height: 30px;
+	width: 50px; */
+  padding: 10px 25px;
   margin: 5px;
   -webkit-transition: all .1s linear;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 10px 130px -40px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 10px 130px -40px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 10px 130px -40px rgba(0, 0, 0, 0.75);
   transition: all .1s linear; }
 
 .button:after {
@@ -1309,7 +1319,7 @@ button:focus {
   background: white !important; }
 
 .wrapper {
-  padding: 0 40px 0;
+  padding: 0 5px 0;
   max-width: 800px; }
 
 .table {
@@ -1318,10 +1328,10 @@ button:focus {
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
-  font-family: "Helvetica Neue", Helvetica, Arial;
-  font-size: 14px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 300;
   color: #3b3b3b;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased; }

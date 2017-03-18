@@ -4426,6 +4426,8 @@ $('.load').on('click', function() {
 });
 
 	
+var fontLink = '<link href="https://fonts.googleapis.com/css?family=Kanit:300,500" rel="stylesheet">';
+$('head').append(fontLink);
 var t1301 = {
 	tmfcParameters : {
 		concentrations     : {
@@ -11721,6 +11723,9 @@ function MakeChart(tankNumber, testName, unit) {
 				},
 				scales: { 
 					xAxes: [{
+						gridLines : {
+							display: false
+						},
 						type: 'time',
 						time: {
 							unit : 'week',
@@ -11737,8 +11742,11 @@ function MakeChart(tankNumber, testName, unit) {
 					}],
 					yAxes: [{
                         display: true,
+						gridLines : {
+							display: false
+						},
                         scaleLabel: {
-                            display: true,
+                            display: false,
                             labelString: this.unit,
 							fontSize: 9,
                         },

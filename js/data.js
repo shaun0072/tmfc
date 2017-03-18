@@ -1,3 +1,5 @@
+var fontLink = '<link href="https://fonts.googleapis.com/css?family=Kanit:300,500" rel="stylesheet">';
+$('head').append(fontLink);
 var t1301 = {
 	tmfcParameters : {
 		concentrations     : {

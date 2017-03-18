@@ -133,6 +133,9 @@ function MakeChart(tankNumber, testName, unit) {
 				},
 				scales: { 
 					xAxes: [{
+						gridLines : {
+							display: false
+						},
 						type: 'time',
 						time: {
 							unit : 'week',
@@ -149,8 +152,11 @@ function MakeChart(tankNumber, testName, unit) {
 					}],
 					yAxes: [{
                         display: true,
+						gridLines : {
+							display: false
+						},
                         scaleLabel: {
-                            display: true,
+                            display: false,
                             labelString: this.unit,
 							fontSize: 9,
                         },
