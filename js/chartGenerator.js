@@ -75,7 +75,7 @@ function MakeChart(tankNumber, testName, unit) {
 	/*ADD TANK NUMBER TO TOP*/
 	$('.chartTankNumber').remove();
 	var chartTankNumber = '<div class="chartTankNumber">';
-		chartTankNumber += tankNumber.tmfcParameters.lineNumber + '(' + tankNumber.tmfcParameters.applicationType + ')';
+		chartTankNumber += tankNumber.tmfcParameters.lineNumber + ' - ' + tankNumber.tmfcParameters.applicationType;
 		chartTankNumber += '</div>';
 	$('.chartWrapper').prepend(chartTankNumber);
 	/*VARIABLES*/
@@ -122,7 +122,7 @@ function MakeChart(tankNumber, testName, unit) {
 			data: lineChartData,
 			options: {
 				tooltips : {
-					enabled:  true
+					enabled:  false
 				},
 				legend  : {
 					display: false

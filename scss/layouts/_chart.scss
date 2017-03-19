@@ -28,7 +28,7 @@ button:focus {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	.test_btns_container {
-		margin: 8px 0px 0 40px;
+		margin: 40px 0px 0 4px;
 		font-size: 13px;
 	}
 	.add_remove_btns_container {
@@ -54,6 +54,8 @@ button:focus {
 .chartTankNumber {
 	margin: 5px 0 0 31px;
 	font-size: 20px;
+	letter-spacing: 4px;
+    color: peru;
 }
 /********************Button Shit*****************************/
 
@@ -65,6 +67,7 @@ button:focus {
 	position: relative;
 	height: 30px;
 	width: 50px; */	
+	background: #D0D0D0 ;
 	padding: 10px 25px;
 	margin: 5px;
 	-webkit-transition: all .1s linear;
