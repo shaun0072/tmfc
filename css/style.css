@@ -1202,7 +1202,9 @@ body {
   font-weight: bold; }
 
 .line {
-  padding: 50px; }
+  padding: 50px;
+  position: absolute;
+  z-index: 1000; }
 
 .test {
   width: 500px; }

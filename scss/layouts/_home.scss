@@ -710,7 +710,8 @@ body {
 }
 .line {
 	padding: 50px;
-	
+	position: absolute;
+	z-index: 1000;
 }
 
 	
