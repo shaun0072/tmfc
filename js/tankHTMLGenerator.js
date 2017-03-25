@@ -399,5 +399,6 @@ $('body').on('click', '.line', function() {
 			'<a href="1315.html"><div class="tankSquare t1315"><span class="tankNum">1315</span><span class="applicationType">Rinse</div></a>' +
 			
 		'</div>')
+	$('.line').css('color', 'red');
 })
 
