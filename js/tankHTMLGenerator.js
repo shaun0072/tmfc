@@ -199,7 +199,7 @@ function Tank(tid) {
 								html += '</div>';
 								html += '</div>';
 								
-								html += '<div class="line">Line</div>';
+								html += '<a class="line" href="#"><div>Line</div></a>';
 								
 								html += '</div>';
 								break;
