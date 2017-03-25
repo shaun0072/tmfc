@@ -381,7 +381,7 @@ function Tank(tid) {
 
 
 $('body').on('click', '.line', function() {
-	$('body').html('<div class="line1300">' +
+/* 	$('body').html('<div class="line1300">' +
 			'<div onclick="Tank(t1301)" class="tankSquare t1301"><span class="tankNum">1301</span><span class="applicationType">Cleaner</span></div>' +
 			'<div onclick="Tank(t1302)" class="tankSquare t1302"><span class="tankNum">1302</span><span class="applicationType">Electro-Cleaner</span></div>' +
 			'<a href="1303.html"><div class="tankSquare t1303"><span class="tankNum">1303</span><span class="applicationType">Rinse</span></div></a>' +
@@ -398,7 +398,10 @@ $('body').on('click', '.line', function() {
 			'<a href="1314.html"><div class="tankSquare t1314"><span class="tankNum">1314</span><span class="applicationType"></span></div></a>' +
 			'<a href="1315.html"><div class="tankSquare t1315"><span class="tankNum">1315</span><span class="applicationType">Rinse</div></a>' +
 			
-		'</div>')
+		'</div>') */
 	$('.line').css('color', 'red');
 })
 }
+$('.line').on('click', function() {
+	$('.line').css('color', 'red');
+})
