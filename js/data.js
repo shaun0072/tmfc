@@ -1404,7 +1404,138 @@ var t1313 = {
 		TDS            : []
 	},
 };
-
+var t131 = {
+	tmfcParameters : {
+		concentrations: {
+			"546-A"   : ["10", "% bv"],
+			"546-B"   : ["1", "% bv"],
+		},
+		lineNumber         : 1312,
+		applicationType    : "Trivalent Yellow Chromate",
+		temp               : "70 - 90°F",
+		pH                 : "1.8 - 2.1",
+		immersion          : "30 - 90 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Steel",
+		coilType       : "",
+		agitationLevel : "High - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : ["546 Yellow TDS.pdf"]
+	},
+	makeup : {
+		date : new Date("August 1, 2016"),
+		components: [
+			{
+			component  : "Accu-Labs 546-A",
+			unit       : "% bv",
+			makeupAt   : "10",
+			amount     : "gal"
+			},
+			{
+			component  : "Accu-Labs 546-B",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "gal"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"546-A" : 10.23, 
+			"546-B" : 1.2,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			},
+			pH : {
+				"8:00AM" : 1.96,
+			}
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"546-A" : [2000, "mls"],
+				"546-B" : [300, "mls"],
+			}
+		},
+	],
+	
+};
+var t1314 = {
+	tmfcParameters : {
+		lineNumber         : 1314,
+		applicationType    : "Seal",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : []
+	},
+};
+var t1315 = {
+	tmfcParameters : {
+		concentrations: {
+			"546-A"   : ["10", "% bv"],
+		},
+		lineNumber         : 1315,
+		applicationType    : "Trivalent Yellow Chromate",
+		temp               : "70 - 90°F",
+		pH                 : "1.8 - 2.1",
+		immersion          : "30 - 90 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Steel",
+		coilType       : "",
+		agitationLevel : "High - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : ["546 Yellow TDS.pdf"]
+	},
+	makeup : {
+		date : new Date("August 1, 2016"),
+		components: [
+			{
+			component  : "Accu-Labs 546-A",
+			unit       : "% bv",
+			makeupAt   : "10",
+			amount     : "gal"
+			},
+			{
+			component  : "Accu-Labs 546-B",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "gal"
+			},
+		]
+	},	
+};
 
 var t1701 = {
 	tmfcParameters : {

@@ -5832,7 +5832,138 @@ var t1313 = {
 		TDS            : []
 	},
 };
-
+var t131 = {
+	tmfcParameters : {
+		concentrations: {
+			"546-A"   : ["10", "% bv"],
+			"546-B"   : ["1", "% bv"],
+		},
+		lineNumber         : 1312,
+		applicationType    : "Trivalent Yellow Chromate",
+		temp               : "70 - 90°F",
+		pH                 : "1.8 - 2.1",
+		immersion          : "30 - 90 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Steel",
+		coilType       : "",
+		agitationLevel : "High - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : ["546 Yellow TDS.pdf"]
+	},
+	makeup : {
+		date : new Date("August 1, 2016"),
+		components: [
+			{
+			component  : "Accu-Labs 546-A",
+			unit       : "% bv",
+			makeupAt   : "10",
+			amount     : "gal"
+			},
+			{
+			component  : "Accu-Labs 546-B",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "gal"
+			},
+		]
+	},
+	analysis : [
+		{
+			date   : new Date("12/01/2016"),
+			"546-A" : 10.23, 
+			"546-B" : 1.2,
+			temp   : {
+				"8:00AM" : 144,
+				"11:30AM": 152,
+				"3:00PM" : 155
+			},
+			pH : {
+				"8:00AM" : 1.96,
+			}
+		},
+		
+	],
+	additions : [
+		{
+			date : new Date("12/03/2016"),
+			component : {
+				"546-A" : [2000, "mls"],
+				"546-B" : [300, "mls"],
+			}
+		},
+	],
+	
+};
+var t1314 = {
+	tmfcParameters : {
+		lineNumber         : 1314,
+		applicationType    : "Seal",
+		temp               : "Ambient",
+		immersion          : ">30 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "none",
+		heatMaterial   : "none",
+		coilType       : "none",
+		agitationLevel : "Mild - ",
+		agitationType  : "Air",
+		TDS            : []
+	},
+};
+var t1315 = {
+	tmfcParameters : {
+		concentrations: {
+			"546-A"   : ["10", "% bv"],
+		},
+		lineNumber         : 1315,
+		applicationType    : "Trivalent Yellow Chromate",
+		temp               : "70 - 90°F",
+		pH                 : "1.8 - 2.1",
+		immersion          : "30 - 90 sec",
+		tankSize           : {
+			lngth          : '\"',
+			width          : '"',
+			depth          : '"' + ' (sol. level)',
+			capacity       : " gallons"		
+		},
+		tankMaterial   : "",
+		heatMethod     : "Steam Boiler",
+		heatMaterial   : "Steel",
+		coilType       : "",
+		agitationLevel : "High - ",
+		agitationType  : "Low Pressure Air",
+		TDS            : ["546 Yellow TDS.pdf"]
+	},
+	makeup : {
+		date : new Date("August 1, 2016"),
+		components: [
+			{
+			component  : "Accu-Labs 546-A",
+			unit       : "% bv",
+			makeupAt   : "10",
+			amount     : "gal"
+			},
+			{
+			component  : "Accu-Labs 546-B",
+			unit       : "% bv",
+			makeupAt   : "1",
+			amount     : "gal"
+			},
+		]
+	},	
+};
 
 var t1701 = {
 	tmfcParameters : {
@@ -11304,6 +11435,7 @@ function Tank(tid) {
 			
 		/*PROCESS CONTROL SECTION*/
 			html += '<div class="process_control">';
+			html += '<a class="line" href="#"><div>Line</div></a>';
 			
 			/*TMFC CONTROL PARAMETERS*/
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -11339,7 +11471,7 @@ function Tank(tid) {
 					html += '<div class="data_records_cont">';
 					html += '<h3 class="data_records_title">Records</h3>';
 					html += '<ul class="data_records_list">';
-				
+					
 				
 					var stop;
 					/*LAB ANALYSIS BUTTON*/
@@ -11388,15 +11520,15 @@ function Tank(tid) {
 								html += 'Temp/pH Log';
 								html += '</li></a>';
 								html += '</ul>';
-								html += '</div>';
-								html += '</div>';
-								
-								html += '<a class="line" href="#"><div>Line</div></a>';
-								
-								html += '</div>';
+								html += '</div>';//End .data_records_cont
+								html += '</div>';//End .process_control
+								html += '</div>';//End .tank
 								break;
 							}
-						}
+						}//End for-loop for temp/pH
+								
+								
+								
 				}	
 			
 		/*MAKE-UP MODAL*/
@@ -11576,19 +11708,19 @@ $('body').on('click', '.line', function() {
 	$('body').html('<div class="line1300">' +
 			'<div onclick="Tank(t1301)" class="tankSquare t1301"><span class="tankNum">1301</span><span class="applicationType">Cleaner</span></div>' +
 			'<div onclick="Tank(t1302)" class="tankSquare t1302"><span class="tankNum">1302</span><span class="applicationType">Electro-Cleaner</span></div>' +
-			'<a href="1303.html"><div class="tankSquare t1303"><span class="tankNum">1303</span><span class="applicationType">Rinse</span></div></a>' +
-			'<a href="1304.html"><div class="tankSquare t1304"><span class="tankNum">1304</span><span class="applicationType">Acid Pickle</span></div></a>' +
-			'<a href="1305.html"><div class="tankSquare t1305"><span class="tankNum">1305</span><span class="applicationType">Rinse</span></div></a>' +
-			'<a href="1306.html"><div class="tankSquare t1306"><span class="tankNum">1306</span><span class="applicationType">Empty</span></div></a>' +
-			'<a href="1307.html"><div class="tankSquare t1307"><span class="tankNum">1307</span><span class="applicationType">Chloride Zinc Plating</span></div></a>' +
-			'<a href="1308.html"><div class="tankSquare t1308"><span class="tankNum">1308</span><span class="applicationType">Shuttle</span></div></a>' +
-			'<a href="1309.html"><div class="tankSquare t1309"><span class="tankNum">1309</span><span class="applicationType">Sour Dip/Rinse</span></div></a>' +
-			'<a href="1310.html"><div class="tankSquare t1310"><span class="tankNum">1310</span><span class="applicationType">Trivalent Clear Chromate</span></div></a>' +
-			'<a href="1311.html"><div class="tankSquare t1311"><span class="tankNum">1311</span><span class="applicationType">Rinse</span></div></a>' +
-			'<a href="1312.html"><div class="tankSquare t1312"><span class="tankNum">1312</span><span class="applicationType">Trivalent Yellow Chromate</span></div></a>' +
-			'<a href="1313.html"><div class="tankSquare t1313"><span class="tankNum">1313</span><span class="applicationType">Rinse</span></div></a>' +
-			'<a href="1314.html"><div class="tankSquare t1314"><span class="tankNum">1314</span><span class="applicationType"></span></div></a>' +
-			'<a href="1315.html"><div class="tankSquare t1315"><span class="tankNum">1315</span><span class="applicationType">Rinse</div></a>' +
+			'<div onclick="Tank(t1303)" class="tankSquare t1303"><span class="tankNum">1303</span><span class="applicationType">Rinse</span></div>' +
+			'<div onclick="Tank(t1304)" class="tankSquare t1304"><span class="tankNum">1304</span><span class="applicationType">Acid Pickle</span></div>' +
+			'<div onclick="Tank(t1305)" class="tankSquare t1305"><span class="tankNum">1305</span><span class="applicationType">Rinse</span></div>' +
+			'<div onclick="Tank(t1306)" class="tankSquare t1306"><span class="tankNum">1306</span><span class="applicationType">Empty</span></div>' +
+			'<div onclick="Tank(t1307)" class="tankSquare t1307"><span class="tankNum">1307</span><span class="applicationType">Chloride Zinc Plating</span></div>' +
+			'<div onclick="Tank(t1308)" class="tankSquare t1308"><span class="tankNum">1308</span><span class="applicationType">Shuttle</span></div>' +
+			'<div onclick="Tank(t1309)" class="tankSquare t1309"><span class="tankNum">1309</span><span class="applicationType">Sour Dip/Rinse</span></div>' +
+			'<div onclick="Tank(t1310)" class="tankSquare t1310"><span class="tankNum">1310</span><span class="applicationType">Trivalent Clear Chromate</span></div>' +
+			'<div onclick="Tank(t1311)" class="tankSquare t1311"><span class="tankNum">1311</span><span class="applicationType">Rinse</span></div>' +
+			'<div onclick="Tank(t1312)" class="tankSquare t1312"><span class="tankNum">1312</span><span class="applicationType">Trivalent Yellow Chromate</span></div>' +
+			'<div onclick="Tank(t1313)" class="tankSquare t1313"><span class="tankNum">1313</span><span class="applicationType">Rinse</span></div>' +
+			'<div onclick="Tank(t1314)" class="tankSquare t1314"><span class="tankNum circleTank">1314</span><span class="applicationType">Yellow Seal</span></div>' +
+			'<div onclick="Tank(t1315)" class="tankSquare t1315"><span class="tankNum circleTank">1315</span><span class="applicationType">Clear Seal</span></div>' +
 			
 		'</div>')
 })

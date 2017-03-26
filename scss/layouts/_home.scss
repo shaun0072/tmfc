@@ -6,6 +6,7 @@ body {
 	border-bottom: 2px solid black; */
 	display: flex;
 	flex-wrap: wrap;
+	position: relative;
 }
 .tank_id {
 	flex-basis: 50%;
@@ -296,12 +297,12 @@ body {
 	height: 500px;
 	width: 90%;
 	max-width: 500px;
-	a {
-		color: white;
-		text-decoration: none;
-		text-align: center;
-		font-size: 0.6em;
-	}
+}
+.tankSquare {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	font-size: 0.6em;
 }
 .t1301 {
 	height: 65px;
@@ -389,6 +390,34 @@ body {
 	left: 0;
 	background: $rinse;
 	color: rgba(0,0,0,0.5);
+}
+.t1314 {
+	height: 50px;
+	top: 50px;
+	left: 0;
+	background: $seal;
+	color: rgba(0,0,0,0.5);
+	border-radius: 50%;
+	height: initial;
+	padding: 30px 0px;
+	.circleTank {
+		position: initial;
+		text-align: center;
+	}
+}
+.t1315 {
+	height: 50px;
+	top: -43px;
+	left: 0;
+	background: $seal;
+	color: rgba(0,0,0,0.5);
+	border-radius: 50%;
+	height: initial;
+	padding: 30px 0px;
+	.circleTank {
+		position: initial;	
+		text-align: center;
+	}
 }
 /******************900 LINE***********************/
 .line900 {	
@@ -709,7 +738,17 @@ body {
 		font-weight: bold;
 }
 .line {
-	padding: 50px;
+	width: 45px;
+	height: 40px;
+	line-height: 20px;
+	border-radius: 50%;
+	border: 2px solid black;
+	padding: 10px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	text-align: center;
+	font-size: .75em;
 }
 
 	
