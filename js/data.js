@@ -1491,7 +1491,6 @@ var t1314 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t1315 = {
