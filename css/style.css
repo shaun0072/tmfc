@@ -1241,7 +1241,11 @@ body {
   right: 10px;
   bottom: 10px;
   text-align: center;
-  font-size: .75em; }
+  font-size: .75em;
+  cursor: pointer; }
+
+.backToTank {
+  cursor: pointer; }
 
 .test {
   width: 500px; }
