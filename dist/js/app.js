@@ -11434,7 +11434,7 @@ function Tank(tid) {
 			
 		/*PROCESS CONTROL SECTION*/
 			html += '<div class="process_control">';
-			html += '<a class="line"><div>Line</div></a>';
+			html += '<div class="line">Line</div>';
 			
 			/*TMFC CONTROL PARAMETERS*/
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -11732,9 +11732,6 @@ function Tank(tid) {
 				$('.test_btns_container').append(buttonHTML);
 			}
 			$('.test_btns_container button:first-of-type').addClass('active');
-			console.log(tid);
-			console.log(nameHolder[0]);
-			console.log(tid.tmfcParameters.concentrations[nameHolder[0]][1]);
 			createChart(tid, nameHolder[0], tid.tmfcParameters.concentrations[nameHolder[0]][1].replace(/\s+/g, ''));
 		})
 	}
