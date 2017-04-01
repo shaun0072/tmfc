@@ -982,7 +982,6 @@ var t1303 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : [""]
 	},
 };
 var t1304 = {
@@ -6366,13 +6365,13 @@ var t804 = {
 		date : new Date("January 9, 2016"),
 		components: [
 			{
-			component  : "Bonderite M-MN LUBRITE 2",
+			component  : "M-MN LUBRITE 2",
 			unit       : "%",
 			makeupAt   : "12",
 			amount     : "gallons",
 			},
 			{
-			component  : "Bonderite M-AD 10",
+			component  : "M-AD 10",
 			unit       : "%",
 			makeupAt   : "0.3",
 			amount     : "gallons",
@@ -6461,7 +6460,7 @@ var t806 = {
 var t807 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Bonderite L-GP 5800" : ["8.0 - 11.0", '%'],
+			"L-GP 5800" : ["8.0 - 11.0", '%'],
 		},
 		lineNumber     : 807,
 		applicationType: "Rust Preventative",
@@ -6486,7 +6485,7 @@ var t807 = {
 		date : new Date("January 9, 2016"),
 		components: [
 			{
-			component  : "Bonderite L-GP 5800",
+			component  : "L-GP 5800",
 			unit       : "%",
 			makeupAt   : "9",
 			amount     : "gallons",
@@ -6496,7 +6495,7 @@ var t807 = {
 	analysis : [
 		{
 			date : new Date("11/03/2016"),
-			"Refractometer"  : 9.0,
+			"L-GP 5800"  : 9.0,
 		},
 	],	
 };

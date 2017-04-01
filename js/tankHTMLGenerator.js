@@ -382,36 +382,42 @@ function Tank(tid) {
 
 
 	$('body').on('click', '.line', function() {	
-		$('.tank').remove();
+		$('.tank, div[class^="remodal"').remove();
+		$('svg').remove();
 		$('.thisLine').css('display', 'block');
 	})
 	
 	/*LOAD DYNAMIC CHART*/
-	$('body').on('click', '.labAnalysis',function() {
-		$('.chartBody, .backToTank, .wrapper').remove();
-		$('body').css('background-image', '-webkit-linear-gradient(top, #edecec, #cecbc9)')
-		var buttonHTML, 
-			thisLineNumber = tid.tmfcParameters.lineNumber,
-			html = '<div class="chartBody">' +
-							'<div class="chartWrapper" style="min-height:215px;width: 100%;">' +
-								'<canvas id="canvas"></canvas>' +
-							'</div>' +
-							'<div class="btns_section">' +
-								'<div class="add_remove_btns_container buttonHolder"></div> ' +			
-								'<div class="test_btns_container"></div>' +
-							'</div>' +
-						'</div>';
-		$('body').append(html);			
-		for(var i=0; i<nameHolder.length; i++) { //Add buttons to html variable
-			var thisComponent = nameHolder[i],
-				thisUnit = tid.tmfcParameters.concentrations[nameHolder[i]][1].replace(/\s+/g, '');
-			buttonHTML = '<button onclick="createChart(t' + lineNumber + ", '" + thisComponent + "', '" + thisUnit + "')\">" + thisComponent + '</button>';
-			console.log(buttonHTML);
-			$('.test_btns_container').append(buttonHTML);
-		}
-		$('.test_btns_container button:first-of-type').addClass('active');
-		createChart(tid, nameHolder[0], tid.tmfcParameters.concentrations[nameHolder[0]][1].replace(/\s+/g, ''));
-	})
+	if(tid.analysis) {
+		$('body').on('click', '.labAnalysis',function() {
+			$('.chartBody, .backToTank, .wrapper').remove();
+			$('body').css('background-image', '-webkit-linear-gradient(top, #edecec, #cecbc9)')
+			var buttonHTML, 
+				thisLineNumber = tid.tmfcParameters.lineNumber,
+				html = '<div class="chartBody">' +
+								'<div class="chartWrapper" style="min-height:215px;width: 100%;">' +
+									'<canvas id="canvas"></canvas>' +
+								'</div>' +
+								'<div class="btns_section">' +
+									'<div class="add_remove_btns_container buttonHolder"></div> ' +			
+									'<div class="test_btns_container"></div>' +
+								'</div>' +
+							'</div>';
+			$('body').append(html);			
+			for(var i=0; i<nameHolder.length; i++) { //Add buttons to html variable
+				var thisComponent = nameHolder[i],
+					thisUnit = tid.tmfcParameters.concentrations[nameHolder[i]][1].replace(/\s+/g, '');
+				buttonHTML = '<button onclick="createChart(t' + lineNumber + ", '" + thisComponent + "', '" + thisUnit + "')\">" + thisComponent + '</button>';
+				$('.test_btns_container').append(buttonHTML);
+			}
+			$('.test_btns_container button:first-of-type').addClass('active');
+			console.log(tid);
+			console.log(nameHolder[0]);
+			console.log(tid.tmfcParameters.concentrations[nameHolder[0]][1]);
+			createChart(tid, nameHolder[0], tid.tmfcParameters.concentrations[nameHolder[0]][1].replace(/\s+/g, ''));
+		})
+	}
+	
 	
 	
 	$('body').on('click', '.backToTank', function() {	
