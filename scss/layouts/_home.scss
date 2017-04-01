@@ -39,7 +39,7 @@ body {
 .process_control{
 	margin: 30px 0;
 	padding: 50px 25px;
-	max-width: 50%;
+	max-width: 400px;
 	h3 {
 		margin: 0;
 		padding: 0;
@@ -61,6 +61,7 @@ body {
 	vertical-align: middle;
 }
 .data_records_list li {
+	max-width: 182px;
 	padding: 5px 10px 5px 28px;
 	border-radius: 11px;
 	margin: 9px 0;
@@ -738,18 +739,20 @@ body {
 		color: tomato;
 		font-weight: bold;
 }
-div.line {
+.line {
 	width: 45px;
 	height: 40px;
 	line-height: 20px;
 	border-radius: 50%;
 	border: 2px solid black;
+	position: absolute;
 	padding: 10px;
 	right: 10px;
 	bottom: 10px;
 	text-align: center;
 	font-size: .75em;
 	cursor: pointer;
+	z-index: 1000;
 }
 .backToTank {
 	cursor: pointer;
