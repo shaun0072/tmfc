@@ -39,4 +39,26 @@
 
 </body>
 
+<body class="chartBody" onload="createChart(t1301, 'SSP-140', 'oz/gal')">
+
+    <div class="chartWrapper" style="min-height:215px;width: 100%;">
+        <canvas id="canvas"></canvas>
+    </div>
+	
+	<div class="btns_section">
+		<div class="add_remove_btns_container buttonHolder">
+			
+		</div>  
+	
+		<div class="test_btns_container">
+		   <button class="active" onclick="createChart(t1301, 'SSP-140', 'oz/gal')">SSP-140</button>
+		   <button onclick="createChart(t1301, 'Activity', '%')">Act</button>
+		   <button onclick="createChart(t1301, 'Saturation', '%')">Sat</button>
+		</div>		 
+    </div>
+
+	<script  type="text/javascript" src="dist/js/app.js"></script>
+
+</body>
+
 </html>

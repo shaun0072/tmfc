@@ -21,14 +21,16 @@ function insertTableData(date, testResult, unit, timeSpan) {
 			tableData +=		testResult[i];
 			tableData +=	  '</div>';
 			tableData +=	'</div>';
-						
+			
 			$('.table').append(tableData);				
-		}		
+		}
 	}
 }
 
 /*GENERATE CHART OBJECT CONSTRUCTOR*/
 function MakeChart(tankNumber, testName, unit) {
+$('.tank').css('display', 'none')
+	
 	this.date = [];
 	this.testResult = [];
 	this.tankNumber = tankNumber;
@@ -167,7 +169,7 @@ function MakeChart(tankNumber, testName, unit) {
 				}
 			}
 		};
-	console.log();
+
 	/*ASSIGN TANK DATA TO DATE/TESTRESULT ARRAYS*/
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
 		this.date.push(this.analysis[i].date);         
@@ -238,12 +240,12 @@ function MakeChart(tankNumber, testName, unit) {
 		var ctx = document.getElementById("canvas").getContext("2d");
 		window.myLineChart = Chart.Line(ctx, chartOptions)
 	};
-
+	$('.wrapper').append( '<div class="backToTank">Tank</div>');
 	loadChart();
 } //End MakeChart()
 
 /*ADD/REMOVE ACTIVE CLASS FOR TABLE TABS*/
-$('.test_btns_container').on('click', 'button', function() {
+$('body').on('click', '.test_btns_container button', function() {
 	$('.test_btns_container button').removeClass('active');
 	$(this).addClass('active');
 })
