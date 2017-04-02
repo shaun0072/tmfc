@@ -113,7 +113,7 @@ function Tank(tid) {
 			
 		/*PROCESS CONTROL SECTION*/
 			html += '<div class="process_control">';
-			html += '<a class="line" href=""><div>Line</div></a>';
+			html += '<a class="line"><div>Line</div></a>';
 			
 			/*TMFC CONTROL PARAMETERS*/
 				html += '<div class="tmfc_control_parameters_cont">';
