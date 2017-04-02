@@ -109,7 +109,7 @@ $('.tank').css('display', 'none')
 	$('#moBtn, #qtrBtn, #yrBtn' ).remove();	//Remove existing buttons when new btn is selected
 	$('.add_remove_btns_container').append(moBtn, qtrBtn, yrBtn); //Add new btns
 	$('.wrapper').remove();
-	$('body').append(tableHeader);
+	$('body').append(tableHeader).hide().fadeIn();
 	var lineChartData = {
 			datasets: [{
 				fill: false,

@@ -247,7 +247,7 @@ function Tank(tid) {
 			html += '</div>';		
 		html += '</div>';
 	
-	$('body').append(html);
+	$('body').append(html).hide().fadeIn();
 
 	/****ADD TDS's*****/
 	/*NEW TDS MODAL SETUP*/

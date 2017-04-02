@@ -21,7 +21,7 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		  tableHeader += '</div>'; //close wrapper	
 		  
 	$('.wrapper').remove(); 
-	$('body').append(tableHeader);
+	$('body').append(tableHeader).hide().fadeIn();
 	/*ASSIGN BG COLOR TO TABLE HEADER*/
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
 			$('.row.header, .test_btns_container button').addClass('electroPlating');

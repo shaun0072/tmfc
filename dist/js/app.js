@@ -11566,7 +11566,7 @@ function Tank(tid) {
 			html += '</div>';		
 		html += '</div>';
 	
-	$('body').append(html);
+	$('body').append(html).hide().fadeIn();
 
 	/****ADD TDS's*****/
 	/*NEW TDS MODAL SETUP*/
@@ -11935,7 +11935,7 @@ $('.tank').css('display', 'none')
 	$('#moBtn, #qtrBtn, #yrBtn' ).remove();	//Remove existing buttons when new btn is selected
 	$('.add_remove_btns_container').append(moBtn, qtrBtn, yrBtn); //Add new btns
 	$('.wrapper').remove();
-	$('body').append(tableHeader);
+	$('body').append(tableHeader).hide().fadeIn();
 	var lineChartData = {
 			datasets: [{
 				fill: false,
@@ -12100,7 +12100,7 @@ $('.tank').css('display', 'none')
 		  tableHeader +=	'</table>', //close table
 		  tableHeader += '</div>'; //close wrapper	
 	$('.wrapper').remove(); 
-	$('body').append(tableHeader);
+	$('body').append(tableHeader).hide().fadeIn();
 	
 	/*ASSIGN BG COLOR TO TABLE HEADER*/
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
@@ -12176,7 +12176,7 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		  tableHeader += '</div>'; //close wrapper	
 		  
 	$('.wrapper').remove(); 
-	$('body').append(tableHeader);
+	$('body').append(tableHeader).hide().fadeIn();
 	/*ASSIGN BG COLOR TO TABLE HEADER*/
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
 			$('.row.header, .test_btns_container button').addClass('electroPlating');

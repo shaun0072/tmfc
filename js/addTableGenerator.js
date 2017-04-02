@@ -18,7 +18,7 @@ $('.tank').css('display', 'none')
 		  tableHeader +=	'</table>', //close table
 		  tableHeader += '</div>'; //close wrapper	
 	$('.wrapper').remove(); 
-	$('body').append(tableHeader);
+	$('body').append(tableHeader).hide().fadeIn();
 	
 	/*ASSIGN BG COLOR TO TABLE HEADER*/
 	if(tank.tmfcParameters.applicationType === "Electro-Plating") {
