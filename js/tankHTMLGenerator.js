@@ -113,7 +113,7 @@ function Tank(tid) {
 			
 		/*PROCESS CONTROL SECTION*/
 			html += '<div class="process_control">';
-			html += '<a class="line"><div>Line</div></a>';
+			html += '<a class="line" href=""><div>Line</div></a>';
 			
 			/*TMFC CONTROL PARAMETERS*/
 				html += '<div class="tmfc_control_parameters_cont">';
@@ -170,14 +170,12 @@ function Tank(tid) {
 					/*CHEMICAL ADDITIONS*/	
 						for(i = 0; i < tid.analysis.length; i++) { //Cycle through analysis objects
 							if(tid.analysis[i].additions) { 
-								html += '<a href ="';
-								html += this.lineNumber;
-								html += 'add.html"><li>';
+								html += '<li class="additions">';
 								html += '<svg>';
 									html += '<use xlink:href="#record-keeping-icon"></use>';
 								html += '</svg>';
 								html += 'Chemical Additions Log';
-								html += '</li></a>';	
+								html += '</li>';	
 								break;
 							}
 						}
@@ -445,6 +443,39 @@ function Tank(tid) {
 			}
 			$('.test_btns_container button:first-of-type').addClass('active');
 			createtempPhTable(tid, 'temp', '°F');
+		})
+	}
+	
+	/*LOAD DYNAMIC ADD TABLES*/
+	if(tid.analysis) {
+		$('body').on('click', '.additions',function() {
+			$('body').css('background-image', '-webkit-linear-gradient(top, #edecec, #cecbc9)');
+			var buttonHTML, 
+				  html = '<div class="btns_section">' +		
+									'<div class="test_btns_container"></div>' +
+								'</div>' +
+							  '</div>';
+			$('body').append(html);
+			var nameHolder = [],
+				  unitHolder = [];
+			for(var i=0; i<tid.analysis.length; i++) { //Cycle over analysis array
+				for(var key in tid.analysis[i]) { //Cycle through keys in analysis object
+					if(tid.analysis[i].hasOwnProperty(key) && key === 'additions') { //If key equals additions
+						for(var additionskey in tid.analysis[i].additions) { //Cycle through keys in additions object
+							if($.inArray(additionskey, nameHolder) === -1) { //If key is not in nameHolder array
+								nameHolder.push(additionskey);
+								unitHolder.push(tid.analysis[i].additions[additionskey][1]);
+								var component = additionskey,
+									  unit = tid.analysis[i].additions[additionskey][1].replace(/\s+/g, '');
+								buttonHTML = ' <button onclick="createAddTable(t' + lineNumber + ', \'' + component + '\', \'' + unit + '\')">' + component + '</button>';
+								$('.test_btns_container').append(buttonHTML);
+							}		
+						} 			
+					}
+				}
+			}
+			$('.test_btns_container button:first-of-type').addClass('active');
+			createAddTable(tid, nameHolder[0], unitHolder[0]);
 		})
 	}
 	

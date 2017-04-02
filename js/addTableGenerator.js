@@ -1,7 +1,7 @@
 var numberOfAdds;
 	  
 function AdditionsTable(tank, component, unit) {
-
+$('.tank').css('display', 'none')
 	this.component = component;
 	this.unit      = unit;
 	
@@ -62,7 +62,7 @@ function AdditionsTable(tank, component, unit) {
 			}		
 		}	
 	}
-	
+	$('.wrapper').append( '<div class="backToTank">Tank</div>');
 }//End AdditionsTable()  
 	  
 function createAddTable(tankNumber, component, unit) {
