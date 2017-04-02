@@ -1,8 +1,7 @@
 var temppH;
 var headerUnit;
 function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
-
-	
+	$('.tank').css('display', 'none')
 	this.reading = reading;
 	this.unit    = unit;
 
@@ -43,14 +42,12 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		}
 
 	if(reading === "temp") {
-		console.log("fitst temo");	
 		headerUnit = "Temperature (°F)";
 	} else {
 		console.log("other");	
 		headerUnit = 'pH';
 	}
 	$('.reading').append(headerUnit);
-	console.log(reading);
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
 		
 		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
@@ -76,7 +73,7 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 			$('.table').append(tableData);
 		}
 	}  
-
+	$('.wrapper').append( '<div class="backToTank">Tank</div>');
 }	  
 	  
 function createtempPhTable(tankNumber, reading, unit) {

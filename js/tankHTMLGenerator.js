@@ -186,14 +186,12 @@ function Tank(tid) {
 					/*TEMP/PH LOG*/
 						for(i = 0; i < tid.analysis.length; i++) {
 							if(tid.analysis[i].temp || tid.analysis[i].pH) {
-								html += '<a href="';
-								html += this.lineNumber;
-								html += 'tempph.html"><li>';
+								html += '<li class="tempPh">';
 								html += '<svg>';
 								html += '<use xlink:href="#record-keeping-icon"></use>';
 								html += '</svg>';
 								html += 'Temp/pH Log';
-								html += '</li></a>';
+								html += '</li>';
 								html += '</ul>';
 								html += '</div>';//End .data_records_cont
 								html += '</div>';//End .process_control
@@ -415,10 +413,43 @@ function Tank(tid) {
 		})
 	}
 	
-	
+	/*LOAD DYNAMIC TEMP/PH TABLES*/
+	if(tid.analysis) {
+		$('body').on('click', '.tempPh',function() {
+			$('body').css('background-image', '-webkit-linear-gradient(top, #edecec, #cecbc9)');
+			var buttonHTML, 
+				  html = '<div class="btns_section">' +		
+									'<div class="test_btns_container"></div>' +
+								'</div>' +
+							  '</div>';
+			$('body').append(html);			
+			for(var i=0; i<tid.analysis.length; i++) { //Cycle over analysis array
+				for(var key in tid.analysis[i]) { //Cycle through keys in analysis object
+					if(tid.analysis[i].hasOwnProperty(key) && key === 'temp') {
+						buttonHTML = '<button onclick="createtempPhTable(t' + lineNumber + ', \'temp\', \' °F\')">Temperature</button>';
+						$('.test_btns_container').append(buttonHTML);
+						i = tid.analysis.length;
+						break;			
+					}
+				}
+			}
+			for(var x=0; x<tid.analysis.length; x++) { //Cycle over analysis array
+				for(var key in tid.analysis[x]) { //Cycle through keys in analysis object
+					if(tid.analysis[x].hasOwnProperty(key) && key === 'pH') {
+						buttonHTML = '<button onclick="createtempPhTable(t' + lineNumber + ', \'pH\', \'\')">pH</button>';
+						$('.test_btns_container').append(buttonHTML);
+						x = tid.analysis.length;
+						break;			
+					}
+				}
+			}
+			$('.test_btns_container button:first-of-type').addClass('active');
+			createtempPhTable(tid, 'temp', '°F');
+		})
+	}
 	
 	$('body').on('click', '.backToTank', function() {	
-		$('.chartBody, .backToTank, .wrapper').remove();
+		$('.chartBody, .backToTank, .wrapper, .btns_section').remove();
 		$('.tank').css('display', 'block');
 	})
 	

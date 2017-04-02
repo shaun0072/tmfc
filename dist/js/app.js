@@ -9663,7 +9663,7 @@ var t2504 = {
 var t2505 = {
 	tmfcParameters : {
 		concentrations     : {
-			"HP Acidsalt FLWET" : ["14 - 16", 'oz/gal']
+			"FLWET" : ["14 - 16", 'oz/gal']
 		},
 		lineNumber     : 2505,
 		applicationType: "Acid Pickle",
@@ -9727,7 +9727,7 @@ var t2507 = {
 	tmfcParameters : {
 		concentrations     : {
 			"Nickel Chloride" : ["27 - 32", 'oz/gal'],
-			"Hydrochloric Acid" : ["9 - 12", '%']
+			HCL : ["9 - 12", '%']
 			},
 		lineNumber     : 2507,
 		applicationType: "Nickel Strike",
@@ -9818,8 +9818,9 @@ var t2509 = {
 var t2510 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Zinc" : ["1.20 - 1.45", ' oz/gal'],
-			"Sodium Hydroxide" : ["14 - 19", " oz/gal"]
+			"Zinc"                           : ["1.20 - 1.45", ' oz/gal'],
+			"Sodium Hydroxide" : ["14 - 19", " oz/gal"],
+			"Nickel"                       : ["2500 - 4000", "ppm"]
 		},
 		lineNumber     : 2510,
 		applicationType: "Electro-Plating",
@@ -9860,8 +9861,9 @@ var t2510 = {
 	analysis : [
 		{
 			date : new Date("11/03/2016"),
-			"Zinc"  : 1.4,
-			"Sodium Hydroxide" : 16.0
+			"Zinc"                           : 1.4,
+			"Sodium Hydroxide" : 16.0,
+			"Nickel"                       : 3000
 		},
 	],	
 };
@@ -9910,7 +9912,7 @@ var t2512 = {
 var t2513 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Nitric Acid" : ["20 - 25", '%']
+			"Nitric" : ["20 - 25", '%']
 		},
 		lineNumber     : 2513,
 		applicationType: "Passivate",
@@ -9966,7 +9968,6 @@ var t2514 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2515 = {
@@ -9987,7 +9988,6 @@ var t2515 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2516 = {
@@ -10008,7 +10008,6 @@ var t2516 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2517 = {
@@ -10029,13 +10028,12 @@ var t2517 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2518 = {
 	tmfcParameters : {
 		concentrations     : {
-			"COLDIP NI-Z TRI BLUE 100" : ["14 - 16", '%']
+			"TRI BLUE 100" : ["3 - 8", '%']
 		},
 		lineNumber     : 2518,
 		applicationType: "Chromate",
@@ -10078,7 +10076,7 @@ var t2518 = {
 var t2519 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Nitric Acid" : ["20 - 25", '%'],
+			"Nitric" : ["20 - 25", '%'],
 			"Sodium DiChromate" : ["2 - 3", "% b/w"]
 		},
 		lineNumber     : 2519,
@@ -11507,14 +11505,12 @@ function Tank(tid) {
 					/*TEMP/PH LOG*/
 						for(i = 0; i < tid.analysis.length; i++) {
 							if(tid.analysis[i].temp || tid.analysis[i].pH) {
-								html += '<a href="';
-								html += this.lineNumber;
-								html += 'tempph.html"><li>';
+								html += '<li class="tempPh">';
 								html += '<svg>';
 								html += '<use xlink:href="#record-keeping-icon"></use>';
 								html += '</svg>';
 								html += 'Temp/pH Log';
-								html += '</li></a>';
+								html += '</li>';
 								html += '</ul>';
 								html += '</div>';//End .data_records_cont
 								html += '</div>';//End .process_control
@@ -11736,10 +11732,43 @@ function Tank(tid) {
 		})
 	}
 	
-	
+	/*LOAD DYNAMIC TEMP/PH TABLES*/
+	if(tid.analysis) {
+		$('body').on('click', '.tempPh',function() {
+			$('body').css('background-image', '-webkit-linear-gradient(top, #edecec, #cecbc9)');
+			var buttonHTML, 
+				  html = '<div class="btns_section">' +		
+									'<div class="test_btns_container"></div>' +
+								'</div>' +
+							  '</div>';
+			$('body').append(html);			
+			for(var i=0; i<tid.analysis.length; i++) { //Cycle over analysis array
+				for(var key in tid.analysis[i]) { //Cycle through keys in analysis object
+					if(tid.analysis[i].hasOwnProperty(key) && key === 'temp') {
+						buttonHTML = '<button onclick="createtempPhTable(t' + lineNumber + ', \'temp\', \' °F\')">Temperature</button>';
+						$('.test_btns_container').append(buttonHTML);
+						i = tid.analysis.length;
+						break;			
+					}
+				}
+			}
+			for(var x=0; x<tid.analysis.length; x++) { //Cycle over analysis array
+				for(var key in tid.analysis[x]) { //Cycle through keys in analysis object
+					if(tid.analysis[x].hasOwnProperty(key) && key === 'pH') {
+						buttonHTML = '<button onclick="createtempPhTable(t' + lineNumber + ', \'pH\', \'\')">pH</button>';
+						$('.test_btns_container').append(buttonHTML);
+						x = tid.analysis.length;
+						break;			
+					}
+				}
+			}
+			$('.test_btns_container button:first-of-type').addClass('active');
+			createtempPhTable(tid, 'temp', '°F');
+		})
+	}
 	
 	$('body').on('click', '.backToTank', function() {	
-		$('.chartBody, .backToTank, .wrapper').remove();
+		$('.chartBody, .backToTank, .wrapper, .btns_section').remove();
 		$('.tank').css('display', 'block');
 	})
 	
@@ -12096,8 +12125,7 @@ $('a[data-myModal-target]').on('click', function() {
 var temppH;
 var headerUnit;
 function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
-
-	
+	$('.tank').css('display', 'none')
 	this.reading = reading;
 	this.unit    = unit;
 
@@ -12138,14 +12166,12 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 		}
 
 	if(reading === "temp") {
-		console.log("fitst temo");	
 		headerUnit = "Temperature (°F)";
 	} else {
 		console.log("other");	
 		headerUnit = 'pH';
 	}
 	$('.reading').append(headerUnit);
-	console.log(reading);
 	for(var i = 0; i < tank.analysis.length; i++) { //Cycle through each object in analysis array
 		
 		for(var key in tank.analysis[i][this.reading]) { //Cycle through each key in the temp/pH object
@@ -12171,7 +12197,7 @@ function TempPhTable(tank, reading, unit) { //reading parameter = time or pH
 			$('.table').append(tableData);
 		}
 	}  
-
+	$('.wrapper').append( '<div class="backToTank">Tank</div>');
 }	  
 	  
 function createtempPhTable(tankNumber, reading, unit) {

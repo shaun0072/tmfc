@@ -5235,7 +5235,7 @@ var t2504 = {
 var t2505 = {
 	tmfcParameters : {
 		concentrations     : {
-			"HP Acidsalt FLWET" : ["14 - 16", 'oz/gal']
+			"FLWET" : ["14 - 16", 'oz/gal']
 		},
 		lineNumber     : 2505,
 		applicationType: "Acid Pickle",
@@ -5299,7 +5299,7 @@ var t2507 = {
 	tmfcParameters : {
 		concentrations     : {
 			"Nickel Chloride" : ["27 - 32", 'oz/gal'],
-			"Hydrochloric Acid" : ["9 - 12", '%']
+			HCL : ["9 - 12", '%']
 			},
 		lineNumber     : 2507,
 		applicationType: "Nickel Strike",
@@ -5390,8 +5390,9 @@ var t2509 = {
 var t2510 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Zinc" : ["1.20 - 1.45", ' oz/gal'],
-			"Sodium Hydroxide" : ["14 - 19", " oz/gal"]
+			"Zinc"                           : ["1.20 - 1.45", ' oz/gal'],
+			"Sodium Hydroxide" : ["14 - 19", " oz/gal"],
+			"Nickel"                       : ["2500 - 4000", "ppm"]
 		},
 		lineNumber     : 2510,
 		applicationType: "Electro-Plating",
@@ -5432,8 +5433,9 @@ var t2510 = {
 	analysis : [
 		{
 			date : new Date("11/03/2016"),
-			"Zinc"  : 1.4,
-			"Sodium Hydroxide" : 16.0
+			"Zinc"                           : 1.4,
+			"Sodium Hydroxide" : 16.0,
+			"Nickel"                       : 3000
 		},
 	],	
 };
@@ -5482,7 +5484,7 @@ var t2512 = {
 var t2513 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Nitric Acid" : ["20 - 25", '%']
+			"Nitric" : ["20 - 25", '%']
 		},
 		lineNumber     : 2513,
 		applicationType: "Passivate",
@@ -5538,7 +5540,6 @@ var t2514 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2515 = {
@@ -5559,7 +5560,6 @@ var t2515 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2516 = {
@@ -5580,7 +5580,6 @@ var t2516 = {
 		coilType       : "none",
 		agitationLevel : "",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2517 = {
@@ -5601,13 +5600,12 @@ var t2517 = {
 		coilType       : "none",
 		agitationLevel : "Mild - ",
 		agitationType  : "Air",
-		TDS            : []
 	},
 };
 var t2518 = {
 	tmfcParameters : {
 		concentrations     : {
-			"COLDIP NI-Z TRI BLUE 100" : ["14 - 16", '%']
+			"TRI BLUE 100" : ["3 - 8", '%']
 		},
 		lineNumber     : 2518,
 		applicationType: "Chromate",
@@ -5650,7 +5648,7 @@ var t2518 = {
 var t2519 = {
 	tmfcParameters : {
 		concentrations     : {
-			"Nitric Acid" : ["20 - 25", '%'],
+			"Nitric" : ["20 - 25", '%'],
 			"Sodium DiChromate" : ["2 - 3", "% b/w"]
 		},
 		lineNumber     : 2519,
