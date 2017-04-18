@@ -13,20 +13,26 @@
 	</head>
 	<body class="selectionPage">
 		
-		<div class="selectWrapper">
-
-			<select class="location">
-				<option value="" selected>Select Location</option>
-				<option value="tmfcBuidling1">Tulsa Metal Finishing</option>
-				<option value="aluminumHardcoat">Aluminum Hardcoat</option>
-				<option value="tulsaPlating">Tulsa Plating</option>
-			</select>
-			
-			<div class="lineNumbersHolder"></div>
-			
-			<button class="load">Load Line</button>
+		<table class="DataEntryTable">
+			<tr>
+				<th>Date</th>
+				<th>SSP-140</th>
+				<th>Activity</th>
+				<th>Saturation</th>
+				<th>Temps</th>
+				<th>Additions</th>		
+			</tr>
+			<tr>
+				<td><input type="text" name="Date"></td>
+				<td><input type="text" name="SSP-140"></td>
+				<td><input type="text" name="Activity"></td>
+				<td><input type="text" name="Saturation"></td>
+				<td><input type="text" name="Temps"></td>
+				<td><input type="text" name="Additions"></td>
+			</tr>
+		</table>
 		
-		</div>
+		<button class="submit">Submit</button>
 	
 	<script  type="text/javascript" src="dist/js/app.min.js"></script>
 	<script type="text/javascript" src="Remodal-1.1.0/dist/remodal.min.js"></script>	

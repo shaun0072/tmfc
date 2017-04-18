@@ -1,0 +1,56 @@
+table {
+    border: 1px solid black;
+	border-radius: 15px;
+}
+td {
+	padding:  5px 11px;
+    vertical-align: top;
+}
+input {
+	width: 50px;
+	padding: 3px 7px;
+	margin: 0 7px;
+	border-radius: 3px;
+	border: none;
+	background: lighten(#DCDCDC, 5%);
+	transition: all .1s;
+	&:focus {
+		transform: scale(1.05);
+		outline: none;
+		background: white;
+	}
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[name="Date"] {
+	width: 150px;
+}
+span {
+    display: inline-block;
+    width: 124px;
+    text-align: right;
+}
+span.addUnit {
+	text-align: left;
+}
+.submit {
+	height: 50px;
+	width: 100px;
+	color: white;
+	background: green;
+	border-radius: 5px;
+	margin: 10px;
+	opacity: 1;
+	transition: all .2s;
+	&:hover {
+		width: 125px;
+		opacity: 0.8
+	}
+}
+h1.form_heading {
+	text-align: left;
+	padding: 0 10px;
+}

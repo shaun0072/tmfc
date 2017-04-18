@@ -425,6 +425,13 @@ var t1301 = {
 			}
 		},
 		{
+			date : new Date("12/15/2016"),
+			"SSP-140": 6.61,
+			additions : {
+				"SSP-140" : [500, " lbs"],
+			}
+		},
+		{
 			date : new Date("10/3/2016"),
 			"SSP-140": 6.61,
 			"Activity"  : 94,
@@ -1073,7 +1080,6 @@ var t1307 = {
 			"Zinc"       : ["1.0 - 1.5", " oz/gal"],
 			"KCL"        : ["18 - 20", " oz/gal"],
 			"Boric"      : ["3.5 - 4.5", " oz/gal"],
-			"Carbonates" : ["<10", " oz/gal"],
 			"Iron"       : ["<10", " ppm"],
 			"Chromium"   : ["<10", " ppm"],
 			"Copper"     : ["<2", " ppm"],
@@ -1139,7 +1145,6 @@ var t1307 = {
 			Zinc       : 4.00, 
 			KCL        : 20.0,
 			Boric      : 4.5,
-			Carbonates : 2,
 			Iron       : 10,
 			Chromium   : 1.0,
 			Copper     : 1.0,
@@ -1149,7 +1154,8 @@ var t1307 = {
 				"3:00PM" : 81
 			},
 			additions : {
-				"Zinc Chloride" : [1, "gal"]
+				"Zinc Chloride" : [1, "gal"],
+				"KCL"                : [150, "lbs"]
 			}
 		},
 	],
@@ -4017,18 +4023,8 @@ var t1711 = {
 				"11:30AM": 2.25,
 				"3:00PM" : 2.30
 			},
-		},
-		
-	],
-	additions : [
-		{
-			date : new Date("12/03/2016"),
-			component : {
-				"Triton" : [50, "lbs"],
-			},
-		},
-	],
-	
+		},	
+	],	
 };
 var t1712 = {
 	tmfcParameters : {

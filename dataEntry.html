@@ -12,23 +12,20 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body class="selectionPage">
+		<input type="text" name="tankEntry"/><button class="loader">Load</button>
+		<h1 class="form_heading"></h1>
+		<table class="DataEntryTable">
+			<tr class="headerRow">
+				<th>Date</th>
+			</tr>
+			<tr class="dataRow">
+				<td><input type="text" name="Date"></td>
+			</tr>
+		</table>
 		
-		<div class="selectWrapper">
-
-			<select class="location">
-				<option value="" selected>Select Location</option>
-				<option value="tmfcBuidling1">Tulsa Metal Finishing</option>
-				<option value="aluminumHardcoat">Aluminum Hardcoat</option>
-				<option value="tulsaPlating">Tulsa Plating</option>
-			</select>
-			
-			<div class="lineNumbersHolder"></div>
-			
-			<button class="load">Load Line</button>
-		
-		</div>
+		<button class="submit">Submit</button>
 	
-	<script  type="text/javascript" src="dist/js/app.min.js"></script>
+	<script  type="text/javascript" src="dist/js/app.js"></script>
 	<script type="text/javascript" src="Remodal-1.1.0/dist/remodal.min.js"></script>	
 	</body>
 </html>

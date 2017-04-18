@@ -479,6 +479,11 @@ body {
 .data {
   font-size: 0.875em; }
 
+.test_btns_container button {
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 300; }
+
 .selectionPage {
   width: 100vw;
   background: #DCDCDC; }
@@ -522,7 +527,8 @@ body {
   /* 	border-top: 2px solid black;
 	border-bottom: 2px solid black; */
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  position: relative; }
 
 .tank_id {
   flex-basis: 50%;
@@ -549,7 +555,8 @@ body {
 
 .process_control {
   margin: 30px 0;
-  padding: 50px 0px; }
+  padding: 50px 25px;
+  max-width: 400px; }
   .process_control h3 {
     margin: 0;
     padding: 0;
@@ -568,6 +575,7 @@ body {
   vertical-align: middle; }
 
 .data_records_list li {
+  max-width: 182px;
   padding: 5px 10px 5px 28px;
   border-radius: 11px;
   margin: 9px 0;
@@ -793,11 +801,12 @@ body {
   height: 500px;
   width: 90%;
   max-width: 500px; }
-  .line1300 a {
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 0.6em; }
+
+.tankSquare {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.6em; }
 
 .t1301 {
   height: 65px;
@@ -885,6 +894,32 @@ body {
   left: 0;
   background: rgba(135, 206, 250, 0.5);
   color: rgba(0, 0, 0, 0.5); }
+
+.t1314 {
+  height: 50px;
+  top: 50px;
+  left: 0;
+  background: rgba(219, 216, 179, 0.8);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: initial;
+  padding: 30px 0px; }
+  .t1314 .circleTank {
+    position: initial;
+    text-align: center; }
+
+.t1315 {
+  height: 50px;
+  top: -43px;
+  left: 0;
+  background: rgba(219, 216, 179, 0.8);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: initial;
+  padding: 30px 0px; }
+  .t1315 .circleTank {
+    position: initial;
+    text-align: center; }
 
 /******************900 LINE***********************/
 .line900 {
@@ -1196,6 +1231,24 @@ body {
   color: tomato;
   font-weight: bold; }
 
+.line {
+  width: 45px;
+  height: 40px;
+  line-height: 20px;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: absolute;
+  padding: 10px;
+  right: 10px;
+  bottom: 10px;
+  text-align: center;
+  font-size: .75em;
+  cursor: pointer;
+  z-index: 1000; }
+
+.backToTank {
+  cursor: pointer; }
+
 .test {
   width: 500px; }
 
@@ -1208,7 +1261,9 @@ html {
   background-attachment: fixed; }
 
 .chartWrapper {
-  max-width: 700px; }
+  max-width: 700px;
+  /* background-image: url(../assets/img/chartBG.jpg); */
+  width: 70%; }
 
 canvas {
   max-height: 430px; }
@@ -1224,12 +1279,10 @@ button:focus {
   flex-wrap: wrap;
   justify-content: flex-start; }
   .btns_section .test_btns_container {
-    margin: 8px 0px 0 40px;
+    margin: 40px 0px 0 4px;
     font-size: 13px; }
   .btns_section .add_remove_btns_container {
-    margin-left: calc(100% - 123px); }
-    .btns_section .add_remove_btns_container .plus {
-      margin-left: 20px; }
+    margin-left: calc(100% - 259px); }
 
 .test_btns_container {
   display: flex; }
@@ -1241,18 +1294,29 @@ button:focus {
     .test_btns_container button:last-of-type {
       border-top-right-radius: 5px; }
 
+.chartTankNumber {
+  margin: 5px 0 0 31px;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: peru; }
+
 /********************Button Shit*****************************/
 .button {
-  background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-  background-image: linear-gradient(top, #f4f1ee, #fff);
-  border-radius: 50%;
-  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
-  position: relative;
-  height: 30px;
-  width: 30px;
-  padding: 0;
-  margin: 0;
+  /* 	background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+	background-image: linear-gradient(top, #f4f1ee, #fff);
+	border-radius: 50%;
+	box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	position: relative;
+	height: 30px;
+	width: 50px; */
+  background: #D0D0D0;
+  padding: 10px 25px;
+  margin: 5px;
   -webkit-transition: all .1s linear;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 10px 130px -40px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 10px 130px -40px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 10px 130px -40px rgba(0, 0, 0, 0.75);
   transition: all .1s linear; }
 
 .button:after {
@@ -1306,7 +1370,7 @@ button:focus {
   background: white !important; }
 
 .wrapper {
-  padding: 0 40px 0;
+  padding: 0 5px 0;
   max-width: 800px; }
 
 .table {
@@ -1315,10 +1379,10 @@ button:focus {
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   display: table;
-  font-family: "Helvetica Neue", Helvetica, Arial;
-  font-size: 14px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 300;
   color: #3b3b3b;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased; }

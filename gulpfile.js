@@ -28,7 +28,8 @@ gulp.task("concatScripts", function() {
 		'js/chartGenerator.js',
 		'js/addTableGenerator.js',
 		'js/myModal.js',
-		'js/tempPhGenerator.js'])
+		'js/tempPhGenerator.js',
+		'js/dataEntry.js'])
     .pipe(maps.init())
     .pipe(concat('app.js'))
     .pipe(maps.write('./'))
