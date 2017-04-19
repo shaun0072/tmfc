@@ -12234,6 +12234,7 @@ function createtempPhTable(tankNumber, reading, unit) {
 }
 var tankAnalysis,
 	  tankAnalysisArray,
+	  tank,
 	  entry = {}; //Create variable to hold object
 function getAnalyizedComponents() {
 	var analysisNameHolder = [];
@@ -12322,9 +12323,11 @@ function loadDataEntryTable() {
 		var analyzedComponents = getAnalyizedComponents();
 		for(var i=0; i < analyzedComponents.length; i++) {
 			var th = '<th>' + analyzedComponents[i] + '</th>',
-				  td;
+				  td,
+				  analyzedUnit = tank.tmfcParameters.concentrations[analyzedComponents[i]][1];
+				  console.log(analyzedUnit);
 			$('.headerRow').append(th);
-			td = '<td><input type="number" name="' + analyzedComponents[i] + '"></td>';		
+			td = '<td><input type="number" name="' + analyzedComponents[i] + '"><span class="addUnit">' + analyzedUnit + '</span></td>';		
 			$('.dataRow').append(td);
 		}
 	})();
@@ -12350,6 +12353,7 @@ $('.submit').on('click', function() {
 })
 $('.loader').on('click', function() {
 	tankAnalysis =  't' + $('input[name="tankEntry"]').val();
+	tank = eval(tankAnalysis);
 	tankAnalysisArray =  eval(tankAnalysis + '.analysis');
 	loadDataEntryTable();
 });
