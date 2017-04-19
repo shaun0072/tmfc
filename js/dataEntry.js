@@ -110,7 +110,7 @@ $('.submit').on('click', function() {
 	}
 	entry.additions = {};
 	for(var i=0; i < inputAdditions.length; i++) {
-		entry.additions[inputAdditions[i]] = [$('input[name="add' + inputAdditions[i] + '"]').val(), 'lbs'];
+		entry.additions[inputAdditions[i][0]] = [$('input[name="add' + inputAdditions[i][0] + '"]').val(), inputAdditions[i][1]];
 	}
 	console.log(entry);
 })
