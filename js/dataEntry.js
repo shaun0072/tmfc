@@ -66,7 +66,7 @@ function loadDataEntryTable() {
 		for(var key in tankAnalysisArray[i]) {
 			if(key === "pH") {
 				var th = '<th>pH</th>';
-				var td = '<td><table><tr><td><span class="tempLabel">8 : </span><input type="text" name="pH"></td></tr><tr><td><span class="tempLabel">11 : </span><input type="text" name="pH"></td></tr><tr><td><span class="tempLabel">3 : </span><input type="text" name="pH"></td></tr></table></td>';
+				var td = '<td><table><tr><td><span class="tempLabel">8 : </span><input type="text" name="pH8"></td></tr><tr><td><span class="tempLabel">11 : </span><input type="text" name="pH11"></td></tr><tr><td><span class="tempLabel">3 : </span><input type="text" name="pH3"></td></tr></table></td>';
 				$('.headerRow').append(th);
 				$('.dataRow').append(td);
 				break pHLoop1;
@@ -94,7 +94,6 @@ function loadDataEntryTable() {
 			var th = '<th>' + analyzedComponents[i] + '</th>',
 				  td,
 				  analyzedUnit = tank.tmfcParameters.concentrations[analyzedComponents[i]][1];
-				  console.log(analyzedUnit);
 			$('.headerRow').append(th);
 			td = '<td><input type="number" name="' + analyzedComponents[i] + '"><span class="addUnit">' + analyzedUnit + '</span></td>';		
 			$('.dataRow').append(td);
@@ -106,17 +105,65 @@ function loadDataEntryTable() {
 //TURN TABLE VALUES INTO OBJECT
 $('.submit').on('click', function() {
 	var inputDate = new Date($('input[name="Date"]').val()),
-		  inputTemps = {'8:00AM' : $('input[name="Temp8"]').val(), '11:00AM' : $('input[name="Temp11"]').val(), '3:00PM' : $('input[name="Temp3"]').val()},
+		  inputTemps = {},
+		  inputpH = {},
 		  inputAnalysis = getAnalyizedComponents(),
 		  inputAdditions = getAdditionsComponents();
-	entry.date = inputDate;
-	entry.temps = inputTemps;
-	for(var i=0; i < inputAnalysis.length; i++) {
-		entry[inputAnalysis[i]] = $('input[name="' + inputAnalysis[i] + '"]').val();
+	function hasInputValue(inputValue) {
+		if(inputValue !== '') {
+			if(inputValue !== undefined) {
+				return true
+			} else {
+				return false
+			}
+		}
 	}
+	entry.date = inputDate;
+	for(var i=0; i < inputAnalysis.length; i++) {
+		if($('input[name="' + inputAnalysis[i] + '"]').val() !== "") {
+			entry[inputAnalysis[i]] = $('input[name="' + inputAnalysis[i] + '"]').val();
+		}	
+	}
+	if(hasInputValue($('input[name="Temp8"]').val())) {
+		inputTemps['8:00AM'] = $('input[name="Temp8"]').val();
+	}
+	if(hasInputValue($('input[name="Temp11"]').val())) {
+		inputTemps['11:00AM'] = $('input[name="Temp11"]').val();
+	}
+	if(hasInputValue($('input[name="Temp3"]').val())) {
+		inputTemps['3:00PM'] = $('input[name="Temp3"]').val();
+	}
+	if($('input[name="pH8"]').val() !== '') {
+		if($('input[name="pH8"]').val() !== undefined) {
+			inputpH['8:00AM'] = $('input[name="pH8"]').val();
+		}
+	}
+	if($('input[name="pH11"]').val() !== '') {
+		if($('input[name="pH11"]').val() !== undefined) {
+			inputpH['11:00AM'] = $('input[name="pH11"]').val();
+		}
+	}
+	if($('input[name="pH3"]').val() !== '') {
+		if($('input[name="pH3"]').val() !== undefined) {
+			inputpH['3:00PM'] = $('input[name="pH3"]').val();
+		}
+	}
+	entry.temps = inputTemps;
+	entry.pH = inputpH;
 	entry.additions = {};
 	for(var i=0; i < inputAdditions.length; i++) {
-		entry.additions[inputAdditions[i][0]] = [$('input[name="add' + inputAdditions[i][0] + '"]').val(), inputAdditions[i][1]];
+		if($('input[name="add' + inputAdditions[i][0] + '"]').val() !== '') {
+			entry.additions[inputAdditions[i][0]] = [$('input[name="add' + inputAdditions[i][0] + '"]').val(), inputAdditions[i][1]];
+		}
+	}
+	if($.isEmptyObject(entry.additions)) {
+		delete entry.additions;
+	}
+	if($.isEmptyObject(entry.temps)) {
+		delete entry.temps;
+	}
+	if($.isEmptyObject(entry.pH)) {
+		delete entry.pH;
 	}
 	console.log(entry);
 })
