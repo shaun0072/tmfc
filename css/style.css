@@ -1400,11 +1400,19 @@ input[name="Date"] {
 
 span {
   display: inline-block;
-  width: 124px;
+  width: 75px;
   text-align: right; }
 
+span.addComponent {
+  font-size: 12px; }
+
 span.addUnit {
-  text-align: left; }
+  text-align: left;
+  font-size: 10px;
+  width: 22px; }
+
+span.tempLabel {
+  width: 30px; }
 
 .submit {
   height: 50px;

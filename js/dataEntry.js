@@ -46,12 +46,15 @@ function loadDataEntryTable() {
 	$('.form_heading').html('');
 	$('.form_heading').append(eval(tankAnalysis).tmfcParameters.lineNumber);
 	//GENERATE TABLE BASED ON SELECTED VALUE
+	//Date
+	$('.headerRow').append('<th>Date</th>');
+	$('.dataRow').append('<td><input type="text" name="Date"></td>');
 	//Temps
 	tempLoop1:  for(var i= 0; i < tankAnalysisArray.length; i++) {
 		for(var key in tankAnalysisArray[i]) {
 			if(key === "temp") {
 				var th = '<th>Temps</th>';
-				var td = '<td><table><tr><td><span>8 : </span><input type="text" name="Temp8"></td></tr><tr><td><span>11 : </span><input type="text" name="Temp11"></td></tr><tr><td><span>3 : </span><input type="text" name="Temp3"></td></tr></table></td>';
+				var td = '<td><table><tr><td><span class="tempLabel">8 : </span><input type="text" name="Temp8"></td></tr><tr><td><span class="tempLabel">11 : </span><input type="text" name="Temp11"></td></tr><tr><td><span class="tempLabel">3 : </span><input type="text" name="Temp3"></td></tr></table></td>';
 				$('.headerRow').append(th);
 				$('.dataRow').append(td);
 				break tempLoop1;
@@ -63,7 +66,7 @@ function loadDataEntryTable() {
 		for(var key in tankAnalysisArray[i]) {
 			if(key === "pH") {
 				var th = '<th>pH</th>';
-				var td = '<td><table><tr><td><span>8 : </span><input type="text" name="pH"></td></tr><tr><td><span>11 : </span><input type="text" name="pH"></td></tr><tr><td><span>3 : </span><input type="text" name="pH"></td></tr></table></td>';
+				var td = '<td><table><tr><td><span class="tempLabel">8 : </span><input type="text" name="pH"></td></tr><tr><td><span class="tempLabel">11 : </span><input type="text" name="pH"></td></tr><tr><td><span class="tempLabel">3 : </span><input type="text" name="pH"></td></tr></table></td>';
 				$('.headerRow').append(th);
 				$('.dataRow').append(td);
 				break pHLoop1;
@@ -80,7 +83,7 @@ function loadDataEntryTable() {
 		}
 		for(var i =0; i < additionsComponents.length; i++) { //Add Name and Input Field for each component
 				var td, span, input;
-				input = '<tr><td><span>' + additionsComponents[i][0] + '</span>' + '<input type="text" name="add' + additionsComponents[i][0] + '"><span class="addUnit">' + additionsComponents[i][1] + '</span></td></tr>';
+				input = '<tr><td><span class="addComponent">' + additionsComponents[i][0] + '</span>' + '<input type="text" name="add' + additionsComponents[i][0] + '"><span class="addUnit">' + additionsComponents[i][1] + '</span></td></tr>';
 				$('.additionsData').append(input);
 		}
 	})();
