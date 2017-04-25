@@ -4466,472 +4466,59 @@ var t1301 = {
 		]
 	},
 	analysis : [
-/*Week 50*/	
-		{
-			date : new Date("12/15/2016"),
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-		{
-			date : new Date("12/14/2016"),
-			"SSP-140"   : 9.52,
-			"Activity"  : 85,
-			"Saturation": 45,
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-		{
-			date : new Date("12/13/2016"),
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-		{
-			date : new Date("12/12/2016"),
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-/*Week 49*/
-		{
-			date : new Date("12/8/2016"),
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-		{
-			date : new Date("12/7/2016"),
-			"SSP-140"  : 9.81,
-			"Activity"  : 85,
-			"Saturation": 40,
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-		{
-			date : new Date("12/6/2016"),
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-		{
-			date : new Date("12/5/2016"),
-			temp   : {
-				"8:00AM" : 131,
-				"11:30AM": 135,
-				"3:00PM" : 142
-			}
-		},
-/*Week 48*/
-		{
-			date : new Date("12/1/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/30/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/29/2016"),
-			"SSP-140"  : 10.5,
-			"Activity"  : 83,
-			"Saturation": 40,
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/28/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-/*Week 47*/
-		{
-			date : new Date("11/23/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/22/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/21/2016"),
-			"SSP-140"  : 10.80,
-			"Activity"  : 87,
-			"Saturation": 35,
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-/*Week 46*/		
-		{
-			date : new Date("11/17/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/16/2016"),
-			"SSP-140"  : 11.02,
-			"Activity"  : 88,
-			"Saturation": 35,
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/15/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-		{
-			date : new Date("11/14/2016"),
-			temp   : {
-				"8:00AM" : 143,
-				"11:30AM": 151,
-				"3:00PM" : 148
-			}
-		},
-/*Week 45*/
-		{
-			date : new Date("11/10/2016"),
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-		{
-			date : new Date("11/9/2016"),
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-		{
-			date : new Date("11/8/2016"),
-			"SSP-140"  : 10.64,
-			"Activity"  : 90,
-			"Saturation": 30,
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-		{
-			date : new Date("11/7/2016"),
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-/*Week 44*/
-		{
-			date : new Date("11/3/2016"),
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-		{
-			date : new Date("11/2/2016"),
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-		{
-			date : new Date("11/1/2016"),
-			"SSP-140"  : 10.91,
-			"Activity"  : 90,
-			"Saturation": 25,
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-		{
-			date : new Date("10/31/2016"),
-			temp   : {
-				"8:00AM" : 135,
-				"11:30AM": 162,
-				"3:00PM" : 158
-			}
-		},
-/*Week 43*/
-		{
-			date : new Date("10/27/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			}
-		},
-		{
-			date : new Date("10/26/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			}
-		},
-		{
-			date : new Date("10/25/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			}
-		},
-		{
-			date : new Date("10/24/2016"),
-			"SSP-140": 9.2,
-			"Activity"  : 89,
-			"Saturation": 20,
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			},
-			additions : {
-				"SSP-140" : [25, " lbs"],
-			}
-		},
-/*Week 42*/
-		{
-			date : new Date("10/20/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			}
-		},
-		{
-			date : new Date("10/19/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			}
-		},
-		{
-			date : new Date("10/18/2016"),
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			}
-		},
-		{
-			date : new Date("10/17/2016"),
-			"SSP-140": 9.8,
-			"Activity"  : 91,
-			"Saturation": 15,
-			temp   : {
-				"8:00AM" : 144,
-				"11:30AM": 155,
-				"3:00PM" : 161
-			},
-			additions : {
-				"SSP-140" : [25, " lbs"],
-			}
-		},
-/*Week 41*/
-		{
-			date : new Date("10/13/2016"),
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			}
-		},
-		{
-			date : new Date("10/12/2016"),
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			}
-		},
-		{
-			date : new Date("10/11/2016"),
-			"SSP-140": 8.13,
-			"Activity"  : 93,
-			"Saturation": 10,
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			},
-			additions : {
-				"SSP-140" : [100, " lbs"],
-			}
-		},
-		{
-			date : new Date("10/10/2016"),
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			}
-		},	
-/*Week 40*/
-		{
-			date : new Date("10/6/2016"),
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			}
-		},
-		{
-			date : new Date("10/5/2016"),
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			}
-		},
-		{
-			date : new Date("10/4/2016"),
-			temp   : {
-				"8:00AM" : 133,
-				"11:30AM": 135,
-				"3:00PM" : 140
-			}
-		},
-		{
-			date : new Date("12/15/2016"),
-			"SSP-140": 6.61,
-			additions : {
-				"SSP-140" : [500, " lbs"],
-			}
-		},
-		{
-			date : new Date("10/3/2016"),
-			"SSP-140": 6.61,
-			"Activity"  : 94,
-			"Saturation": 3,
-			temp   : {
-				"8:00AM" : 72,
-				"11:30AM": 77,
-				"3:00PM" : 81
-			},
-			additions : {
-				"SSP-140" : [100, " lbs"],
-			}
-		},
-/*3rd QUARTER*/	
-/*Week 39*/
-		{
-			date : new Date("9/1/2016"),
-			"SSP-140": 8.36,
-			"Activity"  : 86,
-			"Saturation": 40,
-			temp   : {
-				"8:00AM" : 72,
-				"11:30AM": 77,
-				"3:00PM" : 81
-			}
-		},
-		{
-			date : new Date("8/17/2016"),
-			"SSP-140": 9.5,
-			temp   : {
-				"8:00AM" : 72,
-				"11:30AM": 77,
-				"3:00PM" : 81
-			},
-			additions : {
-				"SSP-140" : [50, " lbs"],
-			}
-		},
-		{
-			date : new Date("8/9/2016"),
-			"SSP-140": 9.5,
-			temp   : {
-				"8:00AM" : 72,
-				"11:30AM": 77,
-				"3:00PM" : 81
-			},
-			additions : {
-				"SSP-140" : [15, " lbs"],
-			}
-		},
-		{
-			date : new Date("7/21/2016"),
-			"SSP-140": 10.41,
-			temp   : {
-				"8:00AM" : 72,
-				"11:30AM": 77,
-				"3:00PM" : 81
-			}
-		},
-		{
-			date : new Date("7/5/2016"),
-			"SSP-140": 8.22,
-			temp   : {
-				"8:00AM" : 72,
-				"11:30AM": 77,
-				"3:00PM" : 81
-			},
-			additions : {
-				"SSP-140" : [50, " lbs"],
-			}
-		},
-	],	
+		  {
+			"date": new Date("04/20/2017"),
+			"SSP-140": "10.0"
+		  },
+		  {
+			"date": new Date("04/14/2017"),
+			"SSP-140": "11.0"
+		  },
+		  {
+			"date": new Date("04/08/2017"),
+			"SSP-140": "10.5"
+		  },
+		  {
+			"date": "2017-03-29T05:00:00.000Z",
+			"SSP-140": "9.8"
+		  },
+		  {
+			"date": "2017-03-21T05:00:00.000Z",
+			"SSP-140": "10.2"
+		  },
+		  {
+			"date": "2017-03-14T05:00:00.000Z",
+			"SSP-140": "10.5"
+		  },
+		  {
+			"date": "2017-03-09T06:00:00.000Z",
+			"SSP-140": "11.3"
+		  },
+		  {
+			"date": "2017-03-01T06:00:00.000Z",
+			"SSP-140": "10.9"
+		  },
+		  {
+			"date": "2017-02-22T06:00:00.000Z",
+			"SSP-140": "10.4"
+		  },
+		  {
+			"date": "2017-02-14T06:00:00.000Z",
+			"SSP-140": "10.1"
+		  },
+		  {
+			"date": "2017-02-08T06:00:00.000Z",
+			"SSP-140": "9.6"
+		  },
+		  {
+			"date": "2017-02-02T06:00:00.000Z",
+			"SSP-140": "10.7"
+		  },
+		  {
+			"date": "2017-01-24T06:00:00.000Z",
+			"SSP-140": "11.0"
+		  }
+	],
 };
 var t1302 = {
 	tmfcParameters : {
@@ -6007,6 +5594,14 @@ var t1701 = {
 		]
 	},
 	analysis : [
+		{
+		  "date": new Date("04/22/2017"),
+		  "SSP-140": "12.2"
+		},
+		{
+		  "date": new Date("04/20/2017"),
+		  "SSP-140": "11.2"
+		},
 /*Week 50*/	
 		{
 			date : new Date("12/15/2016"),
@@ -12235,7 +11830,9 @@ function createtempPhTable(tankNumber, reading, unit) {
 var tankAnalysis,
 	  tankAnalysisArray,
 	  tank,
-	  entry = {}; //Create variable to hold object
+	  tableCounter = 0,
+	  entriesHolder = [],
+	  entry; 
 function getAnalyizedComponents() {
 	var analysisNameHolder = [];
 	for(var i= 0; i < tankAnalysisArray.length; i++) {
@@ -12272,25 +11869,34 @@ function getAdditionsComponents() {
 	}
 	return additionsNameHolder;
 }
+function  loadDETableHolder() {
+	tableCounter++;
+	var TableHolderHTML = '<table class="DataEntryTable' + tableCounter + '">' +
+												'<tr class="headerRow"></tr>' +
+												'<tr class="dataRow"></tr>' +
+											'</table>';
+	$('.selectionPage').append(TableHolderHTML);
+	loadDataEntryTable();
+}
 function loadDataEntryTable() {
+	//REMOVE PREVIOUS DATA
+	$('.form_heading').html('');
 	
 	//FORM TITLE (TANK NUMBER)
-	entry = {};
-	$('.headerRow, .dataRow').children().remove()
-	$('.form_heading').html('');
 	$('.form_heading').append(eval(tankAnalysis).tmfcParameters.lineNumber);
+	
 	//GENERATE TABLE BASED ON SELECTED VALUE
 	//Date
-	$('.headerRow').append('<th>Date</th>');
-	$('.dataRow').append('<td><input type="text" name="Date"></td>');
+	$('.DataEntryTable' + tableCounter + ' .headerRow').append('<th>Date</th>');
+	$('.DataEntryTable' + tableCounter + ' .dataRow').append('<td><input type="date" name="Date"></td>');
 	//Temps
 	tempLoop1:  for(var i= 0; i < tankAnalysisArray.length; i++) {
 		for(var key in tankAnalysisArray[i]) {
 			if(key === "temp") {
 				var th = '<th>Temps</th>';
 				var td = '<td><table><tr><td><span class="tempLabel">8 : </span><input type="text" name="Temp8"></td></tr><tr><td><span class="tempLabel">11 : </span><input type="text" name="Temp11"></td></tr><tr><td><span class="tempLabel">3 : </span><input type="text" name="Temp3"></td></tr></table></td>';
-				$('.headerRow').append(th);
-				$('.dataRow').append(td);
+				$('.DataEntryTable' + tableCounter + ' .headerRow').append(th);
+				$('.DataEntryTable' + tableCounter + ' .dataRow').append(td);
 				break tempLoop1;
 			}
 		}
@@ -12301,8 +11907,8 @@ function loadDataEntryTable() {
 			if(key === "pH") {
 				var th = '<th>pH</th>';
 				var td = '<td><table><tr><td><span class="tempLabel">8 : </span><input type="text" name="pH8"></td></tr><tr><td><span class="tempLabel">11 : </span><input type="text" name="pH11"></td></tr><tr><td><span class="tempLabel">3 : </span><input type="text" name="pH3"></td></tr></table></td>';
-				$('.headerRow').append(th);
-				$('.dataRow').append(td);
+				$('.DataEntryTable' + tableCounter + ' .headerRow').append(th);
+				$('.DataEntryTable' + tableCounter + ' .dataRow').append(td);
 				break pHLoop1;
 			}
 		}
@@ -12311,14 +11917,14 @@ function loadDataEntryTable() {
 	(function () {
 		var additionsComponents = getAdditionsComponents();
 		if(additionsComponents.length > 0) { //Add Table Header Once
-			$('.headerRow').append('<th>Additions</th>');
+			$('.DataEntryTable' + tableCounter + ' .headerRow').append('<th>Additions</th>');
 			td = '<td><table><tr class="additionsData"></tr></table></td>',
-			$('.dataRow').append(td);
+			$('.DataEntryTable' + tableCounter + ' .dataRow').append(td);
 		}
 		for(var i =0; i < additionsComponents.length; i++) { //Add Name and Input Field for each component
 				var td, span, input;
 				input = '<tr><td><span class="addComponent">' + additionsComponents[i][0] + '</span>' + '<input type="text" name="add' + additionsComponents[i][0] + '"><span class="addUnit">' + additionsComponents[i][1] + '</span></td></tr>';
-				$('.additionsData').append(input);
+				$('.DataEntryTable' + tableCounter + ' .additionsData').append(input);
 		}
 	})();
 	//Analysis'
@@ -12328,9 +11934,9 @@ function loadDataEntryTable() {
 			var th = '<th>' + analyzedComponents[i] + '</th>',
 				  td,
 				  analyzedUnit = tank.tmfcParameters.concentrations[analyzedComponents[i]][1];
-			$('.headerRow').append(th);
+			$('.DataEntryTable' + tableCounter + ' .headerRow').append(th);
 			td = '<td><input type="number" name="' + analyzedComponents[i] + '"><span class="addUnit">' + analyzedUnit + '</span></td>';		
-			$('.dataRow').append(td);
+			$('.DataEntryTable' + tableCounter + ' .dataRow').append(td);
 		}
 	})();
 }
@@ -12338,74 +11944,96 @@ function loadDataEntryTable() {
 
 //TURN TABLE VALUES INTO OBJECT
 $('.submit').on('click', function() {
-	var inputDate = new Date($('input[name="Date"]').val()),
-		  inputTemps = {},
-		  inputpH = {},
-		  inputAnalysis = getAnalyizedComponents(),
-		  inputAdditions = getAdditionsComponents();
-	function hasInputValue(inputValue) {
-		if(inputValue !== '') {
-			if(inputValue !== undefined) {
-				return true
-			} else {
-				return false
+	entriesHolder = [];
+	for(var x = 0; x < tableCounter; x++) {
+		entry = {};
+		var inputDate = new Date(moment($('.DataEntryTable' + (x + 1)  + ' input[name="Date"]').val()).format("L")),
+			  inputTemps = {},
+			  inputpH = {},
+			  inputAnalysis = getAnalyizedComponents(),
+			  inputAdditions = getAdditionsComponents();
+		function hasInputValue(inputValue) {
+			if(inputValue !== '') {
+				if(inputValue !== undefined) {
+					return true
+				} else {
+					return false
+				}
 			}
 		}
-	}
-	entry.date = inputDate;
-	for(var i=0; i < inputAnalysis.length; i++) {
-		if($('input[name="' + inputAnalysis[i] + '"]').val() !== "") {
-			entry[inputAnalysis[i]] = $('input[name="' + inputAnalysis[i] + '"]').val();
-		}	
-	}
-	if(hasInputValue($('input[name="Temp8"]').val())) {
-		inputTemps['8:00AM'] = $('input[name="Temp8"]').val();
-	}
-	if(hasInputValue($('input[name="Temp11"]').val())) {
-		inputTemps['11:00AM'] = $('input[name="Temp11"]').val();
-	}
-	if(hasInputValue($('input[name="Temp3"]').val())) {
-		inputTemps['3:00PM'] = $('input[name="Temp3"]').val();
-	}
-	if($('input[name="pH8"]').val() !== '') {
-		if($('input[name="pH8"]').val() !== undefined) {
-			inputpH['8:00AM'] = $('input[name="pH8"]').val();
+		entry.date = inputDate;
+		for(var i=0; i < inputAnalysis.length; i++) {
+			if($('.DataEntryTable' + (x + 1)  + ' input[name="' + inputAnalysis[i] + '"]').val() !== "") {
+				entry[inputAnalysis[i]] = $('.DataEntryTable' + (x + 1)  + ' input[name="' + inputAnalysis[i] + '"]').val();
+			}	
 		}
-	}
-	if($('input[name="pH11"]').val() !== '') {
-		if($('input[name="pH11"]').val() !== undefined) {
-			inputpH['11:00AM'] = $('input[name="pH11"]').val();
+		if(hasInputValue($('.DataEntryTable' + (x + 1)  + ' input[name="Temp8"]').val())) {
+			inputTemps['8:00AM'] = $('.DataEntryTable' + (x + 1)  + ' input[name="Temp8"]').val();
 		}
-	}
-	if($('input[name="pH3"]').val() !== '') {
-		if($('input[name="pH3"]').val() !== undefined) {
-			inputpH['3:00PM'] = $('input[name="pH3"]').val();
+		if(hasInputValue($('.DataEntryTable' + (x + 1)  + ' input[name="Temp11"]').val())) {
+			inputTemps['11:00AM'] = $('.DataEntryTable' + (x + 1)  + ' input[name="Temp11"]').val();
 		}
-	}
-	entry.temps = inputTemps;
-	entry.pH = inputpH;
-	entry.additions = {};
-	for(var i=0; i < inputAdditions.length; i++) {
-		if($('input[name="add' + inputAdditions[i][0] + '"]').val() !== '') {
-			entry.additions[inputAdditions[i][0]] = [$('input[name="add' + inputAdditions[i][0] + '"]').val(), inputAdditions[i][1]];
+		if(hasInputValue($('.DataEntryTable' + (x + 1)  + ' input[name="Temp3"]').val())) {
+			inputTemps['3:00PM'] = $('.DataEntryTable' + (x + 1)  + ' input[name="Temp3"]').val();
 		}
+		if($('.DataEntryTable' + (x + 1)  + ' input[name="pH8"]').val() !== '') {
+			if($('.DataEntryTable' + (x + 1)  + ' input[name="pH8"]').val() !== undefined) {
+				inputpH['8:00AM'] = $('.DataEntryTable' + (x + 1)  + ' input[name="pH8"]').val();
+			}
+		}
+		if($('.DataEntryTable' + (x + 1)  + ' input[name="pH11"]').val() !== '') {
+			if($('.DataEntryTable' + (x + 1)  + ' input[name="pH11"]').val() !== undefined) {
+				inputpH['11:00AM'] = $('.DataEntryTable' + (x + 1)  + ' input[name="pH11"]').val();
+			}
+		}
+		if($('.DataEntryTable' + (x + 1)  + ' input[name="pH3"]').val() !== '') {
+			if($('input[name="pH3"]').val() !== undefined) {
+				inputpH['3:00PM'] = $('.DataEntryTable' + (x + 1)  + ' input[name="pH3"]').val();
+			}
+		}
+		entry.temp = inputTemps;
+		entry.pH = inputpH;
+		entry.additions = {};
+		for(var i=0; i < inputAdditions.length; i++) {
+			if($('.DataEntryTable' + (x + 1)  + ' input[name="add' + inputAdditions[i][0] + '"]').val() !== '') {
+				entry.additions[inputAdditions[i][0]] = [$('.DataEntryTable' + (x + 1)  + ' input[name="add' + inputAdditions[i][0] + '"]').val(), inputAdditions[i][1]];
+			}
+		}
+		if($.isEmptyObject(entry.additions)) {
+			delete entry.additions;
+		}
+		if($.isEmptyObject(entry.temp)) {
+			delete entry.temp;
+		}
+		if($.isEmptyObject(entry.pH)) {
+			delete entry.pH;
+		}
+		entriesHolder.push(entry);
 	}
-	if($.isEmptyObject(entry.additions)) {
-		delete entry.additions;
-	}
-	if($.isEmptyObject(entry.temps)) {
-		delete entry.temps;
-	}
-	if($.isEmptyObject(entry.pH)) {
-		delete entry.pH;
-	}
-	console.log(entry);
+	console.log(entriesHolder);
 })
+
+//SELECT WHICH LINE TO LOAD WHEN LOAD IS CLICKED
 $('.loader').on('click', function() {
+	if('t' + $('input[name="tankEntry"]').val() !== tankAnalysis) {	
+		entry = {};
+		for(var i = 0; i < tableCounter; i++) {
+			$('.DataEntryTable' + (i + 1)).remove()
+		}
+		tableCounter = 0;
+	}
 	tankAnalysis =  't' + $('input[name="tankEntry"]').val();
 	tank = eval(tankAnalysis);
 	tankAnalysisArray =  eval(tankAnalysis + '.analysis');
-	loadDataEntryTable();
+	loadDETableHolder(tankAnalysis);
 });
+
+//LOAD ANOTHER TABLE
+$('.anotherTable').on('click', function() {
+	loadDETableHolder();
+})
+
+
+
 
 //# sourceMappingURL=app.js.map
