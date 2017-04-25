@@ -118,7 +118,7 @@ $('.submit').on('click', function() {
 	entriesHolder = [];
 	for(var x = 0; x < tableCounter; x++) {
 		entry = {};
-		var inputDate = new Date(moment($('.DataEntryTable' + (x + 1)  + ' input[name="Date"]').val()).format("L")),
+		var inputDate = moment($('.DataEntryTable' + (x + 1)  + ' input[name="Date"]').val()).format("L"),
 			  inputTemps = {},
 			  inputpH = {},
 			  inputAnalysis = getAnalyizedComponents(),
@@ -203,6 +203,4 @@ $('.loader').on('click', function() {
 $('.anotherTable').on('click', function() {
 	loadDETableHolder();
 })
-
-
 

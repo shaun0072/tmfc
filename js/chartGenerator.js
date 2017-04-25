@@ -2,12 +2,27 @@ var makeChart,
     thisArray,
     tableData,
     theDate,
+	dateAndTestResultsArray,
     theTestResult,
     numberOfAnalysis,
     theUnit,
 	applicationColor;
 /*Insert Table Data*/
 function insertTableData(date, testResult, unit, timeSpan) {
+	//PUT DATES IN ORDER
+	var allDates = []
+	for(var i = 0; i < date.length; i++) {
+		allDates.unshift({A : date[i], B : testResult[i]})
+	}
+	allDates.sort(function(a, b) {
+		return a.A - b.A 
+	})
+	date = [];
+	testResult = [];
+	for(var i =0; i < allDates.length; i++) {
+		date.unshift(allDates[i].A);
+		testResult.unshift(allDates[i].B)
+	}
 	$('.table').children(':not(.header)').remove();
 	for(var i=0; i < testResult.length; i++) { //Iterate over analysis
 		var currentDate = date[0],
@@ -172,9 +187,24 @@ $('.tank').css('display', 'none')
 
 	/*ASSIGN TANK DATA TO DATE/TESTRESULT ARRAYS*/
 	for(var i=0; i < this.analysis.length; i++) { // Add analysis data to date/testResults
-		this.date.push(this.analysis[i].date);         
+		this.date.push(new Date(this.analysis[i].date));         
 		this.testResult.push(this.analysis[i][testName]);
 	};		
+	
+	//PUT DATES IN ORDER
+	var allDates = []
+	for(var i = 0; i < this.date.length; i++) {
+		allDates.unshift({A : this.date[i], B : this.testResult[i]})
+	}
+	allDates.sort(function(a, b) {
+		return a.A - b.A 
+	})
+	this.date = [];
+	this.testResult = [];
+	for(var i =0; i < allDates.length; i++) {
+		this.date.unshift(allDates[i].A);
+		this.testResult.unshift(allDates[i].B)
+	}
 	/*ASSIGN DATE/TESTRESULT ARRAY VALUES TO CHART OBJECT*/	
 	for (var i=0; i < numberOfAnalysis ; i++) { //Add values from date/testResults variables to chartData variable
 		if(i < numberOfAnalysis && this.testResult[i] !== undefined) {
@@ -204,22 +234,31 @@ $('.tank').css('display', 'none')
 	assignColor();
 	
 	function insertChartData(timeSpan) {
+		//Determine X axis date scaling
 		if(timeSpan === 31540000000) {
 		 chartOptions.options.scales.xAxes[0].time.unit = 'month';
 		} else {
 			chartOptions.options.scales.xAxes[0].time.unit = 'week';
 		}
+		//Empty Existing Data
 		lineChartData.datasets[0].data = [];		
-		var currentDate = tankNumber.analysis[0].date,
-			desiredTime = currentDate - timeSpan;			
+		
+		var currentDate = new Date(tankNumber.analysis[0].date),
+			desiredTime = currentDate - timeSpan;		
+		console.log(currentDate, timeSpan, desiredTime)
 		for(var i=0; i < tankNumber.analysis.length; i++) { //Iterate over analysis
-			if(tankNumber.analysis[i].date <= currentDate && tankNumber.analysis[i].date >= desiredTime && tankNumber.analysis[i][testName] !== undefined) {
+			if(new Date(tankNumber.analysis[i].date) <= currentDate && new Date(tankNumber.analysis[i].date) >= desiredTime && new Date(tankNumber.analysis[i][testName]) !== undefined) {
 				var axisData = {};
-				axisData.x = tankNumber.analysis[i].date;
-				axisData.y = tankNumber.analysis[i][testName];
-				lineChartData.datasets[0].data.push(axisData);				
+				axisData.x = new Date(tankNumber.analysis[i].date);
+				axisData.y = tankNumber.analysis[i][testName];				
+				lineChartData.datasets[0].data.push(axisData);	
 			}		
 		}	
+		//PUT DATES IN ORDER
+		var dataArray = lineChartData.datasets[0].data;
+		dataArray.sort(function(a, b) {
+			return a.x - b.x 
+		})
 		window.myLineChart.update();
 	}
 	/*Set Data to MONTH*/	
