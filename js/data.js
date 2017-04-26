@@ -728,21 +728,28 @@ var t1307 = {
 	},
 	analysis : [
 		{
-			date       : new Date("12/01/2016"),
+			date       :  "12/01/2016",
 			Zinc       : 4.00, 
 			KCL        : 20.0,
 			Boric      : 4.5,
 			Iron       : 10,
-			Chromium   : 1.0,
-			Copper     : 1.0,
 			temp   : {
 				"8:00AM" : 72,
 				"11:30AM": 77,
 				"3:00PM" : 81
 			},
+			pH : {
+				"8:00AM" : 5.2,
+				"11:30AM": 5.23,
+				"3:00PM" : 5.25
+			},
 			additions : {
-				"Zinc Chloride" : [1, "gal"],
-				"KCL"                : [150, "lbs"]
+				"Zinc Chloride"   : [1, "gal"],
+				"KCL"                : [150, "lbs"],
+				"Boric"               : [50, "lbs"],
+				"AZ Brightener"  : [0.5, "gal"],
+				"AZ Carrier"       : [5, "gal"],
+				"Hydrogen Peroxide" : [2000, "mls"]
 			}
 		},
 	],
